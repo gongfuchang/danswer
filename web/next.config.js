@@ -4,6 +4,10 @@ const env_version = process.env.DANSWER_VERSION; // version from env variable
 // Use env version if set & valid, otherwise default to package version
 const version = env_version || package_version;
 
+// add i18n support
+const createNextIntlPlugin = require('next-intl/plugin');
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
@@ -17,7 +21,11 @@ const nextConfig = {
       {
         source: "/api/:path*",
         destination: "http://127.0.0.1:8080/:path*", // Proxy to Backend
-      },
+      },      
+      // {
+      //   source: "/:slug*",
+      //   destination: "/:locale/:slug*", // Proxy to Backend
+      // },
     ];
   },
   redirects: async () => {
@@ -59,4 +67,6 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+
+module.exports = withNextIntl(nextConfig);
+

@@ -1,0 +1,571 @@
+{
+    "layout": {
+        "title": "Danswer"
+    },
+    "admin_addconnector_page": {
+        "Add_Connector": "添加连接器",
+        "Connector_Tips": "将 Danswer 连接到您组织的知识来源。我们将自动将您的数据同步到 Danswer，这样您就可以在一个地方找到您要找的内容。",
+        "Import_Knowledge_Title": "导入知识",
+        "Connect_Knowledge_Outside_Apps": "连接到存储在您应用程序之外的知识片段。上传文件，抓取网站，或连接到您组织的 Google 站点。",
+        "Setup_Auto_Syncing_Title": "设置应用的自动同步",
+        "Setup_Auto_Syncing_Description": "设置从您组织中最常用的应用程序和服务进行自动同步。除非在连接器设置过程中另有说明，否则我们将每 10 分钟从源头拉取最新更新。"
+    },
+    "admin_bot_page": {
+        "Channels_Title": "频道",
+        "Persona_Title": "角色",
+        "Document_Sets_Title": "文档集",
+        "Delete_Title": "删除",
+        "Delete_Success_Message": "Slack 机器人配置 {slack_id} 已删除",
+        "Delete_Failed_Message_Prefix": "无法删除 Slack 机器人配置 - {errorMsg}",
+        "Setup_Slack_Bot": "设置一个连接到 Danswer 的 Slack 机器人。设置完成后，您将能够直接从 Slack 向 Danswer 提问。此外，您还可以：",
+        "Setup_DanswerBot_Auto_Answer": "设置 DanswerBot 在特定频道自动回答问题。",
+        "Choose_Document_Sets": "选择 DanswerBot 应该从中回答问题的文档集，具体取决于提问的频道。",
+        "Directly_DanswerBot": "直接向 DanswerBot 发送消息，就像您在 WebUI 中一样搜索。",
+        "Follow_Guide_Prefix": "请按照",
+        "Follow_Guide_Suffix": "指南",
+        "Get_Started": "开始使用 Danswer 文档中找到的步骤！",
+        "Step_1_Configure_Slack_Tokens": "步骤 1：配置 Slack 令牌",
+        "Tokens_saved": "令牌已保存！",
+        "Hide": "隐藏",
+        "Edit_Tokens": "编辑令牌",
+        "Setup_DanswerBot_Title": "步骤 2：设置 DanswerBot",
+        "Setup_DanswerBot_Description": "配置 Danswer 以在 Slack 频道中自动回答问题。默认情况下，除非显式标记，否则 Danswer 仅在设置了配置的频道中响应。",
+        "New_Slack_Bot_Configuration": "新 Slack 机器人配置",
+        "Slack_Bot_Configuration_Title": "Slack 机器人配置"
+    },
+    "admin_bot_SlackBotConfigCreationForm": {
+        "Response_Updating_Error": "更新 DanswerBot 配置时出错 - {errorMsg}",
+        "Response_Creating_Error": "创建 DanswerBot 配置时出错 - {errorMsg}",
+        "The_Basics_Header": "基本设置",
+        "Channel_Names": "频道 (Channel) 名称",
+        "Tips_Slack_Channel": "您希望应用此配置的 Slack 频道名称。例如，'#ask-danswer'。",
+        "Note_Add_DanswerBot_to_Channel": "<i>注意</i>：您仍需在 Slack 中将 DanswerBot 添加到频道中。设置此配置不会自动将机器人添加到频道。",
+        "Response_Format_Label": "响应格式",
+        "Citations_Tips": "如果设置为引用，DanswerBot 将以内联引用的直接答案回复。它还会在答案下方提供这些引用文档的链接。如果有疑问，请选择此选项。",
+        "Quotes_Tips": "如果设置为引用，DanswerBot 将以直接答案以及从上下文文档中提取的引用来支持答案回复。DanswerBot 还将提供相关文档的列表。如果您希望获得非常详细的回复和/或相关文档列表可能会有用，可以选择此选项，以防 LLM 漏掉任何内容。",
+        "When_Respond_DanswerBot": "DanswerBot 何时作答？",
+        "Hide_Non_Answers": "隐藏非答案",
+        "Answer_Validity_Check_Subtext": "如果设置，将仅回答模型认为可以回答的问题",
+        "Only_Respond_Questions": "仅回答问题",
+        "Questionmark_Prefilter_Subtext": "如果设置，将仅回复包含问号的消息",
+        "Respond_DanswerBot_Only": "仅回复 @DanswerBot",
+        "Respond_Tag_Only_Subtext": "如果设置，DanswerBot 仅在直接标记时回复",
+        "Respond_To_Bots": "回复机器人消息",
+        "Respond_To_Bots_Subtext": "如果未设置，DanswerBot 将始终忽略来自机器人的消息",
+        "Team_Members_Emails": "团队成员邮箱",
+        "Team_Members_Emails_Subtext": "如果指定，DanswerBot 的回复将仅对此列表中的成员可见。如果您希望 DanswerBot 以“助手”模式运行，在这种模式下，它可帮助团队成员找到答案，但也让他们在 DanswerBot 的回复基础上进行补充/偶尔丢弃不正确的答案，这将非常有用。",
+        "Post_Response_Behavior": "回复后行为",
+        "Should_Danswer_Still_Need_Help_Button": "Danswer 是否应提供“仍然需要帮助？”按钮？",
+        "Still_Need_Help_Button_Subtext": "如果指定，DanswerBot 的回复将在底部包含一个按钮，询问用户是否仍然需要帮助。",
+        "Users_to_Tag": "要标记的用户",
+        "Slack_Users_Tag_Description": "我们应该标记的 Slack 用户的完整电子邮件地址，如果用户点击“仍然需要帮助？”按钮。例如，'mark@acme.com'。",
+        "Provide_User_Group_Description": "或提供一个用户组，可以是名称或句柄。例如，'Danswer Team' 或 'danswer-team'。",
+        "No_Email_Tagging_Description": "如果未提供电子邮件，则我们将不会标记任何人，而只会对原始消息做出 🆘 表情反应。",
+        "Data_Sources_Prompts_Header": "[可选] 数据来源和提示",
+        "Use_Persona_Document_Sets": "使用 Persona <b>或</b> 文档集来控制 DanswerBot 的回答方式。",
+        "Use_Persona_Customize_Prompt": "如果您还想自定义提示和检索设置，应使用 Persona。",
+        "Use_Document_Sets_Control_Documents": "如果只想控制 DanswerBot 使用哪些文档作为参考，应使用文档集。",
+        "Note_Submit_Form_Tab": "<b>注意：</b>您在提交表单时所在的选项卡将被使用。例如，如果您在“Personas”选项卡上，则将使用 Persona，即使您已选择了 Document Sets。",
+        "Document_Sets": "文档集",
+        "Personas": "Personas",
+        "Document_Sets_Description": "DanswerBot 应搜索的文档集。如果留空，DanswerBot 将搜索所有文档。",
+        "Persona_Subtext": "用于回复查询的角色。默认角色充当问答助手，并可以访问非私有连接器索引的所有文档。",
+        "Update_Button": "更新'",
+        "Create_Button": "创建'"
+    },
+    "admin_bot_SlackBotTokensForm": {
+        "Success_Setting_Slack_Tokens": "成功设置Slack令牌！",
+        "Error_Setting_Slack_Tokens": "设置Slack令牌时出错 - {errorMsg}",
+        "Slack_Bot_Token": "Slack 机器人令牌",
+        "Slack_App_Token": "Slack 应用令牌",
+        "Slack_Token": "Slack 应用令牌",
+        "Set_Tokens": "设置令牌"
+    },
+    "admin_bot_new_page": {
+        "Error_Title": "出错了 :(",
+        "Failed_Fetch_Bots": "获取 Slack 机器人失败 - {errorMsg}",
+        "Did_Not_Find_ID": "未找到 ID 为 {id} 的 Slack 机器人配置",
+        "Failed_Fetch_Docs": "获取文档集失败 - {sets}",
+        "Failed_Fetch_Personas": "获取角色失败 - {personas}",
+        "New_Slack_Bot_Config": "编辑 Slack 机器人配置",
+        "Define_Configuration_Below": "在下面定义新配置！此配置将确定 DanswerBot 在指定频道中的行为。"
+    },
+    "admin_bot_id_page": {
+        "Error_Title": "出错啦 :(",
+        "Failed_Fetch_Bots": "获取 Slack 机器人失败 - {errorMsg}",
+        "Did_Not_Find_ID": "未找到 ID 为 {id} 的 Slack 机器人配置",
+        "Failed_Fetch_Docs": "获取文档集失败 - {sets}",
+        "Failed_Fetch_Personas": "获取角色失败 - {personas}",
+        "Edit_Slack_Bot_Config": "编辑 Slack 机器人配置",
+        "Edit_Config_Text": "在下方编辑现有配置！此配置将确定 DanswerBot 在指定频道中的行为。"
+    },
+    "admin_connector_ccPairId_ConfigurationDisplay": {
+        "Configuration_Title": "配置"
+    },
+    "admin_connector_ccPairId_DeletionButton": {
+        "Deleting_Connector_Message": "此连接器当前正在被删除",
+        "Click_to_Delete": "点击删除",
+        "Pause_Connector_Before_Delete": "您必须在删除之前暂停连接器",
+        "Schedule_Deletion_Button": "删除连接器"
+    },
+    "admin_connector_ccPairId_IndexingAttemptsTable": {
+        "Index_Attempts_Table": "索引尝试表",
+        "Copy_Full_Trace": "复制完整日志 - TraceLog",
+        "Copied_Clipboard": "已复制到剪贴板",
+        "Time_Started": "开始时间",
+        "Status": "状态",
+        "New_Doc_Count": "新文档计数",
+        "Total_Doc_Count": "总文档计数",
+        "Error_Msg": "错误消息",
+        "Docs_Rate": "文档 / 分钟",
+        "Doc_Remove_From_Index": "同时删除了 {doc} 个在源文档中被检测 [已删] 的文档",
+        "View_Full_Trace": "查看完整日志 - TraceLog"
+    },
+    "admin_connector_ccPairId_ModifyStatusButtonCluster": {
+        "Click_Start_Indexing_Again": "点击重新开始索引!",
+        "Re-Enable_Button": "重新启用",
+        "Paused_Connector_Tooltip": "暂停时，连接器文档仍将可见。但不会索引新文档。",
+        "Pause_Button": "暂停"
+    },
+    "admin_connector_ccPairId_page": {
+        "Failed_Fetch_Connector_Info": "获取 ID 为 {ccPairId} 的连接器信息失败",
+        "Total_Documents_Indexed": "已索引文档总数",
+        "Indexing_Attempts": "索引尝试次数",
+        "Delete_Connector_Title": "删除连接器",
+        "Delete_Connector_Text": "删除连接器将同时删除所有关联文档。"
+    },
+    "admin_connector_ccPairId_ReIndexButton": {
+        "Connector_Run_Success": "触发连接器执行",
+        "Running_Indexing": "执行索引",
+        "Button_Run_Update": "执行更新",
+        "Update_Tips": "这将拉取并索引自上次成功执行索引以来已更改和/或已添加的所有文档。",
+        "Button_Run_Complete_Reindexing": "重新索引所有文档",
+        "Reindex_All_Documents": "这将导致对源中的所有文档进行完整重新索引。",
+        "Note": "<b>注意：</b> 根据源中存储的文档数量，这可能需要很长时间。",
+        "Connector_Musts_Indexing": "连接器必须处于活动状态才能执行索引",
+        "Run_Indexing": "执行索引"
+    },
+    "admin_connectors_file_page": {
+        "File": "文件",         
+        "Loading": "加载中",
+        "Specify_Files": "在下方指定文件，点击 <b>上传</b> 按钮，这些文件的内容将可以通过Danswer进行搜索！目前仅支持 <i>.txt</i>、<i>.pdf</i> 和 <i>.zip</i> 文件（仅包含 <i>.txt</i> 文件的 .zip 文件）。",
+        "Note_P1": "<b>注意：</b>如果原始文档可以通过链接访问，您可以在文件开头添加以下内容：",
+        "Note_P2": "其中 <i>\"LINK\"</i> 是文件的链接。这将使 Danswer 在用户点击搜索结果时将用户链接到原始文档。更多详细信息，请参阅",
+        "Note_P3": "文档。",
+        "Descriptive_Name_Required": "请为文件输入一个描述性名称",
+        "Unable_Upload_Files": "无法上传文件 - {detail}",
+        "Unable_Create_Connector": "无法创建连接器 - {errorMsg}",
+        "Error_Creating_Credential": "为 CC对 创建凭据时出错 - {errorMsg}",
+        "Unable_Link_Connector_Credential": "无法将连接器链接到凭据 - {detail}",
+        "Unable_Run_Connector": "无法运行连接器 - {errorMsg}",
+        "Successfully_Uploaded_Files": "文件上传成功！",
+        "Failed_Index_Files": "无法对文件进行索引：",
+        "Upload_Files": "上传文件",
+        "Name_Label": "名称：",
+        "Name_Placeholder": "描述文件的名称，例如“帮助文档-ABC”",
+        "Files_Label": "文件：",
+        "Upload_Button": "上传",
+        "Indexed_Files_Title": "已索引文件",
+        "Admin_Page_Title": "文件"
+    },
+    "admin_connectors_web_page": {
+        "Loading": "加载中",
+        "Web_Title": "网页",
+        "Step_1_Specify_Websites": "步骤 1：指定要索引的网站",
+        "Fetch_Website_State_Daily": "我们每天重新获取网站的最新状态。",
+        "URL_Index": "要索引的 URL",
+        "Scrape_Method": "抓取方法：",
+        "Recursive": "递归",
+        "Recursive_Description": "递归索引所有共享相同基础 URL 的页面。",
+        "Single_Page_Description": "仅索引指定页面。",
+        "Sitemap_Description": "假定要索引的 URL 指向一个站点地图。将尝试索引站点地图中提到的所有页面。",
+        "Please_Enter_Website_URL": "请输入要抓取的网站 URL，例如 https://docs.danswer.dev/",
+        "Already_Indexed_Websites": "已索引的网站",
+        "Error_Indexing_history": "加载索引历史时出错",
+        "Base_URL": "基础 URL",
+        "No_Indexed_Websites_Found": "未找到已索引的网站"
+    },
+    "admin_documents_lib": {
+        "Unknown_error": "未知错误"
+    },
+    "admin_documents_ScoreEditor": {
+        "Score_Must_Be_Number": "分数必须是数字",
+        "Updated_Score": "更新的分数'"
+    },
+    "admin_documents_explorer_Explorer": {
+        "Boost": "提升",
+        "Failed_Update_Document": "更新文档失败 - {errorMsg}",
+        "Hidden": "隐藏",
+        "Visible": "可见",
+        "Find_Documents_Placeholder": "根据标题/内容查找文档...",
+        "Search_Document_Modify": "在上方搜索要修改其提升或从搜索中隐藏的文档。"
+    },
+    "admin_documents_explorer_page": {
+        "Document_Explorer_Title": "文档浏览器"
+    },
+    "admin_documents_feedback_DocumentFeedbackTable": {
+        "Hidden": "隐藏",
+        "Visible": "可见",
+        "Unhide": "取消隐藏",
+        "Hide": "隐藏",
+        "Document_Name": "文档名称",
+        "Is_Searchable": "是否可搜索？",
+        "Score": "得分",
+        "Error_Update_Status": "更新隐藏状态时出错 - {errorMsg}"
+    },
+    "admin_documents_feedback_page": {
+        "Document_Feedback": "文档反馈",
+        "Most_Liked_Documents": "最受欢迎的文档",
+        "Most_Disliked_Documents": "最不受欢迎的文档"
+    },
+    "admin_documents_sets_DocumentSetCreationForm": {
+        "Enter_Set_Name": "请输入一个集合名称",
+        "Enter_Set_Desc": "请输入一个集合描述",
+        "Select_One_Connector": "请至少选择一个连接器",
+        "Update_Success_Message": "文档集更新成功！",
+        "Create_Success_Message": "文档集创建成功！",
+        "Update_Document_Set": "更新文档集",
+        "Create_New_Document_Set": "创建新文档集",
+        "Name_Label": "名称：",
+        "Name_Placeholder": "文档集的名称",
+        "Description": "描述",
+        "Describe_Document_Set": "描述文档集代表的内容",
+        "Pick_Connectors": "选择您的连接器：",
+        "Pick_Connectors_Description": "由选定连接器索引的所有文档将成为此文档集的一部分。",
+        "Update_Button": "更新'",
+        "Create_Button": "创建'",
+        "Update_Error_Prefix": "无法更新文档集",
+        "Create_Error_Prefix": "无法创建文档集"
+    },
+    "admin_documents_sets_page": {
+        "Cannot_Update_While_Syncing": "同步中无法更新！请等待同步完成，然后重试。",
+        "Existing_Document_Sets": "现有文档集",
+        "Name": "名称",
+        "Connectors": "连接器",
+        "Status": "状态",
+        "Delete": "删除",
+        "Up_to_Date": "最新",
+        "Syncing": "同步中",
+        "Deleting": "删除中",
+        "Document_Set_Deletion_Scheduled": "文档集 \"{documentSetName}\" 已计划删除",
+        "Failed_Delete_Schedule": "无法计划文档集删除 - {errorMsg}",
+        "Document_Sets_Description": "<b>文档集</b> 允许您将逻辑相关的文档组合成一个单一包。然后可以在 Web UI 中执行搜索时用作过滤器，或者附加到 Slack 机器人以限制机器人在特定频道或使用特定命令回答时搜索的信息量。",
+        "New_Document_Set": "新建文档集",
+        "Document_Sets": "文档集"
+    },
+    "admin_indexing_status_CCPairIndexingStatusTable": {
+        "Current_Run_Status": "<i>当前有：</i>   {count} 个文档已索引",
+        "Docs_Per_Minute": "文档 / 分钟",
+        "Calculating_Rate": "正在计算速率...",
+        "Connector": "连接器",
+        "Status": "状态",
+        "Last_Indexed": "上次索引",
+        "Docs_Indexed": "已索引文档"
+    },
+    "admin_indexing_status_page": {
+        "Error_loading_indexing_history": "加载索引历史时出错。",
+        "No_connector_setup_message": "看起来您还没有设置任何连接器。访问该",
+        "Add_Connector": "添加连接器",
+        "Get_started_message": "页面开始使用'",
+        "Existing_Connectors": "已添加的连接器"
+    },
+    "admin_keys_openai_page": {
+        "Loading": "加载中",
+        "Error_loading_existing_keys": "加载现有密钥时出错",
+        "Existing_Key": "现有密钥",
+        "LLM_Keys": "LLM 密钥",
+        "Update_Key": "更新密钥",
+        "Specify_OpenAI_API_Key": "指定一个 OpenAI API 密钥，然后点击“提交”按钮。"
+    },
+    "admin_models_embedding_embeddingModels": {
+        "Default_Model_Description": "大多数情况下推荐的默认选项。如果您不确定使用哪个模型，这可能是一个不错的选择。",
+        "Small_Model_Description": "默认模型的较小 / 更快版本。如果您在资源受限的系统上运行 Danswer，那么这是一个不错的选择。",
+        "Multilingual_Model_Description": "如果您有许多英语以外的其他语言文档，那么这就是您要选择的模型。",
+        "Multilingual_Small_Model_Description": "如果您有许多英语以外的其他语言文档，并且在资源受限的系统上运行，则这就是您要选择的模型。"
+    },
+    "admin_models_embedding_ModelSelectionConfirmation": {
+        "Selected_Model_Text": "您已选择：<b>{model}</b>。您确定要更新到这个新的 Embedding 模型吗？",
+        "Reindex_Background_Message": "我们将在后台重新索引您的所有文档，因此您可以继续正常使用 Danswer，并暂时使用旧模型。根据您索引的文档数量，这可能需要一些时间。",
+        "Note": "<i>注意：</i>此重新索引过程将消耗比平常更多的资源。如果您是自托管的，请在此过程中为 Danswer 分配至少 16GB 的 RAM。",
+        "Confirm_Button": "确认",
+        "Update_Model_Title": "更新 Embedding 模型"
+    },
+    "admin_models_embedding_ModelSelector": {
+        "See_More_Details": "查看更多详情",
+        "Select_Model": "选择型号"
+    },
+    "admin_models_embedding_page": {
+        "Failed_Update_Model": "更新 Embedding 模型失败- {model}",
+        "Failed_to_Fetch_Model_Status": "获取 Embedding 模型状态失败",
+        "Success_Model_Selection": "成功选择 Embedding 模型",
+        "Initial_Setup_Message": "完成初始设置，让我们添加一个连接器！",
+        "Connectors_Description": "连接器是 Danswer 从您组织的各种数据源获取数据的方式。设置完成后，我们将自动将应用程序和文档中的数据同步到 Danswer 中，这样您就可以在一个地方搜索所有内容。",
+        "Add_Connector": "添加连接器",
+        "Cancel_Model_Switch": "取消 Embedding 模型切换",
+        "Cancel_Confirmation_Message": "您确定要取消吗？",
+        "Cancel_Progress_Message": "取消将恢复到先前的模型，并且所有进度将丢失。",
+        "Confirm": "确认",
+        "Embedding_Models_Description": "Embedding 模型用于为您的文档生成 Embedding，从而为 Danswer 的搜索提供动力。",
+        "Current_Embedding_Model": "当前 Embedding 模型",
+        "Switch_Embedding_Model": "切换 Embedding 模型",
+        "Update_Model_Choice": "如果当前模型不适合您，您可以在下面更新您的模型选择。请注意，这将需要对所有连接源中的所有文档进行完全重新索引。我们将在后台处理此过程，但根据您的语料库大小，可能需要数小时、数天，甚至数周。您可以在此页面上监视重新索引的进度。",
+        "Choose_Embedding_Model": "选择您的 Embedding 模型",
+        "Current_Upgrade_Status": "当前升级状态",
+        "Switching_Process_Message": "当前正在切换到：",
+        "Cancel": "取消",
+        "Reindexing_Progress_Message": "下表显示了所有现有连接器的重新索引进度。一旦所有连接器都重新索引完成，新模型将用于所有搜索查询。在此之前，我们将继续使用旧模型，以便在此过渡期间无需停机。",
+        "Failed_Fetch_Reindexing_Progress": "获取重新索引进度失败",
+        "Embedding_Title": "Embedding"
+    },
+    "admin_models_embedding_ReindexingProgressTable": {
+        "Connector_Name": "连接器名称",
+        "Status": "状态",
+        "Docs_Reindexed": "文档重新索引"
+    },
+    "admin_personas_page": {
+        "Error_Title": "出现了问题 :(",
+        "Personas_Title": "Personas",
+        "Personas_Description": "Personas 是为不同用例构建自定义搜索/问答体验的一种方式。",
+        "Customize_Description": "它们允许您自定义:",
+        "Prompt_Description": "LLM 选择的提示用于回答用户查询",
+        "Context_Description": "用作上下文的文档",
+        "Create_Persona": "创建 Persona",
+        "New_Persona": "新 Persona",
+        "Existing_Personas": "现有 Personas"
+    },
+    "admin_personas_PersonaEditor": {
+        "Persona_Name_Required": "必须给 Persona 起一个名称！",
+        "Persona_Description_Required": "必须给 Persona 添加描述！",
+        "System_Task_Prompt_Validation": "必须提供系统提示或任务提示中的至少一个",
+        "System_Task_Prompt_Required": "必须提供系统提示或任务提示中的至少一个",
+        "Submit_Error_Message": "表单中存在错误时无法提交！",
+        "Failed_Create_Persona": "创建 Persona 失败 - {error}",
+        "Who_Am_I": "我是谁？",
+        "Name": "名称",
+        "Name_Subtext": "用户将根据此名称选择 Persona。",
+        "Description": "描述",
+        "Description_Subtext": "提供一个简短的描述，向用户暗示他们应该如何使用这个 Persona。",
+        "Customize_Response_Style": "自定义我的响应风格",
+        "System_Prompt": "系统提示",
+        "System_Prompt_Subtext": "提供关于 Persona 的一般信息。例如，“您是 On-Call 工程师的助手。您的目标是阅读提供的上下文文档，并提供建议以解决问题。",
+        "Task_Prompt": "任务提示",
+        "Task_Prompt_Subtext": "提供关于如何处理用户查询的具体说明。例如，“查找提供文档中与用户问题相关的部分，并解释它们为何相关。”",
+        "Include_Citations": "包含引用",
+        "Include_Citations_Subtext": "如果设置，响应将为 LLM 使用的每个文档添加方括号引用（[1]，[2] 等）。这是默认 Persona 使用的技术。通常建议保持启用状态，以增加对 LLM 答案的信任。",
+        "Disable_Retrieval": "禁用检寻",
+        "Disable_Retrieval_Subtext": "如果设置，Persona 将不会获取任何上下文文档来帮助生成响应。相反，它将仅使用提供的系统和任务提示以及用户查询来生成响应。",
+        "Final_Prompt": "组合后最终的提示",
+        "Data_Access_Title": "数据访达",
+        "Select_Which": "选择哪个",
+        "Document_Sets": "文档集",
+        "Persona_Search_Description": "此 Persona 应搜索的文档集。如果未指定任何文档集，Persona 将搜索所有可用文档以尝试回答查询。",
+        "Advanced_Model_Selection": "[高级] 模型选择",
+        "Model_Selection_Description": "选择为此 Persona 使用的 LLM。如果保持为默认值，则将使用 <b>{defaultLLM}</b>。",
+        "Model_Selection_More_Info_P1": "有关不同 LLM 的更多信息，请查看",
+        "Model_Selection_More_Info_P2": "OpenAI 文档",
+        "Advanced_Retrieval_Customization": "[高级] 检寻偏好设置",
+        "Number_Chunks": "块数",
+        "Number_Chunks_Description": "在生成最终响应时，我们应该向 LLM 提供多少块？每个块约为 400 个字。如果使用 gpt-3.5-turbo 或其他类似模型，则将此值设置为大于 5 的值会导致查询时出现错误，因为模型的输入长度限制。",
+        "Number_Chunks_More_Info": "如果未指定，将使用 10 个块。",
+        "Apply_LLM_Filter": "应用 LLM 相关性过滤器",
+        "Apply_LLM_Filter_Subtext": "如果启用，LLM 将过滤掉与用户查询无关的块。",
+        "Advanced_Starter_Messages": "[高级] 起始消息",
+        "Starter_Messages_Description": "起始消息帮助引导用户使用此 Persona。当用户选择此 Persona 时，它们会显示为可点击选项。选择后，指定的消息将作为初始用户消息发送到 LLM。",
+        "Starter_Message_Name": "名称",
+        "Starter_Message_Name_Description": "作为此起始消息的“标题”显示。例如，“写一封电子邮件”。",
+        "Starter_Message_Desc": "描述",
+        "Starter_Message_Desc_Description": "告诉用户他们可能想要使用此起始消息的描述。例如，“给客户写一封关于我们刚发布的新功能的电子邮件。”",
+        "Starter_Message_Msg": "消息",
+        "Starter_Message_Msg_Description": "如果用户选择此起始提示，则作为初始用户消息发送的实际消息。例如，“给客户写一封关于我们刚发布的新计费功能的电子邮件。”",
+        "Final_Prompt_Error": "",
+        "Add_New": "添加新内容",
+        "Update_Button": "更新'",
+        "Create_Button": "创建'"
+    },
+    "admin_personas_PersonaTable": {
+        "Persona_Display_Text": "人物将按照下方显示的顺序显示在聊天 / 搜索界面上。标记为隐藏的人物将不会显示。",
+        "Name": "名称",
+        "Description": "描述",
+        "Built-In": "内置",
+        "Is_Visible": "可见",
+        "Delete": "删除",
+        "Yes": "是",
+        "No": "否",
+        "Hidden": "隐藏",
+        "Visible": "可见",
+        "Failed_To_Delete": "无法删除人物 - {detail}"
+    },
+    "admin_personas_new_page": {
+        "Error_Title": "出了点问题 :(",
+        "Failed_Fetch_Docs": "获取文档集失败 - {errorMsg}",
+        "Failed_Fetch_LLM_Ovverride": "获取LLM覆盖选项失败 - {errorMsg}",
+        "Failed_Fetch_Default_LLM": "获取默认LLM失败 - {errorMsg}",
+        "Create_New_Persona": "创建新角色"
+    },
+    "admin_personas_personaId_page": {
+        "Error_Title": "出现了问题 :(",
+        "Edit_Persona": "编辑角色",
+        "Create_New_Persona": "创建新角色"
+    },
+    "admin_systeminfo_page": {
+        "Version_Title": "版本",
+        "Backend_Version": "后端版本",
+        "Web_Version": "Web 版本"
+    },
+    "admin_users_page": {
+        "Loading": "加载中",
+        "Error_Loading_Users": "加载用户时出错",
+        "Email": "邮箱",
+        "Role": "角色",
+        "Admin": "管理员",
+        "Promote": "提升",
+        "User": "用户",
+        "Failed_Promote_User": "无法提升用户 - ${errorMsg}",
+        "Promote_User": "用户已提升为管理员！",
+        "Promote_Admin_Button": "提升为管理员'",
+        "Manage_Users": "管理用户"
+    },
+    "auth_error_page": {
+        "Login_Error_Message": "无法登录，请重试和/或联系管理员"
+    },
+    "auth_login_Email_Password_Form": {
+        "Account_Exists_Error": "已存在使用指定电子邮件的帐户。",
+        "Failed_Sign_Up": "注册失败 - {errorMsg}",
+        "Unknown_Error": "未知错误",
+        "Invalid_Email_Pwd": "电子邮件或密码无效",
+        "Failed_Login": "登录失败 - {errorMsg}",
+        "Email": "电子邮件",
+        "Password": "密码",
+        "Sign_Up": "注册",
+        "Log_In": "登录"
+    },
+    "auth_login_page": {
+        "Fetch_Failed_Login_Page": "登录页面的某些获取失败",
+        "Log_In": "登录到Danswer",
+        "No_Account": "还没有账号？",
+        "Create_Account": "创建一个账号"
+    },
+    "auth_login_SignInButton": {
+        "Continue_with_Google": "使用 Google 继续",
+        "Continue_with_OIDC_SSO": "使用 OIDC SSO 继续",
+        "Continue_with_SAML_SSO": "使用 SAML SSO 继续"
+    },
+    "auth_signup_page": {
+        "Sign_Up_Title": "注册 Danswer",
+        "Already_Have_Account": "已经有账户了吗？ ",
+        "Log_In": "登录"
+    },
+    "auth_verifyemail_Verify": {
+        "Missing_Verification_Token": "缺少验证令牌。请尝试请求新的验证电子邮件。",
+        "Failed_Verify_Email": "无法验证您的电子邮件 - {errorDetail}。请尝试请求新的验证电子邮件。",
+        "Verifying_Email": "正在验证您的电子邮件...",
+        "Get_New_Verification_Email": "获取新的验证电子邮件"
+    },
+    "auth_waitingonverification_page": {
+        "verification_prompt": "嘿 <i>{email}</i> - 看起来您还没有验证您的邮箱。",
+        "check_inbox": "检查收件箱，看看我们发给您的邮件以开始验证！",
+        "not_see_email": "如果您没有看到任何邮件，请点击",
+        "request_new_email": "这里",
+        "to_request_new_email": "以请求新的邮件。"
+    },
+    "auth_waitingonverification_RequestNewVerificationEmail": {
+        "New_Verification_Email_Sent": "已发送新的验证邮件！",
+        "Failed_Send_Verification_Email": "发送新的验证邮件失败"
+    },
+    "chat_Chat": {
+        "Thanks_Feedback": "感谢您的反馈！",
+        "Failed_Submit_Feedback": "提交反馈失败 - {errorMsg}",
+        "Cannot_Edit_Query_First_Msg": "无法编辑第一条消息的查询 - 请刷新页面后重试。",
+        "Cannot_Edit_Query_Pedding_Msg": "无法编辑待处理消息的查询 - 请稍等几秒后重试。",
+        "Failed_Force_Search": "强制搜索失败 - 请刷新页面后重试。",
+        "Ask_Me": "问我任何事...",
+        "Warning_Message": "警告消息"
+    },
+    "chat_ChatIntro": {
+        "Say_Hello_First_Msg": "所有可用助手",
+        "Knowlege_Sets": "知识集",
+        "Chat_With_Assistant": "您今天想与哪位助手聊天？",
+        "See_More": "查看更多"
+    },
+    "chat_ChatPersonaSelector": {
+        "Default": "默认"
+    },
+    "chat_documentSidebar_ChatDocumentDisplay": {
+        "AI_Liked_Doc": "AI 喜欢这个文档！"
+    },
+    "chat_documentSidebar_DocumentSelector": {
+        "Select": "选择",
+        "Chat_With_Document_Tips": "LLM 上下文限制已达到 😔 如果您想与这个文档聊天，请取消选择其他文档以释放空间。"
+    },
+    "chat_documentSidebar_DocumentSidebar": {
+        "Select_Documents_Chat": "从检索到的文件部分选择文件，以便与它们进行特定聊天！",
+        "No_Documents_Found": "未找到查询的文件。",
+        "Ask_Question_Description": "当您提问时，检索到的文件将在这里显示！",
+        "Selected_Documents": "选定的文件",
+        "LLM_Context_Length_Alert": "超出 LLM 上下文长度：{\" \"} <i>{tokens} 个标记</i>",
+        "Truncating": "截断",
+        "De_Select_All": "取消全选"
+    },
+    "chat_message_Messages": {
+        "Sources_Title": "来源：",
+        "You": "你"
+    },
+    "chat_message_SearchSummary": {
+        "Hide_Docs": "隐藏文档",
+        "Show_Docs": "显示文档",
+        "Searching_For": "搜索",
+        "Full_Query": "完整查询"
+    },
+    "chat_message_SkippedSearch": {
+        "Force_Search": "强制搜索",
+        "Query_Skipped_Message": "AI 判断此查询无需搜索"
+    },
+    "chat_modal_DeleteChatModal": {
+        "Delete_Chat_Title": "删除聊天？",
+        "Confirm_Delete_Chat": "点击下面确认您想要删除{\" \"}<b>\";{detail}\";</b>",
+        "Delete": "删除"
+    },
+    "chat_modal_Feedback_Modal": {
+        "Provide_Additional_Feedback": "提供额外反馈",
+        "Like_Feedback_Placeholder": "你喜欢这个回应的哪些方面？",
+        "Issue_Feedback_Placeholder": "这个回应有什么问题？如何改进？",
+        "Submit_Feedback_Button": "提交反馈"
+    },
+    "chat_modifiers_ChatFilters": {
+        "FilterType_Source": "来源",
+        "FilterType_KnowledgeSet": "知识集",
+        "FilterType_TimeRange": "时间范围",
+        "FilterType_Tag": "标签",
+        "Last_30_days": "过去 30 天",
+        "Last_7_days": "过去 7 天",
+        "Today": "今天",
+        "Currently_Applied": "当前应用",
+        "Find_Tag": "查找标签"
+    },
+    "chat_modifiers_SearchTypeSelector": {
+        "Question_Answering": "问答",
+        "Search_Only": "仅搜索",
+        "QA": "问答",
+        "Search": "搜索"
+    },
+    "chat_modifiers_SelectedDocuments": {
+        "Selected_Documents": "与 {length} 个选中的文档聊天"
+    },
+    "chat_sessionSidebar_ChatSidebar": {
+        "Failed_Logout": "登出失败",
+        "New_Chat": "新的聊天",
+        "Danswer_Search": "Danswer 搜索",
+        "Danswer_Chat": "Danswer 聊天",
+        "Admin_Panel": "管理员面板",
+        "Log_Out": "登出"
+    },
+    "chat_sessionSidebar_SessionDisplay": {
+        "Failed_Rename_Chat_Session": "无法重命名聊天会话",
+        "Failed_Delete_Chat_Session": "无法删除聊天会话",
+        "Chat_With": "与 {sessionId} 聊天"
+    },
+    "components_Status":{
+        "Succeeded": "成功",
+        "Failed": "失败"
+    }
+}

@@ -1,31 +1,11 @@
-import "./globals.css";
+import {ReactNode} from 'react';
 
-import { Inter } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-export const metadata = {
-  title: "Danswer",
-  description: "Question answering for your documents",
+type Props = {
+  children: ReactNode;
 };
 
-export const dynamic = "force-dynamic";
-
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} font-sans text-default bg-background`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({children}: Props) {
+  return children;
 }

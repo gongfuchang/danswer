@@ -1,0 +1,7 @@
+{
+    "i18n-ally.localesPaths": [
+        "messages",
+        "public/locales"
+    ],
+    "i18next.i18nPaths": "e:/dev/node/danswer/web/public/locales"
+}
