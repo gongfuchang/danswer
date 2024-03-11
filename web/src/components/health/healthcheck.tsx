@@ -1,9 +1,11 @@
 "use client";
 
+import {useTranslations} from "next-intl";
 import { fetcher } from "@/lib/fetcher";
 import useSWR from "swr";
 
 export const HealthCheckBanner = () => {
+  const t = useTranslations("components_health_healthcheck");
   const { error } = useSWR("/api/health", fetcher);
   if (!error) {
     return null;
@@ -11,13 +13,10 @@ export const HealthCheckBanner = () => {
 
   return (
     <div className="text-xs mx-auto bg-gradient-to-r from-red-900 to-red-700 p-2 rounded-sm border-hidden text-gray-300">
-      <p className="font-bold pb-1">The backend is currently unavailable.</p>
+      <p className="font-bold pb-1">{t("Backend_Unavailable")}</p>
 
       <p className="px-1">
-        If this is your initial setup or you just updated your Danswer
-        deployment, this is likely because the backend is still starting up.
-        Give it a minute or two, and then refresh the page. If that does not
-        work, make sure the backend is setup and/or contact an administrator.
+        {t("Backend_Unavailable_Note")}
       </p>
     </div>
   );

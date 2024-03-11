@@ -235,7 +235,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<BookstackIcon size={32} />} title="Bookstack" />
+      <AdminPageTitle icon={<BookstackIcon size={26} />} title="Bookstack" />
 
       <Main />
     </div>

@@ -1,10 +1,13 @@
 {
     "layout": {
-        "title": "Danswer"
+        "title": "Quick Mind"
     },
     "admin_addconnector_page": {
+        "Web": "Web",
+        "File": "File",
+        "Slack": "Slack",
         "Add_Connector": "Add Connector",
-        "Connector_Tips": "Connect Danswer to your organization's knowledge sources. We'll automatically sync your data into Danswer, so you can find exactly what you're looking for in one place.",
+        "Connector_Tips": "Connect Quick Mind to your organization's knowledge sources. We'll automatically sync your data into Quick Mind, so you can find exactly what you're looking for in one place.",
         "Import_Knowledge_Title": "Import Knowledge",
         "Connect_Knowledge_Outside_Apps": "Connect to pieces of knowledge that live outside your apps. Upload files, scrape websites, or connect to your organization's Google Site.",
         "Setup_Auto_Syncing_Title": "Setup Auto-Syncing from Apps",
@@ -17,58 +20,58 @@
         "Delete_Title": "Delete",
         "Delete_Success_Message": "Slack bot config {slack_id} deleted",
         "Delete_Failed_Message_Prefix": "Failed to delete Slack bot config - {errorMsg}",
-        "Setup_Slack_Bot": "Setup a Slack bot that connects to Danswer. Once setup, you will be able to ask questions to Danswer directly from Slack. Additionally, you can:",
-        "Setup_DanswerBot_Auto_Answer": "Setup DanswerBot to automatically answer questions in certain channels.",
-        "Choose_Document_Sets": "Choose which document sets DanswerBot should answer from, depending on the channel the question is being asked.",
-        "Directly_DanswerBot": "Directly message DanswerBot to search just as you would in the websUI.",
+        "Setup_Slack_Bot": "Setup a Slack bot that connects to Quick Mind. Once setup, you will be able to ask questions to Quick Mind directly from Slack. Additionally, you can:",
+        "Setup_DanswerBot_Auto_Answer": "Setup Quick Mind Bot to automatically answer questions in certain channels.",
+        "Choose_Document_Sets": "Choose which document sets Quick Mind Bot should answer from, depending on the channel the question is being asked.",
+        "Directly_DanswerBot": "Directly message Quick Mind Bot to search just as you would in the websUI.",
         "Follow_Guide_Prefix": "Follow the",
         "Follow_Guide_Suffix": "guide",
-        "Get_Started": "found in the Danswer documentation to get started!",
+        "Get_Started": "found in the Quick Mind documentation to get started!",
         "Step_1_Configure_Slack_Tokens": "Step 1: Configure Slack Tokens",
         "Tokens_saved": "Tokens saved!",
         "Hide": "Hide",
         "Edit_Tokens": "Edit Tokens",
-        "Setup_DanswerBot_Title": "Step 2: Setup DanswerBot",
-        "Setup_DanswerBot_Description": "Configure Danswer to automatically answer questions in Slack channels. By default, Danswer only responds in channels where a configuration is setup unless it is explicitly tagged.",
+        "Setup_DanswerBot_Title": "Step 2: Setup Quick Mind Bot",
+        "Setup_DanswerBot_Description": "Configure Quick Mind to automatically answer questions in Slack channels. By default, Quick Mind only responds in channels where a configuration is setup unless it is explicitly tagged.",
         "New_Slack_Bot_Configuration": "New Slack Bot Configuration",
         "Slack_Bot_Configuration_Title": "Slack Bot Configuration"
     },
     "admin_bot_SlackBotConfigCreationForm": {
-        "Response_Updating_Error": "Error updating DanswerBot config - {errorMsg}",
-        "Response_Creating_Error": "Error creating DanswerBot config - {errorMsg}",
+        "Response_Updating_Error": "Error updating Quick Mind Bot config - {errorMsg}",
+        "Response_Creating_Error": "Error creating Quick Mind Bot config - {errorMsg}",
         "The_Basics_Header": "The Basics",
         "Channel_Names": "Channel Names",
-        "Tips_Slack_Channel": "The names of the Slack channels you want this configuration to apply to. For example, '#ask-danswer'.",
-        "Note_Add_DanswerBot_to_Channel": "<i>NOTE</i>: you still need to add DanswerBot to the channel(s) in Slack itself. Setting this config will not auto-add the bot to the channel.",
+        "Tips_Slack_Channel": "The names of the Slack channels you want this configuration to apply to. For example, '#ask-quick-mind'.",
+        "Note_Add_DanswerBot_to_Channel": "<i>NOTE</i>: you still need to add Quick Mind Bot to the channel(s) in Slack itself. Setting this config will not auto-add the bot to the channel.",
         "Response_Format_Label": "Response Format",
-        "Citations_Tips": "If set to Citations, DanswerBot will respond with a direct answer with inline citations. It will also provide links to these cited documents below the answer. When in doubt, choose this option.",
-        "Quotes_Tips": "If set to Quotes, DanswerBot will respond with a direct answer as well as with quotes pulled from the context documents to support that answer. DanswerBot will also give a list of relevant documents. Choose this option if you want a very detailed response AND/OR a list of relevant documents would be useful just in case the LLM missed anything.",
-        "When_Respond_DanswerBot": "When should DanswerBot respond?",
+        "Citations_Tips": "If set to Citations, Quick Mind Bot will respond with a direct answer with inline citations. It will also provide links to these cited documents below the answer. When in doubt, choose this option.",
+        "Quotes_Tips": "If set to Quotes, Quick Mind Bot will respond with a direct answer as well as with quotes pulled from the context documents to support that answer. Quick Mind Bot will also give a list of relevant documents. Choose this option if you want a very detailed response AND/OR a list of relevant documents would be useful just in case the LLM missed anything.",
+        "When_Respond_DanswerBot": "When should Quick Mind Bot respond?",
         "Hide_Non_Answers": "Hide Non-Answers",
         "Answer_Validity_Check_Subtext": "If set, will only answer questions that the model determines it can answer",
         "Only_Respond_Questions": "Only respond to questions",
         "Questionmark_Prefilter_Subtext": "If set, will only respond to messages that contain a question mark",
-        "Respond_DanswerBot_Only": "Respond to @DanswerBot Only",
-        "Respond_Tag_Only_Subtext": "If set, DanswerBot will only respond when directly tagged",
+        "Respond_DanswerBot_Only": "Respond to @Quick Mind Bot Only",
+        "Respond_Tag_Only_Subtext": "If set, Quick Mind Bot will only respond when directly tagged",
         "Respond_To_Bots": "Responds to Bot messages",
-        "Respond_To_Bots_Subtext": "If not set, DanswerBot will always ignore messages from Bots",
+        "Respond_To_Bots_Subtext": "If not set, Quick Mind Bot will always ignore messages from Bots",
         "Team_Members_Emails": "Team Members Emails",
-        "Team_Members_Emails_Subtext": "If specified, DanswerBot responses will only be  visible to members in this list. This is useful if you want DanswerBot to operate in an \"assistant\" mode, where it helps the team members find answers, but let's them build on top of DanswerBot's response / throw  out the occasional incorrect answer.",
+        "Team_Members_Emails_Subtext": "If specified, Quick Mind Bot responses will only be  visible to members in this list. This is useful if you want Quick Mind Bot to operate in an \"assistant\" mode, where it helps the team members find answers, but let's them build on top of Quick Mind Bot's response / throw  out the occasional incorrect answer.",
         "Post_Response_Behavior": "Post Response Behavior",
-        "Should_Danswer_Still_Need_Help_Button": "Should Danswer give a \u201cStill need help?\u201d button?",
-        "Still_Need_Help_Button_Subtext": "If specified, DanswerBot's response will include a button at the bottom  of the response that asks the user if they still need help.",
+        "Should_Danswer_Still_Need_Help_Button": "Should Quick Mind give a \u201cStill need help?\u201d button?",
+        "Still_Need_Help_Button_Subtext": "If specified, Quick Mind Bot's response will include a button at the bottom  of the response that asks the user if they still need help.",
         "Users_to_Tag": "Users to Tag",
         "Slack_Users_Tag_Description": "The full email addresses of the Slack users we should tag if the user clicks the \"Still need help?\" button. For example, 'mark@acme.com'.",
-        "Provide_User_Group_Description": "Or provide a user group by either the name or the handle. For example, 'Danswer Team' or 'danswer-team'.",
+        "Provide_User_Group_Description": "Or provide a user group by either the name or the handle. For example, 'Quick Mind Team' or 'quick-mind-team'.",
         "No_Email_Tagging_Description": "If no emails are provided, we will not tag anyone and will just react with a \ud83c\udd98 emoji to the original message.",
         "Data_Sources_Prompts_Header": "[Optional] Data Sources and Prompts",
-        "Use_Persona_Document_Sets": "Use either a Persona <b>or</b> Document Sets to control how DanswerBot answers.",
+        "Use_Persona_Document_Sets": "Use either a Persona <b>or</b> Document Sets to control how Quick Mind Bot answers.",
         "Use_Persona_Customize_Prompt": "You should use a Persona if you also want to customize the prompt and retrieval settings.",
-        "Use_Document_Sets_Control_Documents": "You should use Document Sets if you just want to control which documents DanswerBot uses as references.",
+        "Use_Document_Sets_Control_Documents": "You should use Document Sets if you just want to control which documents Quick Mind Bot uses as references.",
         "Note_Submit_Form_Tab": "<b>NOTE:</b> whichever tab you are when you submit the form will be the one that is used. For example, if you are on the \";Personas\"; tab, then the Persona will be used, even if you have Document Sets selected.",
         "Document_Sets": "Document Sets",
         "Personas": "Personas",
-        "Document_Sets_Description": "The document sets that DanswerBot should search through. If left blank, DanswerBot will search through all documents.",
+        "Document_Sets_Description": "The document sets that Quick Mind Bot should search through. If left blank, Quick Mind Bot will search through all documents.",
         "Persona_Subtext": "The persona to use when responding to queries. The Default persona actsas a question-answering assistant and has access to all documents indexed by non-private connectors.",
         "Update_Button": "Update!",
         "Create_Button": "Create!"
@@ -88,7 +91,7 @@
         "Failed_Fetch_Docs": "Failed to fetch document sets - {sets}",
         "Failed_Fetch_Personas": "Failed to fetch personas - {personas}",
         "New_Slack_Bot_Config": "Edit Slack Bot Config",
-        "Define_Configuration_Below": "Define a new configuration below! This config will determine how DanswerBot behaves in the specified channels."
+        "Define_Configuration_Below": "Define a new configuration below! This config will determine how Quick Mind Bot behaves in the specified channels."
     },
     "admin_bot_id_page": {
         "Error_Title": "Something went wrong :(",
@@ -97,7 +100,7 @@
         "Failed_Fetch_Docs": "Failed to fetch document sets - {sets}",
         "Failed_Fetch_Personas": "Failed to fetch personas - {personas}",
         "Edit_Slack_Bot_Config": "Edit Slack Bot Config",
-        "Edit_Config_Text": "Edit the existing configuration below! This config will determine how DanswerBot behaves in the specified channels."
+        "Edit_Config_Text": "Edit the existing configuration below! This config will determine how Quick Mind Bot behaves in the specified channels."
     },
     "admin_connector_ccPairId_ConfigurationDisplay": {
         "Configuration_Title": "Configuration"
@@ -148,9 +151,9 @@
     "admin_connectors_file_page": {
         "File": "File", 
         "Loading": "Loading",
-        "Specify_Files": "Specify files below, click the <b>Upload</b> button, and the contents of these files will be searchable via Danswer! Currently only <i>.txt</i>,  <i>.pdf</i> and <i>.zip</i> files (containing only <i>.txt</i> files) are supported.",
+        "Specify_Files": "Specify files below, click the <b>Upload</b> button, and the contents of these files will be searchable via Quick Mind! Currently only <i>.txt</i>,  <i>.pdf</i> and <i>.zip</i> files (containing only <i>.txt</i> files) are supported.",
         "Note_P1": "<b>NOTE:</b> if the original document is accessible via a link, you can add a line at the very beginning of the file that looks like:",
-        "Note_P2": "where <i>\"LINK\"</i> is the link to the file. This will enable Danswer to link users to the original document when they click on the search result. More details on this can be found in the",
+        "Note_P2": "where <i>\"LINK\"</i> is the link to the file. This will enable Quick Mind to link users to the original document when they click on the search result. More details on this can be found in the",
         "Note_P3": " documentation.",
         "Descriptive_Name_Required": "Please enter a descriptive name for the files",
         "Unable_Upload_Files": "Unable to upload files - {detail}",
@@ -179,7 +182,7 @@
         "Recursive_Description": "Recursively index all pages that share the same base URL.",
         "Single_Page_Description": "Index only the specified page.",
         "Sitemap_Description": "Assumes the URL to Index points to a Sitemap. Will try and index all pages that are a mentioned in the sitemap.",
-        "Please_Enter_Website_URL": "Please enter the website URL to scrape e.g. https://docs.danswer.dev/",
+        "Please_Enter_Website_URL": "Please enter the website URL to scrape e.g. https://docs.quick-mind.dev/",
         "Already_Indexed_Websites": "Already Indexed Websites",
         "Error_Indexing_history": "Error loading indexing history",
         "Base_URL": "Base URL",
@@ -261,7 +264,8 @@
         "Connector": "Connector",
         "Status": "Status",
         "Last_Indexed": "Last Indexed",
-        "Docs_Indexed": "Docs Indexed"
+        "Docs_Indexed": "Docs Indexed",
+        "Speed": "Speed"
     },
     "admin_indexing_status_page": {
         "Error_loading_indexing_history": "Error loading indexing history.",
@@ -280,14 +284,14 @@
     },
     "admin_models_embedding_embeddingModels": {
         "Default_Model_Description": "The recommended default for most situations. If you aren't sure which model to use, this is probably the one.",
-        "Small_Model_Description": "A smaller / faster version of the default model. If you're running Danswer on a resource constrained system, then this is a good choice.",
+        "Small_Model_Description": "A smaller / faster version of the default model. If you're running Quick Mind on a resource constrained system, then this is a good choice.",
         "Multilingual_Model_Description": "If you have many documents in other languages besides English, this is the one to go for.",
         "Multilingual_Small_Model_Description": "If you have many documents in other languages besides English, and you're running on a resource constrained system, then this is the one to go for."
     },
     "admin_models_embedding_ModelSelectionConfirmation": {
         "Selected_Model_Text": "You have selected: <b>{model}</b>. Are you sure you want to update to this new embedding model?",
-        "Reindex_Background_Message": "We will re-index all your documents in the background so you will be able to continue to use Danswer as normal with the old model in the meantime. Depending on how many documents you have indexed, this may take a while.",
-        "Note": "<i>NOTE:</i> this re-indexing process will consume more resources than normal. If you are self-hosting, we recommend that you allocate at least 16GB of RAM to Danswer during this process.",
+        "Reindex_Background_Message": "We will re-index all your documents in the background so you will be able to continue to use Quick Mind as normal with the old model in the meantime. Depending on how many documents you have indexed, this may take a while.",
+        "Note": "<i>NOTE:</i> this re-indexing process will consume more resources than normal. If you are self-hosting, we recommend that you allocate at least 16GB of RAM to Quick Mind during this process.",
         "Confirm_Button": "Confirm",
         "Update_Model_Title": "Update Embedding Model"
     },
@@ -300,13 +304,13 @@
         "Failed_to_Fetch_Model_Status": "Failed to fetch embedding model status",
         "Success_Model_Selection": "Embeding model successfully selected",
         "Initial_Setup_Message": "To complete the initial setup, let's add a connector!",
-        "Connectors_Description": "Connectors are the way that Danswer gets data from your organization's various data sources. Once setup, we'll automatically sync data from your apps and docs into Danswer, so you can search all through all of them in one place.",
+        "Connectors_Description": "Connectors are the way that Quick Mind gets data from your organization's various data sources. Once setup, we'll automatically sync data from your apps and docs into Quick Mind, so you can search all through all of them in one place.",
         "Add_Connector": "Add Connector",
         "Cancel_Model_Switch": "Cancel Embedding Model Switch",
         "Cancel_Confirmation_Message": "Are you sure you want to cancel?",
         "Cancel_Progress_Message": "Cancelling will revert to the previous model and all progress will be lost.",
         "Confirm": "Confirm",
-        "Embedding_Models_Description": "Embedding models are used to generate embeddings for your documents, which then power Danswer's search.",
+        "Embedding_Models_Description": "Embedding models are used to generate embeddings for your documents, which then power Quick Mind's search.",
         "Current_Embedding_Model": "Current Embedding Model",
         "Switch_Embedding_Model": "Switch Embedding Model",
         "Update_Model_Choice": "If the current model is not working for you, you can update your model choice below. Note that this will require a complete re-indexing of all your documents across every connected source. We will take care of this in the background, but depending on the size of your corpus, this could take hours, day, or even weeks. You can monitor the progress of the re-indexing on this page.",
@@ -426,6 +430,12 @@
         "Promote_Admin_Button": "Promote to Admin!",
         "Manage_Users": "Manage Users"
     },
+    "admin_search_page": {
+        "Search_Title": "Search"
+    },
+    "admin_chat_page": {
+        "Chat_Title": "Chat"
+    },
     "auth_error_page": {
         "Login_Error_Message": "Unable to login, please try again and/or contact an administrator"
     },
@@ -442,7 +452,7 @@
     },
     "auth_login_page": {
         "Fetch_Failed_Login_Page": "Some fetch failed for the login page",
-        "Log_In": "Log In to Danswer",
+        "Log_In": "Log In to Quick Mind",
         "No_Account": "Don't have an account?",
         "Create_Account": "Create an account"
     },
@@ -452,7 +462,7 @@
         "Continue_with_SAML_SSO": "Continue with SAML SSO"
     },
     "auth_signup_page": {
-        "Sign_Up_Title": "Sign Up for Danswer",
+        "Sign_Up_Title": "Sign Up for Quick Mind",
         "Already_Have_Account": "Already have an account? ",
         "Log_In": "Log In"
     },
@@ -486,6 +496,7 @@
         "Say_Hello_First_Msg": "All Available Assistants",
         "Knowlege_Sets": "Knowledge Sets",
         "Chat_With_Assistant": "Which assistant do you want to chat with today?",
+        "Note_Default_Assistant": "Or ask a question immediately to use",
         "See_More": "See more"
     },
     "chat_ChatPersonaSelector": {
@@ -499,6 +510,8 @@
         "Chat_With_Document_Tips": "LLM context limit reached \ud83d\ude14 If you want to chat with this document, please de-select others to free up space."
     },
     "chat_documentSidebar_DocumentSidebar": {
+        "Referenced_Documents": "Referenced Documents",
+        "Retrieved_Documents": "Retrieved Documents",
         "Select_Documents_Chat": "Select documents from the retrieved documents section to chat specifically with them!",
         "No_Documents_Found": "No documents found for the query.",
         "Ask_Question_Description": "When you run ask a question, the retrieved documents will show up here!",
@@ -541,6 +554,7 @@
         "Last_7_days": "Last 7 days",
         "Today": "Today",
         "Currently_Applied": "Currently applied",
+        "Filter": "Filter",
         "Find_Tag": "Find a tag"
     },
     "chat_modifiers_SearchTypeSelector": {
@@ -555,8 +569,12 @@
     "chat_sessionSidebar_ChatSidebar": {
         "Failed_Logout": "Failed to logout",
         "New_Chat": "New Chat",
-        "Danswer_Search": "Danswer Search",
-        "Danswer_Chat": "Danswer Chat",
+        "Today": "Today",
+        "Previous_7_Days": "Previous 7 Days",
+        "Previous_30_Days": "Previous 30 Days",
+        "Over_30_days_ago": "Over 30 days ago",        
+        "Danswer_Search": "Quick Mind Search",
+        "Danswer_Chat": "Quick Mind Chat",
         "Admin_Panel": "Admin Panel",
         "Log_Out": "Log out"
     },
@@ -564,5 +582,258 @@
         "Failed_Rename_Chat_Session": "Failed to rename chat session",
         "Failed_Delete_Chat_Session": "Failed to delete chat session",
         "Chat_With": "Chat {sessionId}"
+    },
+    "components_BackButton": {
+        "Back": "Back"
+    },
+    "components_DanswerInitializingLoader": {
+        "Initializing_Danswer": "Initializing Quick Mind"
+    },
+    "components_DeleteButton": {
+        "Delete": "Delete"
+    },
+    "components_Dropdown": {
+        "Search_Placeholder": "Search...",
+        "Default:": "Default: ",
+        "Select_An_Option": "Select an option..."
+    },
+    "components_EditButton": {
+        "Edit": "Edit"
+    },
+    "components_Header": {
+        "Quick Mind": "Quick Mind",
+        "Search": "Search",
+        "Chat": "Chat",
+        "Admin_Panel": "Admin Panel",
+        "Logout": "Logout",
+        "Switch_Lanauge": "Switch language"
+    },
+    "components_Status": {
+        "Failed": "Failed",
+        "Succeeded": "Succeeded",
+        "In_Progress": "In Progress",
+        "Scheduled": "Scheduled",
+        "Deleting": "Deleting",
+        "Paused": "Paused",
+        "Error": "Error",
+        "Active": "Active"
+    },
+    "components_SwitchModelModal": {
+        "Switch_Embedding_Model": "Switch Embedding Model",
+        "Old_Embedding_Model_Message": "We've detected you are using our old default embedding model",
+        "Model_Switch_Performance_Message": "We believe that search performance can be dramatically improved by a simple model switch.",
+        "Model_Switch_Button_Message": "Please click the button below to choose a new model. Don't worry, the re-indexing necessary for the switch will happen in the background - your use of Quick Mind will not be interrupted.",
+        "Choose_Embedding_Model_Button": "Choose your Embedding Model"
+    },
+    "components_admin_Layout": {
+        "Knowledge_Mmgt": "Knowledge Management",
+        "Knowledge_Unit": "Knowledge Unit",
+        "Document_Sets": "Document Sets",
+        "Document_Explorer": "Document Explorer",
+        "Knowledge_Operation": "Knowledge Operation",
+        "Chat": "Chat",
+        "Search": "Search",
+        "Feedback_Mgmt": "Feedback",
+        "Custom_Assistants": "Custom Assistants",
+        "FAQ_Mgmt": "FAQ Management",
+        "FAQ_List": "FAQ List",
+        "QA_Mgmt": "QA Management",
+        "Integration": "Integration",
+        "Apache_Answer": "Apache Answer",
+        "Dingding_Bots": "Dingding Bots",
+        "Slack_Bots": "Slack Bots",
+        "Model_Mgmt": "Model Management",
+        "API_Key": "API-Key",
+        "Embedding": "Embedding",
+        "Accounting": "Accounting",
+        "Accounting_Overview": "Overview",
+        "Accounting_Detail": "Detail",
+        "User_Plan": "User Plan",
+        "System_Mgmt": "System Management",
+        "Users": "Users",
+        "System_Logs": "System Logs"
+    },
+    "components_admin_connectors_ConnectorForm": {
+        "Success_Message": "Success!",
+        "Error_Message": "Error!",                
+        "Enter_Name_Connector": "Please enter a name for the connector",
+        "Unable_to_delete_connector": "Unable to delete existing connector",
+        "Error_creating_credential_for_CC_Pair": "Error creating credential for CC Pair",
+        "Error_linking_credentials": "Error linking credentials",
+        "Connector_Name": "Connector Name",
+        "Connector_Name_Subtext": "A descriptive name for the connector. This will just be used to identify the connector in the Admin UI.",
+        "Connect_Button": "Connect",
+        "Update_Button": "Update"
+    },
+    "components_admin_connectors_ConnectorTitle": {
+        "Folders": "Folders",
+        "Owner": "Owner",
+        "Channels": "Channels",
+        "Channel_Regex_Enabled": "Channel Regex Enabled"
+    },
+    "components_admin_connectors_CredentialForm": {
+        "Success_Message": "Success!",
+        "Error_Prefix": "Error: ",
+        "Update_Button": "Update"
+    },
+    "components_admin_connectors_Field": {
+        "Add_New_Button": "Add New"
+    },
+    "components_admin_connectors_FileUpload": {
+        "Selected_Files": "Selected Files"
+    },
+    "components_admin_connectors_buttons_AttachCredentialButtonForTable": {
+        "Attach_Credential_Button": "Attach Credential"
+    },
+    "components_admin_connectors_buttons_IndexButtonForTable": {
+        "Index_Button": "Index"
+    },
+    "components_admin_connectors_table_ConnectorsTable": {
+        "Failed": "Failed",
+        "Enabled": "Enabled",
+        "Paused": "Paused",
+        "Deleting": "Deleting",
+        "Enable": "Enable",
+        "Pause": "Pause",
+        "Header": "Header",
+        "Status": "Status",
+        "Remove": "Remove"
+    },
+    "components_admin_connectors_table_DeleteColumn": {
+        "Delete_Connector_Info": "In order to delete a connector it must be disabled and have no ongoing / planned index jobs."
+    },
+    "components_admin_connectors_table_SingleUseConnectorsTable": {
+        "Deleting_Status": "Deleting...",
+        "Not_Started_Status": "Not Started",
+        "In_Progress_Status": "In Progress",
+        "Success_Status": "Success!",
+        "Failed_Status": "Failed",
+        "Name_Column": "Name",
+        "Credential_Column": "Credential",
+        "Remove_Column": "Remove",
+        "Not_Available": "N/A",
+        "Failed_Schedule_Deletion_Connector": "Failed to schedule deletion of connector - ",
+        "Scheduled_Deletion_Connector": "Scheduled deletion of connector!"
+    },
+    "components_health_healthcheck": {
+        "Backend_Unavailable": "The backend is currently unavailable.",
+        "Backend_Unavailable_Note": "If this is your initial setup or you just updated your Quick Mind deployment, this is likely because the backend is still starting up. Give it a minute or two, and then refresh the page. If that does not work, make sure the backend is setup and/or contact an administrator."
+    },
+    "components_initialSetup_search_NoCompleteSourceModal": {
+        "Syncing_Not_Finished_Title": "\u23f3 None of your connectors have finished a full sync yet",
+        "Syncing_Not_Finished_Title_Note": "You've connected some sources, but none of them have finished syncing. Depending on the size of the knowledge base(s) you've connected to Quick Mind, it can take anywhere between 30 seconds to a few days for the initial sync to complete. So far we've synced",
+        "Note_Suffix_Documents": "documents.",
+        "Go_To_Connector_List": "To view the status of your syncing connectors, head over to the",
+        "Existing_Connectors_Page": "Existing Connectors page",
+        "Continue_Ask_Questions": "Or, click here to continue and ask questions on the partially synced knowledge set."
+    },
+    "components_initialSetup_search_NoSourcesModal": {
+        "No_Sources_Title": "\ud83e\uddd0 No sources connected",
+        "No_Sources_Message": "Before using Search you'll need to connect at least one source. Without any connected knowledge sources, there isn't anything to search over.",
+        "Connect_Source_Button": "Connect a Source!",
+        "ChatGPT_Message": "Or, if you're looking for a pure ChatGPT-like experience without any organization specific knowledge, then you can head over to the Chat page and start chatting with Quick Mind right away!",
+        "Start_Chat_Button": "Start Chatting!"
+    },
+    "components_initialSetup_welcome_WelcomeModal": {
+        "Search_Step_1": "Step 1: Provide OpenAI API Key",
+        "API_Key_Setup_Complete": "API Key setup complete!",
+        "Change_Key_Later": "If you want to change the key later, you'll be able to easily to do so in the Admin Panel.",
+        "Welcome_to_Danswer": "\ud83c\udf89 Welcome to Quick Mind",
+        "Search_Step_2": "Step 2: Connect Data Sources",
+        "Connectors_Description": "Connectors are the way that Quick Mind gets data from your organization's various data sources. Once setup, we'll automatically sync data from your apps and docs into Quick Mind, so you can search through all of them in one place.",
+        "Setup_Connector_Button": "Setup your first connector!",
+        "Start_Chat_Description": "Click the button below to start chatting with the LLM setup above! Don't worry, if you do decide later on you want to connect your organization's knowledge, you can always do that in the",
+        "LLM_Connections_Description": "Quick Mind supports connections with a wide range of LLMs, including self-hosted open-source LLMs. For more details, check out the",
+        "Documentation": "documentation",
+        "Gen_AI_Configs_Description": " If you haven't done anything special with the Gen AI configs, then we default to use OpenAI.",
+        "Provide_LLM_API_Key": "Step 1: Provide LLM API Key",
+        "LLM_Setup_Complete": "LLM setup complete!",
+        "Change_Key_Description": "If you want to change the key later or choose a different LLM, you'll be able to easily to do so in the Admin Panel / by changing some environment variables.",
+        "Start_Chat": "Start Chatting!",
+        "Admin_Panel": "Admin Panel",
+        "Start_chatting": "Start chatting!",
+        "How_are_you_planning_on_using_Danswer": "How are you planning on using Quick Mind?",
+        "Search_Chat_with_Knowledge": "Search / Chat with Knowledge",
+        "Search_Chat_with_Knowledge_Description": "If you're looking to search through, chat with, or ask direct questions of your organization's knowledge, then this is the option for you!",
+        "Get_Started": "Get Started",
+        "Secure_ChatGPT": "Secure ChatGPT",
+        "Secure_ChatGPT_Description": "If you're looking for a pure ChatGPT-like experience, then this is the option for you!"
+    },
+    "components_openai_ApiKeyForm": {
+        "Updated_API_Key": "Updated API key!",
+        "Unable_Set_API_Key": "Unable to set API key. Check if the provided key is valid.",
+        "Validating_API_Key": "Validating API key",
+        "API_Key": "API Key:",
+        "Submit_Button": "Submit"
+    },
+    "components_openai_ApiKeyModal": {
+        "LLM_Key_Setup": "LLM Key Setup",
+        "Provide_Valid_API_Key": "Please provide a valid OpenAI API key below in order to start using Quick Mind Search or Quick Mind Chat.",
+        "Look_Around_First": "Or if you'd rather look around first,",
+        "Skip_Step": "skip this step"
+    },
+    "components_search_DocumentDisplay": {
+        "AI_Like_Doc_Message": "The AI liked this doc!"
+    },
+    "components_search_DocumentFeedbackBlock": {
+        "Thanks_for_feedback": "Thanks for your feedback!",
+        "Error_feedback": "Error giving feedback"
+    },
+    "components_search_DocumentUpdatedAtBadge": {
+        "Updated": "Updated"
+    },
+    "components_search_DateRangeSelector": {
+        "Last_30_days": "Last 30 days",
+        "Last_7_days": "Last 7 days",
+        "Today": "Today",   
+        "Any_Time_Tips": "Any time..."    
+    },
+    "components_search_PersonaSelector": {
+        "Default": "Default"
+    },
+    "components_search_SearchBar": {
+        "Search_Tips": "Search..."
+    },
+    "components_search_SearchHelper": {
+        "Assistant_Message_1": "This doesn't seem like a question for a Generative AI. Do you still want to have",
+        "GPT_Response": "GPT give a response?",
+        "Assistant_Message_2": "GPT was unable to find an answer in the most relevant",
+        "Keep_Searching": "keep searching",
+        "AI_Assistant": "AI Assistant"
+    }, 
+    "components_search_SearchTypeSelector": {
+        "Search": "Search",
+        "Keyword_Search": "Keyword Search"
+    },
+    "components_search_filtering_Tag_Filter": {
+        "No_Matching_Tags_Found": "No matching tags found"
+    },
+    "components_search_filtering_Filters": {
+        "Filters_Title": "Filters",
+        "Time_Range_Title": "Time Range",
+        "Sources_Title": "Sources",
+        "Knowledge_Sets_Title": "Knowledge Sets",
+        "Description": "Description",
+        "Tags_Title": "Tags",
+        "All_Sources": "All Sources",
+        "All_Document_Sets": "All Document Sets",
+        "Bookmark": "Bookmark"
+    },
+    "components_search_results_SearchResultsDisplay": {
+        "No_matching_documents_found": "No matching documents found.",
+        "AI_Answer": "AI Answer",
+        "Results": "Results"
+    },        
+    "components_search_results_AnswerSection": {
+        "Building_Answer": "Building answer...",
+        "AI_Answer": "AI answer",
+        "Information_Not_Found": "Information not found",
+        "Error_Building_Answer": "Error while building answer",
+        "Building_Best_Effort_AI_Answer": "Building best effort AI answer...",
+        "Warning": "Warning",
+        "AI_Not_Answerable_Message": "the AI did not think this question was answerable."
+    },
+    "components_search_results_QuotesSection": {
+        "Did_Not_Find_Quotes": "Did not find any exact quotes to support the above answer."
     }
-  }
+}

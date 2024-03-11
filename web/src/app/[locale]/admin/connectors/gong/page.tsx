@@ -252,7 +252,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<GongIcon size={32} />} title="Gong" />
+      <AdminPageTitle icon={<GongIcon size={26} />} title="Gong" />
 
       <Main />
     </div>

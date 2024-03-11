@@ -30,3 +30,17 @@
   width: 8px; /* Vertical scrollbar width */
   height: 8px; /* Horizontal scrollbar height */
 }
+
+div.container {
+  overflow: auto;
+  position: relative;
+}
+
+div.container > div:nth-child(2) {
+  height: calc(100% - 46px);
+  padding: 20px;
+  padding-top: 35px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: #0000 0 0, #0000 0 0, #0000001a 0 4px 6px -1px, #0000001a 0 2px 4px -2px;  
+}

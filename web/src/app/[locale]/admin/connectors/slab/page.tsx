@@ -263,7 +263,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<SlabIcon size={32} />} title="Slab" />
+      <AdminPageTitle icon={<SlabIcon size={26} />} title="Slab" />
 
       <Main />
     </div>

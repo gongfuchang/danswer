@@ -27,12 +27,14 @@ interface ChatSidebarProps {
   existingChats: ChatSession[];
   currentChatSession: ChatSession | null | undefined;
   user: User | null;
+  embeddedMode: boolean;
 }
 
 export const ChatSidebar = ({
   existingChats,
   currentChatSession,
   user,
+  embeddedMode,
 }: ChatSidebarProps) => {
   const t = useTranslations("chat_sessionSidebar_ChatSidebar");
   const router = useRouter();
@@ -82,7 +84,7 @@ export const ChatSidebar = ({
       className={`
         w-72
         2xl:w-80
-        ${HEADER_PADDING}
+        ${embeddedMode ? '' : HEADER_PADDING}
         border-r 
         border-border 
         flex 
@@ -93,7 +95,7 @@ export const ChatSidebar = ({
     >
       <Link
         href={
-          "/chat" +
+          embeddedMode ? "/admin/chat" : '/chat' +
           (NEXT_PUBLIC_NEW_CHAT_DIRECTS_TO_SAME_PERSONA && currentChatSession
             ? `?personaId=${currentChatSession.persona_id}`
             : "")
@@ -114,7 +116,7 @@ export const ChatSidebar = ({
               return (
                 <div key={dateRange}>
                   <div className="text-xs text-subtle flex pb-0.5 mb-1.5 mt-5 font-bold">
-                    {dateRange}
+                    {t(dateRange.replaceAll(" ", "_"))}
                   </div>
                   {chatSessions.map((chat) => {
                     const isSelected = currentChatId === chat.id;
@@ -123,6 +125,7 @@ export const ChatSidebar = ({
                         <ChatSessionDisplay
                           chatSession={chat}
                           isSelected={isSelected}
+                          embeddedMode={embeddedMode}
                         />
                       </div>
                     );
@@ -141,69 +144,71 @@ export const ChatSidebar = ({
           );
         })} */}
       </div>
-
-      <div
-        className="mt-auto py-2 border-t border-border px-3"
-        ref={userInfoRef}
-      >
-        <div className="relative text-strong">
-          {userInfoVisible && (
-            <div
-              className={
-                (user ? "translate-y-[-110%]" : "translate-y-[-115%]") +
-                " absolute top-0 bg-background border border-border z-30 w-full rounded text-strong text-sm"
-              }
-            >
-              <Link
-                href="/search"
-                className="flex py-3 px-4 cursor-pointer hover:bg-hover"
-              >
-                <FiSearch className="my-auto mr-2" />
-                {t("Danswer_Search")}
-              </Link>
-              <Link
-                href="/chat"
-                className="flex py-3 px-4 cursor-pointer hover:bg-hover"
-              >
-                <FiMessageSquare className="my-auto mr-2" />
-                {t("Danswer_Chat")}
-              </Link>
-              {(!user || user.role === "admin") && (
-                <Link
-                  href="/admin/indexing/status"
-                  className="flex py-3 px-4 cursor-pointer border-t border-border hover:bg-hover"
-                >
-                  <FiTool className="my-auto mr-2" />
-                  {t("Admin_Panel")}
-                </Link>
-              )}
-              {user && (
+        {!embeddedMode && (
+          <div
+          className="mt-auto py-2 border-t border-border px-3"
+          ref={userInfoRef}
+          >
+            <div className="relative text-strong">
+              {userInfoVisible && (
                 <div
-                  onClick={handleLogout}
-                  className="flex py-3 px-4 cursor-pointer border-t border-border rounded hover:bg-hover"
+                  className={
+                    (user ? "translate-y-[-110%]" : "translate-y-[-115%]") +
+                    " absolute top-0 bg-background border border-border z-30 w-full rounded text-strong text-sm"
+                  }
                 >
-                  <FiLogOut className="my-auto mr-2" />
-                  {t("Log_Out")}
+                  <Link
+                    href="/search"
+                    className="flex py-3 px-4 cursor-pointer hover:bg-hover"
+                  >
+                    <FiSearch className="my-auto mr-2" />
+                    {t("Danswer_Search")}
+                  </Link>
+                  <Link
+                    href="/chat"
+                    className="flex py-3 px-4 cursor-pointer hover:bg-hover"
+                  >
+                    <FiMessageSquare className="my-auto mr-2" />
+                    {t("Danswer_Chat")}
+                  </Link>
+                  {(!user || user.role === "admin") && (
+                    <Link
+                      href="/admin/indexing/status"
+                      className="flex py-3 px-4 cursor-pointer border-t border-border hover:bg-hover"
+                    >
+                      <FiTool className="my-auto mr-2" />
+                      {t("Admin_Panel")}
+                    </Link>
+                  )}
+                  {user && (
+                    <div
+                      onClick={handleLogout}
+                      className="flex py-3 px-4 cursor-pointer border-t border-border rounded hover:bg-hover"
+                    >
+                      <FiLogOut className="my-auto mr-2" />
+                      {t("Log_Out")}
+                    </div>
+                  )}
                 </div>
               )}
+              <BasicSelectable fullWidth selected={false}>
+                <div
+                  onClick={() => setUserInfoVisible(!userInfoVisible)}
+                  className="flex h-8"
+                >
+                  <div className="my-auto mr-2 bg-user rounded-lg px-1.5">
+                    {user && user.email ? user.email[0].toUpperCase() : "A"}
+                  </div>
+                  <p className="my-auto">
+                    {user ? user.email : "Anonymous Possum"}
+                  </p>
+                  <FiMoreHorizontal className="my-auto ml-auto mr-2" size={20} />
+                </div>
+              </BasicSelectable>
             </div>
-          )}
-          <BasicSelectable fullWidth selected={false}>
-            <div
-              onClick={() => setUserInfoVisible(!userInfoVisible)}
-              className="flex h-8"
-            >
-              <div className="my-auto mr-2 bg-user rounded-lg px-1.5">
-                {user && user.email ? user.email[0].toUpperCase() : "A"}
-              </div>
-              <p className="my-auto">
-                {user ? user.email : "Anonymous Possum"}
-              </p>
-              <FiMoreHorizontal className="my-auto ml-auto mr-2" size={20} />
-            </div>
-          </BasicSelectable>
-        </div>
-      </div>
+          </div>
+        )}
+
     </div>
   );
 };

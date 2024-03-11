@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React, { KeyboardEvent, ChangeEvent } from "react";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 
@@ -8,6 +9,7 @@ interface SearchBarProps {
 }
 
 export const SearchBar = ({ query, setQuery, onSearch }: SearchBarProps) => {
+  const t = useTranslations("components_search_SearchBar");
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const target = event.target;
     setQuery(target.value);
@@ -34,7 +36,7 @@ export const SearchBar = ({ query, setQuery, onSearch }: SearchBarProps) => {
           className="flex-grow ml-2 h-6 outline-none placeholder-default overflow-hidden whitespace-normal resize-none"
           role="textarea"
           aria-multiline
-          placeholder="Search..."
+          placeholder={t("Search_Tips")}
           value={query}
           onChange={handleChange}
           onKeyDown={handleKeyDown}

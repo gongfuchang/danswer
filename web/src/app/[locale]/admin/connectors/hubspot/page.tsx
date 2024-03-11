@@ -213,7 +213,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<HubSpotIcon size={32} />} title="HubSpot" />
+      <AdminPageTitle icon={<HubSpotIcon size={26} />} title="HubSpot" />
 
       <Main />
     </div>

@@ -201,8 +201,8 @@ export function ChatIntro({
                 {t("Chat_With_Assistant")}{" "}
               </p>
               <p className="text-sm text-center">
-                Or ask a question immediately to use the{" "}
-                <b>{availablePersonas[0]?.name}</b> assistant.
+                {t("Note_Default_Assistant")}{" "}
+                <b>{availablePersonas[0]?.name}</b>
               </p>
               <div className="flex flex-col gap-y-4 mt-8">
                 {availablePersonas

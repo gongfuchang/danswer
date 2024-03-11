@@ -1,5 +1,6 @@
 "use client";
 
+import {useTranslations} from "next-intl";
 import { useState, useEffect } from "react";
 import { ApiKeyForm } from "./ApiKeyForm";
 import { Modal } from "../Modal";
@@ -15,6 +16,7 @@ export async function checkApiKey() {
 }
 
 export const ApiKeyModal = () => {
+  const t = useTranslations("components_openai_ApiKeyModal");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
@@ -32,23 +34,22 @@ export const ApiKeyModal = () => {
 
   return (
     <Modal
-      title="LLM Key Setup"
+      title={t("LLM_Key_Setup")}
       className="max-w-4xl"
       onOutsideClick={() => setErrorMsg(null)}
     >
       <div>
         <div>
           <div className="mb-2.5 text-base">
-            Please provide a valid OpenAI API key below in order to start using
-            Danswer Search or Danswer Chat.
+            {t("Provide_Valid_API_Key")}
             <br />
             <br />
-            Or if you&apos;d rather look around first,{" "}
+            {t("Look_Around_First")}
             <strong
               onClick={() => setErrorMsg(null)}
               className="text-link cursor-pointer"
             >
-              skip this step
+              {t("Skip_Step")}
             </strong>
             .
           </div>

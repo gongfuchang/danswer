@@ -225,7 +225,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<GuruIcon size={32} />} title="Guru" />
+      <AdminPageTitle icon={<GuruIcon size={26} />} title="Guru" />
 
       <Main />
     </div>

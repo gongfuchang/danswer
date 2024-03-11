@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import { ChangeEvent, FC, useEffect, useRef, useState } from "react";
 import { ChevronDownIcon } from "./icons/icons";
 import { FiCheck, FiChevronDown } from "react-icons/fi";
@@ -150,6 +151,7 @@ export function SearchMultiSelectDropdown({
   onSelect: (selected: StringOrNumberOption) => void;
   itemComponent?: FC<{ option: StringOrNumberOption }>;
 }) {
+  const t = useTranslations("components_Dropdown");
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -185,7 +187,7 @@ export function SearchMultiSelectDropdown({
       <div>
         <input
           type="text"
-          placeholder="Search..."
+          placeholder={t("Search_Placeholder")}
           value={searchTerm}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             if (!searchTerm) {
@@ -390,6 +392,7 @@ export function DefaultDropdown({
   onSelect: (value: string | number | null) => void;
   includeDefault?: boolean;
 }) {
+  const t = useTranslations("components_Dropdown");
   const selectedOption = options.find((option) => option.value === selected);
 
   return (
@@ -410,7 +413,7 @@ export function DefaultDropdown({
           {includeDefault && (
             <DefaultDropdownElement
               key={-1}
-              name="Default"
+              name={t("Default")}
               onSelect={() => {
                 onSelect(null);
               }}
@@ -446,7 +449,7 @@ export function DefaultDropdown({
       >
         <p className="line-clamp-1">
           {selectedOption?.name ||
-            (includeDefault ? "Default" : "Select an option...")}
+            (includeDefault ? "Default" : t("Select_An_Option"))}
         </p>
         <FiChevronDown className="my-auto ml-auto" />
       </div>

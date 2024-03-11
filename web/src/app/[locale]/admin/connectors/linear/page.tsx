@@ -219,7 +219,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<LinearIcon size={32} />} title="Linear" />
+      <AdminPageTitle icon={<LinearIcon size={26} />} title="Linear" />
 
       <Main />
     </div>

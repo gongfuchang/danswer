@@ -388,7 +388,7 @@ export function ChatFilters({
         <div className="flex">
           <BasicClickable onClick={() => handleFiltersToggle(!filtersOpen)}>
             <div className="flex text-xs">
-              <FiFilter className="my-auto mr-1" /> Filter
+              <FiFilter className="my-auto mr-1" /> {t("Filter")}
             </div>
           </BasicClickable>
         </div>

@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import { Form, Formik } from "formik";
 import { Popup } from "../admin/connectors/Popup";
 import { useState } from "react";
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export const ApiKeyForm = ({ handleResponse }: Props) => {
+  const t = useTranslations("components_openai_ApiKeyForm");
   const [popup, setPopup] = useState<{
     message: string;
     type: "success" | "error";
@@ -34,7 +36,7 @@ export const ApiKeyForm = ({ handleResponse }: Props) => {
           }
           if (response.ok) {
             setPopup({
-              message: "Updated API key!",
+              message: t("Updated_API_Key"),
               type: "success",
             });
             formikHelpers.resetForm();
@@ -44,8 +46,7 @@ export const ApiKeyForm = ({ handleResponse }: Props) => {
               setPopup({ message: body.detail, type: "error" });
             } else {
               setPopup({
-                message:
-                  "Unable to set API key. Check if the provided key is valid.",
+                message: t("Unable_Set_API_Key"),
                 type: "error",
               });
             }
@@ -58,11 +59,11 @@ export const ApiKeyForm = ({ handleResponse }: Props) => {
         {({ isSubmitting }) =>
           isSubmitting ? (
             <div className="text-base">
-              <LoadingAnimation text="Validating API key" />
+              <LoadingAnimation text={t("Validating_API_Key")} />
             </div>
           ) : (
             <Form>
-              <TextFormField name="apiKey" type="password" label="API Key:" />
+              <TextFormField name="apiKey" type="password" label={t("API_Key")} />
               <div className="flex">
                 <Button
                   size="xs"
@@ -70,7 +71,7 @@ export const ApiKeyForm = ({ handleResponse }: Props) => {
                   disabled={isSubmitting}
                   className="w-48 mx-auto"
                 >
-                  Submit
+                  {t("Submit_Button")}
                 </Button>
               </div>
             </Form>

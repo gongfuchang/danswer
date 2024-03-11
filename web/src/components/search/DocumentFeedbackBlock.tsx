@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import { PopupSpec } from "../admin/connectors/Popup";
 import { ChevronsDownIcon, ChevronsUpIcon } from "../icons/icons";
 
@@ -76,12 +77,12 @@ const DocumentFeedback = ({
         );
         if (!errorMsg) {
           setPopup({
-            message: "Thanks for your feedback!",
+            message: t("Thanks_for_feedback"),
             type: "success",
           });
         } else {
           setPopup({
-            message: `Error giving feedback - ${errorMsg}`,
+            message: `${t("Error_feedback")} - ${errorMsg}`,
             type: "error",
           });
         }

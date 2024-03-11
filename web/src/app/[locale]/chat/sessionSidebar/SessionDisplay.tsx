@@ -11,11 +11,13 @@ import { FiCheck, FiEdit, FiMessageSquare, FiTrash, FiX } from "react-icons/fi";
 interface ChatSessionDisplayProps {
   chatSession: ChatSession;
   isSelected: boolean;
+  embeddedMode: boolean;
 }
 
 export function ChatSessionDisplay({
   chatSession,
   isSelected,
+  embeddedMode,
 }: ChatSessionDisplayProps) {
   const t = useTranslations("chat_sessionSidebar_SessionDisplay");
   const router = useRouter();
@@ -55,7 +57,7 @@ export function ChatSessionDisplay({
       <Link
         className="flex my-1"
         key={chatSession.id}
-        href={`/chat?chatId=${chatSession.id}`}
+        href={(embeddedMode ? '/admin' : '') + `/chat?chatId=${chatSession.id}`}
         scroll={false}
       >
         <BasicSelectable fullWidth selected={isSelected}>

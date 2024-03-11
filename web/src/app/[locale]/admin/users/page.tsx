@@ -34,7 +34,7 @@ const UsersTable = () => {
   }
 
   if (error || !users) {
-    return <div className="text-error">Error loading users</div>;
+    return <div className="text-error">{t("Error_Loading_Users")}</div>;
   }
 
   return (
@@ -111,7 +111,7 @@ const Page = () => {
   const t = useTranslations("admin_users_page");
   return (
     <div className="mx-auto container">
-      <AdminPageTitle title={t("Manage_Users")} icon={<UsersIcon size={32} />} />
+      <AdminPageTitle title={t("Manage_Users")} icon={<UsersIcon size={26} />} />
 
       <UsersTable />
     </div>

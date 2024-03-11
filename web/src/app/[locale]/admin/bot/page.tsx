@@ -289,13 +289,16 @@ const Page = () => {
   const t = useTranslations("admin_bot_page");
   return (
     <div className="container mx-auto">
-      <AdminPageTitle
-        icon={<FiSlack size={32} />}
-        title={t("Slack_Bot_Configuration_Title")}
-      />
-      <InstantSSRAutoRefresh />
-
-      <Main />
+      <div>
+        <AdminPageTitle
+          icon={<FiSlack size={26} />}
+          title={t("Slack_Bot_Configuration_Title")}
+        />
+        <InstantSSRAutoRefresh />
+      </div>
+      <div>
+        <Main />
+      </div>      
     </div>
   );
 };

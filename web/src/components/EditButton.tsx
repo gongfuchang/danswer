@@ -1,8 +1,10 @@
 "use client";
 
+import {useTranslations} from "next-intl";
 import { FiEdit } from "react-icons/fi";
 
 export function EditButton({ onClick }: { onClick: () => void }) {
+  const t = useTranslations("components_EditButton");
   return (
     <div
       className={`
@@ -19,7 +21,7 @@ export function EditButton({ onClick }: { onClick: () => void }) {
       onClick={onClick}
     >
       <FiEdit className="mr-1 my-auto" />
-      Edit
+      {t("Edit")}
     </div>
   );
 }

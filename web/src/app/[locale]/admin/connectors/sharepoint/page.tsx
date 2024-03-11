@@ -258,7 +258,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<SharepointIcon size={32} />} title="Sharepoint" />
+      <AdminPageTitle icon={<SharepointIcon size={26} />} title="Sharepoint" />
 
       <MainSection />
     </div>

@@ -288,7 +288,7 @@ function Page() {
     <div className="mx-auto container">
       <AdminPageTitle
         title={t("Embedding_Title")}
-        icon={<FiPackage size={32} className="my-auto" />}
+        icon={<FiPackage size={26} className="my-auto" />}
       />
 
       <Main />

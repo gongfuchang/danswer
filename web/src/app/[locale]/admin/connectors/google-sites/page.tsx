@@ -54,7 +54,7 @@ export default function GoogleSites() {
         </div>
 
         <AdminPageTitle
-          icon={<GoogleSitesIcon size={32} />}
+          icon={<GoogleSitesIcon size={26} />}
           title="Google Sites"
         />
 

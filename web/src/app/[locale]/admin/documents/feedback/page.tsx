@@ -67,7 +67,7 @@ const Page = () => {
   return (
     <div className="container mx-auto">
       <AdminPageTitle
-        icon={<ThumbsUpIcon size={32} />}
+        icon={<ThumbsUpIcon size={26} />}
         title={t("Document_Feedback")}
       />
 

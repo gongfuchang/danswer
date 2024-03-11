@@ -15,7 +15,7 @@ const Page = async ({
   return (
     <div className="mx-auto container">
       <AdminPageTitle
-        icon={<ZoomInIcon size={32} />}
+        icon={<ZoomInIcon size={26} />}
         title={t("Document_Explorer_Title")}
       />
 

@@ -57,23 +57,24 @@ const Page = () => {
     <div className="mx-auto container">
       <AdminPageTitle
         title={t("LLM_Keys")}
-        icon={<FiCpu size={32} className="my-auto" />}
+        icon={<FiCpu size={26} className="my-auto" />}
       />
+      <div>
+        <ExistingKeys />
 
-      <ExistingKeys />
-
-      <Title className="mb-2 mt-6">{t("Update_Key")}</Title>
-      <Text className="mb-2">
-        {t("Specify_OpenAI_API_Key")}
-      </Text>
-      <div className="border rounded-md border-border p-3">
-        <ApiKeyForm
-          handleResponse={(response) => {
-            if (response.ok) {
-              mutate(GEN_AI_API_KEY_URL);
-            }
-          }}
-        />
+        <Title className="mb-2 mt-6">{t("Update_Key")}</Title>
+        <Text className="mb-2">
+          {t("Specify_OpenAI_API_Key")}
+        </Text>
+        <div className="border rounded-md border-border p-3">
+          <ApiKeyForm
+            handleResponse={(response) => {
+              if (response.ok) {
+                mutate(GEN_AI_API_KEY_URL);
+              }
+            }}
+          />
+        </div>        
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { Button } from "@tremor/react";
 import {
   ArrayHelpers,
@@ -146,6 +147,7 @@ export function TextArrayField<T extends Yup.AnyObject>({
   subtext,
   type,
 }: TextArrayFieldProps<T>) {
+  const t = useTranslations("components_admin_connectors_Field");
   return (
     <div className="mb-4">
       <Label>{label}</Label>
@@ -202,7 +204,7 @@ export function TextArrayField<T extends Yup.AnyObject>({
               type="button"
               icon={FiPlus}
             >
-              Add New
+              {t("Add_New_Button")}
             </Button>
           </div>
         )}

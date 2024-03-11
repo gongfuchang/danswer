@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import {
   FlowType,
   SearchDefaultOverrides,
@@ -31,6 +32,7 @@ const getAssistantMessage = ({
   forceQADisplay,
   setOffset,
 }: Props): string | JSX.Element | null => {
+  const t = useTranslations("components_search_SearchHelper");
   if (!searchResponse || !searchResponse.suggestedFlowType) {
     return null;
   }
@@ -42,10 +44,9 @@ const getAssistantMessage = ({
   ) {
     return (
       <div>
-        This doesn&apos;t seem like a question for a Generative AI. Do you still
-        want to have{" "}
+        {t("Assistant_Message_1")}
         <span className={CLICKABLE_CLASS_NAME} onClick={forceQADisplay}>
-          GPT give a response?
+          {t("GPT_Response")}
         </span>
       </div>
     );
@@ -59,9 +60,9 @@ const getAssistantMessage = ({
   ) {
     return (
       <div>
-        GPT was unable to find an answer in the most relevant{" "}
-        <b>{` ${(defaultOverrides.offset + 1) * NUM_DOCUMENTS_FED_TO_GPT} `}</b>{" "}
-        documents. Do you want to{" "}
+        {t("Assistant_Message_2", {
+          num: (defaultOverrides.offset + 1) * NUM_DOCUMENTS_FED_TO_GPT,
+        })}{" "}
         <span
           className={CLICKABLE_CLASS_NAME}
           onClick={() => {
@@ -72,7 +73,7 @@ const getAssistantMessage = ({
             });
           }}
         >
-          keep searching?
+          {t("Keep_Searching")}
         </span>
       </div>
     );
@@ -82,6 +83,7 @@ const getAssistantMessage = ({
 };
 
 export const SearchHelper: React.FC<Props> = (props) => {
+  const t = useTranslations("components_search_SearchHelper");
   const message = getAssistantMessage(props);
 
   if (!message) {
@@ -92,10 +94,10 @@ export const SearchHelper: React.FC<Props> = (props) => {
     <div className="border border-border rounded p-3 text-sm">
       <div className="flex">
         <BrainIcon size={20} />
-        <b className="ml-2 text-strong">AI Assistant</b>
+        <b className="ml-2 text-strong">{t("AI_Assistant")}</b>
       </div>
 
       <div className="mt-1">{message}</div>
     </div>
   );
-};
+}

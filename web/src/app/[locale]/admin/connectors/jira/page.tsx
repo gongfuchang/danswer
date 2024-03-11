@@ -323,7 +323,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<JiraIcon size={32} />} title="Jira" />
+      <AdminPageTitle icon={<JiraIcon size={26} />} title="Jira" />
 
       <Main />
     </div>

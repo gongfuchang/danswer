@@ -229,7 +229,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<ZulipIcon size={32} />} title="Zulip" />
+      <AdminPageTitle icon={<ZulipIcon size={26} />} title="Zulip" />
 
       <MainSection />
     </div>

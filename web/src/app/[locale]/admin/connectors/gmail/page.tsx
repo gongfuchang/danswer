@@ -257,7 +257,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<GmailIcon size={32} />} title="Gmail" />
+      <AdminPageTitle icon={<GmailIcon size={26} />} title="Gmail" />
 
       <Main />
     </div>

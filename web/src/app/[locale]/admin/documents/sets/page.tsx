@@ -317,7 +317,7 @@ const Page = () => {
   const t = useTranslations("admin_documents_sets_page");
   return (
     <div className="container mx-auto">
-      <AdminPageTitle icon={<BookmarkIcon size={32} />} title={t("Document_Sets")} />
+      <AdminPageTitle icon={<BookmarkIcon size={26} />} title={t("Document_Sets")} />
 
       <Main />
     </div>

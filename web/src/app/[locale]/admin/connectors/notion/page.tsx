@@ -253,7 +253,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<NotionIcon size={32} />} title="Notion" />
+      <AdminPageTitle icon={<NotionIcon size={26} />} title="Notion" />
 
       <Main />
     </div>

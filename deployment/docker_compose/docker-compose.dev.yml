@@ -17,7 +17,7 @@ services:
       - "8080:8080"
     environment:
       # Auth Settings
-      - AUTH_TYPE=${AUTH_TYPE:-disabled}
+      - AUTH_TYPE=${AUTH_TYPE:-basic}
       - SESSION_EXPIRE_TIME_SECONDS=${SESSION_EXPIRE_TIME_SECONDS:-86400}
       - VALID_EMAIL_DOMAINS=${VALID_EMAIL_DOMAINS:-}
       - GOOGLE_OAUTH_CLIENT_ID=${GOOGLE_OAUTH_CLIENT_ID:-}
@@ -225,8 +225,8 @@ services:
     environment:
       - DOMAIN=localhost
     ports:
-      - "80:80"
-      - "3000:80"  # allow for localhost:3000 usage, since that is the norm
+      - "8066:8066"
+      - "3000:8066"  # allow for localhost:3000 usage, since that is the norm
     volumes:
       - ../data/nginx:/etc/nginx/conf.d
     logging:

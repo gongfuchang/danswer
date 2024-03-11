@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -21,6 +23,7 @@ export async function submitConnector<T>(
   connector: ConnectorBase<T>,
   connectorId?: number
 ): Promise<{ message: string; isSuccess: boolean; response?: Connector<T> }> {
+  const t = await getTranslations("components_admin_connectors_ConnectorForm");
   const isUpdate = connectorId !== undefined;
 
   let isSuccess = false;
@@ -39,19 +42,15 @@ export async function submitConnector<T>(
     if (response.ok) {
       isSuccess = true;
       const responseJson = await response.json();
-      return { message: "Success!", isSuccess: true, response: responseJson };
+      return { message: t("Success_Message"), isSuccess: true, response: responseJson };
     } else {
       const errorData = await response.json();
-      return { message: `Error: ${errorData.detail}`, isSuccess: false };
+      return { message: `${t("Error_Message")}: ${errorData.detail}`, isSuccess: false };
     }
   } catch (error) {
-    return { message: `Error: ${error}`, isSuccess: false };
+    return { message: `${t("Error_Message")}: ${error}`, isSuccess: false };
   }
 }
-
-const CCPairNameHaver = Yup.object().shape({
-  cc_pair_name: Yup.string().required("Please enter a name for the connector"),
-});
 
 interface BaseProps<T extends Yup.AnyObject> {
   nameBuilder: (values: T) => string;
@@ -94,11 +93,14 @@ export function ConnectorForm<T extends Yup.AnyObject>({
   onSubmit,
   shouldCreateEmptyCredentialForConnector,
 }: ConnectorFormProps<T>): JSX.Element {
+  const t = useTranslations("components_admin_connectors_ConnectorForm");
   const { mutate } = useSWRConfig();
   const { popup, setPopup } = usePopup();
 
   const shouldHaveNameInput = credentialId !== undefined && !ccPairNameBuilder;
-
+  const CCPairNameHaver = Yup.object().shape({
+    cc_pair_name: Yup.string().required(t("Enter_Name_Connector")),
+  });
   return (
     <>
       {popup}
@@ -132,7 +134,7 @@ export function ConnectorForm<T extends Yup.AnyObject>({
           });
           if (errorMsg) {
             setPopup({
-              message: `Unable to delete existing connector - ${errorMsg}`,
+              message: `{t("Unable_to_delete_connector")} - ${errorMsg}`,
               type: "error",
             });
             return;
@@ -166,7 +168,7 @@ export function ConnectorForm<T extends Yup.AnyObject>({
             if (!createCredentialResponse.ok) {
               const errorMsg = await createCredentialResponse.text();
               setPopup({
-                message: `Error creating credential for CC Pair - ${errorMsg}`,
+                message: `{t("Error_creating_credential_for_CC_Pair")} - ${errorMsg}`,
                 type: "error",
               });
               formikHelpers.setSubmitting(false);
@@ -188,7 +190,7 @@ export function ConnectorForm<T extends Yup.AnyObject>({
               const linkCredentialErrorMsg =
                 await linkCredentialResponse.text();
               setPopup({
-                message: `Error linking credential - ${linkCredentialErrorMsg}`,
+                message: `{t("Error_linking_credential")} - ${linkCredentialErrorMsg}`,
                 type: "error",
               });
               formikHelpers.setSubmitting(false);
@@ -212,9 +214,9 @@ export function ConnectorForm<T extends Yup.AnyObject>({
             {shouldHaveNameInput && (
               <TextFormField
                 name="cc_pair_name"
-                label="Connector Name"
+                label={t("Connector_Name")}
                 autoCompleteDisabled={true}
-                subtext={`A descriptive name for the connector. This will just be used to identify the connector in the Admin UI.`}
+                subtext={t("Connector_Name_Subtext")}
               />
             )}
             {formBody && formBody}
@@ -227,7 +229,7 @@ export function ConnectorForm<T extends Yup.AnyObject>({
                 disabled={isSubmitting}
                 className="mx-auto w-64"
               >
-                Connect
+                {t("Connect_Button")}
               </Button>
             </div>
           </Form>
@@ -260,6 +262,7 @@ export function UpdateConnectorForm<T extends Yup.AnyObject>({
   validationSchema,
   onSubmit,
 }: UpdateConnectorFormProps<T>): JSX.Element {
+  const t = useTranslations("components_admin_connectors_ConnectorForm");
   const [popup, setPopup] = useState<{
     message: string;
     type: "success" | "error";
@@ -310,7 +313,7 @@ export function UpdateConnectorForm<T extends Yup.AnyObject>({
                 disabled={isSubmitting}
                 className="mx-auto w-64"
               >
-                Update
+                {t("Update_Button")}
               </Button>
             </div>
           </Form>

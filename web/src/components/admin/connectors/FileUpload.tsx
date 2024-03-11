@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import { FC, useState } from "react";
 import React from "react";
 import Dropzone from "react-dropzone";
@@ -13,6 +14,7 @@ export const FileUpload: FC<FileUploadProps> = ({
   setSelectedFiles,
   message,
 }) => {
+  const t = useTranslations("components_admin_connectors_FileUpload");
   const [dragActive, setDragActive] = useState(false);
 
   return (
@@ -47,7 +49,7 @@ export const FileUpload: FC<FileUploadProps> = ({
 
       {selectedFiles.length > 0 && (
         <div className="mt-4">
-          <h2 className="font-bold">Selected Files</h2>
+          <h2 className="font-bold">{t("Selected_Files")}</h2>
           <ul>
             {selectedFiles.map((file) => (
               <div key={file.name} className="flex">

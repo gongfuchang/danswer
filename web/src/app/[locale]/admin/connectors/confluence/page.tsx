@@ -308,7 +308,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<ConfluenceIcon size={32} />} title="Confluence" />
+      <AdminPageTitle icon={<ConfluenceIcon size={26} />} title="Confluence" />
 
       <Main />
     </div>

@@ -5,7 +5,7 @@ export function AdminPageTitle({
   icon,
   title,
   farRightElement,
-  includeDivider = true,
+  includeDivider = false,
 }: {
   icon: JSX.Element;
   title: string | JSX.Element;
@@ -17,8 +17,8 @@ export function AdminPageTitle({
       <div className="mb-4">
         <HealthCheckBanner />
       </div>
-      <div className="flex">
-        <h1 className="text-3xl text-strong font-bold flex gap-x-2">
+      <div className="flex pb-6 pt-2">
+        <h1 className="text-xl text-strong font-bold flex gap-x-2">
           {icon} {title}
         </h1>
         {farRightElement && <div className="ml-auto">{farRightElement}</div>}

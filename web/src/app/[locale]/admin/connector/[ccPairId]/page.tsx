@@ -65,7 +65,6 @@ function Main({ ccPairId }: { ccPairId: number }) {
 
   return (
     <>
-      <BackButton />
       <div className="pb-1 flex mt-1">
         <h1 className="text-3xl text-emphasis font-bold">{ccPair.name}</h1>
 
@@ -140,9 +139,12 @@ export default function Page({ params }: { params: { ccPairId: string } }) {
     <div className="mx-auto container">
       <div className="mb-4">
         <HealthCheckBanner />
+        <BackButton />
       </div>
 
-      <Main ccPairId={ccPairId} />
+      <div>
+        <Main ccPairId={ccPairId} />
+      </div>
     </div>
   );
 }

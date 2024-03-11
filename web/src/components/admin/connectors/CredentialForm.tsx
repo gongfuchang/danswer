@@ -1,3 +1,5 @@
+import {useTranslations} from "next-intl";
+import { getTranslations } from "next-intl/server";
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -9,18 +11,19 @@ import { Button } from "@tremor/react";
 export async function submitCredential<T>(
   credential: CredentialBase<T>
 ): Promise<{ message: string; isSuccess: boolean }> {
+  const t = await getTranslations("components_admin_connectors_CredentialForm");
   let isSuccess = false;
   try {
     const response = await createCredential(credential);
     if (response.ok) {
       isSuccess = true;
-      return { message: "Success!", isSuccess: true };
+      return { message: t("Success_Message"), isSuccess: true };
     } else {
       const errorData = await response.json();
-      return { message: `Error: ${errorData.detail}`, isSuccess: false };
+      return { message: `${t("Error_Prefix")} ${errorData.detail}`, isSuccess: false };
     }
   } catch (error) {
-    return { message: `Error: ${error}`, isSuccess: false };
+    return { message: `${t("Error_Prefix")} ${error}`, isSuccess: false };
   }
 }
 
@@ -37,6 +40,7 @@ export function CredentialForm<T extends Yup.AnyObject>({
   initialValues,
   onSubmit,
 }: Props<T>): JSX.Element {
+  const t = useTranslations("components_admin_connectors_CredentialForm");  
   const [popup, setPopup] = useState<{
     message: string;
     type: "success" | "error";
@@ -53,7 +57,7 @@ export function CredentialForm<T extends Yup.AnyObject>({
           submitCredential<T>({
             credential_json: values,
             admin_public: true,
-          }).then(({ message, isSuccess }) => {
+          }).then(({ message, isSuccess }) => {  
             setPopup({ message, type: isSuccess ? "success" : "error" });
             formikHelpers.setSubmitting(false);
             setTimeout(() => {
@@ -74,7 +78,7 @@ export function CredentialForm<T extends Yup.AnyObject>({
                 disabled={isSubmitting}
                 className="mx-auto w-64"
               >
-                Update
+                {t("Update_Button")}
               </Button>
             </div>
           </Form>

@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import { Persona } from "@/app/admin/personas/interfaces";
 import { CustomDropdown, DefaultDropdownElement } from "../Dropdown";
 import { FiChevronDown } from "react-icons/fi";

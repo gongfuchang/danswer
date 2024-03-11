@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { InfoIcon, TrashIcon } from "@/components/icons/icons";
 import {
   deleteCCPair,
@@ -22,6 +23,7 @@ export function DeleteColumn<ConnectorConfigType, ConnectorCredentialType>({
   setPopup,
   onUpdate,
 }: Props<ConnectorConfigType, ConnectorCredentialType>) {
+  const t = useTranslations("components_admin_connectors_table_DeleteColumn");
   const [deleteHovered, setDeleteHovered] = useState<boolean>(false);
 
   const connector = connectorIndexingStatus.connector;
@@ -46,8 +48,7 @@ export function DeleteColumn<ConnectorConfigType, ConnectorCredentialType>({
           {deleteHovered && (
             <div className="w-64 z-30 whitespace-normal flex absolute mt-8 top-0 left-0 bg-background border border-border px-3 py-2 rounded shadow-lg text-xs">
               <InfoIcon className="flex flex-shrink-0 mr-2" />
-              In order to delete a connector it must be disabled and have no
-              ongoing / planned index jobs.
+              {t("Delete_Connector_Info")}
             </div>
           )}
           <div className="flex mx-auto text-xs">

@@ -36,17 +36,20 @@ async function Page() {
 
   return (
     <div className="container mx-auto">
-      <BackButton />
-      <AdminPageTitle
-        icon={<CPUIcon size={32} />}
-        title={t("New_Slack_Bot_Config")}
-      />
+      <div>
+        <BackButton />
+        <AdminPageTitle
+          icon={<CPUIcon size={26} />}
+          title={t("New_Slack_Bot_Config")}
+        />
+      </div>
+      <div>
+        <Text className="mb-8">
+          {t("Define_Configuration_Below")}
+        </Text>
 
-      <Text className="mb-8">
-        {t("Define_Configuration_Below")}
-      </Text>
-
-      <SlackBotCreationForm documentSets={documentSets} personas={personas} />
+        <SlackBotCreationForm documentSets={documentSets} personas={personas} />
+      </div>
     </div>
   );
 }

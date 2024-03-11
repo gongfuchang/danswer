@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React from "react";
 import { DocumentSet, Tag, ValidSources } from "@/lib/types";
 import { SourceMetadata } from "@/lib/search/interfaces";
@@ -44,6 +45,7 @@ export function SourceSelector({
   existingSources,
   availableTags,
 }: SourceSelectorProps) {
+  const t = useTranslations("components_search_filtering_Filters");
   const handleSelect = (source: SourceMetadata) => {
     setSelectedSources((prev: SourceMetadata[]) => {
       if (
@@ -69,12 +71,12 @@ export function SourceSelector({
   return (
     <div>
       <div className="flex mb-4 pb-2 border-b border-border text-emphasis">
-        <h2 className="font-bold my-auto">Filters</h2>
+        <h2 className="font-bold my-auto">{t("Filters_Title")}</h2>
         <FiFilter className="my-auto ml-2" size="16" />
       </div>
 
       <>
-        <SectionTitle>Time Range</SectionTitle>
+        <SectionTitle>{t("Time_Range_Title")}</SectionTitle>
         <div className="mt-2">
           <DateRangeSelector value={timeRange} onValueChange={setTimeRange} />
         </div>
@@ -82,7 +84,7 @@ export function SourceSelector({
 
       {existingSources.length > 0 && (
         <div className="mt-4">
-          <SectionTitle>Sources</SectionTitle>
+          <SectionTitle>{t("Sources_Title")}</SectionTitle>
           <div className="px-1">
             {listSourceMetadata()
               .filter((source) => existingSources.includes(source.internalName))
@@ -113,7 +115,7 @@ export function SourceSelector({
       {availableDocumentSets.length > 0 && (
         <>
           <div className="mt-4">
-            <SectionTitle>Knowledge Sets</SectionTitle>
+            <SectionTitle>{t("Knowledge_Sets_Title")}</SectionTitle>
           </div>
           <div className="px-1">
             {availableDocumentSets.map((documentSet) => (
@@ -137,7 +139,7 @@ export function SourceSelector({
                     }
                     popupContent={
                       <div className="text-sm w-64">
-                        <div className="flex font-medium">Description</div>
+                        <div className="flex font-medium">{t("Description")}</div>
                         <div className="mt-1">{documentSet.description}</div>
                       </div>
                     }
@@ -154,7 +156,7 @@ export function SourceSelector({
       {availableTags.length > 0 && (
         <>
           <div className="mt-4 mb-2">
-            <SectionTitle>Tags</SectionTitle>
+            <SectionTitle>{t("Tags_Title")}</SectionTitle>
           </div>
           <TagFilter
             tags={availableTags}
@@ -198,6 +200,7 @@ export function HorizontalFilters({
   availableDocumentSets,
   existingSources,
 }: SourceSelectorProps) {
+  const t = useTranslations("components_search_filtering_Filters");
   const handleSourceSelect = (source: SourceMetadata) => {
     setSelectedSources((prev: SourceMetadata[]) => {
       const prevSourceNames = prev.map((source) => source.internalName);
@@ -254,7 +257,7 @@ export function HorizontalFilters({
               <FiMap size={16} />
             </div>
           }
-          defaultDisplay="All Sources"
+          defaultDisplay={t("All_Sources")}
         />
 
         <FilterDropdown
@@ -278,7 +281,7 @@ export function HorizontalFilters({
               <FiBook size={16} />
             </div>
           }
-          defaultDisplay="All Document Sets"
+          defaultDisplay={t("All_Document_Sets")}
         />
       </div>
 

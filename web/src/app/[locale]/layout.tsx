@@ -3,7 +3,6 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import {NextIntlClientProvider, useMessages} from 'next-intl';
 import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
-import {useTranslations} from "next-intl";
 import {ReactNode} from 'react';
 import {locales, defaultLocale} from "@/i18n";
 const inter = Inter({
@@ -42,7 +41,6 @@ export default function RootLayout({
   // Receive messages provided in `i18n.ts`
   const messages = useMessages();
 
-  // const t = useTranslations('Index');
   return (
     <html lang={locale}>
       <body

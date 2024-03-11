@@ -3,6 +3,7 @@ interface Props {
 }
 
 export const AttachCredentialButtonForTable = ({ onClick }: Props) => {
+  const t = useTranslations("components_admin_connectors_buttons_AttachCredentialButtonForTable");
   return (
     <button
       className={
@@ -14,7 +15,7 @@ export const AttachCredentialButtonForTable = ({ onClick }: Props) => {
       }
       onClick={onClick}
     >
-      Attach Credential
+      {t("Attach_Credential_Button")}
     </button>
   );
 };

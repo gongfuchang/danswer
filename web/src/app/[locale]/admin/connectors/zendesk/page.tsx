@@ -235,7 +235,7 @@ export default function Page() {
         <HealthCheckBanner />
       </div>
 
-      <AdminPageTitle icon={<ZendeskIcon size={32} />} title="Zendesk" />
+      <AdminPageTitle icon={<ZendeskIcon size={26} />} title="Zendesk" />
 
       <Main />
     </div>

@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import { containsObject, objectsAreEquivalent } from "@/lib/contains";
 import { Tag } from "@/lib/types";
 import { useEffect, useRef, useState } from "react";
@@ -12,6 +13,7 @@ export function TagFilter({
   selectedTags: Tag[];
   setSelectedTags: React.Dispatch<React.SetStateAction<Tag[]>>;
 }) {
+  const t = useTranslations("components_search_filtering_TagFilter");
   const [filterValue, setFilterValue] = useState("");
   const [tagOptionsAreVisible, setTagOptionsAreVisible] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -59,7 +61,7 @@ export function TagFilter({
       <input
         ref={inputRef}
         className="w-full border border-border py-0.5 px-2 rounded text-sm h-8"
-        placeholder="Find a tag"
+        placeholder={t("Find_Tag_Placeholder")}
         value={filterValue}
         onChange={(event) => setFilterValue(event.target.value)}
         onFocus={() => setTagOptionsAreVisible(true)}
@@ -84,7 +86,7 @@ export function TagFilter({
             onClick={() => setSelectedTags([])}
             className="pl-0.5 text-xs text-accent cursor-pointer mt-2 w-fit"
           >
-            Clear all
+            {t("Clear_All")}
           </div>
         </div>
       )}
@@ -96,7 +98,7 @@ export function TagFilter({
           >
             <div className="flex border-b border-border font-medium pb-1 text-xs mb-2">
               <FiTag className="mr-1 my-auto" />
-              Tags
+              {t("Tags")}
             </div>
             <div className="flex flex-wrap gap-x-1 gap-y-1">
               {filteredTags.length > 0 ? (
@@ -124,7 +126,7 @@ export function TagFilter({
                   </div>
                 ))
               ) : (
-                <div className="text-sm px-2 py-2">No matching tags found</div>
+                <div className="text-sm px-2 py-2">{t("No_Matching_Tags_Found")}</div>
               )}
             </div>
           </div>

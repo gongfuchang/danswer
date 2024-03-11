@@ -58,6 +58,7 @@ export const Chat = ({
   defaultSelectedPersonaId,
   documentSidebarInitialWidth,
   shouldhideBeforeScroll,
+  embeddedMode,
 }: {
   existingChatSessionId: number | null;
   existingChatSessionPersonaId: number | undefined;
@@ -68,6 +69,7 @@ export const Chat = ({
   defaultSelectedPersonaId?: number; // what persona to default to
   documentSidebarInitialWidth?: number;
   shouldhideBeforeScroll?: boolean;
+  embeddedMode: boolean;
 }) => {
   const t = useTranslations("chat_Chat");
   const router = useRouter();
@@ -511,11 +513,11 @@ export const Chat = ({
             className={`w-full sm:relative h-screen ${retrievalDisabled ? "pb-[111px]" : "pb-[140px]"}`}
           >
             <div
-              className={`w-full h-full ${HEADER_PADDING} flex flex-col overflow-y-auto overflow-x-hidden relative`}
+              className={`w-full h-full ${embeddedMode ? '' : HEADER_PADDING} flex flex-col overflow-y-auto overflow-x-hidden relative`}
               ref={scrollableDivRef}
             >
               {livePersona && (
-                <div className="sticky top-0 left-80 z-10 w-full bg-background/90">
+                <div className="sticky top-0 left-80 z-10 w-full bg-gray-200">
                   <div className="ml-2 p-1 rounded mt-2 w-fit">
                     <ChatPersonaSelector
                       personas={availablePersonas}
@@ -524,7 +526,7 @@ export const Chat = ({
                         if (persona) {
                           setSelectedPersona(persona);
                           textareaRef.current?.focus();
-                          router.push(`/chat?personaId=${persona.id}`);
+                          router.push((embeddedMode ? '/admin' : '') + `/chat?personaId=${persona.id}`);
                         }
                       }}
                     />
@@ -542,7 +544,7 @@ export const Chat = ({
                     handlePersonaSelect={(persona) => {
                       setSelectedPersona(persona);
                       textareaRef.current?.focus();
-                      router.push(`/chat?personaId=${persona.id}`);
+                      router.push((embeddedMode ? '/admin' : '') + `/chat?personaId=${persona.id}`);
                     }}
                   />
                 )}
@@ -735,7 +737,7 @@ export const Chat = ({
               </div>
             </div>
 
-            <div className="absolute bottom-0 z-10 w-full bg-background border-t border-border">
+            <div className="absolute bottom-0 z-10 w-full bg-blue-50 border-t border-border">
               <div className="w-full pb-4 pt-2">
                 {!retrievalDisabled && (
                   <div className="flex">
@@ -857,6 +859,7 @@ export const Chat = ({
                 selectedDocumentTokens={selectedDocumentTokens}
                 maxTokens={maxTokens}
                 isLoading={isFetchingChatMessages}
+                embeddedMode={embeddedMode}
               />
             </ResizableSection>
           ) : // Another option is to use a div with the width set to the initial width, so that the

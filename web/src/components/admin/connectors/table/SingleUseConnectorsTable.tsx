@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { DeletionAttemptSnapshot, ValidStatuses } from "@/lib/types";
 import { usePopup } from "@/components/admin/connectors/Popup";
 import { updateConnector } from "@/lib/connector";
@@ -21,27 +22,30 @@ const SingleUseConnectorStatus = ({
   indexingStatus: ValidStatuses | null;
   deletionAttempt: DeletionAttemptSnapshot | null;
 }) => {
+  const t= useTranslations(
+    "components_admin_connectors_table_SingleUseConnectorsTable"
+  );
   if (
     deletionAttempt &&
     (deletionAttempt.status === "PENDING" ||
       deletionAttempt.status === "STARTED")
   ) {
-    return <div className="text-error">Deleting...</div>;
+    return <div className="text-error">{t("Deleting_Status")}</div>;
   }
 
   if (!indexingStatus || indexingStatus === "not_started") {
-    return <div>Not Started</div>;
+    return <div>{t("Not_Started_Status")}</div>;
   }
 
   if (indexingStatus === "in_progress") {
-    return <div>In Progress</div>;
+    return <div>{t("In_Progress_Status")}</div>;
   }
 
   if (indexingStatus === "success") {
-    return <div className="text-success">Success!</div>;
+    return <div className="text-success">{t("Success_Status")}</div>;
   }
 
-  return <div className="text-error">Failed</div>;
+  return <div className="text-error">{t("Failed_Status")}</div>;
 };
 
 export function SingleUseConnectorsTable<
@@ -56,6 +60,9 @@ export function SingleUseConnectorsTable<
   onCredentialLink,
   includeName = false,
 }: ConnectorsTableProps<ConnectorConfigType, ConnectorCredentialType>) {
+  const t = useTranslations(
+    "components_admin_connectors_table_SingleUseConnectorsTable"
+  );
   const { popup, setPopup } = usePopup();
 
   const connectorIncludesCredential =
@@ -68,15 +75,15 @@ export function SingleUseConnectorsTable<
       <Table className="overflow-visible">
         <TableHead>
           <TableRow>
-            {includeName && <TableHeaderCell>Name</TableHeaderCell>}
+            {includeName && <TableHeaderCell>{t("Name_Column")}</TableHeaderCell>}
             {specialColumns?.map(({ header }) => (
               <TableHeaderCell key={header}>{header}</TableHeaderCell>
             ))}
-            <TableHeaderCell>Status</TableHeaderCell>
+            <TableHeaderCell>{t("Status_Column")}</TableHeaderCell>
             {connectorIncludesCredential && (
-              <TableHeaderCell>Credential</TableHeaderCell>
+              <TableHeaderCell>{t("Credential_Column")}</TableHeaderCell>
             )}
-            <TableHeaderCell>Remove</TableHeaderCell>
+            <TableHeaderCell>{t("Remove_Column")}</TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -96,7 +103,7 @@ export function SingleUseConnectorsTable<
                   onClick={() => onCredentialLink(connector.id)}
                 />
               ) : (
-                <p className="text-red-700">N/A</p>
+                <p className="text-red-700">{t("Not_Available")}</p>
               )
             ) : (
               "-"
@@ -143,13 +150,13 @@ export function SingleUseConnectorsTable<
                       if (deletionScheduleError) {
                         setPopup({
                           message:
-                            "Failed to schedule deletion of connector - " +
+                            t("Failed_Schedule_Deletion_Connector") +
                             deletionScheduleError,
                           type: "error",
                         });
                       } else {
                         setPopup({
-                          message: "Scheduled deletion of connector!",
+                          message: t("Scheduled_Deletion_Connector"),
                           type: "success",
                         });
                       }

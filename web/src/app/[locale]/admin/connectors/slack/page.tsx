@@ -273,13 +273,17 @@ const MainSection = () => {
 export default function Page() {
   return (
     <div className="mx-auto container">
-      <div className="mb-4">
-        <HealthCheckBanner />
+      <div>
+        <div className="mb-4">
+          <HealthCheckBanner />
+        </div>
+
+        <AdminPageTitle icon={<SlackIcon size={26} />} title="Slack" />
+
       </div>
-
-      <AdminPageTitle icon={<SlackIcon size={32} />} title="Slack" />
-
-      <MainSection />
+      <div>
+        <MainSection />
+      </div>      
     </div>
   );
 }

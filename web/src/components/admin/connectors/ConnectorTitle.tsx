@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import { getSourceMetadata } from "@/lib/sources";
 import {
   ConfluenceConfig,
@@ -30,6 +31,7 @@ export const ConnectorTitle = ({
   isLink = true,
   showMetadata = true,
 }: ConnectorTitleProps) => {
+  const t = useTranslations("components_admin_connectors_ConnectorTitle");
   const sourceMetadata = getSourceMetadata(connector.source);
 
   let additionalMetadata = new Map<string, string>();
@@ -70,7 +72,7 @@ export const ConnectorTitle = ({
     }
 
     if (!isPublic && owner) {
-      additionalMetadata.set("Owner", owner);
+      additionalMetadata.set(t("Owner"), owner);
     }
   } else if (connector.source === "slack") {
     const typedConnector = connector as Connector<SlackConfig>;
@@ -79,12 +81,12 @@ export const ConnectorTitle = ({
       typedConnector.connector_specific_config?.channels.length > 0
     ) {
       additionalMetadata.set(
-        "Channels",
+        t("Channels"),
         typedConnector.connector_specific_config.channels.join(", ")
       );
     }
     if (typedConnector.connector_specific_config.channel_regex_enabled) {
-      additionalMetadata.set("Channel Regex Enabled", "True");
+      additionalMetadata.set(t("Channel_Regex_Enabled"), "True");
     }
   } else if (connector.source === "zulip") {
     const typedConnector = connector as Connector<ZulipConfig>;
@@ -129,3 +131,4 @@ export const ConnectorTitle = ({
     </div>
   );
 };
+

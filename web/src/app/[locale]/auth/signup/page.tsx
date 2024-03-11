@@ -1,4 +1,4 @@
-import {useTranslations} from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { HealthCheckBanner } from "@/components/health/healthcheck";
 import { User } from "@/lib/types";
 import {
@@ -13,7 +13,7 @@ import { Card, Title, Text } from "@tremor/react";
 import Link from "next/link";
 
 const Page = async () => {
-  const t = useTranslations("auth_signup_page");
+  const t = await getTranslations("auth_signup_page");
   // catch cases where the backend is completely unreachable here
   // without try / catch, will just raise an exception and the page
   // will not render

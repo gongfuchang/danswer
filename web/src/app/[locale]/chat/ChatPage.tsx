@@ -19,6 +19,7 @@ export function ChatLayout({
   availableTags,
   defaultSelectedPersonaId,
   documentSidebarInitialWidth,
+  embeddedMode,
 }: {
   user: User | null;
   chatSessions: ChatSession[];
@@ -28,6 +29,7 @@ export function ChatLayout({
   availableTags: Tag[];
   defaultSelectedPersonaId?: number; // what persona to default to
   documentSidebarInitialWidth?: number;
+  embeddedMode: boolean;
 }) {
   const searchParams = useSearchParams();
   const chatIdRaw = searchParams.get("chatId");
@@ -39,17 +41,22 @@ export function ChatLayout({
 
   return (
     <>
-      <div className="absolute top-0 z-40 w-full">
-        <Header user={user} />
-      </div>
-      <HealthCheckBanner />
-      <InstantSSRAutoRefresh />
+      {!embeddedMode && (
+        <>
+          <div className="absolute top-0 z-40 w-full">
+            <Header user={user} />
+          </div>
+          <HealthCheckBanner />
+          <InstantSSRAutoRefresh />
+        </>
+      )}
 
-      <div className="flex relative bg-background text-default overflow-x-hidden">
+      <div className="flex relative text-default overflow-x-hidden">
         <ChatSidebar
           existingChats={chatSessions}
           currentChatSession={selectedChatSession}
           user={user}
+          embeddedMode={embeddedMode}
         />
 
         <Chat
@@ -61,6 +68,7 @@ export function ChatLayout({
           availableTags={availableTags}
           defaultSelectedPersonaId={defaultSelectedPersonaId}
           documentSidebarInitialWidth={documentSidebarInitialWidth}
+          embeddedMode={embeddedMode}
         />
       </div>
     </>

@@ -1,4 +1,4 @@
-import {useTranslations} from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { HealthCheckBanner } from "@/components/health/healthcheck";
 import { User } from "@/lib/types";
 import {
@@ -19,6 +19,7 @@ const Page = async ({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
 }) => {
+  const t = await getTranslations("auth_login_page");
   const autoRedirectDisabled = searchParams?.disableAutoRedirect === "true";
 
   // catch cases where the backend is completely unreachable here
@@ -89,7 +90,7 @@ const Page = async ({
             <Card className="mt-4 w-96">
               <div className="flex">
                 <Title className="mb-2 mx-auto font-bold">
-                  Log In to Danswer
+                  {t("Log_In")}
                 </Title>
               </div>
               <EmailPasswordForm />

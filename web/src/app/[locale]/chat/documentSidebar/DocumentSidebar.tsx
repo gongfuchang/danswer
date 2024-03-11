@@ -34,6 +34,7 @@ export function DocumentSidebar({
   selectedDocumentTokens,
   maxTokens,
   isLoading,
+  embeddedMode,
 }: {
   selectedMessage: Message | null;
   selectedDocuments: DanswerDocument[] | null;
@@ -42,6 +43,7 @@ export function DocumentSidebar({
   selectedDocumentTokens: number;
   maxTokens: number;
   isLoading: boolean;
+  embeddedMode: boolean;
 }) {
   const t = useTranslations("chat_documentSidebar_DocumentSidebar");
   const { popup, setPopup } = usePopup();
@@ -69,7 +71,7 @@ export function DocumentSidebar({
       flex-col
       w-full
       h-screen
-      ${HEADER_PADDING}
+      ${embeddedMode ? '' : HEADER_PADDING}
       `}
       id="document-sidebar"
     >
@@ -80,8 +82,8 @@ export function DocumentSidebar({
           <SectionHeader
             name={
               selectedMessageRetrievalType === RetrievalType.SelectedDocs
-                ? "Referenced Documents"
-                : "Retrieved Documents"
+                ? t("Referenced_Documents")
+                : t("Retrieved_Documents")
             }
             icon={FiFileText}
           />

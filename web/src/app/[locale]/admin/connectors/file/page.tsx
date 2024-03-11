@@ -225,6 +225,7 @@ const Main = () => {
               )}
             </Formik>
           </Card>
+
         </div>
       </div>
 
@@ -258,13 +259,16 @@ export default function File() {
   const t = useTranslations("admin_connectors_file_page");
   return (
     <div className="mx-auto container">
-      <div className="mb-4">
-        <HealthCheckBanner />
+      <div>
+        <div className="mb-4">
+          <HealthCheckBanner />
+        </div>
+
+        <AdminPageTitle icon={<FileIcon size={26} />} title={t("File")} />
       </div>
-
-      <AdminPageTitle icon={<FileIcon size={32} />} title={t("File")} />
-
-      <Main />
+      <div>
+        <Main />
+      </div>      
     </div>
   );
 }

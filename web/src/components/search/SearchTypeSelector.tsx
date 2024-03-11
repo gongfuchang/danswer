@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import { SearchType } from "@/lib/search/interfaces";
 
 const defaultStyle =
@@ -12,6 +13,7 @@ export const SearchTypeSelector: React.FC<Props> = ({
   selectedSearchType,
   setSelectedSearchType,
 }) => {
+  const t = useTranslations("components_search_SearchTypeSelector");
   return (
     <div className="flex text-xs">
       <div
@@ -23,7 +25,7 @@ export const SearchTypeSelector: React.FC<Props> = ({
         }
         onClick={() => setSelectedSearchType(SearchType.SEMANTIC)}
       >
-        AI Search
+        AI {t("Search")}
       </div>
 
       <div
@@ -36,7 +38,7 @@ export const SearchTypeSelector: React.FC<Props> = ({
         }
         onClick={() => setSelectedSearchType(SearchType.KEYWORD)}
       >
-        Keyword Search
+        {t("Keyword_Search")}
       </div>
     </div>
   );

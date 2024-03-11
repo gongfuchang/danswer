@@ -48,20 +48,18 @@ export default async function Page() {
   const defaultLLM = (await defaultLLMResponse.json()) as string;
 
   return (
-    <div>
-      <BackButton />
+    <div className="mx-auto container">
       <AdminPageTitle
         title={t("Create_New_Persona")}
-        icon={<RobotIcon size={32} />}
+        icon={<RobotIcon size={26} />}
       />
-
-      <Card>
-        <PersonaEditor
-          documentSets={documentSets}
-          llmOverrideOptions={llmOverrideOptions}
-          defaultLLM={defaultLLM}
-        />
-      </Card>
+      <div>
+          <PersonaEditor
+            documentSets={documentSets}
+            llmOverrideOptions={llmOverrideOptions}
+            defaultLLM={defaultLLM}
+          />
+      </div>
     </div>
   );
 }

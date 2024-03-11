@@ -26,40 +26,43 @@ export default async function Page() {
 
   return (
     <div className="mx-auto container">
-      <AdminPageTitle icon={<RobotIcon size={32} />} title={t("Personas_Title")} />
-
-      <Text className="mb-2">
-        {t("Personas_Description")}
-      </Text>
-      <Text className="mt-2">{t("Customize_Description")}</Text>
-      <div className="text-sm">
-        <ul className="list-disc mt-2 ml-4">
-          <li>
-            {t("Prompt_Description")}
-          </li>
-          <li>{t("Context_Description")}</li>
-        </ul>
-      </div>
-
+      <AdminPageTitle icon={<RobotIcon size={26} />} title={t("Personas_Title")} />
       <div>
-        <Divider />
+        <Text className="mb-2">
+          {t("Personas_Description")}
+        </Text>
+        <Text className="mt-2">{t("Customize_Description")}</Text>
+        <div className="text-sm">
+          <ul className="list-disc mt-2 ml-4">
+            <li>
+              {t("Prompt_Description")}
+            </li>
+            <li>{t("Context_Description")}</li>
+          </ul>
+        </div>
 
-        <Title>{t("Create_Persona")}</Title>
-        <Link
-          href="/admin/personas/new"
-          className="flex py-2 px-4 mt-2 border border-border h-fit cursor-pointer hover:bg-hover text-sm w-36"
-        >
-          <div className="mx-auto flex">
-            <FiPlusSquare className="my-auto mr-2" />
-            {t("New_Persona")}
-          </div>
-        </Link>
+        <div>
+          <Divider />
 
-        <Divider />
+          <Title>{t("Create_Persona")}</Title>
+          <Link
+            href="/admin/personas/new"
+            className="flex py-2 px-4 mt-2 border border-border h-fit cursor-pointer hover:bg-hover text-sm w-36"
+          >
+            <div className="mx-auto flex">
+              <FiPlusSquare className="my-auto mr-2" />
+              {t("New_Persona")}
+            </div>
+          </Link>
 
-        <Title>{t("Existing_Personas")}</Title>
-        <PersonasTable personas={personas} />
+          <Divider />
+
+          <Title>{t("Existing_Personas")}</Title>
+          <PersonasTable personas={personas} />
+        </div>
       </div>
-    </div>
+
+      </div>
+      
   );
 }

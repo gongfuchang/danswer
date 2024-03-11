@@ -1,5 +1,6 @@
 "use client";
 
+import {useTranslations} from "next-intl";
 import { ValidStatuses } from "@/lib/types";
 import { Badge } from "@tremor/react";
 import {
@@ -19,12 +20,13 @@ export function IndexAttemptStatus({
   errorMsg?: string | null;
   size?: "xs" | "sm" | "md" | "lg";
 }) {
+  const t = useTranslations("components_Status");
   let badge;
 
   if (status === "failed") {
     const icon = (
       <Badge size={size} color="red" icon={FiAlertTriangle}>
-        Failed
+        {t("Failed")}
       </Badge>
     );
     if (errorMsg) {
@@ -44,19 +46,19 @@ export function IndexAttemptStatus({
   } else if (status === "success") {
     badge = (
       <Badge size={size} color="green" icon={FiCheckCircle}>
-        Succeeded
+        {t("Succeeded")}
       </Badge>
     );
   } else if (status === "in_progress") {
     badge = (
       <Badge size={size} color="amber" icon={FiClock}>
-        In Progress
+        {t("In_Progress")}
       </Badge>
     );
   } else if (status === "not_started") {
     badge = (
       <Badge size={size} color="fuchsia" icon={FiClock}>
-        Scheduled
+        {t("Scheduled")}
       </Badge>
     );
   }
@@ -75,30 +77,31 @@ export function CCPairStatus({
   isDeleting: boolean;
   size?: "xs" | "sm" | "md" | "lg";
 }) {
+  const t = useTranslations("components_Status");
   let badge;
 
   if (isDeleting) {
     badge = (
       <Badge size={size} color="red" icon={FiAlertTriangle}>
-        Deleting
+        {t("Deleting")}
       </Badge>
     );
   } else if (disabled) {
     badge = (
       <Badge size={size} color="yellow" icon={FiPauseCircle}>
-        Paused
+        {t("Paused")}
       </Badge>
     );
   } else if (status === "failed") {
     badge = (
       <Badge size={size} color="red" icon={FiAlertTriangle}>
-        Error
+        {t("Error")}
       </Badge>
     );
   } else {
     badge = (
       <Badge size={size} color="green" icon={FiCheckCircle}>
-        Active
+        {t("Active")}
       </Badge>
     );
   }

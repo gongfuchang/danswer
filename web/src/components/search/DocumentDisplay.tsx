@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import { DanswerDocument } from "@/lib/search/interfaces";
 import { DocumentFeedbackBlock } from "./DocumentFeedbackBlock";
 import { useState } from "react";
@@ -157,6 +158,7 @@ export const DocumentDisplay = ({
   isSelected,
   setPopup,
 }: DocumentDisplayProps) => {
+  const t = useTranslations("components_search_DocumentDisplay");
   const [isHovered, setIsHovered] = useState(false);
 
   // Consider reintroducing null scored docs in the future
@@ -191,7 +193,7 @@ export const DocumentDisplay = ({
                         <div className="w-3 h-3 flex flex-col my-auto mr-1">
                           <FiInfo className="my-auto" />
                         </div>
-                        <div className="my-auto">The AI liked this doc!</div>
+                        <div className="my-auto">{t("AI_Like_Doc_Message")}</div>
                       </div>
                     </div>
                   }

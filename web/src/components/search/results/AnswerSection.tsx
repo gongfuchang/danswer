@@ -1,3 +1,4 @@
+import {useTranslations} from "next-intl";
 import { Quote } from "@/lib/search/interfaces";
 import { ResponseSection, StatusOptions } from "./ResponseSection";
 import ReactMarkdown from "react-markdown";
@@ -30,14 +31,15 @@ interface AnswerSectionProps {
 }
 
 export const AnswerSection = (props: AnswerSectionProps) => {
+  const t = useTranslations("components_search_results_AnswerSection");
   let status = "in-progress" as StatusOptions;
-  let header = <>Building answer...</>;
+  let header = <>{t("Building_Answer")}</>;
   let body = null;
 
   // finished answer
   if (props.quotes !== null || !props.isFetching) {
     status = "success";
-    header = <>AI answer</>;
+    header = <>{t("AI_Answer")}</>;
     if (props.answer) {
       body = (
         <ReactMarkdown className="prose text-sm max-w-full">
@@ -45,13 +47,13 @@ export const AnswerSection = (props: AnswerSectionProps) => {
         </ReactMarkdown>
       );
     } else {
-      body = <div>Information not found</div>;
+      body = <div>{t("Information_Not_Found")}</div>;
     }
     // error while building answer (NOTE: if error occurs during quote generation
     // the above if statement will hit and the error will not be displayed)
   } else if (props.error) {
     status = "failed";
-    header = <>Error while building answer</>;
+    header = <>{t("Error_Building_Answer")}</>;
     body = (
       <div className="flex">
         <div className="text-error my-auto ml-1">{props.error}</div>
@@ -60,7 +62,7 @@ export const AnswerSection = (props: AnswerSectionProps) => {
     // answer is streaming
   } else if (props.answer) {
     status = "success";
-    header = <>AI answer</>;
+    header = <>{t("AI_Answer")}</>;
     body = (
       <ReactMarkdown className="prose text-sm max-w-full">
         {replaceNewlines(props.answer)}
@@ -69,7 +71,7 @@ export const AnswerSection = (props: AnswerSectionProps) => {
   }
   if (props.nonAnswerableReason) {
     status = "warning";
-    header = <>Building best effort AI answer...</>;
+    header = <>{t("Building_Best_Effort_AI_Answer")}</>;
   }
 
   return (
@@ -85,8 +87,7 @@ export const AnswerSection = (props: AnswerSectionProps) => {
           {body}
           {props.nonAnswerableReason && !props.isFetching && (
             <div className="mt-4 text-sm">
-              <b className="font-medium">Warning:</b> the AI did not think this
-              question was answerable.{" "}
+              <b className="font-medium">{t("Warning")}:</b> {t("AI_Not_Answerable_Message")}{" "}
               <div className="italic mt-1 ml-2">
                 {props.nonAnswerableReason}
               </div>
@@ -98,4 +99,4 @@ export const AnswerSection = (props: AnswerSectionProps) => {
       isNotControllable={true}
     />
   );
-};
+}

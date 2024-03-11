@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { ConnectorIndexingStatus, Credential } from "@/lib/types";
 import { BasicTable } from "@/components/admin/connectors/BasicTable";
 import { PopupSpec, usePopup } from "@/components/admin/connectors/Popup";
@@ -31,6 +32,7 @@ export function StatusRow<ConnectorConfigType, ConnectorCredentialType>({
   setPopup,
   onUpdate,
 }: StatusRowProps<ConnectorConfigType, ConnectorCredentialType>) {
+  const t = useTranslations("components_admin_connectors_table_ConnectorsTable");
   const [statusHovered, setStatusHovered] = useState<boolean>(false);
   const connector = connectorIndexingStatus.connector;
 
@@ -38,17 +40,17 @@ export function StatusRow<ConnectorConfigType, ConnectorCredentialType>({
   let statusDisplay;
   switch (connectorIndexingStatus.last_status) {
     case "failed":
-      statusDisplay = <div className="text-error">Failed</div>;
+      statusDisplay = <div className="text-error">{t("Failed")}</div>;
       break;
     default:
-      statusDisplay = <div className="text-success flex">Enabled!</div>;
+      statusDisplay = <div className="text-success flex">{t("Enabled")}</div>;
   }
   if (connector.disabled) {
     const deletionAttempt = connectorIndexingStatus.deletion_attempt;
     if (!deletionAttempt || deletionAttempt.status === "FAILURE") {
-      statusDisplay = <div className="text-error">Paused</div>;
+      statusDisplay = <div className="text-error">{t("Paused")}</div>;
     } else {
-      statusDisplay = <div className="text-error">Deleting...</div>;
+      statusDisplay = <div className="text-error">{t("Deleting")}</div>;
       shouldDisplayDisabledToggle = false;
     }
   }
@@ -65,7 +67,7 @@ export function StatusRow<ConnectorConfigType, ConnectorCredentialType>({
         >
           {statusHovered && (
             <div className="flex flex-nowrap absolute top-0 left-0 ml-8 bg-background border border-border px-3 py-2 rounded shadow-lg">
-              {connector.disabled ? "Enable!" : "Pause!"}
+              {connector.disabled ? t("Enable") : t("Pause")}
             </div>
           )}
           {connector.disabled ? (
@@ -129,27 +131,28 @@ export function ConnectorsTable<ConnectorConfigType, ConnectorCredentialType>({
   onCredentialLink,
   includeName = false,
 }: ConnectorsTableProps<ConnectorConfigType, ConnectorCredentialType>) {
+  const t = useTranslations("components_admin_connectors_table_ConnectorsTable");
   const { popup, setPopup } = usePopup();
 
   const connectorIncludesCredential =
     getCredential !== undefined && onCredentialLink !== undefined;
 
   const columns = [
-    ...(includeName ? [{ header: "Name", key: "name" }] : []),
+    ...(includeName ? [{ header: t("Name"), key: "name" }] : []),
     ...(specialColumns ?? []),
     {
-      header: "Status",
+      header: t("Status"),
       key: "status",
     },
   ];
   if (connectorIncludesCredential) {
     columns.push({
-      header: "Credential",
+      header: t("Credential"),
       key: "credential",
     });
   }
   columns.push({
-    header: "Remove",
+    header: t("Remove"),
     key: "remove",
   });
 
@@ -160,15 +163,15 @@ export function ConnectorsTable<ConnectorConfigType, ConnectorCredentialType>({
       <Table className="overflow-visible">
         <TableHead>
           <TableRow>
-            {includeName && <TableHeaderCell>Name</TableHeaderCell>}
+            {includeName && <TableHeaderCell>{t("Name")}</TableHeaderCell>}
             {specialColumns?.map(({ header }) => (
               <TableHeaderCell key={header}>{header}</TableHeaderCell>
             ))}
-            <TableHeaderCell>Status</TableHeaderCell>
+            <TableHeaderCell>{t("Status")}</TableHeaderCell>
             {connectorIncludesCredential && (
-              <TableHeaderCell>Credential</TableHeaderCell>
+              <TableHeaderCell>{t("Credential")}</TableHeaderCell>
             )}
-            <TableHeaderCell>Remove</TableHeaderCell>
+            <TableHeaderCell>{t("Remove")}</TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>

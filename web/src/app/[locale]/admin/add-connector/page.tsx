@@ -8,6 +8,7 @@ import { Title, Text } from "@tremor/react";
 import Link from "next/link";
 
 function SourceTile({ sourceMetadata }: { sourceMetadata: SourceMetadata }) {
+  const t = useTranslations("admin_addconnector_page");
   return (
     <Link
       className={`flex 
@@ -26,7 +27,7 @@ function SourceTile({ sourceMetadata }: { sourceMetadata: SourceMetadata }) {
     >
       <SourceIcon sourceType={sourceMetadata.internalName} iconSize={24} />
       <Text className="font-medium text-sm mt-2">
-        {sourceMetadata.displayName}
+        {t(sourceMetadata.displayName)}
       </Text>
     </Link>
   );
@@ -36,51 +37,57 @@ export default function Page() {
   const t = useTranslations("admin_addconnector_page");
   const sources = listSourceMetadata();
 
+  // TODO define available sources
+  const importNames = ["File", "Web"];
+  const appNames = ["Slack"];
+
   const importedKnowledgeSources = sources.filter(
-    (source) => source.category === SourceCategory.ImportedKnowledge
+    (source) => source.category === SourceCategory.ImportedKnowledge && importNames.includes(source.displayName)
   );
   const appConnectionSources = sources.filter(
-    (source) => source.category === SourceCategory.AppConnection
+    (source) => source.category === SourceCategory.AppConnection && appNames.includes(source.displayName)
   );
 
   return (
     <div className="mx-auto container">
       <AdminPageTitle
-        icon={<ConnectorIcon size={32} />}
+        icon={<ConnectorIcon size={26} />}
         title={t("Add_Connector")}
       />
+      <div>
+        <Text>
+          {t("Connector_Tips")}
+        </Text>
 
-      <Text>
-        {t("Connector_Tips")}
-      </Text>
+        <div className="flex mt-8">
+          <Title>{t("Import_Knowledge_Title")}</Title>
+        </div>
+        <Text>
+          {t("Connect_Knowledge_Outside_Apps")}
+        </Text>
+        <div className="flex flex-wrap gap-4 p-4">
+          {importedKnowledgeSources.map((source) => {
+            return (
+              <SourceTile key={source.internalName} sourceMetadata={source} />
+            );
+          })}
+        </div>
 
-      <div className="flex mt-8">
-        <Title>{t("Import_Knowledge_Title")}</Title>
-      </div>
-      <Text>
-        {t("Connect_Knowledge_Outside_Apps")}
-      </Text>
-      <div className="flex flex-wrap gap-4 p-4">
-        {importedKnowledgeSources.map((source) => {
-          return (
-            <SourceTile key={source.internalName} sourceMetadata={source} />
-          );
-        })}
+        <div className="flex mt-8">
+          <Title>{t("Setup_Auto_Syncing_Title")}</Title>
+        </div>
+        <Text>
+          {t("Setup_Auto_Syncing_Description")}
+        </Text>
+        <div className="flex flex-wrap gap-4 p-4">
+          {appConnectionSources.map((source) => {
+            return (
+              <SourceTile key={source.internalName} sourceMetadata={source} />
+            );
+          })}
+        </div>
       </div>
 
-      <div className="flex mt-8">
-        <Title>{t("Setup_Auto_Syncing_Title")}</Title>
-      </div>
-      <Text>
-        {t("Setup_Auto_Syncing_Description")}
-      </Text>
-      <div className="flex flex-wrap gap-4 p-4">
-        {appConnectionSources.map((source) => {
-          return (
-            <SourceTile key={source.internalName} sourceMetadata={source} />
-          );
-        })}
-      </div>
     </div>
   );
 }

@@ -1,8 +1,5 @@
-interface Props {
-  onClick: () => void;
-}
-
 export const IndexButtonForTable = ({ onClick }: Props) => {
+  const t = useTranslations("components_admin_connectors_buttons_IndexButtonForTable");
   return (
     <button
       className={
@@ -14,7 +11,7 @@ export const IndexButtonForTable = ({ onClick }: Props) => {
       }
       onClick={onClick}
     >
-      Index
+      {t("Index_Button")}
     </button>
   );
 };

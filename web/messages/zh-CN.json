@@ -1,77 +1,80 @@
 {
     "layout": {
-        "title": "Danswer"
+        "title": " Quick-Mind"
     },
     "admin_addconnector_page": {
+        "Web": "网页",
+        "File": "文件",
+        "Slack": "Slack",
         "Add_Connector": "添加连接器",
-        "Connector_Tips": "将 Danswer 连接到您组织的知识来源。我们将自动将您的数据同步到 Danswer，这样您就可以在一个地方找到您要找的内容。",
-        "Import_Knowledge_Title": "导入知识",
-        "Connect_Knowledge_Outside_Apps": "连接到存储在您应用程序之外的知识片段。上传文件，抓取网站，或连接到您组织的 Google 站点。",
-        "Setup_Auto_Syncing_Title": "设置应用的自动同步",
-        "Setup_Auto_Syncing_Description": "设置从您组织中最常用的应用程序和服务进行自动同步。除非在连接器设置过程中另有说明，否则我们将每 10 分钟从源头拉取最新更新。"
+        "Connector_Tips": "将 Quick-Mind 连接到您的对话库来源。我们将自动将您的数据同步到 Quick-Mind 。",
+        "Import_Knowledge_Title": "从来源中导入",
+        "Connect_Knowledge_Outside_Apps": "上传文件，抓取网站，或连接到某个网站。",
+        "Setup_Auto_Syncing_Title": "自动同步应用",
+        "Setup_Auto_Syncing_Description": "从应用程序和服务进行自动同步。某人每 10 分钟从源头拉取更新，您也可以为每个应用设置更新频率。"
     },
     "admin_bot_page": {
         "Channels_Title": "频道",
         "Persona_Title": "角色",
-        "Document_Sets_Title": "文档集",
+        "Document_Sets_Title": "文档库",
         "Delete_Title": "删除",
         "Delete_Success_Message": "Slack 机器人配置 {slack_id} 已删除",
         "Delete_Failed_Message_Prefix": "无法删除 Slack 机器人配置 - {errorMsg}",
-        "Setup_Slack_Bot": "设置一个连接到 Danswer 的 Slack 机器人。设置完成后，您将能够直接从 Slack 向 Danswer 提问。此外，您还可以：",
-        "Setup_DanswerBot_Auto_Answer": "设置 DanswerBot 在特定频道自动回答问题。",
-        "Choose_Document_Sets": "选择 DanswerBot 应该从中回答问题的文档集，具体取决于提问的频道。",
-        "Directly_DanswerBot": "直接向 DanswerBot 发送消息，就像您在 WebUI 中一样搜索。",
+        "Setup_Slack_Bot": "设置一个连接到 Quick-Mind 的 Slack 机器人。设置完成后，您将能够直接从 Slack 向 Quick-Mind 提问。此外，您还可以：",
+        "Setup_Quick Mind Bot_Auto_Answer": "设置 Quick-Mind Bot 在特定频道自动回答问题。",
+        "Choose_Document_Sets": "选择 Quick-Mind Bot 应该从中回答问题的文档库，具体取决于提问的频道。",
+        "Directly_Quick Mind Bot": "直接向 Quick-Mind Bot 发送消息，就像您在 WebUI 中一样搜索。",
         "Follow_Guide_Prefix": "请按照",
         "Follow_Guide_Suffix": "指南",
-        "Get_Started": "开始使用 Danswer 文档中找到的步骤！",
+        "Get_Started": "开始使用 Quick-Mind 文档中找到的步骤！",
         "Step_1_Configure_Slack_Tokens": "步骤 1：配置 Slack 令牌",
         "Tokens_saved": "令牌已保存！",
         "Hide": "隐藏",
         "Edit_Tokens": "编辑令牌",
-        "Setup_DanswerBot_Title": "步骤 2：设置 DanswerBot",
-        "Setup_DanswerBot_Description": "配置 Danswer 以在 Slack 频道中自动回答问题。默认情况下，除非显式标记，否则 Danswer 仅在设置了配置的频道中响应。",
+        "Setup_Quick Mind Bot_Title": "步骤 2：设置 Quick-Mind Bot",
+        "Setup_Quick Mind Bot_Description": "配置 Quick-Mind 以在 Slack 频道中自动回答问题。默认情况下，除非显式标记，否则 Quick-Mind 仅在设置了配置的频道中响应。",
         "New_Slack_Bot_Configuration": "新 Slack 机器人配置",
         "Slack_Bot_Configuration_Title": "Slack 机器人配置"
     },
     "admin_bot_SlackBotConfigCreationForm": {
-        "Response_Updating_Error": "更新 DanswerBot 配置时出错 - {errorMsg}",
-        "Response_Creating_Error": "创建 DanswerBot 配置时出错 - {errorMsg}",
+        "Response_Updating_Error": "更新 Quick-Mind Bot 配置时出错 - {errorMsg}",
+        "Response_Creating_Error": "创建 Quick-Mind Bot 配置时出错 - {errorMsg}",
         "The_Basics_Header": "基本设置",
         "Channel_Names": "频道 (Channel) 名称",
-        "Tips_Slack_Channel": "您希望应用此配置的 Slack 频道名称。例如，'#ask-danswer'。",
-        "Note_Add_DanswerBot_to_Channel": "<i>注意</i>：您仍需在 Slack 中将 DanswerBot 添加到频道中。设置此配置不会自动将机器人添加到频道。",
+        "Tips_Slack_Channel": "您希望应用此配置的 Slack 频道名称。例如，'#ask-Quick-Mind'。",
+        "Note_Add_Quick Mind Bot_to_Channel": "<i>注意</i>：您仍需在 Slack 中将 Quick-Mind Bot 添加到频道中。设置此配置不会自动将机器人添加到频道。",
         "Response_Format_Label": "响应格式",
-        "Citations_Tips": "如果设置为引用，DanswerBot 将以内联引用的直接答案回复。它还会在答案下方提供这些引用文档的链接。如果有疑问，请选择此选项。",
-        "Quotes_Tips": "如果设置为引用，DanswerBot 将以直接答案以及从上下文文档中提取的引用来支持答案回复。DanswerBot 还将提供相关文档的列表。如果您希望获得非常详细的回复和/或相关文档列表可能会有用，可以选择此选项，以防 LLM 漏掉任何内容。",
-        "When_Respond_DanswerBot": "DanswerBot 何时作答？",
+        "Citations_Tips": "如果设置为引用，Quick MindBot 将以内联引用的直接答案回复。它还会在答案下方提供这些引用文档的链接。如果有疑问，请选择此选项。",
+        "Quotes_Tips": "如果设置为引用，Quick Mind Bot 将以直接答案以及从上下文文档中提取的引用来支持答案回复。Quick Mind Bot 还将提供相关文档的列表。如果您希望获得非常详细的回复和/或相关文档列表可能会有用，可以选择此选项，以防 LLM 漏掉任何内容。",
+        "When_Respond_Quick Mind Bot": "Quick-Mind Bot 何时作答？",
         "Hide_Non_Answers": "隐藏非答案",
         "Answer_Validity_Check_Subtext": "如果设置，将仅回答模型认为可以回答的问题",
         "Only_Respond_Questions": "仅回答问题",
         "Questionmark_Prefilter_Subtext": "如果设置，将仅回复包含问号的消息",
-        "Respond_DanswerBot_Only": "仅回复 @DanswerBot",
-        "Respond_Tag_Only_Subtext": "如果设置，DanswerBot 仅在直接标记时回复",
+        "Respond_Quick Mind Bot_Only": "仅回复 @Quick-Mind Bot",
+        "Respond_Tag_Only_Subtext": "如果设置，Quick Mind Bot 仅在直接标记时回复",
         "Respond_To_Bots": "回复机器人消息",
-        "Respond_To_Bots_Subtext": "如果未设置，DanswerBot 将始终忽略来自机器人的消息",
+        "Respond_To_Bots_Subtext": "如果未设置，Quick Mind Bot 将始终忽略来自机器人的消息",
         "Team_Members_Emails": "团队成员邮箱",
-        "Team_Members_Emails_Subtext": "如果指定，DanswerBot 的回复将仅对此列表中的成员可见。如果您希望 DanswerBot 以“助手”模式运行，在这种模式下，它可帮助团队成员找到答案，但也让他们在 DanswerBot 的回复基础上进行补充/偶尔丢弃不正确的答案，这将非常有用。",
+        "Team_Members_Emails_Subtext": "如果指定，Quick Mind Bot 的回复将仅对此列表中的成员可见。如果您希望 Quick-Mind Bot 以“助手”模式运行，在这种模式下，它可帮助团队成员找到答案，但也让他们在 Quick-Mind Bot 的回复基础上进行补充/偶尔丢弃不正确的答案，这将非常有用。",
         "Post_Response_Behavior": "回复后行为",
-        "Should_Danswer_Still_Need_Help_Button": "Danswer 是否应提供“仍然需要帮助？”按钮？",
-        "Still_Need_Help_Button_Subtext": "如果指定，DanswerBot 的回复将在底部包含一个按钮，询问用户是否仍然需要帮助。",
+        "Should_Danswer_Still_Need_Help_Button": "Quick-Mind 是否应提供“仍然需要帮助？”按钮？",
+        "Still_Need_Help_Button_Subtext": "如果指定，Quick Mind Bot 的回复将在底部包含一个按钮，询问用户是否仍然需要帮助。",
         "Users_to_Tag": "要标记的用户",
         "Slack_Users_Tag_Description": "我们应该标记的 Slack 用户的完整电子邮件地址，如果用户点击“仍然需要帮助？”按钮。例如，'mark@acme.com'。",
-        "Provide_User_Group_Description": "或提供一个用户组，可以是名称或句柄。例如，'Danswer Team' 或 'danswer-team'。",
+        "Provide_User_Group_Description": "或提供一个用户组，可以是名称或句柄。例如，'Quick-Mind Team' 或 'Quick-Mind-team'。",
         "No_Email_Tagging_Description": "如果未提供电子邮件，则我们将不会标记任何人，而只会对原始消息做出 🆘 表情反应。",
         "Data_Sources_Prompts_Header": "[可选] 数据来源和提示",
-        "Use_Persona_Document_Sets": "使用 Persona <b>或</b> 文档集来控制 DanswerBot 的回答方式。",
+        "Use_Persona_Document_Sets": "使用 Persona <b>或</b> 文档库来控制 Quick-Mind Bot 的回答方式。",
         "Use_Persona_Customize_Prompt": "如果您还想自定义提示和检索设置，应使用 Persona。",
-        "Use_Document_Sets_Control_Documents": "如果只想控制 DanswerBot 使用哪些文档作为参考，应使用文档集。",
+        "Use_Document_Sets_Control_Documents": "如果只想控制 Quick-Mind Bot 使用哪些文档作为参考，应使用文档库。",
         "Note_Submit_Form_Tab": "<b>注意：</b>您在提交表单时所在的选项卡将被使用。例如，如果您在“Personas”选项卡上，则将使用 Persona，即使您已选择了 Document Sets。",
-        "Document_Sets": "文档集",
+        "Document_Sets": "文档库",
         "Personas": "Personas",
-        "Document_Sets_Description": "DanswerBot 应搜索的文档集。如果留空，DanswerBot 将搜索所有文档。",
+        "Document_Sets_Description": "Quick-Mind Bot 应搜索的文档库。如果留空，Quick Mind Bot 将搜索所有文档。",
         "Persona_Subtext": "用于回复查询的角色。默认角色充当问答助手，并可以访问非私有连接器索引的所有文档。",
-        "Update_Button": "更新'",
-        "Create_Button": "创建'"
+        "Update_Button": "更新 ",
+        "Create_Button": "创建"
     },
     "admin_bot_SlackBotTokensForm": {
         "Success_Setting_Slack_Tokens": "成功设置Slack令牌！",
@@ -85,19 +88,19 @@
         "Error_Title": "出错了 :(",
         "Failed_Fetch_Bots": "获取 Slack 机器人失败 - {errorMsg}",
         "Did_Not_Find_ID": "未找到 ID 为 {id} 的 Slack 机器人配置",
-        "Failed_Fetch_Docs": "获取文档集失败 - {sets}",
+        "Failed_Fetch_Docs": "获取文档库失败 - {sets}",
         "Failed_Fetch_Personas": "获取角色失败 - {personas}",
         "New_Slack_Bot_Config": "编辑 Slack 机器人配置",
-        "Define_Configuration_Below": "在下面定义新配置！此配置将确定 DanswerBot 在指定频道中的行为。"
+        "Define_Configuration_Below": "在下面定义新配置！此配置将确定 Quick-Mind Bot 在指定频道中的行为。"
     },
     "admin_bot_id_page": {
         "Error_Title": "出错啦 :(",
         "Failed_Fetch_Bots": "获取 Slack 机器人失败 - {errorMsg}",
         "Did_Not_Find_ID": "未找到 ID 为 {id} 的 Slack 机器人配置",
-        "Failed_Fetch_Docs": "获取文档集失败 - {sets}",
+        "Failed_Fetch_Docs": "获取文档库失败 - {sets}",
         "Failed_Fetch_Personas": "获取角色失败 - {personas}",
         "Edit_Slack_Bot_Config": "编辑 Slack 机器人配置",
-        "Edit_Config_Text": "在下方编辑现有配置！此配置将确定 DanswerBot 在指定频道中的行为。"
+        "Edit_Config_Text": "在下方编辑现有配置！此配置将确定 Quick-Mind Bot 在指定频道中的行为。"
     },
     "admin_connector_ccPairId_ConfigurationDisplay": {
         "Configuration_Title": "配置"
@@ -125,7 +128,7 @@
         "Click_Start_Indexing_Again": "点击重新开始索引!",
         "Re-Enable_Button": "重新启用",
         "Paused_Connector_Tooltip": "暂停时，连接器文档仍将可见。但不会索引新文档。",
-        "Pause_Button": "暂停"
+        "Pause_Button": "暂停同步"
     },
     "admin_connector_ccPairId_page": {
         "Failed_Fetch_Connector_Info": "获取 ID 为 {ccPairId} 的连接器信息失败",
@@ -142,15 +145,15 @@
         "Button_Run_Complete_Reindexing": "重新索引所有文档",
         "Reindex_All_Documents": "这将导致对源中的所有文档进行完整重新索引。",
         "Note": "<b>注意：</b> 根据源中存储的文档数量，这可能需要很长时间。",
-        "Connector_Musts_Indexing": "连接器必须处于活动状态才能执行索引",
-        "Run_Indexing": "执行索引"
+        "Connector_Musts_Indexing": "连接器必须处于已启用状态才能执行索引",
+        "Run_Indexing": "手动执行索引"
     },
     "admin_connectors_file_page": {
         "File": "文件",         
         "Loading": "加载中",
-        "Specify_Files": "在下方指定文件，点击 <b>上传</b> 按钮，这些文件的内容将可以通过Danswer进行搜索！目前仅支持 <i>.txt</i>、<i>.pdf</i> 和 <i>.zip</i> 文件（仅包含 <i>.txt</i> 文件的 .zip 文件）。",
+        "Specify_Files": "在下方指定文件，点击 <b>上传</b> 按钮，这些文件的内容将可以通过 Quick Mind 进行搜索！目前仅支持 <i>.txt</i>、<i>.pdf</i> 和 <i>.zip</i> 文件（仅包含 <i>.txt</i> 文件的 .zip 文件）。",
         "Note_P1": "<b>注意：</b>如果原始文档可以通过链接访问，您可以在文件开头添加以下内容：",
-        "Note_P2": "其中 <i>\"LINK\"</i> 是文件的链接。这将使 Danswer 在用户点击搜索结果时将用户链接到原始文档。更多详细信息，请参阅",
+        "Note_P2": "其中 <i>\"LINK\"</i> 是文件的链接。这将使 Quick-Mind 在用户点击搜索结果时将用户链接到原始文档。更多详细信息，请参阅",
         "Note_P3": "文档。",
         "Descriptive_Name_Required": "请为文件输入一个描述性名称",
         "Unable_Upload_Files": "无法上传文件 - {detail}",
@@ -172,14 +175,16 @@
         "Loading": "加载中",
         "Web_Title": "网页",
         "Step_1_Specify_Websites": "步骤 1：指定要索引的网站",
-        "Fetch_Website_State_Daily": "我们每天重新获取网站的最新状态。",
-        "URL_Index": "要索引的 URL",
+        "Fetch_Website_State_Daily": "每天重新访问网站，以保证其同步在最新状态",
+        "URL_Index": "要抓取的网站 （基础 URL）",
         "Scrape_Method": "抓取方法：",
         "Recursive": "递归",
-        "Recursive_Description": "递归索引所有共享相同基础 URL 的页面。",
-        "Single_Page_Description": "仅索引指定页面。",
-        "Sitemap_Description": "假定要索引的 URL 指向一个站点地图。将尝试索引站点地图中提到的所有页面。",
-        "Please_Enter_Website_URL": "请输入要抓取的网站 URL，例如 https://docs.danswer.dev/",
+        "Recursive_Description": "递归索引所有共享相同基础 URL 的页面",
+        "Single_Page": "单页面",
+        "Single_Page_Description": "仅索引指定页面",
+        "Sitemap": "站点地图",
+        "Sitemap_Description": "假定要索引的 URL 指向一个站点地图（sitemap）。将尝试索引站点地图中提到的所有页面",
+        "Please_Enter_Website_URL": "请输入要抓取的网站 URL，例如 https://docs.quick-mind.cn/",
         "Already_Indexed_Websites": "已索引的网站",
         "Error_Indexing_history": "加载索引历史时出错",
         "Base_URL": "基础 URL",
@@ -190,7 +195,7 @@
     },
     "admin_documents_ScoreEditor": {
         "Score_Must_Be_Number": "分数必须是数字",
-        "Updated_Score": "更新的分数'"
+        "Updated_Score": "更新的分数 "
     },
     "admin_documents_explorer_Explorer": {
         "Boost": "提升",
@@ -198,7 +203,7 @@
         "Hidden": "隐藏",
         "Visible": "可见",
         "Find_Documents_Placeholder": "根据标题/内容查找文档...",
-        "Search_Document_Modify": "在上方搜索要修改其提升或从搜索中隐藏的文档。"
+        "Search_Document_Modify": "对查找到的文档可修改其检寻权重，或在检寻中隐藏"
     },
     "admin_documents_explorer_page": {
         "Document_Explorer_Title": "文档浏览器"
@@ -222,24 +227,24 @@
         "Enter_Set_Name": "请输入一个集合名称",
         "Enter_Set_Desc": "请输入一个集合描述",
         "Select_One_Connector": "请至少选择一个连接器",
-        "Update_Success_Message": "文档集更新成功！",
-        "Create_Success_Message": "文档集创建成功！",
-        "Update_Document_Set": "更新文档集",
-        "Create_New_Document_Set": "创建新文档集",
+        "Update_Success_Message": "文档库更新成功！",
+        "Create_Success_Message": "文档库创建成功！",
+        "Update_Document_Set": "更新文档库",
+        "Create_New_Document_Set": "创建新文档库",
         "Name_Label": "名称：",
-        "Name_Placeholder": "文档集的名称",
+        "Name_Placeholder": "文档库的名称",
         "Description": "描述",
-        "Describe_Document_Set": "描述文档集代表的内容",
+        "Describe_Document_Set": "描述文档库代表的内容",
         "Pick_Connectors": "选择您的连接器：",
-        "Pick_Connectors_Description": "由选定连接器索引的所有文档将成为此文档集的一部分。",
-        "Update_Button": "更新'",
-        "Create_Button": "创建'",
-        "Update_Error_Prefix": "无法更新文档集",
-        "Create_Error_Prefix": "无法创建文档集"
+        "Pick_Connectors_Description": "由选定连接器索引的所有文档将成为此文档库的一部分。",
+        "Update_Button": "更新 ",
+        "Create_Button": "创建",
+        "Update_Error_Prefix": "无法更新文档库",
+        "Create_Error_Prefix": "无法创建文档库"
     },
     "admin_documents_sets_page": {
         "Cannot_Update_While_Syncing": "同步中无法更新！请等待同步完成，然后重试。",
-        "Existing_Document_Sets": "现有文档集",
+        "Existing_Document_Sets": "现有文档库",
         "Name": "名称",
         "Connectors": "连接器",
         "Status": "状态",
@@ -247,27 +252,28 @@
         "Up_to_Date": "最新",
         "Syncing": "同步中",
         "Deleting": "删除中",
-        "Document_Set_Deletion_Scheduled": "文档集 \"{documentSetName}\" 已计划删除",
-        "Failed_Delete_Schedule": "无法计划文档集删除 - {errorMsg}",
-        "Document_Sets_Description": "<b>文档集</b> 允许您将逻辑相关的文档组合成一个单一包。然后可以在 Web UI 中执行搜索时用作过滤器，或者附加到 Slack 机器人以限制机器人在特定频道或使用特定命令回答时搜索的信息量。",
-        "New_Document_Set": "新建文档集",
-        "Document_Sets": "文档集"
+        "Document_Set_Deletion_Scheduled": "文档库 \"{documentSetName}\" 已计划删除",
+        "Failed_Delete_Schedule": "无法计划文档库删除 - {errorMsg}",
+        "Document_Sets_Description": "<b>文档库</b> 允许您将逻辑相关的文档进行归类。这样在后面的搜索时可以用作过滤器。或者在智能助理对话时，用于上下文限定。",
+        "New_Document_Set": "新建文档库",
+        "Document_Sets": "文档库"
     },
     "admin_indexing_status_CCPairIndexingStatusTable": {
-        "Current_Run_Status": "<i>当前有：</i>   {count} 个文档已索引",
+        "Current_Run_Status": "<i>进度：</i>   {count} 个文档已索引",
         "Docs_Per_Minute": "文档 / 分钟",
         "Calculating_Rate": "正在计算速率...",
         "Connector": "连接器",
         "Status": "状态",
         "Last_Indexed": "上次索引",
-        "Docs_Indexed": "已索引文档"
+        "Docs_Indexed": "已索引文档",
+        "Speed": "速度"
     },
     "admin_indexing_status_page": {
         "Error_loading_indexing_history": "加载索引历史时出错。",
-        "No_connector_setup_message": "看起来您还没有设置任何连接器。访问该",
+        "No_connector_setup_message": "看起来您还没有创建任何连接器。访问",
         "Add_Connector": "添加连接器",
-        "Get_started_message": "页面开始使用'",
-        "Existing_Connectors": "已添加的连接器"
+        "Get_started_message": "页面进行添加 ",
+        "Existing_Connectors": "知识单元列表"
     },
     "admin_keys_openai_page": {
         "Loading": "加载中",
@@ -279,33 +285,33 @@
     },
     "admin_models_embedding_embeddingModels": {
         "Default_Model_Description": "大多数情况下推荐的默认选项。如果您不确定使用哪个模型，这可能是一个不错的选择。",
-        "Small_Model_Description": "默认模型的较小 / 更快版本。如果您在资源受限的系统上运行 Danswer，那么这是一个不错的选择。",
+        "Small_Model_Description": "默认模型的较小 / 更快版本。如果您在资源受限的系统上运行 Quick Mind，那么这是一个不错的选择。",
         "Multilingual_Model_Description": "如果您有许多英语以外的其他语言文档，那么这就是您要选择的模型。",
         "Multilingual_Small_Model_Description": "如果您有许多英语以外的其他语言文档，并且在资源受限的系统上运行，则这就是您要选择的模型。"
     },
     "admin_models_embedding_ModelSelectionConfirmation": {
         "Selected_Model_Text": "您已选择：<b>{model}</b>。您确定要更新到这个新的 Embedding 模型吗？",
-        "Reindex_Background_Message": "我们将在后台重新索引您的所有文档，因此您可以继续正常使用 Danswer，并暂时使用旧模型。根据您索引的文档数量，这可能需要一些时间。",
-        "Note": "<i>注意：</i>此重新索引过程将消耗比平常更多的资源。如果您是自托管的，请在此过程中为 Danswer 分配至少 16GB 的 RAM。",
+        "Reindex_Background_Message": "我们将在后台重新索引您的所有文档，因此您可以继续正常使用 Quick Mind，并暂时使用旧模型。根据您索引的文档数量，这可能需要一些时间。",
+        "Note": "<i>注意：</i>此重新索引过程将消耗比平常更多的资源。如果您是自托管的，请在此过程中为 Quick-Mind 分配至少 16GB 的 RAM。",
         "Confirm_Button": "确认",
         "Update_Model_Title": "更新 Embedding 模型"
     },
     "admin_models_embedding_ModelSelector": {
         "See_More_Details": "查看更多详情",
-        "Select_Model": "选择型号"
+        "Select_Model": "选择该模型"
     },
     "admin_models_embedding_page": {
         "Failed_Update_Model": "更新 Embedding 模型失败- {model}",
         "Failed_to_Fetch_Model_Status": "获取 Embedding 模型状态失败",
         "Success_Model_Selection": "成功选择 Embedding 模型",
         "Initial_Setup_Message": "完成初始设置，让我们添加一个连接器！",
-        "Connectors_Description": "连接器是 Danswer 从您组织的各种数据源获取数据的方式。设置完成后，我们将自动将应用程序和文档中的数据同步到 Danswer 中，这样您就可以在一个地方搜索所有内容。",
+        "Connectors_Description": "连接器是 Quick-Mind 从您组织的各种数据源获取数据的方式。设置完成后，我们将自动将应用程序和文档中的数据同步到 Quick-Mind 中，这样您就可以在一个地方搜索所有内容。",
         "Add_Connector": "添加连接器",
         "Cancel_Model_Switch": "取消 Embedding 模型切换",
         "Cancel_Confirmation_Message": "您确定要取消吗？",
         "Cancel_Progress_Message": "取消将恢复到先前的模型，并且所有进度将丢失。",
         "Confirm": "确认",
-        "Embedding_Models_Description": "Embedding 模型用于为您的文档生成 Embedding，从而为 Danswer 的搜索提供动力。",
+        "Embedding_Models_Description": "Embedding 模型用于为您的文档生成 Embedding，从而为 Quick-Mind 的搜索提供动力。",
         "Current_Embedding_Model": "当前 Embedding 模型",
         "Switch_Embedding_Model": "切换 Embedding 模型",
         "Update_Model_Choice": "如果当前模型不适合您，您可以在下面更新您的模型选择。请注意，这将需要对所有连接源中的所有文档进行完全重新索引。我们将在后台处理此过程，但根据您的语料库大小，可能需要数小时、数天，甚至数周。您可以在此页面上监视重新索引的进度。",
@@ -357,8 +363,8 @@
         "Final_Prompt": "组合后最终的提示",
         "Data_Access_Title": "数据访达",
         "Select_Which": "选择哪个",
-        "Document_Sets": "文档集",
-        "Persona_Search_Description": "此 Persona 应搜索的文档集。如果未指定任何文档集，Persona 将搜索所有可用文档以尝试回答查询。",
+        "Document_Sets": "文档库",
+        "Persona_Search_Description": "此 Persona 应搜索的文档库。如果未指定任何文档库，Persona 将搜索所有可用文档以尝试回答查询。",
         "Advanced_Model_Selection": "[高级] 模型选择",
         "Model_Selection_Description": "选择为此 Persona 使用的 LLM。如果保持为默认值，则将使用 <b>{defaultLLM}</b>。",
         "Model_Selection_More_Info_P1": "有关不同 LLM 的更多信息，请查看",
@@ -379,11 +385,11 @@
         "Starter_Message_Msg_Description": "如果用户选择此起始提示，则作为初始用户消息发送的实际消息。例如，“给客户写一封关于我们刚发布的新计费功能的电子邮件。”",
         "Final_Prompt_Error": "",
         "Add_New": "添加新内容",
-        "Update_Button": "更新'",
-        "Create_Button": "创建'"
+        "Update_Button": "更新 ",
+        "Create_Button": "创建"
     },
     "admin_personas_PersonaTable": {
-        "Persona_Display_Text": "人物将按照下方显示的顺序显示在聊天 / 搜索界面上。标记为隐藏的人物将不会显示。",
+        "Persona_Display_Text": "人物将按照下方显示的顺序显示在对话 / 搜索界面上。标记为隐藏的人物将不会显示。",
         "Name": "名称",
         "Description": "描述",
         "Built-In": "内置",
@@ -397,7 +403,7 @@
     },
     "admin_personas_new_page": {
         "Error_Title": "出了点问题 :(",
-        "Failed_Fetch_Docs": "获取文档集失败 - {errorMsg}",
+        "Failed_Fetch_Docs": "获取文档库失败 - {errorMsg}",
         "Failed_Fetch_LLM_Ovverride": "获取LLM覆盖选项失败 - {errorMsg}",
         "Failed_Fetch_Default_LLM": "获取默认LLM失败 - {errorMsg}",
         "Create_New_Persona": "创建新角色"
@@ -422,9 +428,15 @@
         "User": "用户",
         "Failed_Promote_User": "无法提升用户 - ${errorMsg}",
         "Promote_User": "用户已提升为管理员！",
-        "Promote_Admin_Button": "提升为管理员'",
+        "Promote_Admin_Button": "提升为管理员 ",
         "Manage_Users": "管理用户"
     },
+    "admin_search_page": {
+        "Search_Title": "搜索"
+    },    
+    "admin_chat_page": {
+        "Chat_Title": "对话"
+    },    
     "auth_error_page": {
         "Login_Error_Message": "无法登录，请重试和/或联系管理员"
     },
@@ -441,9 +453,9 @@
     },
     "auth_login_page": {
         "Fetch_Failed_Login_Page": "登录页面的某些获取失败",
-        "Log_In": "登录到Danswer",
+        "Log_In": "登录到 Quick-Mind",
         "No_Account": "还没有账号？",
-        "Create_Account": "创建一个账号"
+        "Create_Account": "创建一个"
     },
     "auth_login_SignInButton": {
         "Continue_with_Google": "使用 Google 继续",
@@ -451,7 +463,7 @@
         "Continue_with_SAML_SSO": "使用 SAML SSO 继续"
     },
     "auth_signup_page": {
-        "Sign_Up_Title": "注册 Danswer",
+        "Sign_Up_Title": "注册 Quick-Mind",
         "Already_Have_Account": "已经有账户了吗？ ",
         "Log_In": "登录"
     },
@@ -478,13 +490,14 @@
         "Cannot_Edit_Query_First_Msg": "无法编辑第一条消息的查询 - 请刷新页面后重试。",
         "Cannot_Edit_Query_Pedding_Msg": "无法编辑待处理消息的查询 - 请稍等几秒后重试。",
         "Failed_Force_Search": "强制搜索失败 - 请刷新页面后重试。",
-        "Ask_Me": "问我任何事...",
+        "Ask_Me": "输入任何问题...",
         "Warning_Message": "警告消息"
     },
     "chat_ChatIntro": {
         "Say_Hello_First_Msg": "所有可用助手",
-        "Knowlege_Sets": "知识集",
-        "Chat_With_Assistant": "您今天想与哪位助手聊天？",
+        "Knowlege_Sets": "知识库",
+        "Chat_With_Assistant": "您想与哪位智能助手对话？",
+        "Note_Default_Assistant": "如果直接输入问题，默认对话的是",
         "See_More": "查看更多"
     },
     "chat_ChatPersonaSelector": {
@@ -495,13 +508,15 @@
     },
     "chat_documentSidebar_DocumentSelector": {
         "Select": "选择",
-        "Chat_With_Document_Tips": "LLM 上下文限制已达到 😔 如果您想与这个文档聊天，请取消选择其他文档以释放空间。"
+        "Chat_With_Document_Tips": "LLM 上下文限制已达到 😔 如果您想与这个文档对话，请取消选择其他文档以释放空间。"
     },
     "chat_documentSidebar_DocumentSidebar": {
-        "Select_Documents_Chat": "从检索到的文件部分选择文件，以便与它们进行特定聊天！",
-        "No_Documents_Found": "未找到查询的文件。",
-        "Ask_Question_Description": "当您提问时，检索到的文件将在这里显示！",
-        "Selected_Documents": "选定的文件",
+        "Referenced_Documents": "引用的文档",
+        "Retrieved_Documents": "检寻到的文档",        
+        "Select_Documents_Chat": "选择文档，以进行特定上下文的对话",
+        "No_Documents_Found": "未找到查询的文档。",
+        "Ask_Question_Description": "当您提问时，检索到的文档将在这里显示",
+        "Selected_Documents": "选定的文档",
         "LLM_Context_Length_Alert": "超出 LLM 上下文长度：{\" \"} <i>{tokens} 个标记</i>",
         "Truncating": "截断",
         "De_Select_All": "取消全选"
@@ -521,7 +536,7 @@
         "Query_Skipped_Message": "AI 判断此查询无需搜索"
     },
     "chat_modal_DeleteChatModal": {
-        "Delete_Chat_Title": "删除聊天？",
+        "Delete_Chat_Title": "删除对话？",
         "Confirm_Delete_Chat": "点击下面确认您想要删除{\" \"}<b>\";{detail}\";</b>",
         "Delete": "删除"
     },
@@ -533,13 +548,14 @@
     },
     "chat_modifiers_ChatFilters": {
         "FilterType_Source": "来源",
-        "FilterType_KnowledgeSet": "知识集",
+        "FilterType_KnowledgeSet": "知识库",
         "FilterType_TimeRange": "时间范围",
         "FilterType_Tag": "标签",
         "Last_30_days": "过去 30 天",
         "Last_7_days": "过去 7 天",
         "Today": "今天",
         "Currently_Applied": "当前应用",
+        "Filter": "过滤器",
         "Find_Tag": "查找标签"
     },
     "chat_modifiers_SearchTypeSelector": {
@@ -549,23 +565,279 @@
         "Search": "搜索"
     },
     "chat_modifiers_SelectedDocuments": {
-        "Selected_Documents": "与 {length} 个选中的文档聊天"
+        "Selected_Documents": "与 {length} 个选中的文档对话"
     },
     "chat_sessionSidebar_ChatSidebar": {
-        "Failed_Logout": "登出失败",
-        "New_Chat": "新的聊天",
-        "Danswer_Search": "Danswer 搜索",
-        "Danswer_Chat": "Danswer 聊天",
-        "Admin_Panel": "管理员面板",
-        "Log_Out": "登出"
+        "Failed_Logout": "退出登录失败",
+        "New_Chat": "新建对话",
+        "Today": "今天",
+        "Previous_7_Days": "过去 7 天",
+        "Previous_30_Days": "过去 30 天",
+        "Over_30_days_ago": "超过 30 天前",
+        "Danswer_Search": "搜索",
+        "Danswer_Chat": "对话",
+        "Admin_Panel": "管理面板",
+        "Log_Out": "退出登录"
     },
     "chat_sessionSidebar_SessionDisplay": {
-        "Failed_Rename_Chat_Session": "无法重命名聊天会话",
-        "Failed_Delete_Chat_Session": "无法删除聊天会话",
-        "Chat_With": "与 {sessionId} 聊天"
+        "Failed_Rename_Chat_Session": "无法重命名对话会话",
+        "Failed_Delete_Chat_Session": "无法删除对话会话",
+        "Chat_With": "与 {sessionId} 对话"
     },
     "components_Status":{
         "Succeeded": "成功",
         "Failed": "失败"
+    },
+    "components_BackButton": {
+        "Back": "返回"
+    },
+    "components_DanswerInitializingLoader": {
+        "Initializing_Danswer": "初始化 Quick-Mind"
+    },
+    "components_DeleteButton": {
+        "Delete": "删除"
+    },
+    "components_Dropdown": {
+        "Search_Placeholder": "搜索...",
+        "Default:": "默认: ",
+        "Select_An_Option": "选择一个选项..."
+    },
+    "components_EditButton": {
+        "Edit": "编辑"
+    },
+    "components_Header": {
+        "Search": "搜索",
+        "Chat": "对话",
+        "Admin_Panel": "管理面板",
+        "Logout": "退出登录",
+        "Switch_Lanauge": "切换语言"
+    },
+    "components_Status": {
+        "Failed": "失败",
+        "Succeeded": "成功",
+        "In_Progress": "处理中",
+        "Scheduled": "已计划",
+        "Deleting": "删除中",
+        "Paused": "已暂停",
+        "Error": "错误",
+        "Active": "已启用"
+    },
+    "components_SwitchModelModal": {
+        "Switch_Embedding_Model": "切换嵌入模型",
+        "Old_Embedding_Model_Message": "我们检测到您正在使用我们的旧默认嵌入模型",
+        "Model_Switch_Performance_Message": "我们相信通过简单的模型切换可以显著提高搜索性能。",
+        "Model_Switch_Button_Message": "请点击下面的按钮选择新模型。不用担心，切换所需的重新索引将在后台进行 - 您对 Quick-Mind 的使用不会中断。",
+        "Choose_Embedding_Model_Button": "选择您的嵌入模型"
+    },
+    "components_admin_Layout": {
+        "Knowledge_Mmgt": "知识管理",
+        "Knowledge_Unit": "知识单元",
+        "Document_Sets": "文档库",
+        "Document_Explorer": "文档浏览",
+        "Knowledge_Operation": "知识运营",
+        "Chat": "对话",
+        "Search": "搜索",
+        "Feedback_Mgmt": "反馈管理",
+        "Custom_Assistants": "自定义助理",
+        "FAQ_Mgmt": "FAQ 管理",
+        "FAQ_List": "FAQ",
+        "QA_Mgmt": "答疑管理",
+        "Integration": "中间件集成",
+        "Apache_Answer": "Apache Answer 内嵌",
+        "Dingding_Bots": "钉钉机器人",
+        "Slack_Bots": "Slack 机器人",
+        "Model_Mgmt": "模型管理",
+        "API_Key": "API-Key",
+        "Embedding": "Embedding",
+        "Accounting": "财务统计",
+        "Accounting_Overview": "财务概览",
+        "Accounting_Detail": "费用明细",
+        "User_Plan": "套餐",
+        "System_Mgmt": "系统设置",
+        "Users": "账号管理",
+        "System_Logs": "系统日志"        
+    },
+    "components_admin_connectors_ConnectorForm": {
+        "Success_Message": "成功",
+        "Error_Message": "错误",
+        "Enter_Name_Connector": "请输入连接器的描述",
+        "Unable_to_delete_connector": "无法删除连接器",
+        "Error_creating_credential_for_CC_Pair": "创建 CC 对时出错",
+        "Error_linking_credentials": "链接凭证时出错",
+        "Connector_Name": "连接器名称",
+        "Connector_Name_Subtext": "连接器别称，是用于在管理页面标识连接器",
+        "Connect_Button": "创建连接",
+        "Update_Button": "更新"
+    },
+    "components_admin_connectors_ConnectorTitle": {
+        "Folders": "文件夹",
+        "Owner": "所有者",
+        "Channels": "频道",
+        "Channel_Regex_Enabled": "启用频道正则表达式"
+    },
+    "components_admin_connectors_CredentialForm": {
+        "Success_Message": "成功！",
+        "Error_Prefix": "错误：",
+        "Update_Button": "更新"
+    },
+    "components_admin_connectors_Field": {
+        "Add_New_Button": "添加新的"
+    },
+    "components_admin_connectors_FileUpload": {
+        "Selected_Files": "已选文件"
+    },
+    "components_admin_connectors_buttons_AttachCredentialButtonForTable": {
+        "Attach_Credential_Button": "附加凭据"
+    },
+    "components_admin_connectors_buttons_IndexButtonForTable": {
+        "Index_Button": "首页"
+    },
+    "components_admin_connectors_table_ConnectorsTable": {
+        "Failed": "失败",
+        "Enabled": "已启用",
+        "Paused": "已暂停",
+        "Deleting": "正在删除",
+        "Enable": "启用",
+        "Pause": "暂停",
+        "Header": "标题",
+        "Status": "状态",
+        "Remove": "移除"
+    },
+    "components_admin_connectors_table_DeleteColumn": {
+        "Delete_Connector_Info": "要删除连接器，必须先禁用它，并且没有正在进行 / 计划中的索引作业。"
+    },
+    "components_admin_connectors_table_SingleUseConnectorsTable": {
+        "Deleting_Status": "删除中...",
+        "Not_Started_Status": "未开始",
+        "In_Progress_Status": "处理中",
+        "Success_Status": "成功!",
+        "Failed_Status": "失败",
+        "Name_Column": "名称",
+        "Credential_Column": "凭证",
+        "Remove_Column": "移除",
+        "Not_Available": "N/A",
+        "Failed_Schedule_Deletion_Connector": "无法调度连接器的删除 - ",
+        "Scheduled_Deletion_Connector": "已调度连接器的删除!"
+    },
+    "components_health_healthcheck": {
+        "Backend_Unavailable": "后端目前不可用。",
+        "Backend_Unavailable_Note": "如果这是您的初始设置或刚刚更新了您的 Quick-Mind 部署，这可能是因为后端仍在启动。请等待一两分钟，然后刷新页面。如果仍无法解决，请确保后端已设置好，或联系管理员。"
+    },
+    "components_initialSetup_search_NoCompleteSourceModal": {
+        "Syncing_Not_Finished_Title": "⏳ 没有找到完成数据同步的连接器",
+        "Syncing_Not_Finished_Title_Note": "您创建了一些连接器，但尚未完成同步。根据其对应知识库大小，初始同步可能需要 30 秒到几天的时间才能完成。目前同步了 ",
+        "Note_Suffix_Documents": "个文档。",
+        "Go_To_Connector_List": "要查看连接器状态，请前往",
+        "Existing_Connectors_Page": "连接器列表页面",
+        "Continue_Ask_Questions": "返回"
+    },
+    "components_initialSetup_search_NoSourcesModal": {
+        "No_Sources_Title": "🧐 未连接任何来源",
+        "No_Sources_Message": "在使用搜索之前，您需要至少连接一个来源。如果没有连接任何对话库来源，就没有可以搜索的内容。",
+        "Connect_Source_Button": "连接来源！",
+        "ChatGPT_Message": "或者，如果您想要纯 ChatGPT 类似的体验，而不需要任何特定组织的库，那么您可以转到对话页面，立即开始与 Quick-Mind 对话！",
+        "Start_Chat_Button": "开始对话！"
+    },
+    "components_initialSetup_welcome_WelcomeModal": {
+        "Search_Step_1": "步骤 1：提供 OpenAI API 密钥",
+        "API_Key_Setup_Complete": "API 密钥设置完成！",
+        "Change_Key_Later": "如果您以后想更改密钥，您可以在管理面板中轻松进行更改。",
+        "Welcome_to_Danswer": "🎉 欢迎来到 Quick-Mind",
+        "Search_Step_2": "步骤 2：连接数据源",
+        "Connectors_Description": "连接器是 Quick-Mind 从您组织的各种数据源获取数据的方式。设置完成后，我们将自动将应用程序和文档中的数据同步到 Quick-Mind 中，这样您就可以在一个地方搜索所有数据。",
+        "Setup_Connector_Button": "设置您的第一个连接器！",
+        "Start_Chat_Description": "点击下面的按钮开始与上面设置的 LLM 进行对话！别担心，如果您以后决定连接您组织的对话库，您随时可以在",
+        "LLM_Connections_Description": " Quick-Mind 支持与各种 LLM（语言模型）的连接，包括自托管的开源 LLM。有关更多详细信息，请查看",
+        "Documentation": "文档",
+        "Gen_AI_Configs_Description": "如果您对 Gen AI 配置没有做任何特殊处理，我们默认使用 OpenAI。",
+        "Provide_LLM_API_Key": "步骤 1：提供 LLM API 密钥",
+        "LLM_Setup_Complete": "LLM 设置完成！",
+        "Change_Key_Description": "如果您以后想更改密钥或选择其他 LLM，您可以在管理面板中轻松进行更改/通过更改一些环境变量。",
+        "Start_Chat": "开始对话！",
+        "Admin_Panel": "管理面板",
+        "Start_chatting": "开始对话！",
+        "How_are_you_planning_on_using_Danswer": "您打算如何使用 Quick-Mind？",
+        "Search_Chat_with_Knowledge": "搜索 / 与对话库对话",
+        "Search_Chat_with_Knowledge_Description": "如果您希望搜索、与组织的对话库进行对话或直接提问，则选择此选项！",
+        "Get_Started": "开始",
+        "Secure_ChatGPT": "安全 ChatGPT",
+        "Secure_ChatGPT_Description": "如果您希望获得纯 ChatGPT 类似的体验，则选择此选项！"
+    },
+    "components_openai_ApiKeyForm": {
+        "Updated_API_Key": "已更新 API 密钥！",
+        "Unable_Set_API_Key": "无法设置 API 密钥。请检查提供的密钥是否有效。",
+        "Validating_API_Key": "验证 API 密钥",
+        "API_Key": "API 密钥:",
+        "Submit_Button": "提交"
+    },
+    "components_openai_ApiKeyModal": {
+        "LLM_Key_Setup": "LLM 密钥设置",
+        "Provide_Valid_API_Key": "请在下方提供有效的 OpenAI API 密钥，以便开始使用 Quick-Mind 搜索或 Quick-Mind 对话。",
+        "Look_Around_First": "如果暂时没有密钥，您也可以 ",
+        "Skip_Step": "跳过此步骤"
+    },
+    "components_search_DocumentDisplay": {
+        "AI_Like_Doc_Message": "AI 喜欢这个文档！"
+    },
+    "components_search_DocumentFeedbackBlock": {
+        "Thanks_for_feedback": "感谢您的反馈！",
+        "Error_feedback": "提供反馈时出错"
+    },
+    "components_search_DocumentUpdatedAtBadge": {
+        "Updated": "已更新"
+    },
+    "components_search_DateRangeSelector": {  
+        "LAST_30_DAYS": "过去 30 天",
+        "LAST_7_DAYS": "过去 7 天",
+        "TODAY": "今天",
+        "Any_Time_Tips": "不限时间"
+    },    
+    "components_search_PersonaSelector": {
+        "Default": "默认"
+    },
+    "components_search_SearchBar": {
+        "Search_Tips": "搜索..."
+    },    
+    "components_search_SearchHelper": {
+        "Assistant_Message_1": "这似乎不是一个生成式 AI 的问题。您还想要吗",
+        "GPT_Response": "GPT 给出一个回应？",
+        "Assistant_Message_2": "GPT 未能在最相关的内容中找到答案",
+        "Keep_Searching": "继续搜索",
+        "AI_Assistant": "AI 助手"
+    },  
+    "components_search_SearchTypeSelector": {
+        "Search": "搜索",
+        "Keyword_Search": "关键词搜索"
+    },
+    "components_search_filtering_Tag_Filter": {
+        "No_Matching_Tags_Found": "未找到匹配的标签"
+    },
+    "components_search_filtering_Filters": {
+        "Filters_Title": "过滤器",
+        "Time_Range_Title": "时间范围",
+        "Sources_Title": "来源（点击即可选中）",
+        "Knowledge_Sets_Title": "知识库",
+        "Description": "描述",
+        "Tags_Title": "标签",
+        "All_Sources": "所有来源",
+        "All_Document_Sets": "所有文档库",
+        "Bookmark": "书签"
+    },
+    "components_search_results_SearchResultsDisplay": {
+        "No_matching_documents_found": "未找到匹配的文档",
+        "AI_Answer": "AI 给出的答案",
+        "Results": "结果"
+    },     
+    "components_search_results_AnswerSection": {
+        "Building_Answer": "构建答案中...",
+        "AI_Answer": "AI 答案",
+        "Information_Not_Found": "未找到信息",
+        "Error_Building_Answer": "构建答案时出错",
+        "Building_Best_Effort_AI_Answer": "正在尽力构建 AI 答案...",
+        "Warning": "警告",
+        "AI_Not_Answerable_Message": "AI 认为这个问题无法回答。"
+    },
+    "components_search_results_QuotesSection": {
+        "Did_Not_Find_Quotes": "未找到任何确切的引用来支持上述答案。"
     }
 }

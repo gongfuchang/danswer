@@ -1,5 +1,6 @@
 "use client";
 
+import {useTranslations} from "next-intl";
 import { Button, Divider, Text } from "@tremor/react";
 import { Modal } from "../../Modal";
 import Link from "next/link";
@@ -53,6 +54,7 @@ function UsageTypeSection({
 }
 
 export function _WelcomeModal() {
+  const t = useTranslations("components_initialSetup_welcome_WelcomeModal");
   const router = useRouter();
   const [selectedFlow, setSelectedFlow] = useState<null | "search" | "chat">(
     null
@@ -85,15 +87,14 @@ export function _WelcomeModal() {
               {apiKeyVerified && (
                 <FiCheckCircle className="my-auto mr-2 text-success" />
               )}
-              Step 1: Provide OpenAI API Key
+                {t("Search_Step_1")}
             </Text>
             <div>
               {apiKeyVerified ? (
                 <div>
-                  API Key setup complete!
+                  {t("API_Key_Setup_Complete")}
                   <br /> <br />
-                  If you want to change the key later, you&apos;ll be able to
-                  easily to do so in the Admin Panel.
+                  {t("Change_Key_Later")}
                 </div>
               ) : (
                 <ApiKeyForm
@@ -106,14 +107,11 @@ export function _WelcomeModal() {
               )}
             </div>
             <Text className="font-bold mt-6 mb-2">
-              Step 2: Connect Data Sources
+              {t("Connect_Data_Sources")}
             </Text>
             <div>
               <p>
-                Connectors are the way that Danswer gets data from your
-                organization&apos;s various data sources. Once setup, we&apos;ll
-                automatically sync data from your apps and docs into Danswer, so
-                you can search through all of them in one place.
+                {t("Connectors_Description")}
               </p>
 
               <div className="flex mt-3">
@@ -127,7 +125,7 @@ export function _WelcomeModal() {
                   className="w-fit mx-auto"
                 >
                   <Button size="xs" icon={FiShare2} disabled={!apiKeyVerified}>
-                    Setup your first connector!
+                    {t("Setup_Connector_Button")}
                   </Button>
                 </Link>
               </div>
@@ -142,62 +140,55 @@ export function _WelcomeModal() {
         <>
           <BackButton behaviorOverride={() => setSelectedFlow(null)} />
 
-          <div className="mt-3">
-            <div>
-              To start using Danswer as a secure ChatGPT, we just need to
-              configure our LLM!
-              <br />
-              <br />
-              Danswer supports connections with a wide range of LLMs, including
-              self-hosted open-source LLMs. For more details, check out the{" "}
-              <a
-                className="text-link"
-                href="https://docs.danswer.dev/gen_ai_configs/overview"
-              >
-                documentation
-              </a>
-              .
-              <br />
-              <br />
-              If you haven&apos;t done anything special with the Gen AI configs,
-              then we default to use OpenAI.
-            </div>
+  <div className="mt-3">
+    <div>
+      {t("Start_Chat_Description")}
+      <br />
+      <br />
+      {t("LLM_Connections_Description")}
+      <a
+        className="text-link"
+        href="https://docs.danswer.dev/gen_ai_configs/overview"
+      >
+        {t("Documentation")}
+      </a>
+      .
+      <br />
+      <br />
+      {t("Gen_AI_Configs_Description")}
+    </div>
 
-            <Text className="font-bold mt-6 mb-2 flex">
-              {apiKeyVerified && (
-                <FiCheckCircle className="my-auto mr-2 text-success" />
-              )}
-              Step 1: Provide LLM API Key
-            </Text>
-            <div>
-              {apiKeyVerified ? (
-                <div>
-                  LLM setup complete!
-                  <br /> <br />
-                  If you want to change the key later or choose a different LLM,
-                  you&apos;ll be able to easily to do so in the Admin Panel / by
-                  changing some environment variables.
-                </div>
-              ) : (
-                <ApiKeyForm
-                  handleResponse={async (response) => {
-                    if (response.ok) {
-                      setApiKeyVerified(true);
-                    }
-                  }}
-                />
-              )}
-            </div>
+    <Text className="font-bold mt-6 mb-2 flex">
+      {apiKeyVerified && (
+        <FiCheckCircle className="my-auto mr-2 text-success" />
+      )}
+      {t("Provide_LLM_API_Key")}
+    </Text>
+    <div>
+      {apiKeyVerified ? (
+        <div>
+          {t("LLM_Setup_Complete")}
+          <br /> <br />
+          {t("Change_Key_Description")}
+        </div>
+      ) : (
+        <ApiKeyForm
+          handleResponse={async (response) => {
+            if (response.ok) {
+              setApiKeyVerified(true);
+            }
+          }}
+        />
+      )}
+    </div>
 
-            <Text className="font-bold mt-6 mb-2 flex">
-              Step 2: Start Chatting!
-            </Text>
+    <Text className="font-bold mt-6 mb-2 flex">
+      {t("Start_Chat")}
+    </Text>
 
-            <div>
-              Click the button below to start chatting with the LLM setup above!
-              Don&apos;t worry, if you do decide later on you want to connect
-              your organization&apos;s knowledge, you can always do that in the{" "}
-              <Link
+    <div>
+      {t("Start_Chat_Description")}
+      <Link
                 className="text-link"
                 href="/admin/add-connector"
                 onClick={(e) => {
@@ -206,7 +197,7 @@ export function _WelcomeModal() {
                   router.push("/admin/add-connector");
                 }}
               >
-                Admin Panel
+                {t("Admin_Panel")}
               </Link>
               .
             </div>
@@ -223,7 +214,7 @@ export function _WelcomeModal() {
                 className="w-fit mx-auto"
               >
                 <Button size="xs" icon={FiShare2} disabled={!apiKeyVerified}>
-                  Start chatting!
+                  {t("Start_chatting")}
                 </Button>
               </Link>
             </div>
@@ -232,36 +223,33 @@ export function _WelcomeModal() {
       );
       break;
     default:
-      title = "🎉 Welcome to Danswer";
+      title = t("Welcome_to_Danswer");
       body = (
         <>
           <div>
-            <p>How are you planning on using Danswer?</p>
+            <p>{t("How_are_you_planning_on_using_Danswer")}</p>
           </div>
           <Divider />
           <UsageTypeSection
-            title="Search / Chat with Knowledge"
+            title={t("Search_Chat_with_Knowledge")}
             description={
               <div>
-                If you&apos;re looking to search through, chat with, or ask
-                direct questions of your organization&apos;s knowledge, then
-                this is the option for you!
+                {t("Search_Chat_with_Knowledge_Description")}
               </div>
             }
-            callToAction="Get Started"
+            callToAction={t("Get_Started")}
             onClick={() => setSelectedFlow("search")}
           />
           <Divider />
           <UsageTypeSection
-            title="Secure ChatGPT"
+            title={t("Secure_ChatGPT")}
             description={
               <>
-                If you&apos;re looking for a pure ChatGPT-like experience, then
-                this is the option for you!
+                {t("Secure_ChatGPT_Description")}
               </>
             }
             icon={FiMessageSquare}
-            callToAction="Get Started"
+            callToAction={t("Get_Started")}
             onClick={() => {
               setSelectedFlow("chat");
             }}

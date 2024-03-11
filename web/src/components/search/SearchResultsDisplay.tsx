@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import React from "react";
 import {
   DanswerDocument,
@@ -42,6 +43,7 @@ export const SearchResultsDisplay = ({
   defaultOverrides: SearchDefaultOverrides;
   personaName?: string | null;
 }) => {
+    const t = useTranslations("components_search_results_SearchResultsDisplay");
   const { popup, setPopup } = usePopup();
 
   if (!searchResponse) {
@@ -86,7 +88,7 @@ export const SearchResultsDisplay = ({
             </div>
           </div>
         ) : (
-          <div className="text-subtle">No matching documents found.</div>
+          <div className="text-subtle">{t("No_matching_documents_found")}</div>
         )}
       </div>
     );
@@ -120,7 +122,7 @@ export const SearchResultsDisplay = ({
           <div>
             <div className="flex mb-1">
               <h2 className="text-emphasis font-bold my-auto mb-1 w-full">
-                AI Answer
+                {t("AI_Answer")}
               </h2>
             </div>
 
@@ -163,7 +165,7 @@ export const SearchResultsDisplay = ({
       {documents && documents.length > 0 && (
         <div className="mt-4">
           <div className="font-bold text-emphasis border-b mb-3 pb-1 border-border text-lg">
-            Results
+            {t("Results")}
           </div>
           {removeDuplicateDocs(documents).map((document, ind) => (
             <DocumentDisplay

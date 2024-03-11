@@ -1,5 +1,6 @@
 "use client";
 
+import {useTranslations} from "next-intl";
 import { Modal } from "../../Modal";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -11,6 +12,7 @@ export function NoCompleteSourcesModal({
 }: {
   ccPairs: CCPairBasicInfo[];
 }) {
+  const t = useTranslations("components_initialSetup_search_NoCompleteSourceModal");
   const router = useRouter();
   const [isHidden, setIsHidden] = useState(false);
 
@@ -34,22 +36,19 @@ export function NoCompleteSourcesModal({
   return (
     <Modal
       className="max-w-4xl"
-      title="⏳ None of your connectors have finished a full sync yet"
+      title={t("Syncing_Not_Finished_Title")}
       onOutsideClick={() => setIsHidden(true)}
     >
       <div className="text-base">
         <div>
           <div>
-            You&apos;ve connected some sources, but none of them have finished
-            syncing. Depending on the size of the knowledge base(s) you&apos;ve
-            connected to Danswer, it can take anywhere between 30 seconds to a
-            few days for the initial sync to complete. So far we&apos;ve synced{" "}
-            <b>{totalDocs}</b> documents.
+            {t("Syncing_Not_Finished_Title_Note")}{" "}
+            <b>{totalDocs}</b> {t("Note_Suffix_Documents")}
             <br />
             <br />
-            To view the status of your syncing connectors, head over to the{" "}
+            {t("Go_To_Connector_List")}{" "}
             <Link className="text-link" href="admin/indexing/status">
-              Existing Connectors page
+              {t("Existing_Connectors_Page")}
             </Link>
             .
             <br />
@@ -60,8 +59,7 @@ export function NoCompleteSourcesModal({
                 setIsHidden(true);
               }}
             >
-              Or, click here to continue and ask questions on the partially
-              synced knowledge set.
+              {t("Continue_Ask_Questions")}
             </p>
           </div>
         </div>
