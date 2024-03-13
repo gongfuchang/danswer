@@ -16,6 +16,7 @@ export const ScoreSection = ({
   refresh: () => void;
   consistentWidth?: boolean;
 }) => {
+  const t = useTranslations("admin_documents_ScoreEditor");
   const onSubmit = async (value: string) => {
     const numericScore = Number(value);
     if (isNaN(numericScore)) {

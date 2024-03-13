@@ -114,7 +114,7 @@ const DocumentSetTable = ({
   refresh,
   setPopup,
 }: DocumentFeedbackTableProps) => {
-  const t = useTranslations("admin_documents_sets_DocumentSetTable");
+  const t = useTranslations("admin_documents_sets_page");
   const [page, setPage] = useState(1);
 
   // sort by name for consistent ordering
@@ -185,15 +185,15 @@ const DocumentSetTable = ({
                   <TableCell>
                     {documentSet.is_up_to_date ? (
                       <Badge size="md" color="green" icon={FiCheckCircle}>
-                        t("Up_to_Date")
+                        {t("Up_to_Date")}
                       </Badge>
                     ) : documentSet.cc_pair_descriptors.length > 0 ? (
                       <Badge size="md" color="amber" icon={FiClock}>
-                        t("Syncing")
+                        {t("Syncing")}
                       </Badge>
                     ) : (
                       <Badge size="md" color="red" icon={FiAlertTriangle}>
-                        t("Deleting")
+                        {t("Deleting")}
                       </Badge>
                     )}
                   </TableCell>

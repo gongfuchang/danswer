@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import * as Yup from "yup";
 import { GithubIcon, TrashIcon } from "@/components/icons/icons";
 import { TextFormField } from "@/components/admin/connectors/Field";
@@ -20,8 +21,10 @@ import { ConnectorsTable } from "@/components/admin/connectors/table/ConnectorsT
 import { usePublicCredentials } from "@/lib/hooks";
 import { Card, Divider, Text, Title } from "@tremor/react";
 import { AdminPageTitle } from "@/components/admin/Title";
+import { t } from "i18next";
 
 const Main = () => {
+  const t = useTranslations("admin_connectors_github_page");
   const { mutate } = useSWRConfig();
   const {
     data: connectorIndexingStatuses,
@@ -43,7 +46,7 @@ const Main = () => {
     (!connectorIndexingStatuses && isConnectorIndexingStatusesLoading) ||
     (!credentialsData && isCredentialsLoading)
   ) {
-    return <LoadingAnimation text="Loading" />;
+    return <LoadingAnimation text={t("Loading")} />;
   }
 
   if (isConnectorIndexingStatusesError || !connectorIndexingStatuses) {
@@ -69,7 +72,7 @@ const Main = () => {
   return (
     <>
       <Title className="mb-2 mt-6 ml-auto mr-auto">
-        Step 1: Provide your access token
+        {t("Step1_Provide_Access_Token")}
       </Title>
       {githubCredential ? (
         <>
@@ -93,15 +96,15 @@ const Main = () => {
       ) : (
         <>
           <Text>
-            If you don&apos;t have an access token, read the guide{" "}
+            {t("Note_Read_Docs")}{" "}
             <a
               className="text-blue-500"
-              href="https://docs.danswer.dev/connectors/github"
+              href="https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens"
               target="_blank"
             >
-              here
+              {t("Note_Read_Docs_Here")}
             </a>{" "}
-            on how to get one from Github.
+            {t("Note_Read_Docs_How")}
           </Text>
           <Card className="mt-4">
             <CredentialForm<GithubCredentialJson>
@@ -109,14 +112,14 @@ const Main = () => {
                 <>
                   <TextFormField
                     name="github_access_token"
-                    label="Access Token:"
+                    label={t("Access_Token_Label")}
                     type="password"
                   />
                 </>
               }
               validationSchema={Yup.object().shape({
                 github_access_token: Yup.string().required(
-                  "Please enter the access token for Github"
+                  t("Access_Token_Label_Required")
                 ),
               })}
               initialValues={{
@@ -133,14 +136,13 @@ const Main = () => {
       )}
 
       <Title className="mb-2 mt-6 ml-auto mr-auto">
-        Step 2: Which repositories do you want to make searchable?
+        {t("Step2_Choose_Repo")}
       </Title>
 
       {githubConnectorIndexingStatuses.length > 0 && (
         <>
           <Text className="mb-2">
-            We pull the latest Pull Requests from each repository listed below
-            every <b>10</b> minutes.
+            {t.rich("Tips_Pull_Duration", {b: (chunks) => (<b>{chunks}</b>)})}
           </Text>
           <div className="mb-2">
             <ConnectorsTable<GithubConfig, GithubCredentialJson>
@@ -157,7 +159,7 @@ const Main = () => {
               }}
               specialColumns={[
                 {
-                  header: "Repository",
+                  header: t("Repository"),
                   key: "repository",
                   getValue: (ccPairStatus) => {
                     const connectorConfig =
@@ -177,7 +179,7 @@ const Main = () => {
 
       {githubCredential ? (
         <Card className="mt-4">
-          <h2 className="font-bold mb-3">Connect to a New Repository</h2>
+          <h2 className="font-bold mb-3">{t("Connect_New_Repo")}</h2>
           <ConnectorForm<GithubConfig>
             nameBuilder={(values) =>
               `GithubConnector-${values.repo_owner}/${values.repo_name}`
@@ -189,16 +191,16 @@ const Main = () => {
             inputType="poll"
             formBody={
               <>
-                <TextFormField name="repo_owner" label="Repository Owner:" />
-                <TextFormField name="repo_name" label="Repository Name:" />
+                <TextFormField name="repo_owner" label={t("Repository_Owner")} />
+                <TextFormField name="repo_name" label={t("Repository_Name")} />
               </>
             }
             validationSchema={Yup.object().shape({
               repo_owner: Yup.string().required(
-                "Please enter the owner of the repository to index e.g. danswer-ai"
+                t('Tips_Repo_Owner_Required')
               ),
               repo_name: Yup.string().required(
-                "Please enter the name of the repository to index e.g. danswer "
+                t('Tips_Repo_Name_Required')
               ),
               include_prs: Yup.boolean().required(),
               include_issues: Yup.boolean().required(),
@@ -215,9 +217,7 @@ const Main = () => {
         </Card>
       ) : (
         <Text>
-          Please provide your access token in Step 1 first! Once done with that,
-          you can then specify which Github repositories you want to make
-          searchable.
+          {t("Please_Provide_Access_Token")}          
         </Text>
       )}
     </>
@@ -225,18 +225,23 @@ const Main = () => {
 };
 
 export default function Page() {
+  const t = useTranslations("admin_connectors_github_page");
   return (
     <div className="container mx-auto">
-      <div className="mb-4">
-        <HealthCheckBanner />
+      <div>
+        <div className="mb-4">
+          <HealthCheckBanner />
+        </div>
+
+        <AdminPageTitle
+          icon={<GithubIcon size={26} />}
+          title={t("Github_Title")}
+        />
       </div>
 
-      <AdminPageTitle
-        icon={<GithubIcon size={26} />}
-        title="Github PRs + Issues"
-      />
-
-      <Main />
+      <div>
+        <Main />
+      </div>      
     </div>
   );
 }

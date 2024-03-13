@@ -3,5 +3,6 @@
         "messages",
         "public/locales"
     ],
-    "i18next.i18nPaths": "e:/dev/node/danswer/web/public/locales"
+    "i18next.i18nPaths": "e:/dev/node/danswer/web/public/locales",
+    "i18n-ally.keystyle": "nested"
 }

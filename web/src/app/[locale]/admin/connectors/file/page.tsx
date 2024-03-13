@@ -59,7 +59,7 @@ const Main = () => {
         {t.rich("Note_P1", {b: (chunks) => (<b>{chunks}</b>)})}
         <div className="flex my-2">
           <div className="mx-auto font-bold">
-            #DANSWER_METADATA={"{"}&quot;link&quot;: &quot;{"<LINK>"}&quot;{"}"}
+            #QM_METADATA={"{"}&quot;link&quot;: &quot;{"<LINK>"}&quot;{"}"}
           </div>
         </div>{" "}
         {t.rich("Note_P2", {i: (chunks) => (<i>{chunks}</i>), b: (chunks) => (<b>{chunks}</b>)})}

@@ -1,4 +1,5 @@
 import {useTranslations} from "next-intl";
+import { getTranslations } from "next-intl/server";
 import {
   AuthTypeMetadata,
   getAuthTypeMetadataSS,
@@ -12,7 +13,7 @@ import { Text } from "@tremor/react";
 import { RequestNewVerificationEmail } from "./RequestNewVerificationEmail";
 
 export default async function Page() {
-  const t = useTranslations("auth_waitingonverification_page");
+  const t = await getTranslations("auth_waitingonverification_page");
   // catch cases where the backend is completely unreachable here
   // without try / catch, will just raise an exception and the page
   // will not render

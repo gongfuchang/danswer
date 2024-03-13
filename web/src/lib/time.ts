@@ -4,9 +4,12 @@ const conditionallyAddPlural = (noun: string, cnt: number) => {
   }
   return noun;
 };
-
+const translateDisplay = (transFunc: any, cnt: number, noun: string): string => {
+  return transFunc('days_ago', { count: cnt, noun });
+}
 export const timeAgo = (
-  dateString: string | undefined | null
+  transFunc: Function,
+  dateString: string | undefined | null,
 ): string | null => {
   if (!dateString) {
     return null;
@@ -17,42 +20,42 @@ export const timeAgo = (
   const secondsDiff = Math.floor((now.getTime() - date.getTime()) / 1000);
 
   if (secondsDiff < 60) {
-    return `${secondsDiff} ${conditionallyAddPlural(
+    return translateDisplay(transFunc, secondsDiff, `${conditionallyAddPlural(
       "second",
       secondsDiff
-    )} ago`;
+    )} ago`);
   }
 
   const minutesDiff = Math.floor(secondsDiff / 60);
   if (minutesDiff < 60) {
-    return `${minutesDiff} ${conditionallyAddPlural(
+    return translateDisplay(transFunc, minutesDiff, `${conditionallyAddPlural(
       "minute",
-      secondsDiff
-    )} ago`;
+      minutesDiff
+    )} ago`);
   }
 
   const hoursDiff = Math.floor(minutesDiff / 60);
   if (hoursDiff < 24) {
-    return `${hoursDiff} ${conditionallyAddPlural("hour", hoursDiff)} ago`;
+    return translateDisplay(transFunc, hoursDiff, `${conditionallyAddPlural("hour", hoursDiff)} ago`);
   }
 
   const daysDiff = Math.floor(hoursDiff / 24);
   if (daysDiff < 30) {
-    return `${daysDiff} ${conditionallyAddPlural("day", daysDiff)} ago`;
+    return translateDisplay(transFunc, daysDiff, `${conditionallyAddPlural("day", daysDiff)} ago`);
   }
 
   const weeksDiff = Math.floor(daysDiff / 7);
   if (weeksDiff < 4) {
-    return `${weeksDiff} ${conditionallyAddPlural("week", weeksDiff)} ago`;
+    return translateDisplay(transFunc, weeksDiff, `${conditionallyAddPlural("week", weeksDiff)} ago`);
   }
 
   const monthsDiff = Math.floor(daysDiff / 30);
   if (monthsDiff < 12) {
-    return `${monthsDiff} ${conditionallyAddPlural("month", monthsDiff)} ago`;
+    return translateDisplay(transFunc, monthsDiff, `${conditionallyAddPlural("month", monthsDiff)} ago`);
   }
 
   const yearsDiff = Math.floor(monthsDiff / 12);
-  return `${yearsDiff} ${conditionallyAddPlural("year", yearsDiff)} ago`;
+  return translateDisplay(transFunc, yearsDiff, `${conditionallyAddPlural("year", yearsDiff)} ago`);
 };
 
 export function localizeAndPrettify(dateString: string) {

@@ -39,7 +39,7 @@ export default function Page() {
 
   // TODO define available sources
   const importNames = ["File", "Web"];
-  const appNames = ["Slack"];
+  const appNames = ["Slack", "Github"];
 
   const importedKnowledgeSources = sources.filter(
     (source) => source.category === SourceCategory.ImportedKnowledge && importNames.includes(source.displayName)

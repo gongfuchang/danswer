@@ -69,6 +69,7 @@ from danswer.search.search_runner import remove_stop_words_and_punctuation
 from danswer.utils.batching import batch_generator
 from danswer.utils.logger import setup_logger
 from danswer.utils.threadpool_concurrency import run_functions_tuples_in_parallel
+from danswer.utils.file_util import get_file_path
 
 logger = setup_logger()
 
@@ -655,9 +656,7 @@ class VespaIndex(DocumentIndex):
         deploy_url = f"{VESPA_APPLICATION_ENDPOINT}/tenant/default/prepareandactivate"
         logger.debug(f"Sending Vespa zip to {deploy_url}")
 
-        vespa_schema_path = os.path.join(
-            os.getcwd(), "danswer", "document_index", "vespa", "app_config"
-        )
+        vespa_schema_path = get_file_path(os.path.join("danswer", "document_index", "vespa", "app_config"))
         schema_file = os.path.join(vespa_schema_path, "schemas", "danswer_chunk.sd")
         services_file = os.path.join(vespa_schema_path, "services.xml")
         overrides_file = os.path.join(vespa_schema_path, "validation-overrides.xml")

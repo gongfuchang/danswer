@@ -1,5 +1,4 @@
 import {useTranslations} from "next-intl";
-import { getTranslations } from "next-intl/server";
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -11,19 +10,18 @@ import { Button } from "@tremor/react";
 export async function submitCredential<T>(
   credential: CredentialBase<T>
 ): Promise<{ message: string; isSuccess: boolean }> {
-  const t = await getTranslations("components_admin_connectors_CredentialForm");
   let isSuccess = false;
   try {
     const response = await createCredential(credential);
     if (response.ok) {
       isSuccess = true;
-      return { message: t("Success_Message"), isSuccess: true };
+      return { message: ("Success!"), isSuccess: true };
     } else {
       const errorData = await response.json();
-      return { message: `${t("Error_Prefix")} ${errorData.detail}`, isSuccess: false };
+      return { message: `${("Error: ")} ${errorData.detail}`, isSuccess: false };
     }
   } catch (error) {
-    return { message: `${t("Error_Prefix")} ${error}`, isSuccess: false };
+    return { message: `${("Error: ")} ${error}`, isSuccess: false };
   }
 }
 

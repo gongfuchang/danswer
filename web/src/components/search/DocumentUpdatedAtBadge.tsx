@@ -4,5 +4,6 @@ import { MetadataBadge } from "../MetadataBadge";
 
 export function DocumentUpdatedAtBadge({ updatedAt }: { updatedAt: string }) {
   const t = useTranslations("components_search_DocumentUpdatedAtBadge");
-  return <MetadataBadge value={t("Updated") + " " + timeAgo(updatedAt)} />;
+  const tTimeAgo = useTranslations("components_time_ago");
+  return <MetadataBadge value={t("Updated") + " " + timeAgo(tTimeAgo, updatedAt)} />;
 }

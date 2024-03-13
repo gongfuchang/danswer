@@ -79,7 +79,7 @@ export function SingleUseConnectorsTable<
             {specialColumns?.map(({ header }) => (
               <TableHeaderCell key={header}>{header}</TableHeaderCell>
             ))}
-            <TableHeaderCell>{t("Status_Column")}</TableHeaderCell>
+            <TableHeaderCell>{t("File_Status_Column")}</TableHeaderCell>
             {connectorIncludesCredential && (
               <TableHeaderCell>{t("Credential_Column")}</TableHeaderCell>
             )}

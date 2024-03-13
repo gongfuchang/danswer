@@ -28,6 +28,7 @@ const DocumentDisplay = ({
   refresh: () => void;
   setPopup: (popupSpec: PopupSpec | null) => void;
 }) => {
+  const t = useTranslations("admin_documents_explorer_Explorer");
   return (
     <div
       key={document.document_id}

@@ -1,4 +1,5 @@
 import {useTranslations} from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { AdminPageTitle } from "@/components/admin/Title";
 import { CPUIcon } from "@/components/icons/icons";
 import { SlackBotCreationForm } from "../SlackBotConfigCreationForm";
@@ -11,6 +12,7 @@ import { Persona } from "../../personas/interfaces";
 import { InstantSSRAutoRefresh } from "@/components/SSRAutoRefresh";
 
 async function Page({ params }: { params: { id: string } }) {
+  const t = await getTranslations("admin_bot_id_page");
   const tasks = [
     fetchSS("/manage/admin/slack-bot/config"),
     fetchSS("/manage/document-set"),

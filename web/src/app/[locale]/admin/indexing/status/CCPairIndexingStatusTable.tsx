@@ -74,6 +74,7 @@ export function CCPairIndexingStatusTable({
   ccPairsIndexingStatuses: ConnectorIndexingStatus<any, any>[];
 }) {
   const t = useTranslations("admin_indexing_status_CCPairIndexingStatusTable");
+  const tTimeAgo = useTranslations("components_time_ago");
   const [page, setPage] = useState(1);
   const ccPairsIndexingStatusesForPage = ccPairsIndexingStatuses.slice(
     NUM_IN_PAGE * (page - 1),
@@ -118,7 +119,7 @@ export function CCPairIndexingStatusTable({
                   />
                 </TableCell>
                 <TableCell>
-                  {timeAgo(ccPairsIndexingStatus?.last_success) || "-"}
+                  {timeAgo(tTimeAgo, ccPairsIndexingStatus?.last_success) || "-"}
                 </TableCell>
                 <TableCell>{ccPairsIndexingStatus.docs_indexed}</TableCell>
                 {/* Wrapping in <td> to avoid console warnings */}

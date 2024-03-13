@@ -1,839 +1,873 @@
 {
-    "layout": {
-        "title": "Quick Mind"
-    },
-    "admin_addconnector_page": {
-        "Web": "Web",
-        "File": "File",
-        "Slack": "Slack",
-        "Add_Connector": "Add Connector",
-        "Connector_Tips": "Connect Quick Mind to your organization's knowledge sources. We'll automatically sync your data into Quick Mind, so you can find exactly what you're looking for in one place.",
-        "Import_Knowledge_Title": "Import Knowledge",
-        "Connect_Knowledge_Outside_Apps": "Connect to pieces of knowledge that live outside your apps. Upload files, scrape websites, or connect to your organization's Google Site.",
-        "Setup_Auto_Syncing_Title": "Setup Auto-Syncing from Apps",
-        "Setup_Auto_Syncing_Description": "Setup auto-syncing from your organization's most used apps and services. Unless otherwise specified during the connector setup, we will pull in the latest updates from the source every 10 minutes."
-    },
-    "admin_bot_page": {
-        "Channels_Title": "Channels",
-        "Persona_Title": "Persona",
-        "Document_Sets_Title": "Document Sets",
-        "Delete_Title": "Delete",
-        "Delete_Success_Message": "Slack bot config {slack_id} deleted",
-        "Delete_Failed_Message_Prefix": "Failed to delete Slack bot config - {errorMsg}",
-        "Setup_Slack_Bot": "Setup a Slack bot that connects to Quick Mind. Once setup, you will be able to ask questions to Quick Mind directly from Slack. Additionally, you can:",
-        "Setup_DanswerBot_Auto_Answer": "Setup Quick Mind Bot to automatically answer questions in certain channels.",
-        "Choose_Document_Sets": "Choose which document sets Quick Mind Bot should answer from, depending on the channel the question is being asked.",
-        "Directly_DanswerBot": "Directly message Quick Mind Bot to search just as you would in the websUI.",
-        "Follow_Guide_Prefix": "Follow the",
-        "Follow_Guide_Suffix": "guide",
-        "Get_Started": "found in the Quick Mind documentation to get started!",
-        "Step_1_Configure_Slack_Tokens": "Step 1: Configure Slack Tokens",
-        "Tokens_saved": "Tokens saved!",
-        "Hide": "Hide",
-        "Edit_Tokens": "Edit Tokens",
-        "Setup_DanswerBot_Title": "Step 2: Setup Quick Mind Bot",
-        "Setup_DanswerBot_Description": "Configure Quick Mind to automatically answer questions in Slack channels. By default, Quick Mind only responds in channels where a configuration is setup unless it is explicitly tagged.",
-        "New_Slack_Bot_Configuration": "New Slack Bot Configuration",
-        "Slack_Bot_Configuration_Title": "Slack Bot Configuration"
-    },
-    "admin_bot_SlackBotConfigCreationForm": {
-        "Response_Updating_Error": "Error updating Quick Mind Bot config - {errorMsg}",
-        "Response_Creating_Error": "Error creating Quick Mind Bot config - {errorMsg}",
-        "The_Basics_Header": "The Basics",
-        "Channel_Names": "Channel Names",
-        "Tips_Slack_Channel": "The names of the Slack channels you want this configuration to apply to. For example, '#ask-quick-mind'.",
-        "Note_Add_DanswerBot_to_Channel": "<i>NOTE</i>: you still need to add Quick Mind Bot to the channel(s) in Slack itself. Setting this config will not auto-add the bot to the channel.",
-        "Response_Format_Label": "Response Format",
-        "Citations_Tips": "If set to Citations, Quick Mind Bot will respond with a direct answer with inline citations. It will also provide links to these cited documents below the answer. When in doubt, choose this option.",
-        "Quotes_Tips": "If set to Quotes, Quick Mind Bot will respond with a direct answer as well as with quotes pulled from the context documents to support that answer. Quick Mind Bot will also give a list of relevant documents. Choose this option if you want a very detailed response AND/OR a list of relevant documents would be useful just in case the LLM missed anything.",
-        "When_Respond_DanswerBot": "When should Quick Mind Bot respond?",
-        "Hide_Non_Answers": "Hide Non-Answers",
-        "Answer_Validity_Check_Subtext": "If set, will only answer questions that the model determines it can answer",
-        "Only_Respond_Questions": "Only respond to questions",
-        "Questionmark_Prefilter_Subtext": "If set, will only respond to messages that contain a question mark",
-        "Respond_DanswerBot_Only": "Respond to @Quick Mind Bot Only",
-        "Respond_Tag_Only_Subtext": "If set, Quick Mind Bot will only respond when directly tagged",
-        "Respond_To_Bots": "Responds to Bot messages",
-        "Respond_To_Bots_Subtext": "If not set, Quick Mind Bot will always ignore messages from Bots",
-        "Team_Members_Emails": "Team Members Emails",
-        "Team_Members_Emails_Subtext": "If specified, Quick Mind Bot responses will only be  visible to members in this list. This is useful if you want Quick Mind Bot to operate in an \"assistant\" mode, where it helps the team members find answers, but let's them build on top of Quick Mind Bot's response / throw  out the occasional incorrect answer.",
-        "Post_Response_Behavior": "Post Response Behavior",
-        "Should_Danswer_Still_Need_Help_Button": "Should Quick Mind give a \u201cStill need help?\u201d button?",
-        "Still_Need_Help_Button_Subtext": "If specified, Quick Mind Bot's response will include a button at the bottom  of the response that asks the user if they still need help.",
-        "Users_to_Tag": "Users to Tag",
-        "Slack_Users_Tag_Description": "The full email addresses of the Slack users we should tag if the user clicks the \"Still need help?\" button. For example, 'mark@acme.com'.",
-        "Provide_User_Group_Description": "Or provide a user group by either the name or the handle. For example, 'Quick Mind Team' or 'quick-mind-team'.",
-        "No_Email_Tagging_Description": "If no emails are provided, we will not tag anyone and will just react with a \ud83c\udd98 emoji to the original message.",
-        "Data_Sources_Prompts_Header": "[Optional] Data Sources and Prompts",
-        "Use_Persona_Document_Sets": "Use either a Persona <b>or</b> Document Sets to control how Quick Mind Bot answers.",
-        "Use_Persona_Customize_Prompt": "You should use a Persona if you also want to customize the prompt and retrieval settings.",
-        "Use_Document_Sets_Control_Documents": "You should use Document Sets if you just want to control which documents Quick Mind Bot uses as references.",
-        "Note_Submit_Form_Tab": "<b>NOTE:</b> whichever tab you are when you submit the form will be the one that is used. For example, if you are on the \";Personas\"; tab, then the Persona will be used, even if you have Document Sets selected.",
-        "Document_Sets": "Document Sets",
-        "Personas": "Personas",
-        "Document_Sets_Description": "The document sets that Quick Mind Bot should search through. If left blank, Quick Mind Bot will search through all documents.",
-        "Persona_Subtext": "The persona to use when responding to queries. The Default persona actsas a question-answering assistant and has access to all documents indexed by non-private connectors.",
-        "Update_Button": "Update!",
-        "Create_Button": "Create!"
-    },
-    "admin_bot_SlackBotTokensForm": {
-        "Success_Setting_Slack_Tokens": "Successfully set Slack tokens!",
-        "Error_Setting_Slack_Tokens": "Error setting Slack tokens - {errorMsg}",
-        "Slack_Bot_Token": "Slack Bot Token",
-        "Slack_App_Token": "Slack App Token",
-        "Slack_Token": "Slack App Token",
-        "Set_Tokens": "Set Tokens"
-    },
-    "admin_bot_new_page": {
-        "Error_Title": "Something went wrong :(",
-        "Failed_Fetch_Bots": "Failed to fetch slack bots - {errorMsg}",
-        "Did_Not_Find_ID": "Did not find Slack Bot config with ID: {id}",
-        "Failed_Fetch_Docs": "Failed to fetch document sets - {sets}",
-        "Failed_Fetch_Personas": "Failed to fetch personas - {personas}",
-        "New_Slack_Bot_Config": "Edit Slack Bot Config",
-        "Define_Configuration_Below": "Define a new configuration below! This config will determine how Quick Mind Bot behaves in the specified channels."
-    },
-    "admin_bot_id_page": {
-        "Error_Title": "Something went wrong :(",
-        "Failed_Fetch_Bots": "Failed to fetch slack bots - {errorMsg}",
-        "Did_Not_Find_ID": "Did not find Slack Bot config with ID: {id}",
-        "Failed_Fetch_Docs": "Failed to fetch document sets - {sets}",
-        "Failed_Fetch_Personas": "Failed to fetch personas - {personas}",
-        "Edit_Slack_Bot_Config": "Edit Slack Bot Config",
-        "Edit_Config_Text": "Edit the existing configuration below! This config will determine how Quick Mind Bot behaves in the specified channels."
-    },
-    "admin_connector_ccPairId_ConfigurationDisplay": {
-        "Configuration_Title": "Configuration"
-    },
-    "admin_connector_ccPairId_DeletionButton": {
-        "Deleting_Connector_Message": "This connector is currently being deleted",
-        "Click_to_Delete": "Click to delete",
-        "Pause_Connector_Before_Delete": "You must pause the connector before deleting it",
-        "Schedule_Deletion_Button": "Schedule for Deletion"
-    },
-    "admin_connector_ccPairId_IndexingAttemptsTable": {
-        "Index_Attempts_Table": "Indexing Attempts Table",
-        "Copy_Full_Trace": "Copy full trace",
-        "Copied_Clipboard": "Copied to clipboard",
-        "Time_Started": "Time Started",
-        "Status": "Status",
-        "New_Doc_Count": "New Document Count",
-        "Total_Doc_Count": "Total Document Count",
-        "Error_Msg": "Error Message",
-        "Docs_Rate": "docs / min",
-        "Doc_Remove_From_Index": "also removed {doc} docs that were detected as deleted in the source",
-        "View_Full_Trace": "View Full Trace"
-    },
-    "admin_connector_ccPairId_ModifyStatusButtonCluster": {
-        "Click_Start_Indexing_Again": "Click to start indexing again!",
-        "Re-Enable_Button": "Re-Enable",
-        "Paused_Connector_Tooltip": "When paused, the connectors documents will still be visible. However, no new documents will be indexed.",
-        "Pause_Button": "Pause"
-    },
-    "admin_connector_ccPairId_page": {
-        "Failed_Fetch_Connector_Info": "Failed to fetch info on Connector with ID {ccPairId}",
-        "Total_Documents_Indexed": "Total Documents Indexed",
-        "Indexing_Attempts": "Indexing Attempts",
-        "Delete_Connector_Title": "Delete Connector",
-        "Delete_Connector_Text": "Deleting the connector will also delete all associated documents."
-    },
-    "admin_connector_ccPairId_ReIndexButton": {
-        "Connector_Run_Success": "Triggered connector run",
-        "Running_Indexing": "Run Indexing",
-        "Button_Run_Update": "Run Update",
-        "Update_Tips": "This will pull in and index all documents that have changed and/or have been added since the last successful indexing run.",
-        "Button_Run_Complete_Reindexing": "Run Complete Re-Indexing",
-        "Reindex_All_Documents": "This will cause a complete re-indexing of all documents from the source.",
-        "Note": "<b>NOTE:</b> depending on the number of documents stored in the source, this may take a long time.",
-        "Connector_Musts_Indexing": "Connector must be active in order to run indexing",
-        "Run_Indexing": "Run Indexing"
-    },
-    "admin_connectors_file_page": {
-        "File": "File", 
-        "Loading": "Loading",
-        "Specify_Files": "Specify files below, click the <b>Upload</b> button, and the contents of these files will be searchable via Quick Mind! Currently only <i>.txt</i>,  <i>.pdf</i> and <i>.zip</i> files (containing only <i>.txt</i> files) are supported.",
-        "Note_P1": "<b>NOTE:</b> if the original document is accessible via a link, you can add a line at the very beginning of the file that looks like:",
-        "Note_P2": "where <i>\"LINK\"</i> is the link to the file. This will enable Quick Mind to link users to the original document when they click on the search result. More details on this can be found in the",
-        "Note_P3": " documentation.",
-        "Descriptive_Name_Required": "Please enter a descriptive name for the files",
-        "Unable_Upload_Files": "Unable to upload files - {detail}",
-        "Unable_Create_Connector": "Unable to create connector - {errorMsg}",
-        "Error_Creating_Credential": "Error creating credential for CC Pair - {errorMsg}",
-        "Unable_Link_Connector_Credential": "Unable to link connector to credential - {detail}",
-        "Unable_Run_Connector": "Unable to run connector - {errorMsg}",
-        "Successfully_Uploaded_Files": "Successfully uploaded files!",
-        "Failed_Index_Files": "Failed to index files: ",
-        "Upload_Files": "Upload Files",
-        "Name_Label": "Name:",
-        "Name_Placeholder": "A name that describes the files e.g. \"Onboarding Documents\"",
-        "Files_Label": "Files:",
-        "Upload_Button": "Upload!",
-        "Indexed_Files_Title": "Indexed Files",
-        "Admin_Page_Title": "File"
-    },
-    "admin_connectors_web_page": {
-        "Loading": "Loading",
-        "Web_Title": "Web",
-        "Step_1_Specify_Websites": "Step 1: Specify which websites to index",
-        "Fetch_Website_State_Daily": "We re-fetch the latest state of the website once a day.",
-        "URL_Index": "URL to Index",
-        "Scrape_Method": "Scrape Method:",
-        "Recursive": "Recursive",
-        "Recursive_Description": "Recursively index all pages that share the same base URL.",
-        "Single_Page_Description": "Index only the specified page.",
-        "Sitemap_Description": "Assumes the URL to Index points to a Sitemap. Will try and index all pages that are a mentioned in the sitemap.",
-        "Please_Enter_Website_URL": "Please enter the website URL to scrape e.g. https://docs.quick-mind.dev/",
-        "Already_Indexed_Websites": "Already Indexed Websites",
-        "Error_Indexing_history": "Error loading indexing history",
-        "Base_URL": "Base URL",
-        "No_Indexed_Websites_Found": "No indexed websites found"
-    },
-    "admin_documents_lib": {
-        "Unknown_error": "Unknown error"
-    },
-    "admin_documents_ScoreEditor": {
-        "Score_Must_Be_Number": "Score must be a number",
-        "Updated_Score": "Updated score!"
-    },
-    "admin_documents_explorer_Explorer": {
-        "Boost": "Boost",
-        "Failed_Update_Document": "Failed to update document - {errorMsg}",
-        "Hidden": "Hidden",
-        "Visible": "Visible",
-        "Find_Documents_Placeholder": "Find documents based on title / content...",
-        "Search_Document_Modify": "Search for a document above to modify it's boost or hide it from searches."
-    },
-    "admin_documents_explorer_page": {
-        "Document_Explorer_Title": "Document Explorer"
-    },
-    "admin_documents_feedback_DocumentFeedbackTable": {
-        "Hidden": "Hidden",
-        "Visible": "Visible",
-        "Unhide": "Unhide",
-        "Hide": "Hide",
-        "Document_Name": "Document Name",
-        "Is_Searchable": "Is Searchable?",
-        "Score": "Score",
-        "Error_Update_Status": "Error updating hidden status - {errorMsg}"
-    },
-    "admin_documents_feedback_page": {
-        "Document_Feedback": "Document Feedback",
-        "Most_Liked_Documents": "Most Liked Documents",
-        "Most_Disliked_Documents": "Most Disliked Documents"
-
-    },
-    "admin_documents_sets_DocumentSetCreationForm": {
-        "Enter_Set_Name": "Please enter a name for the set",
-        "Enter_Set_Desc": "Please enter a description for the set",
-        "Select_One_Connector": "Please select at least one connector",
-        "Update_Success_Message": "Successfully updated document set!",
-        "Create_Success_Message": "Successfully created document set!",
-        "Update_Document_Set": "Update a Document Set",
-        "Create_New_Document_Set": "Create a new Document Set",
-        "Name_Label": "Name:",
-        "Name_Placeholder": "A name for the document set",
-        "Description": "Description",
-        "Describe_Document_Set": "Describe what the document set represents",
-        "Pick_Connectors": "Pick your connectors:",
-        "Pick_Connectors_Description": "All documents indexed by the selected connectors will be a part of this document set.",
-        "Update_Button": "Update!",
-        "Create_Button": "Create!",
-        "Update_Error_Prefix": "Failed to update document set",
-        "Create_Error_Prefix": "Failed to create document set"
-    },
-    "admin_documents_sets_page": {
-        "Cannot_Update_While_Syncing": "Cannot update while syncing! Wait for the sync to finish, then try again.",
-        "Existing_Document_Sets": "Existing Document Sets",
-        "Name": "Name",
-        "Connectors": "Connectors",
-        "Status": "Status",
-        "Delete": "Delete",
-        "Up_to_Date": "Up to Date",
-        "Syncing": "Syncing",
-        "Deleting": "Deleting",
-        "Document_Set_Deletion_Scheduled": "Document set \"{documentSetName}\" scheduled for deletion",
-        "Failed_Delete_Schedule": "Failed to schedule document set for deletion - {errorMsg}",
-        "Document_Sets_Description": "<b>Document Sets</b> allow you to group logically connected documents into a single bundle. These can then be used as filter when performing searches in the web UI or attached to slack bots to limit the amount of information the bot searches over when answering in a specific channel or with a certain command.",
-        "New_Document_Set": "New Document Set",
-        "Document_Sets": "Document Sets"
-    },
-    "admin_indexing_status_CCPairIndexingStatusTable": {
-        "Current_Run_Status": "<i>Current Run:</i>   {count} docs indexed",
-        "Docs_Per_Minute": "docs / min",
-        "Calculating_Rate": "calculating rate...",
-        "Connector": "Connector",
-        "Status": "Status",
-        "Last_Indexed": "Last Indexed",
-        "Docs_Indexed": "Docs Indexed",
-        "Speed": "Speed"
-    },
-    "admin_indexing_status_page": {
-        "Error_loading_indexing_history": "Error loading indexing history.",
-        "No_connector_setup_message": "It looks like you don't have any connectors setup yet. Visit the",
-        "Add_Connector": "Add Connector",
-        "Get_started_message": "page to get started!",
-        "Existing_Connectors": "Existing Connectors"
-    },
-    "admin_keys_openai_page": {
-        "Loading": "Loading",
-        "Error_loading_existing_keys": "Error loading existing keys",
-        "Existing_Key": "Existing Key",
-        "LLM_Keys": "LLM Keys",
-        "Update_Key": "Update Key",
-        "Specify_OpenAI_API_Key": "Specify an OpenAI API key and click the \"Submit\" button."
-    },
-    "admin_models_embedding_embeddingModels": {
-        "Default_Model_Description": "The recommended default for most situations. If you aren't sure which model to use, this is probably the one.",
-        "Small_Model_Description": "A smaller / faster version of the default model. If you're running Quick Mind on a resource constrained system, then this is a good choice.",
-        "Multilingual_Model_Description": "If you have many documents in other languages besides English, this is the one to go for.",
-        "Multilingual_Small_Model_Description": "If you have many documents in other languages besides English, and you're running on a resource constrained system, then this is the one to go for."
-    },
-    "admin_models_embedding_ModelSelectionConfirmation": {
-        "Selected_Model_Text": "You have selected: <b>{model}</b>. Are you sure you want to update to this new embedding model?",
-        "Reindex_Background_Message": "We will re-index all your documents in the background so you will be able to continue to use Quick Mind as normal with the old model in the meantime. Depending on how many documents you have indexed, this may take a while.",
-        "Note": "<i>NOTE:</i> this re-indexing process will consume more resources than normal. If you are self-hosting, we recommend that you allocate at least 16GB of RAM to Quick Mind during this process.",
-        "Confirm_Button": "Confirm",
-        "Update_Model_Title": "Update Embedding Model"
-    },
-    "admin_models_embedding_ModelSelector": {
-        "See_More_Details": "See More Details",
-        "Select_Model": "Select Model"
-    },
-    "admin_models_embedding_page": {
-        "Failed_Update_Model": "Failed to update embedding model- {model}",
-        "Failed_to_Fetch_Model_Status": "Failed to fetch embedding model status",
-        "Success_Model_Selection": "Embeding model successfully selected",
-        "Initial_Setup_Message": "To complete the initial setup, let's add a connector!",
-        "Connectors_Description": "Connectors are the way that Quick Mind gets data from your organization's various data sources. Once setup, we'll automatically sync data from your apps and docs into Quick Mind, so you can search all through all of them in one place.",
-        "Add_Connector": "Add Connector",
-        "Cancel_Model_Switch": "Cancel Embedding Model Switch",
-        "Cancel_Confirmation_Message": "Are you sure you want to cancel?",
-        "Cancel_Progress_Message": "Cancelling will revert to the previous model and all progress will be lost.",
-        "Confirm": "Confirm",
-        "Embedding_Models_Description": "Embedding models are used to generate embeddings for your documents, which then power Quick Mind's search.",
-        "Current_Embedding_Model": "Current Embedding Model",
-        "Switch_Embedding_Model": "Switch Embedding Model",
-        "Update_Model_Choice": "If the current model is not working for you, you can update your model choice below. Note that this will require a complete re-indexing of all your documents across every connected source. We will take care of this in the background, but depending on the size of your corpus, this could take hours, day, or even weeks. You can monitor the progress of the re-indexing on this page.",
-        "Choose_Embedding_Model": "Choose your Embedding Model",
-        "Current_Upgrade_Status": "Current Upgrade Status",
-        "Switching_Process_Message": "Currently in the process of switching to:",
-        "Cancel": "Cancel",
-        "Reindexing_Progress_Message": "The table below shows the re-indexing progress of all existing connectors. Once all connectors have been re-indexed, the new model will be used for all search queries. Until then, we will use the old model so that no downtime is necessary during this transition.",
-        "Failed_Fetch_Reindexing_Progress": "Failed to fetch re-indexing progress",
-        "Embedding_Title": "Embedding"
-    },
-    "admin_models_embedding_ReindexingProgressTable": {
-        "Connector_Name": "Connector Name",
-        "Status": "Status",
-        "Docs_Reindexed": "Docs Re-Indexed"
-    },
-    "admin_personas_page": {
-        "Error_Title": "Something went wrong :(",
-        "Personas_Title": "Personas",
-        "Personas_Description": "Personas are a way to build custom search/question-answering experiences for different use cases.",
-        "Customize_Description": "They allow you to customize:",
-        "Prompt_Description": "The prompt used by your LLM of choice to respond to the user query",
-        "Context_Description": "The documents that are used as context",
-        "Create_Persona": "Create a Persona",
-        "New_Persona": "New Persona",
-        "Existing_Personas": "Existing Personas"
-    },
-    "admin_personas_PersonaEditor": {
-        "Persona_Name_Required": "Must give the Persona a name!",
-        "Persona_Description_Required": "Must give the Persona a description!",
-        "System_Task_Prompt_Validation": "Must provide at least one of System Prompt or Task Prompt",
-        "System_Task_Prompt_Required": "Must provide at least one of System Prompt or Task Prompt",
-        "Submit_Error_Message": "Cannot submit while there are errors in the form!",
-        "Failed_Create_Persona": "Failed to create Persona - {error}",
-        "Who_Am_I": "Who am I?",
-        "Name": "Name",
-        "Name_Subtext": "Users will be able to select this Persona based on this name.",
-        "Description": "Description",
-        "Description_Subtext": "Provide a short descriptions which gives users a hint as to what they should use this Persona for.",
-        "Customize_Response_Style": "Customize my response style",
-        "System_Prompt": "System Prompt",
-        "System_Prompt_Subtext": "Give general info about what the Persona is about. For example, \"You are an assistant for On-Call engineers. Your goal is to read the provided context documents and give recommendations as to how to resolve the issue.",
-        "Task_Prompt": "Task Prompt",
-        "Task_Prompt_Subtext": "Give specific instructions as to what to do with the user query. For example, \"Find any relevant sections from the provided documents that can help the user resolve their issue and explain how they are relevant.\"",
-        "Include_Citations": "Include Citations",
-        "Include_Citations_Subtext": "If set, the response will include bracket citations ([1], [2], etc.) for each document used by the LLM to help inform the response. This is the same technique used by the default Personas. In general, we recommend to leave this enabled in order to increase trust in the LLM answer.",
-        "Disable_Retrieval": "Disable Retrieval",
-        "Disable_Retrieval_Subtext": "If set, the Persona will not fetch any context documents to aid in the response. Instead, it will only use the supplied system and task prompts plus the user query in order to generate a response",
-        "Final_Prompt": "Final Prompt",
-        "Data_Access_Title": "Data Access",
-        "Select_Which": "Select which",
-        "Document_Sets": "Document Sets",
-        "Persona_Search_Description": "that this Persona should search through. If none are specified, the Persona will search through all available documents in order to try and response to queries.",
-        "Advanced_Model_Selection": "[Advanced] Model Selection",
-        "Model_Selection_Description": "Pick which LLM to use for this Persona. If left as Default, will use <b>{defaultLLM}</b>.",
-        "Model_Selection_More_Info_P1": "For more information on the different LLMs, checkout the",
-        "Model_Selection_More_Info_P2": "OpenAI docs",
-        "Advanced_Retrieval_Customization": "[Advanced] Retrieval Customization",
-        "Number_Chunks": "Number of Chunks",
-        "Number_Chunks_Description": "How many chunks should we feed into the LLM when generating the final response? Each chunk is ~400 words long. If you are using gpt-3.5-turbo or other similar models, setting this to a value greater than 5 will result in errors at query time due to the model's input length limit.",
-        "Number_Chunks_More_Info": "If unspecified, will use 10 chunks.",
-        "Apply_LLM_Filter": "Apply LLM Relevance Filter",
-        "Apply_LLM_Filter_Subtext": "If enabled, the LLM will filter out chunks that are not relevant to the user query.",
-        "Advanced_Starter_Messages": "[Advanced] Starter Messages",
-        "Starter_Messages_Description": "Starter Messages help guide users to use this Persona. They are shown to the user as clickable options when they select this Persona. When selected, the specified message is sent to the LLM as the initial user message.",
-        "Starter_Message_Name": "Name",
-        "Starter_Message_Name_Description": "Shows up as the \";title\"; for this Starter Message. For example, \";Write an email\";.",
-        "Starter_Message_Desc": "Description",
-        "Starter_Message_Desc_Description": "A description which tells the user what they might want to use this Starter Message for. For example \";to a client about a new feature\";",
-        "Starter_Message_Msg": "Message",
-        "Starter_Message_Msg_Description": "The actual message to be sent as the initial user message if a user selects this starter prompt. For example, \";Write me an email to a client about a new billing feature we just released.\";",
-        "Final_Prompt_Error": "",
-        "Add_New": "Add New",
-        "Update_Button": "Update!",
-        "Create_Button": "Create!"
-    },
-    "admin_personas_PersonaTable": {
-        "Persona_Display_Text": "Personas will be displayed as options on the Chat / Search interfaces in the order they are displayed below. Personas marked as hidden will not be displayed.",
-        "Name": "Name",
-        "Description": "Description",
-        "Built-In": "Built-In",
-        "Is_Visible": "Is Visible",
-        "Delete": "Delete",
-        "Yes": "Yes",
-        "No": "No",
-        "Hidden": "Hidden",
-        "Visible": "Visible",
-        "Failed_To_Delete": "Failed to delete persona - {detail}"
-    },
-    "admin_personas_new_page": {
-        "Error_Title": "Something went wrong :(",
-        "Failed_Fetch_Docs": "Failed to fetch document sets - {errorMsg}",
-        "Failed_Fetch_LLM_Ovverride": "Failed to fetch LLM override options - {errorMsg}",
-        "Failed_Fetch_Default_LLM": "Failed to fetch default LLM - {errorMsg}",
-        "Create_New_Persona": "Create a New Persona"
-    },
-    "admin_personas_personaId_page": {
-        "Error_Title": "Something went wrong :(",
-        "Edit_Persona": "Edit Persona",
-        "Create_New_Persona": "Create a New Persona"
-    },
-    "admin_systeminfo_page": {
-        "Version_Title": "Version",
-        "Backend_Version": "Backend Version",
-        "Web_Version": "Web Version"
-    },
-    "admin_users_page": {
-        "Loading": "Loading",
-        "Error_Loading_Users": "Error loading users",
-        "Email": "Email",
-        "Role": "Role",
-        "Admin": "Admin",
-        "Promote": "Promote",
-        "User": "User",
-        "Failed_Promote_User": "Unable to promote user - ${errorMsg}",
-        "Promote_User": "User promoted to admin!",
-        "Promote_Admin_Button": "Promote to Admin!",
-        "Manage_Users": "Manage Users"
-    },
-    "admin_search_page": {
-        "Search_Title": "Search"
-    },
-    "admin_chat_page": {
-        "Chat_Title": "Chat"
-    },
-    "auth_error_page": {
-        "Login_Error_Message": "Unable to login, please try again and/or contact an administrator"
-    },
-    "auth_login_Email_Password_Form": {
-        "Account_Exists_Error": "An account already exists with the specified email.",
-        "Failed_Sign_Up": "Failed to sign up - {errorMsg}",
-        "Unknown_Error": "Unknown error",
-        "Invalid_Email_Pwd": "Invalid email or password",
-        "Failed_Login": "Failed to login - {errorMsg}",
-        "Email": "Email",
-        "Password": "Password",
-        "Sign_Up": "Sign Up",
-        "Log_In": "Log In"
-    },
-    "auth_login_page": {
-        "Fetch_Failed_Login_Page": "Some fetch failed for the login page",
-        "Log_In": "Log In to Quick Mind",
-        "No_Account": "Don't have an account?",
-        "Create_Account": "Create an account"
-    },
-    "auth_login_SignInButton": {
-        "Continue_with_Google": "Continue with Google",
-        "Continue_with_OIDC_SSO": "Continue with OIDC SSO",
-        "Continue_with_SAML_SSO": "Continue with SAML SSO"
-    },
-    "auth_signup_page": {
-        "Sign_Up_Title": "Sign Up for Quick Mind",
-        "Already_Have_Account": "Already have an account? ",
-        "Log_In": "Log In"
-    },
-    "auth_verifyemail_Verify": {
-        "Missing_Verification_Token": "Missing verification token. Try requesting a new verification email.",
-        "Failed_Verify_Email": "Failed to verify your email - {errorDetail}. Please try requesting a new verification email.",
-        "Verifying_Email": "Verifying your email...",
-        "Get_New_Verification_Email": "Get new verification email"
-    },
-    "auth_waitingonverification_page": {
-        "verification_prompt": "Hey <i>{email}</i> - it looks like you haven't verified your email yet.",
-        "check_inbox": "Check your inbox for an email from us to get started!",
-        "not_see_email": "If you don't see anything, click",
-        "request_new_email": "here",
-        "to_request_new_email": "to request a new email."
-    },
-    "auth_waitingonverification_RequestNewVerificationEmail": {
-        "New_Verification_Email_Sent": "A new verification email has been sent!",
-        "Failed_Send_Verification_Email": "Failed to send a new verification email"
-    },
-    "chat_Chat": {
-        "Thanks_Feedback": "Thanks for your feedback!",
-        "Failed_Submit_Feedback": "Failed to submit feedback - {errorMsg}",
-        "Cannot_Edit_Query_First_Msg": "Cannot edit query of first message - please refresh the page and try again.",
-        "Cannot_Edit_Query_Pedding_Msg": "Cannot edit query of a pending message - please wait a few seconds and try again.",
-        "Failed_Force_Search": "Failed to force search - please refresh the page and try again.",
-        "Ask_Me": "Ask me anything...",
-        "Warning_Message": "Warning Message"
-    },
-    "chat_ChatIntro": {
-        "Say_Hello_First_Msg": "All Available Assistants",
-        "Knowlege_Sets": "Knowledge Sets",
-        "Chat_With_Assistant": "Which assistant do you want to chat with today?",
-        "Note_Default_Assistant": "Or ask a question immediately to use",
-        "See_More": "See more"
-    },
-    "chat_ChatPersonaSelector": {
-        "Default": "Default"
-    },
-    "chat_documentSidebar_ChatDocumentDisplay": {
-        "AI_Liked_Doc": "The AI liked this doc!"
-    },
-    "chat_documentSidebar_DocumentSelector": {
-        "Select": "Select",
-        "Chat_With_Document_Tips": "LLM context limit reached \ud83d\ude14 If you want to chat with this document, please de-select others to free up space."
-    },
-    "chat_documentSidebar_DocumentSidebar": {
-        "Referenced_Documents": "Referenced Documents",
-        "Retrieved_Documents": "Retrieved Documents",
-        "Select_Documents_Chat": "Select documents from the retrieved documents section to chat specifically with them!",
-        "No_Documents_Found": "No documents found for the query.",
-        "Ask_Question_Description": "When you run ask a question, the retrieved documents will show up here!",
-        "Selected_Documents": "Selected Documents",
-        "LLM_Context_Length_Alert": "Over LLM context length by:{\" \"} <i>{tokens} tokens</i>",
-        "Truncating": "Truncating",
-        "De_Select_All": "De-Select All"
-    },
-    "chat_message_Messages": {
-        "Sources_Title": "Sources:",
-        "You": "You"
-    },
-    "chat_message_SearchSummary": {
-        "Hide_Docs": "Hide Docs",
-        "Show_Docs": "Show Docs",
-        "Searching_For": "Searching for",
-        "Full_Query": "Full query"
-    },
-    "chat_message_SkippedSearch": {
-        "Force_Search": "Force Search",
-        "Query_Skipped_Message": "The AI decided this query didn't need a search"
-    },
-    "chat_modal_DeleteChatModal": {
-        "Delete_Chat_Title": "Delete chat?",
-        "Confirm_Delete_Chat": "Click below to confirm that you want to delete{\" \"} <b>\";{detail}\";</b>",
-        "Delete": "Delete"
-    },
-    "chat_modal_Feedback_Modal": {
-        "Provide_Additional_Feedback": "Provide additional feedback",
-        "Like_Feedback_Placeholder": "What did you like about this response?",
-        "Issue_Feedback_Placeholder": "What was the issue with the response? How could it be improved?",
-        "Submit_Feedback_Button": "Submit feedback"
-    },
-    "chat_modifiers_ChatFilters": {
-        "FilterType_Source": "Source",
-        "FilterType_KnowledgeSet": "Knowledge Set",
-        "FilterType_TimeRange": "Time Range",
-        "FilterType_Tag": "Tag",
-        "Last_30_days": "Last 30 days",
-        "Last_7_days": "Last 7 days",
-        "Today": "Today",
-        "Currently_Applied": "Currently applied",
-        "Filter": "Filter",
-        "Find_Tag": "Find a tag"
-    },
-    "chat_modifiers_SearchTypeSelector": {
-        "Question_Answering": "Question Answering",
-        "Search_Only": "Search Only",
-        "QA": "QA",
-        "Search": "Search"
-    },
-    "chat_modifiers_SelectedDocuments": {
-        "Selected_Documents": "Chatting with {length} Selected Documents"
-    },
-    "chat_sessionSidebar_ChatSidebar": {
-        "Failed_Logout": "Failed to logout",
-        "New_Chat": "New Chat",
-        "Today": "Today",
-        "Previous_7_Days": "Previous 7 Days",
-        "Previous_30_Days": "Previous 30 Days",
-        "Over_30_days_ago": "Over 30 days ago",        
-        "Danswer_Search": "Quick Mind Search",
-        "Danswer_Chat": "Quick Mind Chat",
-        "Admin_Panel": "Admin Panel",
-        "Log_Out": "Log out"
-    },
-    "chat_sessionSidebar_SessionDisplay": {
-        "Failed_Rename_Chat_Session": "Failed to rename chat session",
-        "Failed_Delete_Chat_Session": "Failed to delete chat session",
-        "Chat_With": "Chat {sessionId}"
-    },
-    "components_BackButton": {
-        "Back": "Back"
-    },
-    "components_DanswerInitializingLoader": {
-        "Initializing_Danswer": "Initializing Quick Mind"
-    },
-    "components_DeleteButton": {
-        "Delete": "Delete"
-    },
-    "components_Dropdown": {
-        "Search_Placeholder": "Search...",
-        "Default:": "Default: ",
-        "Select_An_Option": "Select an option..."
-    },
-    "components_EditButton": {
-        "Edit": "Edit"
-    },
-    "components_Header": {
-        "Quick Mind": "Quick Mind",
-        "Search": "Search",
-        "Chat": "Chat",
-        "Admin_Panel": "Admin Panel",
-        "Logout": "Logout",
-        "Switch_Lanauge": "Switch language"
-    },
-    "components_Status": {
-        "Failed": "Failed",
-        "Succeeded": "Succeeded",
-        "In_Progress": "In Progress",
-        "Scheduled": "Scheduled",
-        "Deleting": "Deleting",
-        "Paused": "Paused",
-        "Error": "Error",
-        "Active": "Active"
-    },
-    "components_SwitchModelModal": {
-        "Switch_Embedding_Model": "Switch Embedding Model",
-        "Old_Embedding_Model_Message": "We've detected you are using our old default embedding model",
-        "Model_Switch_Performance_Message": "We believe that search performance can be dramatically improved by a simple model switch.",
-        "Model_Switch_Button_Message": "Please click the button below to choose a new model. Don't worry, the re-indexing necessary for the switch will happen in the background - your use of Quick Mind will not be interrupted.",
-        "Choose_Embedding_Model_Button": "Choose your Embedding Model"
-    },
-    "components_admin_Layout": {
-        "Knowledge_Mmgt": "Knowledge Management",
-        "Knowledge_Unit": "Knowledge Unit",
-        "Document_Sets": "Document Sets",
-        "Document_Explorer": "Document Explorer",
-        "Knowledge_Operation": "Knowledge Operation",
-        "Chat": "Chat",
-        "Search": "Search",
-        "Feedback_Mgmt": "Feedback",
-        "Custom_Assistants": "Custom Assistants",
-        "FAQ_Mgmt": "FAQ Management",
-        "FAQ_List": "FAQ List",
-        "QA_Mgmt": "QA Management",
-        "Integration": "Integration",
-        "Apache_Answer": "Apache Answer",
-        "Dingding_Bots": "Dingding Bots",
-        "Slack_Bots": "Slack Bots",
-        "Model_Mgmt": "Model Management",
-        "API_Key": "API-Key",
-        "Embedding": "Embedding",
-        "Accounting": "Accounting",
-        "Accounting_Overview": "Overview",
-        "Accounting_Detail": "Detail",
-        "User_Plan": "User Plan",
-        "System_Mgmt": "System Management",
-        "Users": "Users",
-        "System_Logs": "System Logs"
-    },
-    "components_admin_connectors_ConnectorForm": {
-        "Success_Message": "Success!",
-        "Error_Message": "Error!",                
-        "Enter_Name_Connector": "Please enter a name for the connector",
-        "Unable_to_delete_connector": "Unable to delete existing connector",
-        "Error_creating_credential_for_CC_Pair": "Error creating credential for CC Pair",
-        "Error_linking_credentials": "Error linking credentials",
-        "Connector_Name": "Connector Name",
-        "Connector_Name_Subtext": "A descriptive name for the connector. This will just be used to identify the connector in the Admin UI.",
-        "Connect_Button": "Connect",
-        "Update_Button": "Update"
-    },
-    "components_admin_connectors_ConnectorTitle": {
-        "Folders": "Folders",
-        "Owner": "Owner",
-        "Channels": "Channels",
-        "Channel_Regex_Enabled": "Channel Regex Enabled"
-    },
-    "components_admin_connectors_CredentialForm": {
-        "Success_Message": "Success!",
-        "Error_Prefix": "Error: ",
-        "Update_Button": "Update"
-    },
-    "components_admin_connectors_Field": {
-        "Add_New_Button": "Add New"
-    },
-    "components_admin_connectors_FileUpload": {
-        "Selected_Files": "Selected Files"
-    },
-    "components_admin_connectors_buttons_AttachCredentialButtonForTable": {
-        "Attach_Credential_Button": "Attach Credential"
-    },
-    "components_admin_connectors_buttons_IndexButtonForTable": {
-        "Index_Button": "Index"
-    },
-    "components_admin_connectors_table_ConnectorsTable": {
-        "Failed": "Failed",
-        "Enabled": "Enabled",
-        "Paused": "Paused",
-        "Deleting": "Deleting",
-        "Enable": "Enable",
-        "Pause": "Pause",
-        "Header": "Header",
-        "Status": "Status",
-        "Remove": "Remove"
-    },
-    "components_admin_connectors_table_DeleteColumn": {
-        "Delete_Connector_Info": "In order to delete a connector it must be disabled and have no ongoing / planned index jobs."
-    },
-    "components_admin_connectors_table_SingleUseConnectorsTable": {
-        "Deleting_Status": "Deleting...",
-        "Not_Started_Status": "Not Started",
-        "In_Progress_Status": "In Progress",
-        "Success_Status": "Success!",
-        "Failed_Status": "Failed",
-        "Name_Column": "Name",
-        "Credential_Column": "Credential",
-        "Remove_Column": "Remove",
-        "Not_Available": "N/A",
-        "Failed_Schedule_Deletion_Connector": "Failed to schedule deletion of connector - ",
-        "Scheduled_Deletion_Connector": "Scheduled deletion of connector!"
-    },
-    "components_health_healthcheck": {
-        "Backend_Unavailable": "The backend is currently unavailable.",
-        "Backend_Unavailable_Note": "If this is your initial setup or you just updated your Quick Mind deployment, this is likely because the backend is still starting up. Give it a minute or two, and then refresh the page. If that does not work, make sure the backend is setup and/or contact an administrator."
-    },
-    "components_initialSetup_search_NoCompleteSourceModal": {
-        "Syncing_Not_Finished_Title": "\u23f3 None of your connectors have finished a full sync yet",
-        "Syncing_Not_Finished_Title_Note": "You've connected some sources, but none of them have finished syncing. Depending on the size of the knowledge base(s) you've connected to Quick Mind, it can take anywhere between 30 seconds to a few days for the initial sync to complete. So far we've synced",
-        "Note_Suffix_Documents": "documents.",
-        "Go_To_Connector_List": "To view the status of your syncing connectors, head over to the",
-        "Existing_Connectors_Page": "Existing Connectors page",
-        "Continue_Ask_Questions": "Or, click here to continue and ask questions on the partially synced knowledge set."
-    },
-    "components_initialSetup_search_NoSourcesModal": {
-        "No_Sources_Title": "\ud83e\uddd0 No sources connected",
-        "No_Sources_Message": "Before using Search you'll need to connect at least one source. Without any connected knowledge sources, there isn't anything to search over.",
-        "Connect_Source_Button": "Connect a Source!",
-        "ChatGPT_Message": "Or, if you're looking for a pure ChatGPT-like experience without any organization specific knowledge, then you can head over to the Chat page and start chatting with Quick Mind right away!",
-        "Start_Chat_Button": "Start Chatting!"
-    },
-    "components_initialSetup_welcome_WelcomeModal": {
-        "Search_Step_1": "Step 1: Provide OpenAI API Key",
-        "API_Key_Setup_Complete": "API Key setup complete!",
-        "Change_Key_Later": "If you want to change the key later, you'll be able to easily to do so in the Admin Panel.",
-        "Welcome_to_Danswer": "\ud83c\udf89 Welcome to Quick Mind",
-        "Search_Step_2": "Step 2: Connect Data Sources",
-        "Connectors_Description": "Connectors are the way that Quick Mind gets data from your organization's various data sources. Once setup, we'll automatically sync data from your apps and docs into Quick Mind, so you can search through all of them in one place.",
-        "Setup_Connector_Button": "Setup your first connector!",
-        "Start_Chat_Description": "Click the button below to start chatting with the LLM setup above! Don't worry, if you do decide later on you want to connect your organization's knowledge, you can always do that in the",
-        "LLM_Connections_Description": "Quick Mind supports connections with a wide range of LLMs, including self-hosted open-source LLMs. For more details, check out the",
-        "Documentation": "documentation",
-        "Gen_AI_Configs_Description": " If you haven't done anything special with the Gen AI configs, then we default to use OpenAI.",
-        "Provide_LLM_API_Key": "Step 1: Provide LLM API Key",
-        "LLM_Setup_Complete": "LLM setup complete!",
-        "Change_Key_Description": "If you want to change the key later or choose a different LLM, you'll be able to easily to do so in the Admin Panel / by changing some environment variables.",
-        "Start_Chat": "Start Chatting!",
-        "Admin_Panel": "Admin Panel",
-        "Start_chatting": "Start chatting!",
-        "How_are_you_planning_on_using_Danswer": "How are you planning on using Quick Mind?",
-        "Search_Chat_with_Knowledge": "Search / Chat with Knowledge",
-        "Search_Chat_with_Knowledge_Description": "If you're looking to search through, chat with, or ask direct questions of your organization's knowledge, then this is the option for you!",
-        "Get_Started": "Get Started",
-        "Secure_ChatGPT": "Secure ChatGPT",
-        "Secure_ChatGPT_Description": "If you're looking for a pure ChatGPT-like experience, then this is the option for you!"
-    },
-    "components_openai_ApiKeyForm": {
-        "Updated_API_Key": "Updated API key!",
-        "Unable_Set_API_Key": "Unable to set API key. Check if the provided key is valid.",
-        "Validating_API_Key": "Validating API key",
-        "API_Key": "API Key:",
-        "Submit_Button": "Submit"
-    },
-    "components_openai_ApiKeyModal": {
-        "LLM_Key_Setup": "LLM Key Setup",
-        "Provide_Valid_API_Key": "Please provide a valid OpenAI API key below in order to start using Quick Mind Search or Quick Mind Chat.",
-        "Look_Around_First": "Or if you'd rather look around first,",
-        "Skip_Step": "skip this step"
-    },
-    "components_search_DocumentDisplay": {
-        "AI_Like_Doc_Message": "The AI liked this doc!"
-    },
-    "components_search_DocumentFeedbackBlock": {
-        "Thanks_for_feedback": "Thanks for your feedback!",
-        "Error_feedback": "Error giving feedback"
-    },
-    "components_search_DocumentUpdatedAtBadge": {
-        "Updated": "Updated"
-    },
-    "components_search_DateRangeSelector": {
-        "Last_30_days": "Last 30 days",
-        "Last_7_days": "Last 7 days",
-        "Today": "Today",   
-        "Any_Time_Tips": "Any time..."    
-    },
-    "components_search_PersonaSelector": {
-        "Default": "Default"
-    },
-    "components_search_SearchBar": {
-        "Search_Tips": "Search..."
-    },
-    "components_search_SearchHelper": {
-        "Assistant_Message_1": "This doesn't seem like a question for a Generative AI. Do you still want to have",
-        "GPT_Response": "GPT give a response?",
-        "Assistant_Message_2": "GPT was unable to find an answer in the most relevant",
-        "Keep_Searching": "keep searching",
-        "AI_Assistant": "AI Assistant"
-    }, 
-    "components_search_SearchTypeSelector": {
-        "Search": "Search",
-        "Keyword_Search": "Keyword Search"
-    },
-    "components_search_filtering_Tag_Filter": {
-        "No_Matching_Tags_Found": "No matching tags found"
-    },
-    "components_search_filtering_Filters": {
-        "Filters_Title": "Filters",
-        "Time_Range_Title": "Time Range",
-        "Sources_Title": "Sources",
-        "Knowledge_Sets_Title": "Knowledge Sets",
-        "Description": "Description",
-        "Tags_Title": "Tags",
-        "All_Sources": "All Sources",
-        "All_Document_Sets": "All Document Sets",
-        "Bookmark": "Bookmark"
-    },
-    "components_search_results_SearchResultsDisplay": {
-        "No_matching_documents_found": "No matching documents found.",
-        "AI_Answer": "AI Answer",
-        "Results": "Results"
-    },        
-    "components_search_results_AnswerSection": {
-        "Building_Answer": "Building answer...",
-        "AI_Answer": "AI answer",
-        "Information_Not_Found": "Information not found",
-        "Error_Building_Answer": "Error while building answer",
-        "Building_Best_Effort_AI_Answer": "Building best effort AI answer...",
-        "Warning": "Warning",
-        "AI_Not_Answerable_Message": "the AI did not think this question was answerable."
-    },
-    "components_search_results_QuotesSection": {
-        "Did_Not_Find_Quotes": "Did not find any exact quotes to support the above answer."
-    }
+  "layout": {
+    "title": "Quick Mind"
+  },
+  "admin_addconnector_page": {
+    "Web": "Web",
+    "File": "File",
+    "Slack": "Slack",
+    "Github": "Github",
+    "Add_Connector": "Add Connector",
+    "Connector_Tips": "Connect Quick Mind to your organization's knowledge sources. We'll automatically sync your data into Quick Mind, so you can find exactly what you're looking for in one place.",
+    "Import_Knowledge_Title": "Import Knowledge",
+    "Connect_Knowledge_Outside_Apps": "Connect to pieces of knowledge that live outside your apps. Upload files, scrape websites, or connect to your organization's Google Site.",
+    "Setup_Auto_Syncing_Title": "Setup Auto-Syncing from Apps",
+    "Setup_Auto_Syncing_Description": "Setup auto-syncing from your organization's most used apps and services. Unless otherwise specified during the connector setup, we will pull in the latest updates from the source every 10 minutes."
+  },
+  "admin_bot_page": {
+    "Channels_Title": "Channels",
+    "Persona_Title": "Persona",
+    "Document_Sets_Title": "Document Sets",
+    "Delete_Title": "Delete",
+    "Delete_Success_Message": "Slack bot config {slack_id} deleted",
+    "Delete_Failed_Message_Prefix": "Failed to delete Slack bot config - {errorMsg}",
+    "Setup_Slack_Bot": "Setup a Slack bot that connects to Quick Mind. Once setup, you will be able to ask questions to Quick Mind directly from Slack. Additionally, you can:",
+    "Setup_DanswerBot_Auto_Answer": "Setup Quick Mind Bot to automatically answer questions in certain channels.",
+    "Choose_Document_Sets": "Choose which document sets Quick Mind Bot should answer from, depending on the channel the question is being asked.",
+    "Directly_DanswerBot": "Directly message Quick Mind Bot to search just as you would in the websUI.",
+    "Follow_Guide_Prefix": "Follow the",
+    "Follow_Guide_Suffix": "guide",
+    "Get_Started": "found in the Quick Mind documentation to get started!",
+    "Step_1_Configure_Slack_Tokens": "Step 1: Configure Slack Tokens",
+    "Tokens_saved": "Tokens saved!",
+    "Hide": "Hide",
+    "Edit_Tokens": "Edit Tokens",
+    "Setup_DanswerBot_Title": "Step 2: Setup Quick Mind Bot",
+    "Setup_DanswerBot_Description": "Configure Quick Mind to automatically answer questions in Slack channels. By default, Quick Mind only responds in channels where a configuration is setup unless it is explicitly tagged.",
+    "New_Slack_Bot_Configuration": "New Slack Bot Configuration",
+    "Slack_Bot_Configuration_Title": "Slack Bot Configuration"
+  },
+  "admin_bot_SlackBotConfigCreationForm": {
+    "Response_Updating_Error": "Error updating Quick Mind Bot config - {errorMsg}",
+    "Response_Creating_Error": "Error creating Quick Mind Bot config - {errorMsg}",
+    "The_Basics_Header": "The Basics",
+    "Channel_Names": "Channel Names",
+    "Tips_Slack_Channel": "The names of the Slack channels you want this configuration to apply to. For example, '#ask-quick-mind'.",
+    "Note_Add_DanswerBot_to_Channel": "<i>NOTE</i>: you still need to add Quick Mind Bot to the channel(s) in Slack itself. Setting this config will not auto-add the bot to the channel.",
+    "Response_Format_Label": "Response Format",
+    "Citations_Tips": "If set to Citations, Quick Mind Bot will respond with a direct answer with inline citations. It will also provide links to these cited documents below the answer. When in doubt, choose this option.",
+    "Quotes_Tips": "If set to Quotes, Quick Mind Bot will respond with a direct answer as well as with quotes pulled from the context documents to support that answer. Quick Mind Bot will also give a list of relevant documents. Choose this option if you want a very detailed response AND/OR a list of relevant documents would be useful just in case the LLM missed anything.",
+    "When_Respond_DanswerBot": "When should Quick Mind Bot respond?",
+    "Hide_Non_Answers": "Hide Non-Answers",
+    "Answer_Validity_Check_Subtext": "If set, will only answer questions that the model determines it can answer",
+    "Only_Respond_Questions": "Only respond to questions",
+    "Questionmark_Prefilter_Subtext": "If set, will only respond to messages that contain a question mark",
+    "Respond_DanswerBot_Only": "Respond to @Quick Mind Bot Only",
+    "Respond_Tag_Only_Subtext": "If set, Quick Mind Bot will only respond when directly tagged",
+    "Respond_To_Bots": "Responds to Bot messages",
+    "Respond_To_Bots_Subtext": "If not set, Quick Mind Bot will always ignore messages from Bots",
+    "Team_Members_Emails": "Team Members Emails",
+    "Team_Members_Emails_Subtext": "If specified, Quick Mind Bot responses will only be  visible to members in this list. This is useful if you want Quick Mind Bot to operate in an \"assistant\" mode, where it helps the team members find answers, but let's them build on top of Quick Mind Bot's response / throw  out the occasional incorrect answer.",
+    "Post_Response_Behavior": "Post Response Behavior",
+    "Should_Danswer_Still_Need_Help_Button": "Should Quick Mind give a “Still need help?” button?",
+    "Still_Need_Help_Button_Subtext": "If specified, Quick Mind Bot's response will include a button at the bottom  of the response that asks the user if they still need help.",
+    "Users_to_Tag": "Users to Tag",
+    "Slack_Users_Tag_Description": "The full email addresses of the Slack users we should tag if the user clicks the \"Still need help?\" button. For example, 'mark@acme.com'.",
+    "Provide_User_Group_Description": "Or provide a user group by either the name or the handle. For example, 'Quick Mind Team' or 'quick-mind-team'.",
+    "No_Email_Tagging_Description": "If no emails are provided, we will not tag anyone and will just react with a 🆘 emoji to the original message.",
+    "Data_Sources_Prompts_Header": "[Optional] Data Sources and Prompts",
+    "Use_Persona_Document_Sets": "Use either a Persona <b>or</b> Document Sets to control how Quick Mind Bot answers.",
+    "Use_Persona_Customize_Prompt": "You should use a Persona if you also want to customize the prompt and retrieval settings.",
+    "Use_Document_Sets_Control_Documents": "You should use Document Sets if you just want to control which documents Quick Mind Bot uses as references.",
+    "Note_Submit_Form_Tab": "<b>NOTE:</b> whichever tab you are when you submit the form will be the one that is used. For example, if you are on the \";Personas\"; tab, then the Persona will be used, even if you have Document Sets selected.",
+    "Document_Sets": "Document Sets",
+    "Personas": "Personas",
+    "Document_Sets_Description": "The document sets that Quick Mind Bot should search through. If left blank, Quick Mind Bot will search through all documents.",
+    "Persona_Subtext": "The persona to use when responding to queries. The Default persona actsas a question-answering assistant and has access to all documents indexed by non-private connectors.",
+    "Update_Button": "Update!",
+    "Create_Button": "Create!"
+  },
+  "admin_bot_SlackBotTokensForm": {
+    "Success_Setting_Slack_Tokens": "Successfully set Slack tokens!",
+    "Error_Setting_Slack_Tokens": "Error setting Slack tokens - {errorMsg}",
+    "Slack_Bot_Token": "Slack Bot Token",
+    "Slack_App_Token": "Slack App Token",
+    "Slack_Token": "Slack App Token",
+    "Set_Tokens": "Set Tokens"
+  },
+  "admin_bot_new_page": {
+    "Error_Title": "Something went wrong :(",
+    "Failed_Fetch_Bots": "Failed to fetch slack bots - {errorMsg}",
+    "Did_Not_Find_ID": "Did not find Slack Bot config with ID: {id}",
+    "Failed_Fetch_Docs": "Failed to fetch document sets - {sets}",
+    "Failed_Fetch_Personas": "Failed to fetch personas - {personas}",
+    "New_Slack_Bot_Config": "Edit Slack Bot Config",
+    "Define_Configuration_Below": "Define a new configuration below! This config will determine how Quick Mind Bot behaves in the specified channels."
+  },
+  "admin_bot_id_page": {
+    "Error_Title": "Something went wrong :(",
+    "Failed_Fetch_Bots": "Failed to fetch slack bots - {errorMsg}",
+    "Did_Not_Find_ID": "Did not find Slack Bot config with ID: {id}",
+    "Failed_Fetch_Docs": "Failed to fetch document sets - {sets}",
+    "Failed_Fetch_Personas": "Failed to fetch personas - {personas}",
+    "Edit_Slack_Bot_Config": "Edit Slack Bot Config",
+    "Edit_Config_Text": "Edit the existing configuration below! This config will determine how Quick Mind Bot behaves in the specified channels."
+  },
+  "admin_connector_ccPairId_ConfigurationDisplay": {
+    "Configuration_Title": "Configuration"
+  },
+  "admin_connector_ccPairId_DeletionButton": {
+    "Deleting_Connector_Message": "This connector is currently being deleted",
+    "Click_to_Delete": "Click to delete",
+    "Pause_Connector_Before_Delete": "You must pause the connector before deleting it",
+    "Schedule_Deletion_Button": "Schedule for Deletion"
+  },
+  "admin_connector_ccPairId_IndexingAttemptsTable": {
+    "Index_Attempts_Table": "Indexing Attempts Table",
+    "Copy_Full_Trace": "Copy full trace",
+    "Copied_Clipboard": "Copied to clipboard",
+    "Time_Started": "Time Started",
+    "Status": "Status",
+    "New_Doc_Count": "New Document Count",
+    "Total_Doc_Count": "Total Document Count",
+    "Error_Msg": "Error Message",
+    "Docs_Rate": "docs / min",
+    "Doc_Remove_From_Index": "also removed {doc} docs that were detected as deleted in the source",
+    "View_Full_Trace": "View Full Trace"
+  },
+  "admin_connector_ccPairId_ModifyStatusButtonCluster": {
+    "Click_Start_Indexing_Again": "Click to start indexing again!",
+    "Re-Enable_Button": "Re-Enable",
+    "Paused_Connector_Tooltip": "When paused, the connectors documents will still be visible. However, no new documents will be indexed.",
+    "Pause_Button": "Pause"
+  },
+  "admin_connector_ccPairId_page": {
+    "Failed_Fetch_Connector_Info": "Failed to fetch info on Connector with ID {ccPairId}",
+    "Total_Documents_Indexed": "Total Documents Indexed",
+    "Indexing_Attempts": "Indexing Attempts",
+    "Delete_Connector_Title": "Delete Connector",
+    "Delete_Connector_Text": "Deleting the connector will also delete all associated documents."
+  },
+  "admin_connector_ccPairId_ReIndexButton": {
+    "Connector_Run_Success": "Triggered connector run",
+    "Running_Indexing": "Run Indexing",
+    "Button_Run_Update": "Run Update",
+    "Update_Tips": "This will pull in and index all documents that have changed and/or have been added since the last successful indexing run.",
+    "Button_Run_Complete_Reindexing": "Run Complete Re-Indexing",
+    "Reindex_All_Documents": "This will cause a complete re-indexing of all documents from the source.",
+    "Note": "<b>NOTE:</b> depending on the number of documents stored in the source, this may take a long time.",
+    "Connector_Musts_Indexing": "Connector must be active in order to run indexing",
+    "Run_Indexing": "Run Indexing"
+  },
+  "admin_connectors_file_page": {
+    "File": "File",
+    "Loading": "Loading",
+    "Specify_Files": "Specify files below, click the <b>Upload</b> button, and the contents of these files will be searchable via Quick Mind! Currently only <i>.txt</i>,  <i>.pdf</i> and <i>.zip</i> files (containing only <i>.txt</i> files) are supported.",
+    "Note_P1": "<b>NOTE:</b> if the original document is accessible via a link, you can add a line at the very beginning of the file that looks like:",
+    "Note_P2": "where <i>\"LINK\"</i> is the link to the file. This will enable Quick Mind to link users to the original document when they click on the search result. More details on this can be found in the",
+    "Note_P3": " documentation.",
+    "Descriptive_Name_Required": "Please enter a descriptive name for the files",
+    "Unable_Upload_Files": "Unable to upload files - {detail}",
+    "Unable_Create_Connector": "Unable to create connector - {errorMsg}",
+    "Error_Creating_Credential": "Error creating credential for CC Pair - {errorMsg}",
+    "Unable_Link_Connector_Credential": "Unable to link connector to credential - {detail}",
+    "Unable_Run_Connector": "Unable to run connector - {errorMsg}",
+    "Successfully_Uploaded_Files": "Successfully uploaded files!",
+    "Failed_Index_Files": "Failed to index files: ",
+    "Upload_Files": "Upload Files",
+    "Name_Label": "Name:",
+    "Name_Placeholder": "A name that describes the files e.g. \"Onboarding Documents\"",
+    "Files_Label": "Files:",
+    "Upload_Button": "Upload!",
+    "Indexed_Files_Title": "Indexed Files",
+    "Admin_Page_Title": "File",
+    "File_Names_Header": "File Name"
+  },
+  "admin_connectors_web_page": {
+    "Loading": "Loading",
+    "Web_Title": "Web",
+    "Step_1_Specify_Websites": "Step 1: Specify which websites to index",
+    "Fetch_Website_State_Daily": "We re-fetch the latest state of the website once a day.",
+    "URL_Index": "URL to Index",
+    "Scrape_Method": "Scrape Method:",
+    "Recursive": "Recursive",
+    "Recursive_Description": "Recursively index all pages that share the same base URL.",
+    "Single_Page_Description": "Index only the specified page.",
+    "Sitemap_Description": "Assumes the URL to Index points to a Sitemap. Will try and index all pages that are a mentioned in the sitemap.",
+    "Please_Enter_Website_URL": "Please enter the website URL to scrape e.g. https://docs.quick-mind.dev/",
+    "Already_Indexed_Websites": "Already Indexed Websites",
+    "Error_Indexing_history": "Error loading indexing history",
+    "Base_URL": "Base URL",
+    "No_Indexed_Websites_Found": "No indexed websites found"
+  },
+  "admin_documents_ScoreEditor": {
+    "Score_Must_Be_Number": "Score must be a number",
+    "Updated_Score": "Updated score!"
+  },
+  "admin_documents_explorer_Explorer": {
+    "Boost": "Boost",
+    "Failed_Update_Document": "Failed to update document - {errorMsg}",
+    "Hidden": "Hidden",
+    "Visible": "Visible",
+    "Find_Documents_Placeholder": "Find documents based on title / content...",
+    "Search_Document_Modify": "Search for a document above to modify it's boost or hide it from searches."
+  },
+  "admin_documents_explorer_page": {
+    "Document_Explorer_Title": "Document Explorer"
+  },
+  "admin_documents_feedback_DocumentFeedbackTable": {
+    "Hidden": "Hidden",
+    "Visible": "Visible",
+    "Unhide": "Unhide",
+    "Hide": "Hide",
+    "Document_Name": "Document Name",
+    "Is_Searchable": "Is Searchable?",
+    "Score": "Score",
+    "Error_Update_Status": "Error updating hidden status - {errorMsg}"
+  },
+  "admin_documents_feedback_page": {
+    "Document_Feedback": "Document Feedback",
+    "Most_Liked_Documents": "Most Liked Documents",
+    "Most_Disliked_Documents": "Most Disliked Documents"
+  },
+  "admin_documents_sets_DocumentSetCreationForm": {
+    "Enter_Set_Name": "Please enter a name for the set",
+    "Enter_Set_Desc": "Please enter a description for the set",
+    "Select_One_Connector": "Please select at least one connector",
+    "Update_Success_Message": "Successfully updated document set!",
+    "Create_Success_Message": "Successfully created document set!",
+    "Update_Document_Set": "Update a Document Set",
+    "Create_New_Document_Set": "Create a new Document Set",
+    "Name_Label": "Name:",
+    "Name_Placeholder": "A name for the document set",
+    "Description": "Description",
+    "Describe_Document_Set": "Describe what the document set represents",
+    "Pick_Connectors": "Pick your connectors:",
+    "Pick_Connectors_Description": "All documents indexed by the selected connectors will be a part of this document set.",
+    "Update_Button": "Update!",
+    "Create_Button": "Create!",
+    "Update_Error_Prefix": "Failed to update document set",
+    "Create_Error_Prefix": "Failed to create document set"
+  },
+  "admin_documents_sets_page": {
+    "Cannot_Update_While_Syncing": "Cannot update while syncing! Wait for the sync to finish, then try again.",
+    "Existing_Document_Sets": "Existing Document Sets",
+    "Name": "Name",
+    "Connectors": "Connectors",
+    "Status": "Status",
+    "Delete": "Delete",
+    "Up_to_Date": "Up to Date",
+    "Syncing": "Syncing",
+    "Deleting": "Deleting",
+    "Document_Set_Deletion_Scheduled": "Document set \"{documentSetName}\" scheduled for deletion",
+    "Failed_Delete_Schedule": "Failed to schedule document set for deletion - {errorMsg}",
+    "Document_Sets_Description": "<b>Document Sets</b> allow you to group logically connected documents into a single bundle. These can then be used as filter when performing searches in the web UI or attached to slack bots to limit the amount of information the bot searches over when answering in a specific channel or with a certain command.",
+    "New_Document_Set": "New Document Set",
+    "Document_Sets": "Document Sets"
+  },
+  "admin_indexing_status_CCPairIndexingStatusTable": {
+    "Current_Run_Status": "<i>Current Run:</i>   {count} docs indexed",
+    "Docs_Per_Minute": "docs / min",
+    "Calculating_Rate": "calculating rate...",
+    "Connector": "Connector",
+    "Status": "Status",
+    "Last_Indexed": "Last Indexed",
+    "Docs_Indexed": "Docs Indexed",
+    "Speed": "Speed"
+  },
+  "admin_indexing_status_page": {
+    "Error_loading_indexing_history": "Error loading indexing history.",
+    "No_connector_setup_message": "It looks like you don't have any connectors setup yet. Visit the",
+    "Add_Connector": "Add Connector",
+    "Get_started_message": "page to get started!",
+    "Existing_Connectors": "Existing Connectors"
+  },
+  "admin_keys_openai_page": {
+    "Loading": "Loading",
+    "Error_loading_existing_keys": "Error loading existing keys",
+    "Existing_Key": "Existing Key",
+    "LLM_Keys": "LLM Keys",
+    "Update_Key": "Update Key",
+    "Specify_OpenAI_API_Key": "Specify an OpenAI API key and click the \"Submit\" button."
+  },
+  "admin_models_embedding_embeddingModels": {
+    "Default_Model_Description": "The recommended default for most situations. If you aren't sure which model to use, this is probably the one.",
+    "Small_Model_Description": "A smaller / faster version of the default model. If you're running Quick Mind on a resource constrained system, then this is a good choice.",
+    "Multilingual_Model_Description": "If you have many documents in other languages besides English, this is the one to go for.",
+    "Multilingual_Small_Model_Description": "If you have many documents in other languages besides English, and you're running on a resource constrained system, then this is the one to go for."
+  },
+  "admin_models_embedding_ModelSelectionConfirmation": {
+    "Selected_Model_Text": "You have selected: <b>{model}</b>. Are you sure you want to update to this new embedding model?",
+    "Reindex_Background_Message": "We will re-index all your documents in the background so you will be able to continue to use Quick Mind as normal with the old model in the meantime. Depending on how many documents you have indexed, this may take a while.",
+    "Note": "<i>NOTE:</i> this re-indexing process will consume more resources than normal. If you are self-hosting, we recommend that you allocate at least 16GB of RAM to Quick Mind during this process.",
+    "Confirm_Button": "Confirm",
+    "Update_Model_Title": "Update Embedding Model"
+  },
+  "admin_models_embedding_ModelSelector": {
+    "See_More_Details": "See More Details",
+    "Select_Model": "Select Model"
+  },
+  "admin_models_embedding_page": {
+    "Failed_Update_Model": "Failed to update embedding model- {model}",
+    "Failed_to_Fetch_Model_Status": "Failed to fetch embedding model status",
+    "Success_Model_Selection": "Embeding model successfully selected",
+    "Initial_Setup_Message": "To complete the initial setup, let's add a connector!",
+    "Connectors_Description": "Connectors are the way that Quick Mind gets data from your organization's various data sources. Once setup, we'll automatically sync data from your apps and docs into Quick Mind, so you can search all through all of them in one place.",
+    "Add_Connector": "Add Connector",
+    "Cancel_Model_Switch": "Cancel Embedding Model Switch",
+    "Cancel_Confirmation_Message": "Are you sure you want to cancel?",
+    "Cancel_Progress_Message": "Cancelling will revert to the previous model and all progress will be lost.",
+    "Confirm": "Confirm",
+    "Embedding_Models_Description": "Embedding models are used to generate embeddings for your documents, which then power Quick Mind's search.",
+    "Current_Embedding_Model": "Current Embedding Model",
+    "Switch_Embedding_Model": "Switch Embedding Model",
+    "Update_Model_Choice": "If the current model is not working for you, you can update your model choice below. Note that this will require a complete re-indexing of all your documents across every connected source. We will take care of this in the background, but depending on the size of your corpus, this could take hours, day, or even weeks. You can monitor the progress of the re-indexing on this page.",
+    "Choose_Embedding_Model": "Choose your Embedding Model",
+    "Current_Upgrade_Status": "Current Upgrade Status",
+    "Switching_Process_Message": "Currently in the process of switching to:",
+    "Cancel": "Cancel",
+    "Reindexing_Progress_Message": "The table below shows the re-indexing progress of all existing connectors. Once all connectors have been re-indexed, the new model will be used for all search queries. Until then, we will use the old model so that no downtime is necessary during this transition.",
+    "Failed_Fetch_Reindexing_Progress": "Failed to fetch re-indexing progress",
+    "Embedding_Title": "Embedding"
+  },
+  "admin_models_embedding_ReindexingProgressTable": {
+    "Connector_Name": "Connector Name",
+    "Status": "Status",
+    "Docs_Reindexed": "Docs Re-Indexed"
+  },
+  "admin_personas_page": {
+    "Error_Title": "Something went wrong :(",
+    "Personas_Title": "Personas",
+    "Personas_Description": "Personas are a way to build custom search/question-answering experiences for different use cases.",
+    "Customize_Description": "They allow you to customize:",
+    "Prompt_Description": "The prompt used by your LLM of choice to respond to the user query",
+    "Context_Description": "The documents that are used as context",
+    "Others_Description": "The other settings that fine tune the LLM's response",
+    "Create_Persona": "Create a Persona",
+    "New_Persona": "New Persona",
+    "Existing_Personas": "Existing Personas"
+  },
+  "admin_personas_PersonaEditor": {
+    "Persona_Name_Required": "Must give the Persona a name!",
+    "Persona_Description_Required": "Must give the Persona a description!",
+    "System_Task_Prompt_Validation": "Must provide at least one of System Prompt or Task Prompt",
+    "System_Task_Prompt_Required": "Must provide at least one of System Prompt or Task Prompt",
+    "Submit_Error_Message": "Cannot submit while there are errors in the form!",
+    "Failed_Create_Persona": "Failed to create Persona - {error}",
+    "Who_Am_I": "Who am I?",
+    "Name": "Name",
+    "Name_Subtext": "Users will be able to select this Persona based on this name.",
+    "Description": "Description",
+    "Description_Subtext": "Provide a short descriptions which gives users a hint as to what they should use this Persona for.",
+    "Customize_Response_Style": "Customize my response style",
+    "System_Prompt": "System Prompt",
+    "System_Prompt_Subtext": "Give general info about what the Persona is about. For example, \"You are an assistant for On-Call engineers. Your goal is to read the provided context documents and give recommendations as to how to resolve the issue.",
+    "Task_Prompt": "Task Prompt",
+    "Task_Prompt_Subtext": "Give specific instructions as to what to do with the user query. For example, \"Find any relevant sections from the provided documents that can help the user resolve their issue and explain how they are relevant.\"",
+    "Include_Citations": "Include Citations",
+    "Include_Citations_Subtext": "If set, the response will include bracket citations ([1], [2], etc.) for each document used by the LLM to help inform the response. This is the same technique used by the default Personas. In general, we recommend to leave this enabled in order to increase trust in the LLM answer.",
+    "Disable_Retrieval": "Disable Retrieval",
+    "Disable_Retrieval_Subtext": "If set, the Persona will not fetch any context documents to aid in the response. Instead, it will only use the supplied system and task prompts plus the user query in order to generate a response",
+    "Final_Prompt": "Final Prompt",
+    "Data_Access_Title": "Data Access",
+    "Select_Which": "Select which",
+    "Document_Sets": "Document Sets",
+    "Persona_Search_Description": "that this Persona should search through. If none are specified, the Persona will search through all available documents in order to try and response to queries.",
+    "Advanced_Model_Selection": "[Advanced] Model Selection",
+    "Model_Selection_Description": "Pick which LLM to use for this Persona. If left as Default, will use <b>{defaultLLM}</b>.",
+    "Model_Selection_More_Info_P1": "For more information on the different LLMs, checkout the",
+    "Model_Selection_More_Info_P2": "OpenAI docs",
+    "Advanced_Retrieval_Customization": "[Advanced] Retrieval Customization",
+    "Number_Chunks": "Number of Chunks",
+    "Number_Chunks_Description": "How many chunks should we feed into the LLM when generating the final response? Each chunk is ~400 words long. If you are using gpt-3.5-turbo or other similar models, setting this to a value greater than 5 will result in errors at query time due to the model's input length limit.",
+    "Number_Chunks_More_Info": "If unspecified, will use 10 chunks.",
+    "Apply_LLM_Filter": "Apply LLM Relevance Filter",
+    "Apply_LLM_Filter_Subtext": "If enabled, the LLM will filter out chunks that are not relevant to the user query.",
+    "Advanced_Starter_Messages": "[Advanced] Starter Messages",
+    "Starter_Messages_Description": "Starter Messages help guide users to use this Persona. They are shown to the user as clickable options when they select this Persona. When selected, the specified message is sent to the LLM as the initial user message.",
+    "Starter_Message_Name": "Name",
+    "Starter_Message_Name_Description": "Shows up as the \";title\"; for this Starter Message. For example, \";Write an email\";.",
+    "Starter_Message_Desc": "Description",
+    "Starter_Message_Desc_Description": "A description which tells the user what they might want to use this Starter Message for. For example \";to a client about a new feature\";",
+    "Starter_Message_Msg": "Message",
+    "Starter_Message_Msg_Description": "The actual message to be sent as the initial user message if a user selects this starter prompt. For example, \";Write me an email to a client about a new billing feature we just released.\";",
+    "Final_Prompt_Error": "",
+    "Add_New": "Add New",
+    "Update_Button": "Update!",
+    "Create_Button": "Create!"
+  },
+  "admin_personas_PersonaTable": {
+    "Persona_Display_Text": "Personas will be displayed as options on the Chat / Search interfaces in the order they are displayed below. Personas marked as hidden will not be displayed.",
+    "Name": "Name",
+    "Description": "Description",
+    "Built-In": "Built-In",
+    "Is_Visible": "Is Visible",
+    "Delete": "Delete",
+    "Yes": "Yes",
+    "No": "No",
+    "Hidden": "Hidden",
+    "Visible": "Visible",
+    "Failed_To_Delete": "Failed to delete persona - {detail}"
+  },
+  "admin_personas_new_page": {
+    "Error_Title": "Something went wrong :(",
+    "Failed_Fetch_Docs": "Failed to fetch document sets - {errorMsg}",
+    "Failed_Fetch_LLM_Ovverride": "Failed to fetch LLM override options - {errorMsg}",
+    "Failed_Fetch_Default_LLM": "Failed to fetch default LLM - {errorMsg}",
+    "Create_New_Persona": "Create a New Persona"
+  },
+  "admin_personas_personaId_page": {
+    "Error_Title": "Something went wrong :(",
+    "Edit_Persona": "Edit Persona",
+    "Create_New_Persona": "Create a New Persona"
+  },
+  "admin_systeminfo_page": {
+    "Version_Title": "Version",
+    "Backend_Version": "Backend Version",
+    "Web_Version": "Web Version"
+  },
+  "admin_users_page": {
+    "Loading": "Loading",
+    "Error_Loading_Users": "Error loading users",
+    "Email": "Email",
+    "Role": "Role",
+    "Admin": "Admin",
+    "Promote": "Promote",
+    "User": "User",
+    "Failed_Promote_User": "Unable to promote user - ${errorMsg}",
+    "Promote_User": "User promoted to admin!",
+    "Promote_Admin_Button": "Promote to Admin!",
+    "Manage_Users": "Manage Users"
+  },
+  "admin_search_page": {
+    "Search_Title": "Search"
+  },
+  "admin_chat_page": {
+    "Chat_Title": "Chat"
+  },
+  "auth_error_page": {
+    "Login_Error_Message": "Unable to login, please try again and/or contact an administrator"
+  },
+  "auth_login_Email_Password_Form": {
+    "Account_Exists_Error": "An account already exists with the specified email.",
+    "Failed_Sign_Up": "Failed to sign up - {errorMsg}",
+    "Unknown_Error": "Unknown error",
+    "Invalid_Email_Pwd": "Invalid email or password",
+    "Failed_Login": "Failed to login - {errorMsg}",
+    "Email": "Email",
+    "Password": "Password",
+    "Sign_Up": "Sign Up",
+    "Log_In": "Log In"
+  },
+  "auth_login_page": {
+    "Fetch_Failed_Login_Page": "Some fetch failed for the login page",
+    "Log_In": "Log In to Quick Mind",
+    "No_Account": "Don't have an account?",
+    "Create_Account": "Create an account"
+  },
+  "auth_login_SignInButton": {
+    "Continue_with_Google": "Continue with Google",
+    "Continue_with_OIDC_SSO": "Continue with OIDC SSO",
+    "Continue_with_SAML_SSO": "Continue with SAML SSO"
+  },
+  "auth_signup_page": {
+    "Sign_Up_Title": "Sign Up for Quick Mind",
+    "Already_Have_Account": "Already have an account? ",
+    "Log_In": "Log In"
+  },
+  "auth_verifyemail_Verify": {
+    "Missing_Verification_Token": "Missing verification token. Try requesting a new verification email.",
+    "Failed_Verify_Email": "Failed to verify your email - {errorDetail}. Please try requesting a new verification email.",
+    "Verifying_Email": "Verifying your email...",
+    "Get_New_Verification_Email": "Get new verification email"
+  },
+  "auth_waitingonverification_page": {
+    "verification_prompt": "Hey <i>{email}</i> - it looks like you haven't verified your email yet.",
+    "check_inbox": "Check your inbox for an email from us to get started!",
+    "not_see_email": "If you don't see anything, click",
+    "request_new_email": "here",
+    "to_request_new_email": "to request a new email."
+  },
+  "auth_waitingonverification_RequestNewVerificationEmail": {
+    "New_Verification_Email_Sent": "A new verification email has been sent!",
+    "Failed_Send_Verification_Email": "Failed to send a new verification email"
+  },
+  "chat_Chat": {
+    "Thanks_Feedback": "Thanks for your feedback!",
+    "Failed_Submit_Feedback": "Failed to submit feedback - {errorMsg}",
+    "Cannot_Edit_Query_First_Msg": "Cannot edit query of first message - please refresh the page and try again.",
+    "Cannot_Edit_Query_Pedding_Msg": "Cannot edit query of a pending message - please wait a few seconds and try again.",
+    "Failed_Force_Search": "Failed to force search - please refresh the page and try again.",
+    "Ask_Me": "Ask me anything...",
+    "Warning_Message": "Warning Message"
+  },
+  "chat_ChatIntro": {
+    "Say_Hello_First_Msg": "All Available Assistants",
+    "Knowlege_Sets": "Knowledge Sets",
+    "Chat_With_Assistant": "Which assistant do you want to chat with today?",
+    "Note_Default_Assistant": "Or ask a question immediately to use",
+    "See_More": "See more"
+  },
+  "chat_ChatPersonaSelector": {
+    "Default": "Default"
+  },
+  "chat_documentSidebar_ChatDocumentDisplay": {
+    "AI_Liked_Doc": "The AI liked this doc!"
+  },
+  "chat_documentSidebar_DocumentSelector": {
+    "Select": "Select",
+    "Chat_With_Document_Tips": "LLM context limit reached 😔 If you want to chat with this document, please de-select others to free up space."
+  },
+  "chat_documentSidebar_DocumentSidebar": {
+    "Referenced_Documents": "Referenced Documents",
+    "Retrieved_Documents": "Retrieved Documents",
+    "Select_Documents_Chat": "Select documents from the retrieved documents section to chat specifically with them!",
+    "No_Documents_Found": "No documents found for the query.",
+    "Ask_Question_Description": "When you run ask a question, the retrieved documents will show up here!",
+    "Selected_Documents": "Selected Documents",
+    "LLM_Context_Length_Alert": "Over LLM context length by:{\" \"} <i>{tokens} tokens</i>",
+    "Truncating": "Truncating",
+    "De_Select_All": "De-Select All"
+  },
+  "chat_message_Messages": {
+    "Sources_Title": "Sources:",
+    "You": "You"
+  },
+  "chat_message_SearchSummary": {
+    "Hide_Docs": "Hide Docs",
+    "Show_Docs": "Show Docs",
+    "Searching_For": "Searching for",
+    "Full_Query": "Full query"
+  },
+  "chat_message_SkippedSearch": {
+    "Force_Search": "Force Search",
+    "Query_Skipped_Message": "The AI decided this query didn't need a search"
+  },
+  "chat_modal_DeleteChatModal": {
+    "Delete_Chat_Title": "Delete chat?",
+    "Confirm_Delete_Chat": "Click below to confirm that you want to delete <b> {detail} </b>",
+    "Delete": "Delete"
+  },
+  "chat_modal_Feedback_Modal": {
+    "Provide_Additional_Feedback": "Provide additional feedback",
+    "Like_Feedback_Placeholder": "What did you like about this response?",
+    "Issue_Feedback_Placeholder": "What was the issue with the response? How could it be improved?",
+    "Submit_Feedback_Button": "Submit feedback"
+  },
+  "chat_modifiers_ChatFilters": {
+    "FilterType_Source": "Source",
+    "FilterType_KnowledgeSet": "Knowledge Set",
+    "FilterType_TimeRange": "Time Range",
+    "FilterType_Tag": "Tag",
+    "Last_30_days": "Last 30 days",
+    "Last_7_days": "Last 7 days",
+    "Today": "Today",
+    "Currently_Applied": "Currently applied",
+    "Filter": "Filter",
+    "Find_Tag": "Find a tag"
+  },
+  "chat_modifiers_SearchTypeSelector": {
+    "Question_Answering": "Question Answering",
+    "Search_Only": "Search Only",
+    "QA": "QA",
+    "Search": "Search"
+  },
+  "chat_modifiers_SelectedDocuments": {
+    "Selected_Documents": "Chatting with {length} Selected Documents"
+  },
+  "chat_sessionSidebar_ChatSidebar": {
+    "Failed_Logout": "Failed to logout",
+    "New_Chat": "New Chat",
+    "Today": "Today",
+    "Previous_7_Days": "Previous 7 Days",
+    "Previous_30_Days": "Previous 30 Days",
+    "Over_30_days_ago": "Over 30 days ago",
+    "Danswer_Search": "Quick Mind Search",
+    "Danswer_Chat": "Quick Mind Chat",
+    "Admin_Panel": "Admin Panel",
+    "Log_Out": "Log out"
+  },
+  "chat_sessionSidebar_SessionDisplay": {
+    "Failed_Rename_Chat_Session": "Failed to rename chat session",
+    "Failed_Delete_Chat_Session": "Failed to delete chat session",
+    "Chat_With": "Chat {sessionId}"
+  },
+  "components_BackButton": {
+    "Back": "Back"
+  },
+  "components_DanswerInitializingLoader": {
+    "Initializing_Danswer": "Initializing Quick Mind"
+  },
+  "components_DeleteButton": {
+    "Delete": "Delete"
+  },
+  "components_Dropdown": {
+    "Search_Placeholder": "Search...",
+    "Default": "Default",
+    "Select_An_Option": "Select an option..."
+  },
+  "components_EditButton": {
+    "Edit": "Edit"
+  },
+  "components_Header": {
+    "Quick Mind": "Quick Mind",
+    "Search": "Search",
+    "Chat": "Chat",
+    "Admin_Panel": "Admin Panel",
+    "Logout": "Logout",
+    "Switch_Lanauge": "Switch language"
+  },
+  "components_Status": {
+    "Failed": "Failed",
+    "Succeeded": "Succeeded",
+    "In_Progress": "In Progress",
+    "Scheduled": "Scheduled",
+    "Deleting": "Deleting",
+    "Paused": "Paused",
+    "Error": "Error",
+    "Active": "Active"
+  },
+  "components_SwitchModelModal": {
+    "Switch_Embedding_Model": "Switch Embedding Model",
+    "Old_Embedding_Model_Message": "We've detected you are using our old default embedding model",
+    "Model_Switch_Performance_Message": "We believe that search performance can be dramatically improved by a simple model switch.",
+    "Model_Switch_Button_Message": "Please click the button below to choose a new model. Don't worry, the re-indexing necessary for the switch will happen in the background - your use of Quick Mind will not be interrupted.",
+    "Choose_Embedding_Model_Button": "Choose your Embedding Model"
+  },
+  "components_admin_Layout": {
+    "Knowledge_Mmgt": "Knowledge Management",
+    "Knowledge_Unit": "Knowledge Unit",
+    "Document_Sets": "Document Sets",
+    "Document_Explorer": "Document Explorer",
+    "Knowledge_Operation": "Knowledge Operation",
+    "Chat": "Chat",
+    "Search": "Search",
+    "Feedback_Mgmt": "Feedback",
+    "Custom_Assistants": "Custom Assistants",
+    "FAQ_Mgmt": "FAQ Management",
+    "FAQ_List": "FAQ List",
+    "QA_Mgmt": "QA Management",
+    "Integration": "Integration",
+    "Apache_Answer": "Apache Answer",
+    "Dingding_Bots": "Dingding Bots",
+    "Slack_Bots": "Slack Bots",
+    "Model_Mgmt": "Model Management",
+    "API_Key": "API-Key",
+    "Embedding": "Embedding",
+    "Accounting": "Accounting",
+    "Accounting_Overview": "Overview",
+    "Accounting_Detail": "Detail",
+    "User_Plan": "User Plan",
+    "System_Mgmt": "System Management",
+    "Users": "Users",
+    "System_Logs": "System Logs"
+  },
+  "components_admin_connectors_ConnectorForm": {
+    "Success_Message": "Success!",
+    "Error_Message": "Error!",
+    "Enter_Name_Connector": "Please enter a name for the connector",
+    "Unable_to_delete_connector": "Unable to delete existing connector",
+    "Error_creating_credential_for_CC_Pair": "Error creating credential for CC Pair",
+    "Error_linking_credentials": "Error linking credentials",
+    "Connector_Name": "Connector Name",
+    "Connector_Name_Subtext": "A descriptive name for the connector. This will just be used to identify the connector in the Admin UI.",
+    "Connect_Button": "Connect",
+    "Update_Button": "Update"
+  },
+  "components_admin_connectors_ConnectorTitle": {
+    "Folders": "Folders",
+    "Owner": "Owner",
+    "Channels": "Channels",
+    "Channel_Regex_Enabled": "Channel Regex Enabled"
+  },
+  "components_admin_connectors_CredentialForm": {
+    "Success_Message": "Success!",
+    "Error_Prefix": "Error: ",
+    "Update_Button": "Update"
+  },
+  "components_admin_connectors_Field": {
+    "Add_New_Button": "Add New"
+  },
+  "components_admin_connectors_FileUpload": {
+    "Selected_Files": "Selected Files",
+    "Drag_Drop_File_Tips": "Drag and drop some files here, or click to select files"
+  },
+  "components_admin_connectors_buttons_AttachCredentialButtonForTable": {
+    "Attach_Credential_Button": "Attach Credential"
+  },
+  "components_admin_connectors_buttons_IndexButtonForTable": {
+    "Index_Button": "Index"
+  },
+  "components_admin_connectors_table_ConnectorsTable": {
+    "Failed": "Failed",
+    "Enabled": "Enabled",
+    "Paused": "Paused",
+    "Deleting": "Deleting",
+    "Enable": "Enable",
+    "Pause": "Pause",
+    "Header": "Header",
+    "Status": "Status",
+    "Remove": "Remove"
+  },
+  "components_admin_connectors_table_DeleteColumn": {
+    "Delete_Connector_Info": "In order to delete a connector it must be disabled and have no ongoing / planned index jobs."
+  },
+  "components_admin_connectors_table_SingleUseConnectorsTable": {
+    "Deleting_Status": "Deleting...",
+    "Not_Started_Status": "Not Started",
+    "In_Progress_Status": "In Progress",
+    "Success_Status": "Success!",
+    "Failed_Status": "Failed",
+    "Name_Column": "Name",
+    "Credential_Column": "Credential",
+    "Remove_Column": "Remove",
+    "Not_Available": "N/A",
+    "Failed_Schedule_Deletion_Connector": "Failed to schedule deletion of connector - ",
+    "Scheduled_Deletion_Connector": "Scheduled deletion of connector!",
+    "File_Status_Column": "Status"
+  },
+  "components_health_healthcheck": {
+    "Backend_Unavailable": "The backend is currently unavailable.",
+    "Backend_Unavailable_Note": "If this is your initial setup or you just updated your Quick Mind deployment, this is likely because the backend is still starting up. Give it a minute or two, and then refresh the page. If that does not work, make sure the backend is setup and/or contact an administrator."
+  },
+  "components_initialSetup_search_NoCompleteSourceModal": {
+    "Syncing_Not_Finished_Title": "⏳ None of your connectors have finished a full sync yet",
+    "Syncing_Not_Finished_Title_Note": "You've connected some sources, but none of them have finished syncing. Depending on the size of the knowledge base(s) you've connected to Quick Mind, it can take anywhere between 30 seconds to a few days for the initial sync to complete. So far we've synced",
+    "Note_Suffix_Documents": "documents.",
+    "Go_To_Connector_List": "To view the status of your syncing connectors, head over to the",
+    "Existing_Connectors_Page": "Existing Connectors page",
+    "Continue_Ask_Questions": "Or, click here to continue and ask questions on the partially synced knowledge set."
+  },
+  "components_initialSetup_search_NoSourcesModal": {
+    "No_Sources_Title": "🧐 No sources connected",
+    "No_Sources_Message": "Before using Search you'll need to connect at least one source. Without any connected knowledge sources, there isn't anything to search over.",
+    "Connect_Source_Button": "Connect a Source!",
+    "ChatGPT_Message": "Or, if you're looking for a pure ChatGPT-like experience without any organization specific knowledge, then you can head over to the Chat page and start chatting with Quick Mind right away!",
+    "Start_Chat_Button": "Start Chatting!"
+  },
+  "components_initialSetup_welcome_WelcomeModal": {
+    "Search_Step_1": "Step 1: Provide OpenAI API Key",
+    "API_Key_Setup_Complete": "API Key setup complete!",
+    "Change_Key_Later": "If you want to change the key later, you'll be able to easily to do so in the Admin Panel.",
+    "Welcome_to_Danswer": "🎉 Welcome to Quick Mind",
+    "Search_Step_2": "Step 2: Connect Data Sources",
+    "Connectors_Description": "Connectors are the way that Quick Mind gets data from your organization's various data sources. Once setup, we'll automatically sync data from your apps and docs into Quick Mind, so you can search through all of them in one place.",
+    "Setup_Connector_Button": "Setup your first connector!",
+    "Start_Chat_Description": "Click the button below to start chatting with the LLM setup above! Don't worry, if you do decide later on you want to connect your organization's knowledge, you can always do that in the",
+    "LLM_Connections_Description": "Quick Mind supports connections with a wide range of LLMs, including self-hosted open-source LLMs. For more details, check out the",
+    "Documentation": "documentation",
+    "Gen_AI_Configs_Description": " If you haven't done anything special with the Gen AI configs, then we default to use OpenAI.",
+    "Provide_LLM_API_Key": "Step 1: Provide LLM API Key",
+    "LLM_Setup_Complete": "LLM setup complete!",
+    "Change_Key_Description": "If you want to change the key later or choose a different LLM, you'll be able to easily to do so in the Admin Panel / by changing some environment variables.",
+    "Start_Chat": "Start Chatting!",
+    "Admin_Panel": "Admin Panel",
+    "Start_chatting": "Start chatting!",
+    "How_are_you_planning_on_using_Danswer": "How are you planning on using Quick Mind?",
+    "Search_Chat_with_Knowledge": "Search / Chat with Knowledge",
+    "Search_Chat_with_Knowledge_Description": "If you're looking to search through, chat with, or ask direct questions of your organization's knowledge, then this is the option for you!",
+    "Get_Started": "Get Started",
+    "Secure_ChatGPT": "Secure ChatGPT",
+    "Secure_ChatGPT_Description": "If you're looking for a pure ChatGPT-like experience, then this is the option for you!"
+  },
+  "components_openai_ApiKeyForm": {
+    "Updated_API_Key": "Updated API key!",
+    "Unable_Set_API_Key": "Unable to set API key. Check if the provided key is valid.",
+    "Validating_API_Key": "Validating API key",
+    "API_Key": "API Key:",
+    "Submit_Button": "Submit"
+  },
+  "components_openai_ApiKeyModal": {
+    "LLM_Key_Setup": "LLM Key Setup",
+    "Provide_Valid_API_Key": "Please provide a valid OpenAI API key below in order to start using Quick Mind Search or Quick Mind Chat.",
+    "Look_Around_First": "Or if you'd rather look around first,",
+    "Skip_Step": "skip this step"
+  },
+  "components_search_DocumentDisplay": {
+    "AI_Like_Doc_Message": "The AI liked this doc!"
+  },
+  "components_search_DocumentFeedbackBlock": {
+    "Thanks_for_feedback": "Thanks for your feedback!",
+    "Error_feedback": "Error giving feedback"
+  },
+  "components_search_DocumentUpdatedAtBadge": {
+    "Updated": "Updated"
+  },
+  "components_search_DateRangeSelector": {
+    "Last_30_days": "Last 30 days",
+    "Last_7_days": "Last 7 days",
+    "Today": "Today",
+    "Any_Time_Tips": "Any time..."
+  },
+  "components_search_PersonaSelector": {
+    "Default": "Default"
+  },
+  "components_search_SearchBar": {
+    "Search_Tips": "Search..."
+  },
+  "components_search_SearchHelper": {
+    "Assistant_Message_1": "This doesn't seem like a question for a Generative AI. Do you still want to have",
+    "GPT_Response": "GPT give a response?",
+    "Assistant_Message_2": "GPT was unable to find an answer in the most relevant",
+    "Keep_Searching": "keep searching",
+    "AI_Assistant": "AI Assistant"
+  },
+  "components_search_SearchTypeSelector": {
+    "Search": "Search",
+    "Keyword_Search": "Keyword Search"
+  },
+  "components_search_filtering_Tag_Filter": {
+    "No_Matching_Tags_Found": "No matching tags found"
+  },
+  "components_search_filtering_Filters": {
+    "Filters_Title": "Filters",
+    "Time_Range_Title": "Time Range",
+    "Sources_Title": "Sources",
+    "Knowledge_Sets_Title": "Knowledge Sets",
+    "Description": "Description",
+    "Tags_Title": "Tags",
+    "All_Sources": "All Sources",
+    "All_Document_Sets": "All Document Sets",
+    "Bookmark": "Bookmark"
+  },
+  "components_search_results_SearchResultsDisplay": {
+    "No_matching_documents_found": "No matching documents found.",
+    "AI_Answer": "AI Answer",
+    "Results": "Results"
+  },
+  "components_search_results_AnswerSection": {
+    "Building_Answer": "Building answer...",
+    "AI_Answer": "AI answer",
+    "Information_Not_Found": "Information not found",
+    "Error_Building_Answer": "Error while building answer",
+    "Building_Best_Effort_AI_Answer": "Building best effort AI answer...",
+    "Warning": "Warning",
+    "AI_Not_Answerable_Message": "the AI did not think this question was answerable."
+  },
+  "components_search_results_QuotesSection": {
+    "Did_Not_Find_Quotes": "Did not find any exact quotes to support the above answer."
+  },
+  "components_time_ago": {
+    "year_ago": "{count} year ago",
+    "years_ago": "{count} years ago",
+    "month_ago": "{count} month ago",
+    "months_ago": "{count} months ago",
+    "day_ago": "{count} day ago",
+    "days_ago": "{count} days ago",
+    "hour_ago": "{count} hour ago",
+    "hours_ago": "{count} hours ago",
+    "minute_ago": "{count} minute ago",
+    "minutes_ago": "{count} minutes ago",
+    "second_ago": "{count} second ago",
+    "seconds_ago": "{count} seconds ago"
+  },
+  "admin_connectors_github_page": {
+    "Loading": "Loading",
+    "Step1_Provide_Access_Token": "Step 1: Provide your access token",
+    "Note_Read_Docs": "If you don't have an access token, read the guide",
+    "Note_Read_Docs_Here": "here",
+    "Note_Read_Docs_How": "on how to get one from Github.",
+    "Access_Token_Label": "Access Token:",
+    "Access_Token_Label_Required": "Please enter the access token for Github",
+    "Step2_Choose_Repo": "Step 2: Which repositories do you want to make searchable?",
+    "Tips_Pull_Duration": "We pull the latest Pull Requests from each repository listed below every <b>10</b> minutes.",
+    "Repository": "Repository",
+    "Connect_New_Repo": "Connect to a New Repository",
+    "Tips_Repo_Owner_Required": "Please enter the owner of the repository to index e.g. danswer-ai",
+    "Tips_Repo_Name_Required": "Please enter the name of the repository to index e.g. danswer ",
+    "Please_Provide_Access_Token": "Please provide your access token in Step 1 first! Once done with that, you can then specify which Github repositories you want to make searchable.",
+    "Github_Title": "Github PRs + Issues",
+    "Repository_Owner": "Repository Owner:",
+    "Repository_Name": "Repository Name:"
+  }
 }

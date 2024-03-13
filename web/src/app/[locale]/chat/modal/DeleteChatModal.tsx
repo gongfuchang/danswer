@@ -26,7 +26,7 @@ export const DeleteChatModal = ({
           </div>
         </div>
         <p className="mb-4">
-          {t.rich("Confirm_Delete_Chat", {detail: chatSessionName.slice(0, 30), b: (chunks) => (<b>{chunks}</b>)})}
+          {t.rich("Confirm_Delete_Chat", {b: (chunks) => (<b>{chunks}</b>), detail: chatSessionName.slice(0, 30)})}
         </p>
         <div className="flex">
           <div className="mx-auto">

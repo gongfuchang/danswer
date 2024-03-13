@@ -18,8 +18,8 @@ logger = setup_logger()
 
 
 def extract_metadata(line: str) -> dict | None:
-    html_comment_pattern = r"<!--\s*DANSWER_METADATA=\{(.*?)\}\s*-->"
-    hashtag_pattern = r"#DANSWER_METADATA=\{(.*?)\}"
+    html_comment_pattern = r"<!--\s*QM_METADATA=\{(.*?)\}\s*-->"
+    hashtag_pattern = r"#QM_METADATA=\{(.*?)\}"
 
     html_comment_match = re.search(html_comment_pattern, line)
     hashtag_match = re.search(hashtag_pattern, line)

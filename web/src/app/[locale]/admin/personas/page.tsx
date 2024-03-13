@@ -38,6 +38,7 @@ export default async function Page() {
               {t("Prompt_Description")}
             </li>
             <li>{t("Context_Description")}</li>
+            <li>{t("Others_Description")}</li>
           </ul>
         </div>
 

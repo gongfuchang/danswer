@@ -38,9 +38,8 @@ export const FileUpload: FC<FileUploadProps> = ({
               }
             >
               <input {...getInputProps()} />
-              <b className="text-emphasis">
-                {message ||
-                  "Drag and drop some files here, or click to select files"}
+              <b className="text-gray-400">
+                {message || t("Drag_Drop_File_Tips")}
               </b>
             </div>
           </section>
