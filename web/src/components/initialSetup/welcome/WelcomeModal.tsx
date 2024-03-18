@@ -148,7 +148,7 @@ export function _WelcomeModal() {
       {t("LLM_Connections_Description")}
       <a
         className="text-link"
-        href="https://docs.danswer.dev/gen_ai_configs/overview"
+        href="https://docs.quick-mind.cn/gen_ai_configs/overview"
       >
         {t("Documentation")}
       </a>

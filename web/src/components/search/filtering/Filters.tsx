@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import { DocumentSet, Tag, ValidSources } from "@/lib/types";
 import { SourceMetadata } from "@/lib/search/interfaces";
-import { InfoIcon, defaultTailwindCSS } from "../../icons/icons";
+import { BookmarkIcon, defaultTailwindCSS } from "../../icons/icons";
 import { HoverPopup } from "../../HoverPopup";
 import { FiBook, FiBookmark, FiFilter, FiMap, FiX } from "react-icons/fi";
 import { DateRangeSelector } from "../DateRangeSelector";
@@ -134,7 +134,7 @@ export function SourceSelector({
                   <HoverPopup
                     mainContent={
                       <div className="flex my-auto mr-2">
-                        <InfoIcon className={defaultTailwindCSS} />
+                        <BookmarkIcon className={defaultTailwindCSS} />
                       </div>
                     }
                     popupContent={

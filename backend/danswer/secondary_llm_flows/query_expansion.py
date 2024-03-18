@@ -14,6 +14,7 @@ from danswer.prompts.miscellaneous_prompts import LANGUAGE_REPHRASE_PROMPT
 from danswer.utils.logger import setup_logger
 from danswer.utils.text_processing import count_punctuation
 from danswer.utils.threadpool_concurrency import run_functions_tuples_in_parallel
+from danswer.utils.timing import log_function_time
 
 logger = setup_logger()
 
@@ -86,6 +87,7 @@ def get_contextual_rephrase_messages(
     return messages
 
 
+@log_function_time(print_only=True)
 def history_based_query_rephrase(
     query_message: ChatMessage,
     history: list[ChatMessage],

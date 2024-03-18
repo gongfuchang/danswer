@@ -17,10 +17,17 @@ const nextConfig = {
     // web_server and api_server are on different machines.
     if (process.env.NODE_ENV === "production") return [];
 
+    // return api proxy except api/chat-stream
     return [
       {
         source: "/api/:path*",
         destination: "http://127.0.0.1:8080/:path*", // Proxy to Backend
+        missing: [
+          {
+            type: "host",
+            value: "/api/chat-stream"
+          }
+        ]
       },      
       // {
       //   source: "/:slug*",
@@ -42,24 +49,25 @@ const nextConfig = {
 
     if (process.env.NODE_ENV === "production") return defaultRedirects;
 
+    // 注意：如果联调时，需要验证权限，必须注释掉这些 redirect，否则会导致权限验证失败（403），因为 cookies 在 redirect 时会丢失
     return defaultRedirects.concat([
-      {
-        source: "/api/chat/send-message:params*",
-        destination: "http://127.0.0.1:8080/chat/send-message:params*", // Proxy to Backend
-        permanent: true,
-      },
-      {
-        source: "/api/query/stream-answer-with-quote:params*",
-        destination:
-          "http://127.0.0.1:8080/query/stream-answer-with-quote:params*", // Proxy to Backend
-        permanent: true,
-      },
-      {
-        source: "/api/query/stream-query-validation:params*",
-        destination:
-          "http://127.0.0.1:8080/query/stream-query-validation:params*", // Proxy to Backend
-        permanent: true,
-      },
+      // {
+      //   source: "/api/chat/send-message:params*",
+      //   destination: "http://127.0.0.1:8080/chat/send-message:params*", // Proxy to Backend
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/api/query/stream-answer-with-quote:params*",
+      //   destination:
+      //     "http://127.0.0.1:8080/query/stream-answer-with-quote:params*", // Proxy to Backend
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/api/query/stream-query-validation:params*",
+      //   destination:
+      //     "http://127.0.0.1:8080/query/stream-query-validation:params*", // Proxy to Backend
+      //   permanent: true,
+      // },
     ]);
   },
   publicRuntimeConfig: {

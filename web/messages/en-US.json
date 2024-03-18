@@ -123,7 +123,9 @@
     "Error_Msg": "Error Message",
     "Docs_Rate": "docs / min",
     "Doc_Remove_From_Index": "also removed {doc} docs that were detected as deleted in the source",
-    "View_Full_Trace": "View Full Trace"
+    "View_Full_Trace": "View Full Trace",
+    "Full_Exception_Trace": "Full exception trace",
+    "Copy_To_Clipboard": "Copy to clipboard"
   },
   "admin_connector_ccPairId_ModifyStatusButtonCluster": {
     "Click_Start_Indexing_Again": "Click to start indexing again!",
@@ -259,6 +261,7 @@
     "Current_Run_Status": "<i>Current Run:</i>   {count} docs indexed",
     "Docs_Per_Minute": "docs / min",
     "Calculating_Rate": "calculating rate...",
+    "Display_Name": "Knowledge Unit",
     "Connector": "Connector",
     "Status": "Status",
     "Last_Indexed": "Last Indexed",
@@ -268,9 +271,9 @@
   "admin_indexing_status_page": {
     "Error_loading_indexing_history": "Error loading indexing history.",
     "No_connector_setup_message": "It looks like you don't have any connectors setup yet. Visit the",
-    "Add_Connector": "Add Connector",
+    "Add_Connector": "Add Knowledge Unit",
     "Get_started_message": "page to get started!",
-    "Existing_Connectors": "Existing Connectors"
+    "Existing_Connectors": "Existing Knowledge Units"
   },
   "admin_keys_openai_page": {
     "Loading": "Loading",
@@ -515,7 +518,7 @@
     "No_Documents_Found": "No documents found for the query.",
     "Ask_Question_Description": "When you run ask a question, the retrieved documents will show up here!",
     "Selected_Documents": "Selected Documents",
-    "LLM_Context_Length_Alert": "Over LLM context length by:{\" \"} <i>{tokens} tokens</i>",
+    "LLM_Context_Length_Alert": "Over LLM context length by: {tokens}",
     "Truncating": "Truncating",
     "De_Select_All": "De-Select All"
   },

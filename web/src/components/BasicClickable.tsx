@@ -18,7 +18,7 @@ export function BasicClickable({
         font-medium 
         text-emphasis 
         text-sm
-        p-1
+        p-2
         select-none
         hover:bg-hover
         ${fullWidth ? "w-full" : ""}`}

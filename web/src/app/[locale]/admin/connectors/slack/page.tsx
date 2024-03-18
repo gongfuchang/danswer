@@ -104,7 +104,7 @@ const MainSection = () => {
             details on setting up the Danswer Slack App, see the{" "}
             <a
               className="text-blue-500"
-              href="https://docs.danswer.dev/connectors/slack#setting-up"
+              href="https://docs.quick-mind.cn/connectors/slack#setting-up"
             >
               docs
             </a>

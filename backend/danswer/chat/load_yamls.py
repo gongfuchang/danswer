@@ -45,7 +45,7 @@ def load_personas_from_yaml(
     personas_yaml: str = PERSONAS_YAML,
     default_chunks: float = MAX_CHUNKS_FED_TO_CHAT,
 ) -> None:
-    with open(get_file_path(personas_yaml), "r") as file:
+    with open(get_file_path(personas_yaml), "r", encoding="utf-8") as file:
         data = yaml.safe_load(file)
 
     all_personas = data.get("personas", [])

@@ -7,8 +7,8 @@
     "File": "文件",
     "Slack": "Slack",
     "Github": "Github",
-    "Add_Connector": "添加连接器",
-    "Connector_Tips": "将 Quick-Mind 连接到您的对话库来源。我们将自动将您的数据同步到 Quick-Mind 。",
+    "Add_Connector": "为知识单元添加一个连接器",
+    "Connector_Tips": "连接器是针对指定的数据来源，建立一个自动的数据同步机制将数据同步到 Quick-Mind 。",
     "Import_Knowledge_Title": "从来源中导入",
     "Connect_Knowledge_Outside_Apps": "上传文件，抓取网站，或连接到某个网站。",
     "Setup_Auto_Syncing_Title": "自动同步应用",
@@ -123,7 +123,9 @@
     "Error_Msg": "错误消息",
     "Docs_Rate": "文档 / 分钟",
     "Doc_Remove_From_Index": "同时删除了 {doc} 个在源文档中被检测 [已删] 的文档",
-    "View_Full_Trace": "查看完整日志 - TraceLog"
+    "View_Full_Trace": "查看完整日志 - TraceLog",
+    "Full_Exception_Trace": "异常的完整日志",
+    "Copy_To_Clipboard": "复制到剪贴板"
   },
   "admin_connector_ccPairId_ModifyStatusButtonCluster": {
     "Click_Start_Indexing_Again": "点击重新开始索引!",
@@ -141,7 +143,7 @@
   "admin_connector_ccPairId_ReIndexButton": {
     "Connector_Run_Success": "触发连接器执行",
     "Running_Indexing": "执行索引",
-    "Button_Run_Update": "执行更新",
+    "Button_Run_Update": "仅针对增量和更新",
     "Update_Tips": "这将拉取并索引自上次成功执行索引以来已更改和/或已添加的所有文档。",
     "Button_Run_Complete_Reindexing": "重新索引所有文档",
     "Reindex_All_Documents": "这将导致对源中的所有文档进行完整重新索引。",
@@ -261,6 +263,7 @@
     "Current_Run_Status": "<i>进度：</i>   {count} 个文档已索引",
     "Docs_Per_Minute": "文档 / 分钟",
     "Calculating_Rate": "正在计算速率...",
+    "Display_Name": "知识单元",
     "Connector": "连接器",
     "Status": "状态",
     "Last_Indexed": "上次索引",
@@ -270,7 +273,7 @@
   "admin_indexing_status_page": {
     "Error_loading_indexing_history": "加载索引历史时出错。",
     "No_connector_setup_message": "看起来您还没有创建任何连接器。访问",
-    "Add_Connector": "添加连接器",
+    "Add_Connector": "添加知识单元",
     "Get_started_message": "页面进行添加 ",
     "Existing_Connectors": "知识单元列表"
   },
@@ -517,7 +520,7 @@
     "No_Documents_Found": "未找到查询的文档。",
     "Ask_Question_Description": "当您提问时，检索到的文档将在这里显示",
     "Selected_Documents": "选定的文档",
-    "LLM_Context_Length_Alert": "超出 LLM 上下文长度：{\" \"} <i>{tokens} 个标记</i>",
+    "LLM_Context_Length_Alert": "超出 LLM 上下文长度：{tokens}",
     "Truncating": "截断",
     "De_Select_All": "取消全选"
   },
@@ -580,9 +583,9 @@
     "Log_Out": "退出登录"
   },
   "chat_sessionSidebar_SessionDisplay": {
-    "Failed_Rename_Chat_Session": "无法重命名对话会话",
-    "Failed_Delete_Chat_Session": "无法删除对话会话",
-    "Chat_With": "与 {sessionId} 对话"
+    "Failed_Rename_Chat_Session": "无法重命名对话",
+    "Failed_Delete_Chat_Session": "无法删除对话",
+    "Chat_With": "对话：{sessionId} "
   },
   "components_Status": {
     "Failed": "失败",
@@ -713,8 +716,8 @@
     "Credential_Column": "凭证",
     "Remove_Column": "移除",
     "Not_Available": "N/A",
-    "Failed_Schedule_Deletion_Connector": "无法调度连接器的删除 - ",
-    "Scheduled_Deletion_Connector": "已调度连接器的删除!",
+    "Failed_Schedule_Deletion_Connector": "无法将删除连接器的操作进行排队 - ",
+    "Scheduled_Deletion_Connector": "连接器的删除操作进入排队!",
     "File_Status_Column": "状态"
   },
   "components_health_healthcheck": {

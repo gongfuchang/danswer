@@ -44,7 +44,7 @@ _LLM_TOKENIZER_ENCODE: Callable[[str], Any] | None = None
 
 @lru_cache()
 def get_default_llm_version() -> tuple[str, str]:
-    default_openai_model = "gpt-3.5-turbo-16k-0613"
+    default_openai_model = "gpt-3.5-turbo-0125"
     if GEN_AI_MODEL_VERSION:
         llm_version = GEN_AI_MODEL_VERSION
     else:

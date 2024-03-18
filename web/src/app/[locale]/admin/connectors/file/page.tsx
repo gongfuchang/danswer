@@ -58,13 +58,13 @@ const Main = () => {
       <Text className="mb-3">
         {t.rich("Note_P1", {b: (chunks) => (<b>{chunks}</b>)})}
         <div className="flex my-2">
-          <div className="mx-auto font-bold">
+          <div className="mr-auto font-bold">
             #QM_METADATA={"{"}&quot;link&quot;: &quot;{"<LINK>"}&quot;{"}"}
           </div>
         </div>{" "}
         {t.rich("Note_P2", {i: (chunks) => (<i>{chunks}</i>), b: (chunks) => (<b>{chunks}</b>)})}
         <a
-          href="https://docs.danswer.dev/connectors/file"
+          href="https://docs.quick-mind.cn/connectors/file"
           className="text-link"
         >
           {t("Note_P3")}

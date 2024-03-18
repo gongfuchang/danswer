@@ -96,7 +96,7 @@ const Main = () => {
             If you don&apos;t have an access token, read the guide{" "}
             <a
               className="text-blue-500"
-              href="https://docs.danswer.dev/connectors/gitlab"
+              href="https://docs.quick-mind.cn/connectors/gitlab"
               target="_blank"
             >
               here

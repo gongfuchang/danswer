@@ -5,7 +5,7 @@ const conditionallyAddPlural = (noun: string, cnt: number) => {
   return noun;
 };
 const translateDisplay = (transFunc: any, cnt: number, noun: string): string => {
-  return transFunc('days_ago', { count: cnt, noun });
+  return transFunc(noun.replaceAll(' ', '_'), { count: cnt, noun });
 }
 export const timeAgo = (
   transFunc: Function,

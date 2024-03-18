@@ -57,12 +57,12 @@ export function IndexingAttemptsTable({ ccPair }: { ccPair: CCPairFullInfo }) {
                     }}
                     className="flex w-fit cursor-pointer hover:bg-hover-light p-2 border-border border rounded"
                   >
-                    {t("Copied to clipboard")}
+                    {t("Copy_To_Clipboard")}
                     <CopyIcon className="ml-2 my-auto" />
                   </div>
                 ) : (
                   <div className="flex w-fit hover:bg-hover-light p-2 border-border border rounded cursor-default">
-                    {t("Copied to clipboard")}
+                    {t("Copied_Clipboard")}
                     <CheckmarkIcon
                       className="my-auto ml-2 flex flex-shrink-0 text-success"
                       size={16}

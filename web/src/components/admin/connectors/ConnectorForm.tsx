@@ -1,4 +1,3 @@
-import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
@@ -23,7 +22,6 @@ export async function submitConnector<T>(
   connector: ConnectorBase<T>,
   connectorId?: number
 ): Promise<{ message: string; isSuccess: boolean; response?: Connector<T> }> {
-  const t = await getTranslations("components_admin_connectors_ConnectorForm");
   const isUpdate = connectorId !== undefined;
 
   let isSuccess = false;
@@ -42,13 +40,13 @@ export async function submitConnector<T>(
     if (response.ok) {
       isSuccess = true;
       const responseJson = await response.json();
-      return { message: t("Success_Message"), isSuccess: true, response: responseJson };
+      return { message: "Success!", isSuccess: true, response: responseJson };
     } else {
       const errorData = await response.json();
-      return { message: `${t("Error_Message")}: ${errorData.detail}`, isSuccess: false };
+      return { message: `"Error!": ${errorData.detail}`, isSuccess: false };
     }
   } catch (error) {
-    return { message: `${t("Error_Message")}: ${error}`, isSuccess: false };
+    return { message: `"Error!": ${error}`, isSuccess: false };
   }
 }
 
