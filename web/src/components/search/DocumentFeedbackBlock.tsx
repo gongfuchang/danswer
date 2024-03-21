@@ -43,6 +43,7 @@ const DocumentFeedback = ({
   setPopup,
   feedbackType,
 }: DocumentFeedbackIconProps) => {
+  const t = useTranslations("components_search_DocumentFeedbackBlock");
   let icon = null;
   const size = 20;
   if (feedbackType === "endorse") {

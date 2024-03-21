@@ -82,15 +82,20 @@ export async function Layout({ children }: { children: React.ReactNode }) {
         icon: <FiSearch size={18} />,
       },
       {
-        name: "Feedback_Mgmt",
-        link: "/admin/chat/feedback",
-        icon: <ThumbsUpIcon size={18} />,
-      },
-      {
         name: "Custom_Assistants",
         link: "/admin/personas",
         icon: <RobotIcon size={18} />,
+      },      
+      {
+        name: "Feedback_Answer",
+        link: "/admin/qa/feedback",
+        icon: <ThumbsUpIcon size={18} />,
       },
+      {
+        name: "Feedback_Doc",
+        link: "/admin/documents/feedback",
+        icon: <ThumbsUpIcon size={18} />,
+      },      
     ],
     "FAQ_Mgmt": [
       {

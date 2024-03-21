@@ -94,6 +94,7 @@ const QuotesHeader = ({ quotes, isFetching }: QuotesSectionProps) => {
 };
 
 const QuotesBody = ({ quotes, isFetching }: QuotesSectionProps) => {
+  const t = useTranslations("components_search_results_QuotesSection");
   if (!quotes && isFetching) {
     // height of quotes section to avoid extra "jumps" from the quotes loading
     return <div className="h-[42px]"></div>;
@@ -119,6 +120,7 @@ const QuotesBody = ({ quotes, isFetching }: QuotesSectionProps) => {
 };
 
 export const QuotesSection = (props: QuotesSectionProps) => {
+  const t = useTranslations("components_search_results_QuotesSection");
   let status: StatusOptions = "in-progress";
   if (!props.isFetching) {
     if (props.quotes && props.quotes.length > 0) {

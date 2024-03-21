@@ -136,7 +136,7 @@
   "admin_connector_ccPairId_page": {
     "Failed_Fetch_Connector_Info": "获取 ID 为 {ccPairId} 的连接器信息失败",
     "Total_Documents_Indexed": "已索引文档总数",
-    "Indexing_Attempts": "索引尝试次数",
+    "Indexing_Attempts": "索引记录",
     "Delete_Connector_Title": "删除连接器",
     "Delete_Connector_Text": "删除连接器将同时删除所有关联文档。"
   },
@@ -181,7 +181,7 @@
     "Step_1_Specify_Websites": "步骤 1：指定要索引的网站",
     "Fetch_Website_State_Daily": "每天重新访问网站，以保证其同步在最新状态",
     "URL_Index": "要抓取的网站 （基础 URL）",
-    "Scrape_Method": "抓取方法：",
+    "Scrape_Method": "抓取方法",
     "Recursive": "递归",
     "Recursive_Description": "递归索引所有共享相同基础 URL 的页面",
     "Single_Page": "单页面",
@@ -199,12 +199,12 @@
     "Updated_Score": "分数已更新！"
   },
   "admin_documents_explorer_Explorer": {
-    "Boost": "提升",
+    "Boost": "权重",
     "Failed_Update_Document": "更新文档失败 - {errorMsg}",
     "Hidden": "隐藏",
     "Visible": "可见",
     "Find_Documents_Placeholder": "根据标题/内容查找文档...",
-    "Search_Document_Modify": "对查找到的文档可修改其检寻权重，或在检寻中隐藏"
+    "Search_Document_Modify": "对查找到的文档可修改其搜索权重，或在搜索中隐藏"
   },
   "admin_documents_explorer_page": {
     "Document_Explorer_Title": "知识库检索"
@@ -268,14 +268,15 @@
     "Status": "状态",
     "Last_Indexed": "上次索引",
     "Docs_Indexed": "已索引文档",
-    "Speed": "速度"
+    "Speed": "速度："
   },
   "admin_indexing_status_page": {
     "Error_loading_indexing_history": "加载索引历史时出错。",
     "No_connector_setup_message": "看起来您还没有创建任何连接器。访问",
     "Add_Connector": "添加知识单元",
     "Get_started_message": "页面进行添加 ",
-    "Existing_Connectors": "知识单元列表"
+    "Existing_Connectors": "知识单元列表",
+    "Loading": "加载中"
   },
   "admin_keys_openai_page": {
     "Loading": "加载中",
@@ -286,7 +287,8 @@
     "Specify_OpenAI_API_Key": "指定一个 OpenAI API 密钥，然后点击“提交”按钮。"
   },
   "admin_models_embedding_embeddingModels": {
-    "Default_Model_Description": "大多数情况下推荐的默认选项。如果您不确定使用哪个模型，这可能是一个不错的选择。",
+    "Default_Model_Description": "大多数中文情况下的推荐选项。",
+    "E5_Base_Description": "大多数英文场景下的推荐模型。如果您不确定使用哪个模型，这可能是一个不错的选择。",
     "Small_Model_Description": "默认模型的较小 / 更快版本。如果您在资源受限的系统上运行 Quick Mind，那么这是一个不错的选择。",
     "Multilingual_Model_Description": "如果您有许多英语以外的其他语言文档，那么这就是您要选择的模型。",
     "Multilingual_Small_Model_Description": "如果您有许多英语以外的其他语言文档，并且在资源受限的系统上运行，则这就是您要选择的模型。"
@@ -336,7 +338,7 @@
     "Personas_Description": "自定义知识助理是为不同使用场景构建自定义搜索/问答体验的一种方式。",
     "Customize_Description": "它们允许您自定义:",
     "Prompt_Description": "提示（Prompt）信息，用于 LLM 回答问题时使用",
-    "Context_Description": "上下文（Context）文档，用于限定检寻范围",
+    "Context_Description": "上下文（Context）文档，用于限定搜索范围",
     "Others_Description": "其他设置，用于优化查询结果",
     "Create_Persona": "创建知识助理",
     "New_Persona": "点击添加",
@@ -361,7 +363,7 @@
     "Task_Prompt_Subtext": "提供关于如何处理用户查询的具体说明。例如，“查找提供文档中与用户问题相关的部分，并解释它们为何相关。”",
     "Include_Citations": "包含引用",
     "Include_Citations_Subtext": "如果设置，响应将为 LLM 使用的每个文档添加方括号引用（[1]，[2] 等）。这是默认知识助理使用的技术。通常建议保持启用状态，以增加对 LLM 答案的信任（可解释性）。",
-    "Disable_Retrieval": "禁用检寻",
+    "Disable_Retrieval": "禁用搜索",
     "Disable_Retrieval_Subtext": "如果设置，知识助理将不会获取任何上下文文档来帮助生成响应。相反，它将仅使用提供的系统和任务提示以及用户查询来生成响应。",
     "Final_Prompt": "组合后最终的提示",
     "Data_Access_Title": "数据访达",
@@ -372,12 +374,12 @@
     "Model_Selection_Description": "选择为此知识助理使用的 LLM。如果保持为默认值，则将使用 <b>{defaultLLM}</b>。",
     "Model_Selection_More_Info_P1": "有关不同 LLM 的更多信息，请查看",
     "Model_Selection_More_Info_P2": "OpenAI 文档",
-    "Advanced_Retrieval_Customization": "[高级] 检寻偏好设置",
+    "Advanced_Retrieval_Customization": "[高级] 搜索偏好设置",
     "Number_Chunks": "块数",
     "Number_Chunks_Description": "在生成最终响应时，我们应该向 LLM 提供多少块？每个块约为 400 个字。如果使用 gpt-3.5-turbo 或其他类似模型，则将此值设置为大于 5 的值会导致查询时出现错误，因为模型的输入长度限制。",
     "Number_Chunks_More_Info": "如果未指定，将使用 10 个块。",
     "Apply_LLM_Filter": "应用 LLM 相关性过滤器",
-    "Apply_LLM_Filter_Subtext": "如果启用，LLM 将过滤掉与用户查询无关的块。",
+    "Apply_LLM_Filter_Subtext": "如果启用，LLM 将过滤掉与用户查询无关的块。（可能会消耗大量 token）",
     "Advanced_Starter_Messages": "[高级] 起始消息",
     "Starter_Messages_Description": "起始消息帮助引导用户使用此知识助理。当用户选择此知识助理时，它们会显示为可点击选项。选择后，指定的消息将作为初始用户消息发送到 LLM。",
     "Starter_Message_Name": "名称",
@@ -392,7 +394,7 @@
     "Create_Button": "创建"
   },
   "admin_personas_PersonaTable": {
-    "Persona_Display_Text": "知识助理将按照下方显示的顺序显示在对话 / 搜索界面上。标记为隐藏的知识助理将不会显示。",
+    "Persona_Display_Text": "知识助理将按照下方显示的顺序显示在对话 / 搜索界面上。标记为隐藏的知识助理将不会显示。拖动后可排序。",
     "Name": "名称",
     "Description": "描述",
     "Built-In": "内置",
@@ -414,7 +416,8 @@
   "admin_personas_personaId_page": {
     "Error_Title": "出现了问题 :(",
     "Edit_Persona": "编辑知识助理",
-    "Create_New_Persona": "创建知识助理"
+    "Create_New_Persona": "创建知识助理",
+    "Delete_Persona": "删除知识助理"
   },
   "admin_systeminfo_page": {
     "Version_Title": "版本",
@@ -501,7 +504,9 @@
     "Knowlege_Sets": "知识库",
     "Chat_With_Assistant": "您想与哪位智能助手对话？",
     "Note_Default_Assistant": "如果直接输入问题，默认对话的是",
-    "See_More": "查看更多"
+    "See_More": "查看更多",
+    "Connected_Sources": "关联的资源：",
+    "Knowledge_Sets": "关联的知识库"
   },
   "chat_ChatPersonaSelector": {
     "Default": "默认"
@@ -515,7 +520,7 @@
   },
   "chat_documentSidebar_DocumentSidebar": {
     "Referenced_Documents": "引用的文档",
-    "Retrieved_Documents": "检寻到的文档",
+    "Retrieved_Documents": "搜索到的文档",
     "Select_Documents_Chat": "选择文档，以进行特定上下文的对话",
     "No_Documents_Found": "未找到查询的文档。",
     "Ask_Question_Description": "当您提问时，检索到的文档将在这里显示",
@@ -525,13 +530,13 @@
     "De_Select_All": "取消全选"
   },
   "chat_message_Messages": {
-    "Sources_Title": "来源：",
-    "You": "你"
+    "Sources_Title": "引用",
+    "You": "我"
   },
   "chat_message_SearchSummary": {
     "Hide_Docs": "隐藏文档",
     "Show_Docs": "显示文档",
-    "Searching_For": "搜索",
+    "Searching_For": "搜索短语",
     "Full_Query": "完整查询"
   },
   "chat_message_SkippedSearch": {
@@ -636,7 +641,8 @@
     "Knowledge_Operation": "知识运营",
     "Chat": "对话",
     "Search": "搜索",
-    "Feedback_Mgmt": "反馈管理",
+    "Feedback_Answer": "问答反馈",
+    "Feedback_Doc": "文档反馈",
     "Custom_Assistants": "自定义助理",
     "FAQ_Mgmt": "FAQ 管理",
     "FAQ_List": "FAQ",
@@ -782,7 +788,7 @@
   },
   "components_search_DocumentFeedbackBlock": {
     "Thanks_for_feedback": "感谢您的反馈！",
-    "Error_feedback": "提供反馈时出错"
+    "Error_feedback": "提交反馈时出错"
   },
   "components_search_DocumentUpdatedAtBadge": {
     "Updated": "已更新"
@@ -800,11 +806,11 @@
     "Search_Tips": "搜索..."
   },
   "components_search_SearchHelper": {
-    "Assistant_Message_1": "这似乎不是一个生成式 AI 的问题。您还想要吗",
-    "GPT_Response": "GPT 给出一个回应？",
-    "Assistant_Message_2": "GPT 未能在最相关的内容中找到答案",
+    "Assistant_Message_1": "这似乎不是一个生成式 AI 的问题。您还想要 ",
+    "GPT_Response": "AI 助理来解答吗？",
+    "Assistant_Message_2": "AI 助理未能在最相关的内容中找到答案",
     "Keep_Searching": "继续搜索",
-    "AI_Assistant": "AI 助手"
+    "AI_Assistant": "AI 助理"
   },
   "components_search_SearchTypeSelector": {
     "Search": "搜索",
@@ -839,7 +845,10 @@
     "AI_Not_Answerable_Message": "AI 认为这个问题无法回答。"
   },
   "components_search_results_QuotesSection": {
-    "Did_Not_Find_Quotes": "未找到任何确切的引用来支持上述答案。"
+    "Did_Not_Find_Quotes": "未找到任何确切的引用来支持上述答案。",
+    "Quotes": "引用",
+    "Extracting_Quotes": "正在精简引用...",
+    "No_Quotes_Found": "未找到引用"
   },
   "components_time_ago": {
     "year_ago": "{count} 年前",

@@ -25,7 +25,10 @@ export async function generateMetadata({
   const t = await getTranslations({locale, namespace: 'layout'});
 
   return {
-    title: t("title")
+    title: t("title"),
+    icons: {
+      icon: '/favicon.ico',
+    },    
   };
 }
 

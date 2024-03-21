@@ -165,7 +165,7 @@ export function ChatIntro({
                   {availableSources.length > 0 && (
                     <div className="mt-2">
                       <p className="font-bold mb-1 mt-4 text-emphasis">
-                        Connected Sources:{" "}
+                        {t("Connected_Sources")}
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {availableSourceMetadata.map((sourceMetadata) => (

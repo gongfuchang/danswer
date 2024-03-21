@@ -2,11 +2,10 @@ import {useTranslations} from "next-intl";
 import {
   FiCheck,
   FiCopy,
-  FiCpu,
   FiThumbsDown,
   FiThumbsUp,
-  FiUser,
 } from "react-icons/fi";
+import { FaUserCircle } from "react-icons/fa";
 import { FeedbackType } from "../types";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -66,14 +65,14 @@ export const AIMessage = ({
       <div className="mx-auto w-searchbar-xs 2xl:w-searchbar-sm 3xl:w-searchbar relative">
         <div className="ml-8">
           <div className="flex">
-            <div className="p-1 bg-ai rounded-lg h-fit my-auto">
+            <div className="p-1 h-fit my-auto">
               <div className="text-inverted">
-                <FiCpu size={16} className="my-auto mx-auto" />
+                <img src="/chat_bot.png" className="my-auto mx-auto" alt="chat_bot" width={60} height={60} />
               </div>
             </div>
 
             <div className="font-bold text-emphasis ml-2 my-auto">
-              {personaName || "Danswer"}
+              {personaName || "Quick-Mind"}
             </div>
 
             {query === undefined &&
@@ -93,7 +92,7 @@ export const AIMessage = ({
               )}
           </div>
 
-          <div className="w-message-xs 2xl:w-message-sm 3xl:w-message-default break-words mt-1 ml-8">
+          <div className="w-message-xs 2xl:w-message-sm 3xl:w-message-default break-words mt-1 ml-8 p-4 rounded-lg border bg-gray-100 border-border">
             {query !== undefined &&
               handleShowRetrieved !== undefined &&
               isCurrentlyShowingRetrieved !== undefined &&
@@ -235,19 +234,19 @@ export const HumanMessage = ({
       <div className="mx-auto w-searchbar-xs 2xl:w-searchbar-sm 3xl:w-searchbar">
         <div className="ml-8">
           <div className="flex">
-            <div className="p-1 bg-user rounded-lg h-fit">
+            <div className="p-0 bg-gray-400 mx-3 rounded-full h-fit">
               <div className="text-inverted">
-                <FiUser size={16} className="my-auto mx-auto" />
+                <FaUserCircle size={35} className="my-auto mx-auto" />
               </div>
             </div>
 
-            <div className="font-bold text-emphasis ml-2 my-auto">{t("You")}</div>
+            <div className="font-bold text-emphasis ml-3 my-auto">{t("You")}</div>
           </div>
           <div className="mx-auto mt-1 ml-8 w-searchbar-xs 2xl:w-searchbar-sm 3xl:w-searchbar-default flex flex-wrap">
-            <div className="w-message-xs 2xl:w-message-sm 3xl:w-message-default break-words">
+            <div className="bg-blue-500 rounded-lg px-4 py-2">
               {typeof content === "string" ? (
                 <ReactMarkdown
-                  className="prose max-w-full"
+                  className="prose max-w-full text-white"
                   components={{
                     a: ({ node, ...props }) => (
                       <a

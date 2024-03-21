@@ -137,7 +137,7 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
                   <span className="block text-xs font-medium">Admin</span>
                 </span>
                 <span className={baseClsName}>
-                  <Image src="/user-01.png" alt="User" width={50} height={50} />
+                  <Image src={`/avator-${Math.floor(Math.random() * 3)}.png`} alt="User" width={50} height={50} />
                 </span>              
               </span>
             </CustomDropdown>        

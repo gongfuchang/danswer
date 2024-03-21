@@ -85,13 +85,6 @@ export default async function Page({
           defaultLLM={defaultLLM}
         />
       </Card>
-
-      <div className="mt-12">
-        <Title>{t("Delete_Persona")}</Title>
-        <div className="flex mt-6">
-          <DeletePersonaButton personaId={persona.id} />
-        </div>
-      </div>
     </div>
   );
 }

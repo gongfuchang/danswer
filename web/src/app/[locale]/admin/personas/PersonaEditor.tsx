@@ -120,34 +120,8 @@ export function PersonaEditor({
             include_citations: Yup.boolean().required(),
             llm_relevance_filter: Yup.boolean().required(),
             llm_model_version_override: Yup.string().nullable(),
-            starter_messages: Yup.array().of(
-              Yup.object().shape({
-                name: Yup.string().required(),
-                description: Yup.string().required(),
-                message: Yup.string().required(),
-              })
-            ),
-          })
-          .test(
-            "system-prompt-or-task-prompt",
-            t("System_Task_Prompt_Validation"),
-            (values) => {
-              const systemPromptSpecified = values.system_prompt
-                ? values.system_prompt.length > 0
-                : false;
-              const taskPromptSpecified = values.task_prompt
-                ? values.task_prompt.length > 0
-                : false;
-              if (systemPromptSpecified || taskPromptSpecified) {
-                setFinalPromptError("");
-                return true;
-              } // Return true if at least one field has a value
-
-              setFinalPromptError(
-                t("System_Task_Prompt_Required")
-              );
-            }
-          )}
+            starter_messages: Yup.string().nullable(),
+          })}
         onSubmit={async (values, formikHelpers) => {
           if (finalPromptError) {
             setPopup({
@@ -446,10 +420,6 @@ export function PersonaEditor({
                   <Divider />
                 </>
               )}
-
-
-
-              <Divider />
 
               <div className="flex">
                 <Button

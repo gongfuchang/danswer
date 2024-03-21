@@ -24,7 +24,7 @@ import { Card, Title } from "@tremor/react";
 
 const SCRAPE_TYPE_TO_PRETTY_NAME = {
   recursive: "Recursive",
-  single: "Single Page",
+  single: "Single_Page",
   sitemap: "Sitemap",
 };
 
@@ -168,9 +168,9 @@ export default function Web() {
                   const connectorConfig =
                     ccPairStatus.connector.connector_specific_config;
                   return connectorConfig.web_connector_type
-                    ? SCRAPE_TYPE_TO_PRETTY_NAME[
+                    ? t(SCRAPE_TYPE_TO_PRETTY_NAME[
                         connectorConfig.web_connector_type
-                      ]
+                      ])
                     : t("Recursive");
                 },
               },
@@ -178,7 +178,7 @@ export default function Web() {
             onUpdate={() => mutate("/api/manage/admin/connector/indexing-status")}
           />
         ) : (
-          <p className="text-sm">t("No_Indexed_Websites_Found")</p>
+          <p className="text-sm">{t("No_Indexed_Websites_Found")}</p>
         )}        
       </div>
       

@@ -181,7 +181,7 @@
     "Step_1_Specify_Websites": "Step 1: Specify which websites to index",
     "Fetch_Website_State_Daily": "We re-fetch the latest state of the website once a day.",
     "URL_Index": "URL to Index",
-    "Scrape_Method": "Scrape Method:",
+    "Scrape_Method": "Scrape Method",
     "Recursive": "Recursive",
     "Recursive_Description": "Recursively index all pages that share the same base URL.",
     "Single_Page_Description": "Index only the specified page.",
@@ -266,14 +266,15 @@
     "Status": "Status",
     "Last_Indexed": "Last Indexed",
     "Docs_Indexed": "Docs Indexed",
-    "Speed": "Speed"
+    "Speed": "Speed:"
   },
   "admin_indexing_status_page": {
     "Error_loading_indexing_history": "Error loading indexing history.",
     "No_connector_setup_message": "It looks like you don't have any connectors setup yet. Visit the",
     "Add_Connector": "Add Knowledge Unit",
     "Get_started_message": "page to get started!",
-    "Existing_Connectors": "Existing Knowledge Units"
+    "Existing_Connectors": "Existing Knowledge Units",
+    "Loading": "Loading"
   },
   "admin_keys_openai_page": {
     "Loading": "Loading",
@@ -284,7 +285,8 @@
     "Specify_OpenAI_API_Key": "Specify an OpenAI API key and click the \"Submit\" button."
   },
   "admin_models_embedding_embeddingModels": {
-    "Default_Model_Description": "The recommended default for most situations. If you aren't sure which model to use, this is probably the one.",
+    "Default_Model_Description": "The recommended default for most situations of indexing in chinese. ",
+    "E5_Base_Description": "A common model for most situations of indexing in english. If you aren't sure which model to use, this is probably the one.",
     "Small_Model_Description": "A smaller / faster version of the default model. If you're running Quick Mind on a resource constrained system, then this is a good choice.",
     "Multilingual_Model_Description": "If you have many documents in other languages besides English, this is the one to go for.",
     "Multilingual_Small_Model_Description": "If you have many documents in other languages besides English, and you're running on a resource constrained system, then this is the one to go for."
@@ -390,7 +392,7 @@
     "Create_Button": "Create!"
   },
   "admin_personas_PersonaTable": {
-    "Persona_Display_Text": "Personas will be displayed as options on the Chat / Search interfaces in the order they are displayed below. Personas marked as hidden will not be displayed.",
+    "Persona_Display_Text": "Personas will be displayed as options on the Chat / Search interfaces in the order they are displayed below. Personas marked as hidden will not be displayed. You can drag and drop to reorder.",
     "Name": "Name",
     "Description": "Description",
     "Built-In": "Built-In",
@@ -412,7 +414,8 @@
   "admin_personas_personaId_page": {
     "Error_Title": "Something went wrong :(",
     "Edit_Persona": "Edit Persona",
-    "Create_New_Persona": "Create a New Persona"
+    "Create_New_Persona": "Create a New Persona",
+    "Delete_Persona": "Delete Persona"
   },
   "admin_systeminfo_page": {
     "Version_Title": "Version",
@@ -499,7 +502,9 @@
     "Knowlege_Sets": "Knowledge Sets",
     "Chat_With_Assistant": "Which assistant do you want to chat with today?",
     "Note_Default_Assistant": "Or ask a question immediately to use",
-    "See_More": "See more"
+    "See_More": "See more",
+    "Connected_Sources": "Connected Sources:",
+    "Knowledge_Sets": "Knowledge Sets"
   },
   "chat_ChatPersonaSelector": {
     "Default": "Default"
@@ -523,7 +528,7 @@
     "De_Select_All": "De-Select All"
   },
   "chat_message_Messages": {
-    "Sources_Title": "Sources:",
+    "Sources_Title": "Sources",
     "You": "You"
   },
   "chat_message_SearchSummary": {
@@ -635,7 +640,8 @@
     "Knowledge_Operation": "Knowledge Operation",
     "Chat": "Chat",
     "Search": "Search",
-    "Feedback_Mgmt": "Feedback",
+    "Feedback_Answer": "Answer Feedback",
+    "Feedback_Doc": "Document Feedback",
     "Custom_Assistants": "Custom Assistants",
     "FAQ_Mgmt": "FAQ Management",
     "FAQ_List": "FAQ List",
@@ -787,9 +793,9 @@
     "Updated": "Updated"
   },
   "components_search_DateRangeSelector": {
-    "Last_30_days": "Last 30 days",
-    "Last_7_days": "Last 7 days",
-    "Today": "Today",
+    "LAST_30_DAYS": "Last 30 days",
+    "LAST_7_DAYS": "Last 7 days",
+    "TODAY": "Today",
     "Any_Time_Tips": "Any time..."
   },
   "components_search_PersonaSelector": {
@@ -800,8 +806,8 @@
   },
   "components_search_SearchHelper": {
     "Assistant_Message_1": "This doesn't seem like a question for a Generative AI. Do you still want to have",
-    "GPT_Response": "GPT give a response?",
-    "Assistant_Message_2": "GPT was unable to find an answer in the most relevant",
+    "GPT_Response": "AI give a response?",
+    "Assistant_Message_2": "AI was unable to find an answer in the most relevant",
     "Keep_Searching": "keep searching",
     "AI_Assistant": "AI Assistant"
   },
@@ -838,7 +844,10 @@
     "AI_Not_Answerable_Message": "the AI did not think this question was answerable."
   },
   "components_search_results_QuotesSection": {
-    "Did_Not_Find_Quotes": "Did not find any exact quotes to support the above answer."
+    "Did_Not_Find_Quotes": "Did not find any exact quotes to support the above answer.",
+    "Quotes": "Quotes",
+    "Extracting_Quotes": "Extracting quotes...",
+    "No_Quotes_Found": "No quotes found"
   },
   "components_time_ago": {
     "year_ago": "{count} year ago",

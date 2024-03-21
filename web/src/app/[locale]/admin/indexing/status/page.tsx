@@ -26,7 +26,7 @@ function Main() {
   );
 
   if (indexAttemptIsLoading) {
-    return <LoadingAnimation text="" />;
+    return <LoadingAnimation text={t("Loading")} />;
   }
 
   if (indexAttemptIsError || !indexAttemptData) {

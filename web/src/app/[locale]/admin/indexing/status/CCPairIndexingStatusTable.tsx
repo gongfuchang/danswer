@@ -55,7 +55,7 @@ function CCPairIndexingStatusDisplay({
             {t.rich("Current_Run_Status", {i: (chunks) => (<i>{chunks}</i>), count: ccPairsIndexingStatus.latest_index_attempt.new_docs_indexed})}
           </div>
           <div>
-            <i>{t("Speed")}:</i>{" "}
+            <i>{t("Speed")}</i>{" "}
             {docsPerMinute ? (
               <>{docsPerMinute} {t("Docs_Per_Minute")}</>
             ) : (

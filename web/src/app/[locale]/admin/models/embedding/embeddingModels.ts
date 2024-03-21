@@ -23,11 +23,22 @@ export interface FullEmbeddingModelDescriptor extends EmbeddingModelDescriptor {
 
 export const AVAILABLE_MODELS: FullEmbeddingModelDescriptor[] = [
   {
+    model_name: "BAAI/bge-large-zh-v1.5",
+    model_dim: 1024,
+    normalize: true,
+    description:
+      ("Default_Model_Description"),
+    isDefault: true,
+    link: "https://huggingface.co/BAAI/bge-large-zh-v1.5",
+    query_prefix: "为这个句子生成表示以用于检索相关文章：",
+    passage_prefix: "",
+  },  
+  {
     model_name: "intfloat/e5-base-v2",
     model_dim: 768,
     normalize: true,
     description:
-      ("Default_Model_Description"),
+      ("E5_Base_Description"),
     isDefault: true,
     link: "https://huggingface.co/intfloat/e5-base-v2",
     query_prefix: "query: ",
