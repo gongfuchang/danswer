@@ -49,7 +49,7 @@ ENABLE_RERANKING_REAL_TIME_FLOW = (
     os.environ.get("ENABLE_RERANKING_REAL_TIME_FLOW", "").lower() == "true"
 )
 # https://www.sbert.net/docs/pretrained-models/ce-msmarco.html
-CROSS_ENCODER_MODEL_ENSEMBLE = [
+CROSS_ENCODER_MODEL_ENSEMBLE = [os.environ.get("CROSS_ENCODER_MODEL")] if os.environ.get("CROSS_ENCODER_MODEL") else [
     "cross-encoder/ms-marco-MiniLM-L-4-v2",
     "cross-encoder/ms-marco-TinyBERT-L-2-v2",
 ]

@@ -8,9 +8,10 @@ import requests
 from danswer.configs.app_configs import DISABLE_TELEMETRY
 from danswer.dynamic_configs import get_dynamic_config_store
 from danswer.dynamic_configs.interface import ConfigNotFoundError
+from danswer.main import logger
 
 CUSTOMER_UUID_KEY = "customer_uuid"
-DANSWER_TELEMETRY_ENDPOINT = "https://telemetry.danswer.ai/anonymous_telemetry"
+# DANSWER_TELEMETRY_ENDPOINT = "https://telemetry.danswer.ai/anonymous_telemetry"
 
 
 class RecordType(str, Enum):
@@ -47,13 +48,14 @@ def optional_telemetry(
                     # If None then it's a flow that doesn't include a user
                     # For cases where the User itself is None, a string is provided instead
                     "user_id": user_id,
-                    "customer_uuid": get_or_generate_uuid(),
+                    # "customer_uuid": get_or_generate_uuid(),
                 }
-                requests.post(
-                    DANSWER_TELEMETRY_ENDPOINT,
-                    headers={"Content-Type": "application/json"},
-                    json=payload,
-                )
+                # requests.post(
+                #     DANSWER_TELEMETRY_ENDPOINT,
+                #     headers={"Content-Type": "application/json"},
+                #     json=payload,
+                # )
+                logger.info(f"Telemetry record: {payload}")
             except Exception:
                 # This way it silences all thread level logging as well
                 pass

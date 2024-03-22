@@ -9,6 +9,8 @@ from danswer.llm.interfaces import LLM
 from danswer.llm.utils import get_default_llm_version
 from danswer.llm.utils import get_gen_ai_api_key
 
+from danswer.llm.glm_llm import Glm4ChatModel
+from danswer.llm.hybrid_llm import HydridModelChat
 
 def get_default_llm(
     gen_ai_model_provider: str = GEN_AI_MODEL_PROVIDER,
@@ -32,6 +34,12 @@ def get_default_llm(
 
     if gen_ai_model_provider.lower() == "custom":
         return CustomModelServer(api_key=api_key, timeout=timeout)
+
+    if gen_ai_model_provider.lower() == "glm4":
+        return Glm4ChatModel(api_key=api_key)
+
+    if gen_ai_model_provider.lower() == "hybrid":
+        return HydridModelChat()
 
     if gen_ai_model_provider.lower() == "gpt4all":
         return DanswerGPT4All(model_version=model_version, timeout=timeout)

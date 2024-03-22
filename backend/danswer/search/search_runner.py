@@ -442,17 +442,23 @@ def rerank_chunks(
     chunks_to_rerank: list[InferenceChunk],
     rerank_metrics_callback: Callable[[RerankMetricsContainer], None] | None = None,
 ) -> list[InferenceChunk]:
+    reranked_chunks = []
+    # Except the first chunk, rerank the rest of chunks, because we consider the first chunk as the best one
     ranked_chunks, _ = semantic_reranking(
         query=query.query,
-        chunks=chunks_to_rerank[: query.num_rerank],
+        chunks=chunks_to_rerank[1: query.num_rerank],
         rerank_metrics_callback=rerank_metrics_callback,
     )
     lower_chunks = chunks_to_rerank[query.num_rerank :]
     # Scores from rerank cannot be meaningfully combined with scores without rerank
     for lower_chunk in lower_chunks:
         lower_chunk.score = None
-    ranked_chunks.extend(lower_chunks)
-    return ranked_chunks
+
+    reranked_chunks.append(chunks_to_rerank[0])
+    reranked_chunks.extend(ranked_chunks)
+    reranked_chunks.extend(lower_chunks)
+
+    return reranked_chunks
 
 
 @log_function_time(print_only=True)

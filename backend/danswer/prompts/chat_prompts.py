@@ -104,6 +104,7 @@ Given the following conversation and a follow up input, rephrase the follow up i
 standalone query (which captures any relevant context from previous messages) for a vectorstore.
 IMPORTANT: EDIT THE QUERY TO BE AS CONCISE AS POSSIBLE. Respond with a short, compressed phrase \
 with mainly keywords instead of a complete sentence.
+IMPORTANT: You SHOULD use chinese as if the history contains ANY chinese characters.
 If there is a clear change in topic, disregard the previous messages.
 Strip out any information that is not relevant for the retrieval task.
 If the follow up message is an error or code snippet, repeat the same input back EXACTLY.
@@ -164,6 +165,8 @@ CHAT_NAMING = f"""
 Given the following conversation, provide a SHORT name for the conversation.
 IMPORTANT: TRY NOT TO USE MORE THAN 5 WORDS, MAKE IT AS CONCISE AS POSSIBLE.
 Focus the name on the important keywords to convey the topic of the conversation.
+
+IMPORTANT: You SHOULD use Chinese to output the name if the history messages contain ANY chinese character.
 
 Chat History:
 {{chat_history}}

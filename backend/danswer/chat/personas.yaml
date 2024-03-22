@@ -7,7 +7,7 @@ personas:
   - id: 0
     name: "Quick Mind"
     description: >
-      基于 RAG（检寻增强的内容生成） 的知识助理，然后根据问题检寻上下文信息，然后再回答问题.
+      基于 RAG（检寻增强内容生成） 的知识助理，之后根据问题查找关联的上下文信息，然后再回答问题。
     # Default Prompt objects attached to the persona, see prompts.yaml
     prompts:
       - "Answer-Question"
@@ -53,9 +53,9 @@ personas:
 
 
   - id: 2
-    name: "Paraphrase"
+    name: "批阅助理"
     description: >
-      Assistant that is heavily constrained and only provides exact quotes from Connected Sources.
+      仅对查找到的上下文进行总结.
     prompts:
       - "Paraphrase"
     num_chunks: 10

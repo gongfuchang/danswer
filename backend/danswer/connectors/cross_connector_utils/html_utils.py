@@ -6,6 +6,7 @@ import bs4
 
 from danswer.configs.app_configs import WEB_CONNECTOR_IGNORED_CLASSES
 from danswer.configs.app_configs import WEB_CONNECTOR_IGNORED_ELEMENTS
+from danswer.configs.app_configs import WEB_CONNECTOR_EXTRACTED_BLOCK_CLASSES
 
 MINTLIFY_UNWANTED = ["sticky", "hidden"]
 
@@ -139,24 +140,31 @@ def web_html_cleanup(
         title = title_tag.text
         title_tag.extract()
 
-    # Heuristics based cleaning of elements based on css classes
-    unwanted_classes = copy(WEB_CONNECTOR_IGNORED_CLASSES)
-    if mintlify_cleanup_enabled:
-        unwanted_classes.extend(MINTLIFY_UNWANTED)
-    for undesired_element in unwanted_classes:
-        [
-            tag.extract()
-            for tag in soup.find_all(
-                class_=lambda x: x and undesired_element in x.split()
-            )
-        ]
+    if WEB_CONNECTOR_EXTRACTED_BLOCK_CLASSES:
+        div_elements = soup.find_all('div', class_=WEB_CONNECTOR_EXTRACTED_BLOCK_CLASSES)
+        # Create a new soup object and append the div elements to it
+        soup = bs4.BeautifulSoup('', 'html.parser')
+        for div in div_elements:
+            soup.append(div)
+    else:
+        # Heuristics based cleaning of elements based on css classes
+        unwanted_classes = copy(WEB_CONNECTOR_IGNORED_CLASSES)
+        if mintlify_cleanup_enabled:
+            unwanted_classes.extend(MINTLIFY_UNWANTED)
+        for undesired_element in unwanted_classes:
+            [
+                tag.extract()
+                for tag in soup.find_all(
+                    class_=lambda x: x and undesired_element in x.split()
+                )
+            ]
 
-    for undesired_tag in WEB_CONNECTOR_IGNORED_ELEMENTS:
-        [tag.extract() for tag in soup.find_all(undesired_tag)]
-
-    if additional_element_types_to_discard:
-        for undesired_tag in additional_element_types_to_discard:
+        for undesired_tag in WEB_CONNECTOR_IGNORED_ELEMENTS:
             [tag.extract() for tag in soup.find_all(undesired_tag)]
+
+        if additional_element_types_to_discard:
+            for undesired_tag in additional_element_types_to_discard:
+                [tag.extract() for tag in soup.find_all(undesired_tag)]
 
     # 200B is ZeroWidthSpace which we don't care for
     page_text = format_document_soup(soup).replace("\u200B", "")

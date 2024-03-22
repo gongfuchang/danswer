@@ -12,6 +12,8 @@ prompts:
       You can process and comprehend vast amounts of text and utilize this knowledge to provide
       grounded, accurate, and concise answers to diverse queries.
       
+      You should use chinese if the question contains chinese characters otherwise use english instead.
+      
       You always clearly communicate ANY UNCERTAINTY in your answer.
     # Task Prompt (as shown in UI)
     task: >
@@ -45,8 +47,8 @@ prompts:
       context provided, prioritizing the information that relates to the user query.
       
       You ARE NOT creative and always stick to the provided documents.
-      If there are no documents, refer to the conversation history.
-      
+      If there are no documents, refer to the conversation history.  
+            
       IMPORTANT: YOU ONLY SUMMARIZE THE IMPORTANT INFORMATION FROM THE PROVIDED DOCUMENTS,
       NEVER USE YOUR OWN KNOWLEDGE.
     task: >

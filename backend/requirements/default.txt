@@ -38,7 +38,7 @@ playwright==1.41.2
 psutil==5.9.5
 psycopg2-binary==2.9.9
 pycryptodome==3.19.1
-pydantic==1.10.7
+pydantic==1.10.14
 PyGithub==1.58.2
 python-dateutil==2.8.2
 python-gitlab==3.9.0
@@ -72,3 +72,6 @@ uvicorn==0.21.1
 zulip==0.8.2
 hubspot-api-client==8.1.0
 zenpy==2.0.41
+zhipuai@git+https://github.com/gongfuchang/zhipuai-sdk-python-v4
+dashscope==1.15.0
+

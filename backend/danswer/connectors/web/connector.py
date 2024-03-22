@@ -1,4 +1,5 @@
 import io
+import time
 from enum import Enum
 from typing import Any
 from typing import cast
@@ -18,6 +19,7 @@ from danswer.configs.app_configs import INDEX_BATCH_SIZE
 from danswer.configs.app_configs import WEB_CONNECTOR_OAUTH_CLIENT_ID
 from danswer.configs.app_configs import WEB_CONNECTOR_OAUTH_CLIENT_SECRET
 from danswer.configs.app_configs import WEB_CONNECTOR_OAUTH_TOKEN_URL
+from danswer.configs.app_configs import WEB_CONNECTOR_SITEMAP_JSON_PATH
 from danswer.configs.constants import DocumentSource
 from danswer.connectors.cross_connector_utils.file_utils import read_pdf_file
 from danswer.connectors.cross_connector_utils.html_utils import web_html_cleanup
@@ -26,6 +28,7 @@ from danswer.connectors.interfaces import LoadConnector
 from danswer.connectors.models import Document
 from danswer.connectors.models import Section
 from danswer.utils.logger import setup_logger
+from danswer.utils.timing import log_function_time
 
 logger = setup_logger()
 
@@ -49,6 +52,7 @@ def is_valid_url(url: str) -> bool:
         return False
 
 
+@log_function_time()
 def get_internal_links(
     base_url: str, url: str, soup: BeautifulSoup, should_ignore_pound: bool = True
 ) -> set[str]:
@@ -96,13 +100,31 @@ def start_playwright() -> Tuple[Playwright, BrowserContext]:
 
 
 def extract_urls_from_sitemap(sitemap_url: str) -> list[str]:
-    response = requests.get(sitemap_url)
-    response.raise_for_status()
+    # TODO read from connector config
+    if WEB_CONNECTOR_SITEMAP_JSON_PATH:
+        if not sitemap_url.endswith("/"):
+            sitemap_url += "/"
+        json_path = urljoin(sitemap_url, WEB_CONNECTOR_SITEMAP_JSON_PATH)
+        response = requests.get(json_path)
+        # parse the json and return the urls, the format is like this:
+        '''
+        [{"documents": [
+            {"i": 40553, 
+            "t": "SSL密钥证书配置", 
+            "u": "/zh-CN/docs/dev/admin-manual/certificate", 
+            "b": ["管理手册"]
+        }
+        '''
+        response.raise_for_status()
+        return [urljoin(sitemap_url, doc["u"]) for doc in response.json()[0]["documents"]]
+    else:
+        response = requests.get(sitemap_url)
+        response.raise_for_status()
 
-    soup = BeautifulSoup(response.content, "html.parser")
-    urls = [loc_tag.text for loc_tag in soup.find_all("loc")]
+        soup = BeautifulSoup(response.content, "html.parser")
+        urls = [loc_tag.text for loc_tag in soup.find_all("loc")]
 
-    return urls
+        return urls
 
 
 def _ensure_valid_url(url: str) -> str:
@@ -173,7 +195,9 @@ class WebConnector(LoadConnector):
 
             try:
                 if restart_playwright:
+                    start_time = time.time()
                     playwright, context = start_playwright()
+                    logger.info(f"Playwright restart took {time.time() - start_time} seconds")
                     restart_playwright = False
 
                 if current_url.split(".")[-1] == "pdf":
@@ -194,10 +218,14 @@ class WebConnector(LoadConnector):
                     )
                     continue
 
+                start_time = time.time()
                 page = context.new_page()
+                logger.info(f"Page creation took {time.time() - start_time} seconds")
+                start_time = time.time()
                 page_response = page.goto(current_url)
+                logger.info(f"Page goto took {time.time() - start_time} seconds")
                 final_page = page.url
-                if final_page != current_url:
+                if final_page != current_url and final_page.strip(current_url):
                     logger.info(f"Redirected to {final_page}")
                     current_url = final_page
                     if current_url in visited_links:
@@ -234,7 +262,9 @@ class WebConnector(LoadConnector):
                     )
                 )
 
+                start_time = time.time()
                 page.close()
+                logger.info(f"Page close took {time.time() - start_time} seconds")
             except Exception as e:
                 logger.error(f"Failed to fetch '{current_url}': {e}")
                 playwright.stop()
@@ -253,6 +283,6 @@ class WebConnector(LoadConnector):
 
 
 if __name__ == "__main__":
-    connector = WebConnector("https://docs.danswer.dev/")
+    connector = WebConnector("https://doris.apache.org/zh-CN/docs/dev", web_connector_type=WEB_CONNECTOR_VALID_SETTINGS.SITEMAP)
     document_batches = connector.load_from_state()
     print(next(document_batches))

@@ -16,6 +16,7 @@ from danswer.chat.models import DanswerAnswerPiece
 from danswer.chat.models import LlmDoc
 from danswer.configs.chat_configs import MULTILINGUAL_QUERY_EXPANSION
 from danswer.configs.chat_configs import STOP_STREAM_PAT
+from danswer.configs.chat_configs import CHUNK_SCORE_THRESHOLD
 from danswer.configs.constants import IGNORE_FOR_QA
 from danswer.configs.model_configs import DOC_EMBEDDING_CONTEXT_SIZE
 from danswer.configs.model_configs import GEN_AI_SINGLE_USER_MESSAGE_EXPECTED_MAX_TOKENS
@@ -228,6 +229,9 @@ def get_chunks_for_qa(
             if llm_chunk_selection[ind] is not selection_target or chunk.metadata.get(
                 IGNORE_FOR_QA
             ):
+                continue
+
+            if CHUNK_SCORE_THRESHOLD and chunk.score < CHUNK_SCORE_THRESHOLD:
                 continue
 
             # We calculate it live in case the user uses a different LLM + tokenizer

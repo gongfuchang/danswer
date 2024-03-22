@@ -11,8 +11,9 @@ RUN echo "DANSWER_VERSION: ${DANSWER_VERSION}"
 # curl included just for users' convenience
 # zip for Vespa step futher down
 # ca-certificates for HTTPS
+RUN sed -i 's#deb.debian.org/debian$#mirrors.tuna.tsinghua.edu.cn/debian#' /etc/apt/sources.list.d/debian.sources
 RUN apt-get update && \
-    apt-get install -y cmake curl zip ca-certificates libgnutls30=3.7.9-2+deb12u2 && \
+    apt-get install -y cmake curl zip ca-certificates libgnutls30=3.7.9-2+deb12u2 git && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 

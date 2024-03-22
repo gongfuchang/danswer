@@ -4,8 +4,8 @@ import os
 PROMPTS_YAML = "./danswer/chat/prompts.yaml"
 PERSONAS_YAML = "./danswer/chat/personas.yaml"
 
-NUM_RETURNED_HITS = 50
-NUM_RERANKED_RESULTS = 15
+NUM_RETURNED_HITS = int(os.environ.get("NUM_RETURNED_HITS") or "50")
+NUM_RERANKED_RESULTS = int(os.environ.get("NUM_RERANKED_RESULTS") or "15")
 
 # May be less depending on model
 MAX_CHUNKS_FED_TO_CHAT = float(os.environ.get("MAX_CHUNKS_FED_TO_CHAT") or 10.0)
@@ -70,3 +70,6 @@ STOP_STREAM_PAT = os.environ.get("STOP_STREAM_PAT") or None
 
 # The backend logic for this being True isn't fully supported yet
 HARD_DELETE_CHATS = False
+
+# The threshold for the score of a chunk to be considered useful
+CHUNK_SCORE_THRESHOLD = float(os.environ.get("CHUNK_SCORE_THRESHOLD") or 0.0)

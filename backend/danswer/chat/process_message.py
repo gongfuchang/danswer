@@ -1,3 +1,4 @@
+import re
 from collections.abc import Callable
 from collections.abc import Iterator
 from functools import partial
@@ -375,6 +376,9 @@ def stream_chat_message_objects(
                 if query_override is None
                 else query_override
             )
+
+            # TODO replace redundant keywords, this should be configured from persona
+            rephrased_query = re.compile(r'\bdoris\b', re.IGNORECASE).sub('', rephrased_query)
 
             (
                 retrieval_request,

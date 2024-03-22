@@ -141,6 +141,8 @@ WEB_CONNECTOR_IGNORED_CLASSES = os.environ.get(
 WEB_CONNECTOR_IGNORED_ELEMENTS = os.environ.get(
     "WEB_CONNECTOR_IGNORED_ELEMENTS", "nav,footer,meta,script,style,symbol,aside"
 ).split(",")
+WEB_CONNECTOR_EXTRACTED_BLOCK_CLASSES = os.environ.get("WEB_CONNECTOR_EXTRACTED_BLOCK_CLASSES")
+WEB_CONNECTOR_SITEMAP_JSON_PATH = os.environ.get("WEB_CONNECTOR_SITEMAP_JSON_PATH")
 WEB_CONNECTOR_OAUTH_CLIENT_ID = os.environ.get("WEB_CONNECTOR_OAUTH_CLIENT_ID")
 WEB_CONNECTOR_OAUTH_CLIENT_SECRET = os.environ.get("WEB_CONNECTOR_OAUTH_CLIENT_SECRET")
 WEB_CONNECTOR_OAUTH_TOKEN_URL = os.environ.get("WEB_CONNECTOR_OAUTH_TOKEN_URL")
@@ -227,7 +229,7 @@ INDEXING_MODEL_SERVER_HOST = (
 DYNAMIC_CONFIG_STORE = os.environ.get(
     "DYNAMIC_CONFIG_STORE", "FileSystemBackedDynamicConfigStore"
 )
-DYNAMIC_CONFIG_DIR_PATH = os.environ.get("DYNAMIC_CONFIG_DIR_PATH", "e:\\data")
+DYNAMIC_CONFIG_DIR_PATH = os.environ.get("DYNAMIC_CONFIG_DIR_PATH")
 JOB_TIMEOUT = 60 * 60 * 6  # 6 hours default
 # used to allow the background indexing jobs to use a different embedding
 # model server than the API server
