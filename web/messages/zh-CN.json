@@ -455,7 +455,9 @@
     "Email": "电子邮件",
     "Password": "密码",
     "Sign_Up": "注册",
-    "Log_In": "登录"
+    "Log_In": "登录",
+    "Email_Required": "请输入电子邮件",
+    "Password_Required": "请输入登录密码"
   },
   "auth_login_page": {
     "Fetch_Failed_Login_Page": "登录页面的某些获取失败",

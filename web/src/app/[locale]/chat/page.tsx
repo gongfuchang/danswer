@@ -6,9 +6,5 @@ export default async function Page({
 }) {
   
 
-  return (
-    <>
-      <ChatWrapper searchParams={searchParams} embeddedMode={false} />
-    </>
-  );
+  return await ChatWrapper({searchParams:searchParams, embeddedMode:false});
 }

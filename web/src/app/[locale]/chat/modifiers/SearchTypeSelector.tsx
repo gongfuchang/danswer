@@ -4,8 +4,8 @@ import { ControlledPopup, DefaultDropdownElement } from "@/components/Dropdown";
 import { useState } from "react";
 import { FiCpu, FiFilter, FiSearch } from "react-icons/fi";
 
-export const QA = t("Question Answering");
-export const SEARCH = t("Search Only");
+export const QA = "Question Answering";
+export const SEARCH = "Search Only";
 
 function SearchTypeSelectorContent({
   selectedSearchType,
@@ -19,14 +19,14 @@ function SearchTypeSelectorContent({
     <div className="w-56">
       <DefaultDropdownElement
         key={QA}
-        name={QA}
+        name={t(QA)}
         icon={FiCpu}
         onSelect={() => setSelectedSearchType(QA)}
         isSelected={selectedSearchType === QA}
       />
       <DefaultDropdownElement
         key={SEARCH}
-        name={SEARCH}
+        name={t(SEARCH)}
         icon={FiSearch}
         onSelect={() => setSelectedSearchType(SEARCH)}
         isSelected={selectedSearchType === SEARCH}

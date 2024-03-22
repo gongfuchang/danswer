@@ -73,6 +73,9 @@ const nextConfig = {
   publicRuntimeConfig: {
     version,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 

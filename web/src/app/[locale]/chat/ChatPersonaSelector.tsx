@@ -1,5 +1,5 @@
 import {useTranslations} from "next-intl";
-import { Persona } from "@/app/admin/personas/interfaces";
+import { Persona } from "@/app/[locale]/admin/personas/interfaces";
 import { FiCheck, FiChevronDown } from "react-icons/fi";
 import { CustomDropdown } from "@/components/Dropdown";
 

@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "extract": "formatjs extract",
-    "compile": "formatjs compile"
+    "lint": "next lint"
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.1",

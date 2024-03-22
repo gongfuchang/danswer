@@ -15,7 +15,7 @@ export default async function Page({
       <AdminPageTitle title={t("Chat_Title")} icon={<FiMessageSquare size={26} />} />
 
       <div style={{padding: 0}}>
-        <ChatWrapper searchParams={searchParams} embeddedMode={true} />
+        {await ChatWrapper({searchParams:searchParams, embeddedMode:true})}
       </div>
     </div>
   );

@@ -106,7 +106,7 @@ export const DocumentSetCreationForm = ({
                   name="description"
                   label={t("Description")}
                   placeholder={t("Describe_Document_Set")}
-                  autoCompleteDisabled={t("Auto_Complete_Disabled")}
+                  autoCompleteDisabled={true}
                 />
                 <h2 className="mb-1 font-medium text-base">
                   {t("Pick_Connectors")}

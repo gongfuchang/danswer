@@ -10,6 +10,7 @@ function ForceSearchButton({
   isCurrentlyShowingRetrieved: boolean;
   handleShowRetrieved: (messageId: number | null) => void;
 }) {
+  const t = useTranslations("chat_message_ForceSearchButton");
   return (
     <div
       className="ml-auto my-auto"

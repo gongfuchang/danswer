@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${inter.variable} font-sans text-default bg-background`}
+        className={`${inter.variable} font-sans text-default bg-[url('/bg.svg')]`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}

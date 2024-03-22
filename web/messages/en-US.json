@@ -453,7 +453,9 @@
     "Email": "Email",
     "Password": "Password",
     "Sign_Up": "Sign Up",
-    "Log_In": "Log In"
+    "Log_In": "Log In",
+    "Email_Required": "Email is a required",
+    "Password_Required": "Password is required"
   },
   "auth_login_page": {
     "Fetch_Failed_Login_Page": "Some fetch failed for the login page",

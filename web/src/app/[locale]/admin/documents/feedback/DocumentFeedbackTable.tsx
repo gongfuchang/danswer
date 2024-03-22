@@ -129,7 +129,7 @@ export const DocumentFeedbackTable = ({
                           refresh();
                         } else {
                           setPopup({
-                            message: t("Error_Update_Status", {errorMsg: getErrorMsg(
+                            message: t("Error_Update_Status", {errorMsg: await getErrorMsg(
                               response
                             )}),
                             type: "error",

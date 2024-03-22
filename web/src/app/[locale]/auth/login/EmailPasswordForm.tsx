@@ -34,8 +34,8 @@ export function EmailPasswordForm({
           password: "",
         }}
         validationSchema={Yup.object().shape({
-          email: Yup.string().email().required(),
-          password: Yup.string().required(),
+          email: Yup.string().required(t("Email_Required")),
+          password: Yup.string().required(t("Password_Required")),
         })}
         onSubmit={async (values) => {
           if (isSignup) {

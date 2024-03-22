@@ -58,7 +58,7 @@ export default async function Home() {
       <div className="m-3">
         <HealthCheckBanner />
       </div>
-      <SearchWrapper searchTypeDefault={searchTypeDefault}/>
+      {await SearchWrapper({searchTypeDefault:searchTypeDefault})}
     </>
   );
 }

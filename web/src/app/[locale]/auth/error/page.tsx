@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 const Page = () => {
   const t = useTranslations("auth_error_page");
   return (

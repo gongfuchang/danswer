@@ -1,3 +1,7 @@
+import { useTranslations } from "next-intl";
+interface Props {
+  onClick: () => void;
+}
 export const IndexButtonForTable = ({ onClick }: Props) => {
   const t = useTranslations("components_admin_connectors_buttons_IndexButtonForTable");
   return (

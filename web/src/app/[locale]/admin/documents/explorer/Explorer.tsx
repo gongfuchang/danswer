@@ -72,7 +72,7 @@ const DocumentDisplay = ({
             } else {
               setPopup({
                 type: "error",
-                message: t("Failed_Update_Document", {errorMsg: getErrorMsg(
+                message: t("Failed_Update_Document", {errorMsg: await getErrorMsg(
                   response
                 )})
               });

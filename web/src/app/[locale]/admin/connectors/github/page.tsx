@@ -21,7 +21,6 @@ import { ConnectorsTable } from "@/components/admin/connectors/table/ConnectorsT
 import { usePublicCredentials } from "@/lib/hooks";
 import { Card, Divider, Text, Title } from "@tremor/react";
 import { AdminPageTitle } from "@/components/admin/Title";
-import { t } from "i18next";
 
 const Main = () => {
   const t = useTranslations("admin_connectors_github_page");
