@@ -14,6 +14,7 @@ from danswer.chat.chat_utils import get_chunks_for_qa
 from danswer.chat.chat_utils import llm_doc_from_inference_chunk
 from danswer.chat.chat_utils import map_document_id_order
 from danswer.chat.chat_utils import reorganize_citations
+from danswer.chat.chunk_expansion_util import extend_chunks
 from danswer.chat.models import CitationInfo
 from danswer.chat.models import DanswerAnswerPiece
 from danswer.chat.models import DanswerContext
@@ -320,6 +321,7 @@ def stream_answer_objects(
         token_limit=chunk_token_limit,
     )
     llm_chunks = [top_chunks[i] for i in llm_chunks_indices]
+    llm_chunks = extend_chunks(chunks=llm_chunks, document_index=document_index)
 
     logger.debug(
         f"Chunks fed to LLM: {[chunk.semantic_identifier for chunk in llm_chunks]}"

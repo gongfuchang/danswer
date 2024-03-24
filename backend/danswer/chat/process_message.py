@@ -65,6 +65,7 @@ from danswer.server.query_and_chat.models import CreateChatMessageRequest
 from danswer.server.utils import get_json_line
 from danswer.utils.logger import setup_logger
 from danswer.utils.timing import log_generator_function_time
+from danswer.chat.chunk_expansion_util import extend_chunks
 
 logger = setup_logger()
 
@@ -475,7 +476,9 @@ def stream_chat_message_objects(
                 llm_tokenizer=llm_tokenizer,
             )
             llm_chunks = [top_chunks[i] for i in llm_chunks_indices]
+            llm_chunks = extend_chunks(chunks=llm_chunks, document_index=document_index)
             llm_docs = [llm_doc_from_inference_chunk(chunk) for chunk in llm_chunks]
+            # extend the chunks to include the siblings
 
         else:
             llm_docs = []

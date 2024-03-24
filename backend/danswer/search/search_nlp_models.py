@@ -24,7 +24,8 @@ from shared_models.model_server_models import IntentRequest
 from shared_models.model_server_models import IntentResponse
 from shared_models.model_server_models import RerankRequest
 from shared_models.model_server_models import RerankResponse
-
+import time
+from danswer.utils.timing import log_function_time
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
@@ -257,6 +258,7 @@ class CrossEncoderEnsembleModel:
             else None
         )
 
+    @log_function_time(print_only=True)
     def load_model(self) -> list["CrossEncoder"] | None:
         if self.rerank_server_endpoint:
             return None
@@ -285,10 +287,12 @@ class CrossEncoderEnsembleModel:
         if local_models is None:
             raise RuntimeError("Failed to load local Reranking Model Ensemble")
 
+        start_time = time.time()
         scores = [
             cross_encoder.predict([(query, passage) for passage in passages]).tolist()  # type: ignore
             for cross_encoder in local_models
         ]
+        logger.info(f"CrossEncoderEnsembleModel took {time.time() - start_time} seconds")
 
         return scores
 

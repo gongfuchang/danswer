@@ -251,6 +251,8 @@ def get_llm_max_tokens(
     try:
         if model_provider == "openai":
             return get_max_tokens(model_name)
+        elif model_provider == "hybrid": # TODO read from persona
+            return 4096
         return get_max_tokens("/".join([model_provider, model_name]))
     except Exception:
         return 4096

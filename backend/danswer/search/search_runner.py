@@ -452,7 +452,7 @@ def rerank_chunks(
     lower_chunks = chunks_to_rerank[query.num_rerank :]
     # Scores from rerank cannot be meaningfully combined with scores without rerank
     for lower_chunk in lower_chunks:
-        lower_chunk.score = None
+        lower_chunk.score = 0
 
     reranked_chunks.append(chunks_to_rerank[0])
     reranked_chunks.extend(ranked_chunks)

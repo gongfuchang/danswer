@@ -15,10 +15,8 @@ from danswer.db.models import DocumentSet as DocumentSetDBModel
 from danswer.db.models import Prompt as PromptDBModel
 from danswer.search.models import RecencyBiasSetting
 
-from danswer.utils.file_util import get_file_path
-
 def load_prompts_from_yaml(prompts_yaml: str = PROMPTS_YAML) -> None:
-    with open(get_file_path(prompts_yaml), "r") as file:
+    with open(prompts_yaml, "r") as file:
         data = yaml.safe_load(file)
 
     all_prompts = data.get("prompts", [])
@@ -45,7 +43,7 @@ def load_personas_from_yaml(
     personas_yaml: str = PERSONAS_YAML,
     default_chunks: float = MAX_CHUNKS_FED_TO_CHAT,
 ) -> None:
-    with open(get_file_path(personas_yaml), "r", encoding="utf-8") as file:
+    with open(personas_yaml, "r", encoding="utf-8") as file:
         data = yaml.safe_load(file)
 
     all_personas = data.get("personas", [])

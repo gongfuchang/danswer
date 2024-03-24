@@ -3,6 +3,7 @@ import os
 from collections.abc import Iterator
 
 from langchain.schema.language_model import LanguageModelInput
+from langchain_core.language_models import BaseChatModel
 
 from danswer.configs.model_configs import GEN_AI_MAX_OUTPUT_TOKENS
 from danswer.llm.interfaces import LLM
@@ -71,7 +72,12 @@ class RoundRobinLoadBalancer:
         self.models = models
         self.current_index = 0
 
-    def get_next_model(self):
+    @property
+    def model(self) -> BaseChatModel | Glm4ChatModel:
+        return self.models[self.current_index].model
+
+    @property
+    def next_model_meter(self) -> ModelMeter:
         self.current_index = (self.current_index + 1) % len(self.models)
         robin_count = 0
         while robin_count < len(self.models):
@@ -86,7 +92,10 @@ class RoundRobinLoadBalancer:
                     or model_meter.invoke_counter_last_1_min >= 3 \
                     or model_meter.invoke_counter_last_10_min >= 30 \
                     or model_meter.average_response_time >= 20:
-                logger.info(f"Skipping model {model_meter.model} due to high load")
+                logger.info(f"Skipping model {model_meter.model} due to high load: failure_counter={model_meter.failure_counter}, "
+                            f"invoke_counter_last_1_min={model_meter.invoke_counter_last_1_min}, "
+                            f"invoke_counter_last_10_min={model_meter.invoke_counter_last_10_min}, "
+                            f"average_response_time={model_meter.average_response_time}")
                 self.current_index += 1
             else:
                 break
@@ -99,6 +108,22 @@ class HydridModelChat(LLM):
     @property
     def requires_api_key(self) -> bool:
         return False
+
+    @property
+    def model_name(self) -> str:
+        model = self.llm_poll.model
+        if isinstance(model, Glm4ChatModel):
+            return "glm4"
+
+        return model.model
+
+    @property
+    def max_token(self):
+        model = self.llm_poll.model
+        if isinstance(model, Glm4ChatModel):
+            return 4096 # TODO: read from persona: glm4 max token is 8192
+
+        return 2048
 
     def _init_llm_poll(self) -> RoundRobinLoadBalancer:
         models = []
@@ -158,7 +183,7 @@ class HydridModelChat(LLM):
         pass
 
     def invoke(self, prompt: LanguageModelInput) -> str:
-        model_meter = self.llm_poll.get_next_model()
+        model_meter = self.llm_poll.next_model_meter
         model = model_meter.model
         start = time.time()
 
@@ -172,7 +197,7 @@ class HydridModelChat(LLM):
             raise e
 
     def stream(self, prompt: LanguageModelInput) -> Iterator[str]:
-        model_meter = self.llm_poll.get_next_model()
+        model_meter = self.llm_poll.next_model_meter
         model = model_meter.model
         start = time.time()
         output_tokens = []
@@ -183,7 +208,7 @@ class HydridModelChat(LLM):
                 output_tokens.append(token)
                 yield token
 
-            model_meter.record_invocation(time.time() - start)
+            model_meter.record_invocation(response_time=time.time() - start)
         except Exception as e:
             logger.error(f"Error streaming model {model}: {e}")
             model_meter.record_invocation_failure()

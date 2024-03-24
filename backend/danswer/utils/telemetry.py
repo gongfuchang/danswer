@@ -8,7 +8,9 @@ import requests
 from danswer.configs.app_configs import DISABLE_TELEMETRY
 from danswer.dynamic_configs import get_dynamic_config_store
 from danswer.dynamic_configs.interface import ConfigNotFoundError
-from danswer.main import logger
+from danswer.utils.logger import setup_logger
+
+logger = setup_logger()
 
 CUSTOMER_UUID_KEY = "customer_uuid"
 # DANSWER_TELEMETRY_ENDPOINT = "https://telemetry.danswer.ai/anonymous_telemetry"

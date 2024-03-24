@@ -8,6 +8,7 @@ from typing import TextIO
 from sqlalchemy.orm import Session
 
 from danswer.chat.chat_utils import get_chunks_for_qa
+from danswer.chat.chunk_expansion_util import extend_chunks
 from danswer.db.embedding_model import get_current_db_embedding_model
 from danswer.db.engine import get_sqlalchemy_engine
 from danswer.document_index.factory import get_default_document_index
@@ -118,6 +119,7 @@ def get_search_results(
     )
 
     llm_chunks = [top_chunks[i] for i in llm_chunks_indices]
+    llm_chunks = extend_chunks(chunks=llm_chunks, document_index=document_index)
 
     return (
         llm_chunks,

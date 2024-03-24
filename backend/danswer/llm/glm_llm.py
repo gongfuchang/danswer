@@ -32,6 +32,8 @@ class Glm4ChatModel(LLM):
         pass
 
     def _convert_to_messages(self, prompt: list) -> list:
+        if isinstance(prompt, str):
+            return [{"role": "user", "content": prompt}]
         messages = []
         prompt = isinstance(prompt, list) and prompt or [prompt]
         for item in prompt:
