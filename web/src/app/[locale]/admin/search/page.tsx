@@ -1,4 +1,4 @@
-import {useTranslations} from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { SearchWrapper } from "../../search/SearchWrapper";
 import { SearchType } from "@/lib/search/interfaces";
 
@@ -7,7 +7,7 @@ import { FiSearch } from "react-icons/fi";;
 
 
 const Page = async () => {
-  const t = useTranslations("admin_search_page");
+  const t = await getTranslations("admin_search_page");
   return (
     <div className="mx-auto container">
       <AdminPageTitle title={t("Search_Title")} icon={<FiSearch size={26} />} />
