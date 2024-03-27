@@ -124,7 +124,17 @@ export function IndexingAttemptsTable({ ccPair }: { ccPair: CCPairFullInfo }) {
                   </TableCell>
                   <TableCell>{indexAttempt.total_docs_indexed}</TableCell>
                   <TableCell>
-                    <div>
+                    {indexAttempt.full_exception_trace && (
+                          <div
+                            onClick={() => {
+                              alert('will support later...');
+                            }}
+                            className="mt-2 text-link cursor-pointer select-none"
+                          >
+                            {t("View_Full_Trace")}
+                          </div>
+                        )}
+                    {/* <div>
                       <Text className="flex flex-wrap whitespace-normal">
                         {indexAttempt.error_msg || "-"}
                       </Text>
@@ -138,7 +148,7 @@ export function IndexingAttemptsTable({ ccPair }: { ccPair: CCPairFullInfo }) {
                           {t("View_Full_Trace")}
                         </div>
                       )}
-                    </div>
+                    </div> */}
                   </TableCell>
                 </TableRow>
               );

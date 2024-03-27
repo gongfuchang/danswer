@@ -47,7 +47,7 @@ export function NoCompleteSourcesModal({
             <br />
             <br />
             {t("Go_To_Connector_List")}{" "}
-            <Link className="text-link" href="admin/indexing/status">
+            <Link className="text-link" href="/admin/indexing/status">
               {t("Existing_Connectors_Page")}
             </Link>
             .

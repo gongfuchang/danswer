@@ -15,6 +15,7 @@ import {
   StreamingError,
 } from "./interfaces";
 import { Persona } from "../admin/personas/interfaces";
+import { env } from "process";
 
 export async function createChatSession(personaId: number): Promise<number> {
   const createChatSessionResponse = await fetch(
@@ -62,7 +63,10 @@ export async function* sendMessage({
 }: SendMessageRequest) {
   const documentsAreSelected =
     selectedDocumentIds && selectedDocumentIds.length > 0;
-  const sendMessageResponse = await fetch("/api/chat-stream", {
+  
+  const stream_api_path = process.env.NODE_ENV === "production" ? "/api/chat/send-message" : "/api/chat-stream";
+
+  const sendMessageResponse = await fetch(stream_api_path, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

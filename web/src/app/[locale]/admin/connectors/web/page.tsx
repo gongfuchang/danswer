@@ -88,14 +88,14 @@ export default function Web() {
                     label={t("Scrape_Method")}
                     options={[
                       {
-                        name: t("Recursive"),
-                        value: "recursive",
-                        description: t("Recursive_Description"),
-                      },
-                      {
                         name: t("Single_Page"),
                         value: "single",
                         description: t("Single_Page_Description"),
+                      },                      
+                      {
+                        name: t("Recursive"),
+                        value: "recursive",
+                        description: t("Recursive_Description"),
                       },
                       {
                         name: t("Sitemap"),
@@ -117,7 +117,7 @@ export default function Web() {
             })}
             initialValues={{
               base_url: "",
-              web_connector_type: undefined,
+              web_connector_type: "single",
             }}
             refreshFreq={60 * 60 * 24} // 1 day
           />

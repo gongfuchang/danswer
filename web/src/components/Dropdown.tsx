@@ -449,7 +449,7 @@ export function DefaultDropdown({
       >
         <p className="line-clamp-1">
           {selectedOption?.name ||
-            (includeDefault ? "Default" : t("Select_An_Option"))}
+            (includeDefault ? t("Default") : t("Select_An_Option"))}
         </p>
         <FiChevronDown className="my-auto ml-auto" />
       </div>

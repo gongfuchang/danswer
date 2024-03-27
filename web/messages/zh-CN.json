@@ -222,7 +222,8 @@
   "admin_documents_feedback_page": {
     "Document_Feedback": "文档反馈",
     "Most_Liked_Documents": "最受欢迎的文档",
-    "Most_Disliked_Documents": "最不受欢迎的文档"
+    "Most_Disliked_Documents": "最不受欢迎的文档",
+    "Loading": "加载中"
   },
   "admin_documents_sets_DocumentSetCreationForm": {
     "Enter_Set_Name": "请输入一个知识库名称",
@@ -755,7 +756,7 @@
     "Search_Step_2": "步骤 2：连接数据源",
     "Connectors_Description": "连接器是 Quick-Mind 从您组织的各种数据源获取数据的方式。设置完成后，我们将自动将应用程序和文档中的数据同步到 Quick-Mind 中，这样您就可以在一个地方搜索所有数据。",
     "Setup_Connector_Button": "设置您的第一个连接器！",
-    "Start_Chat_Description": "点击下面的按钮开始与上面设置的 LLM 进行对话！别担心，如果您以后决定连接您组织的对话库，您随时可以在",
+    "Start_Chat_Description": "点击下面的按钮开始与上面设置的 LLM 进行对话！别担心，如果您以后决定连接您组织的对话库，您随时可以回到",
     "LLM_Connections_Description": " Quick-Mind 支持与各种 LLM（语言模型）的连接，包括自托管的开源 LLM。有关更多详细信息，请查看",
     "Documentation": "文档",
     "Gen_AI_Configs_Description": "如果您对 Gen AI 配置没有做任何特殊处理，我们默认使用 OpenAI。",
@@ -770,7 +771,7 @@
     "Search_Chat_with_Knowledge_Description": "如果您希望搜索、与组织的对话库进行对话或直接提问，则选择此选项！",
     "Get_Started": "开始",
     "Secure_ChatGPT": "安全 ChatGPT",
-    "Secure_ChatGPT_Description": "如果您希望获得纯 ChatGPT 类似的体验，则选择此选项！"
+    "Secure_ChatGPT_Description": "如果您希望进行单纯的 ChatGPT 对话，则选择此选项！"
   },
   "components_openai_ApiKeyForm": {
     "Updated_API_Key": "已更新 API 密钥！",

@@ -220,7 +220,8 @@
   "admin_documents_feedback_page": {
     "Document_Feedback": "Document Feedback",
     "Most_Liked_Documents": "Most Liked Documents",
-    "Most_Disliked_Documents": "Most Disliked Documents"
+    "Most_Disliked_Documents": "Most Disliked Documents",
+    "Loading": "Loading"
   },
   "admin_documents_sets_DocumentSetCreationForm": {
     "Enter_Set_Name": "Please enter a name for the set",

@@ -46,6 +46,7 @@ export function SourceSelector({
   availableTags,
 }: SourceSelectorProps) {
   const t = useTranslations("components_search_filtering_Filters");
+  const t_conn = useTranslations("admin_addconnector_page");
   const handleSelect = (source: SourceMetadata) => {
     setSelectedSources((prev: SourceMetadata[]) => {
       if (
@@ -71,8 +72,8 @@ export function SourceSelector({
   return (
     <div>
       <div className="flex mb-4 pb-2 border-b border-border text-emphasis">
+        <FiFilter className="my-auto mr-2" size="16" />
         <h2 className="font-bold my-auto">{t("Filters_Title")}</h2>
-        <FiFilter className="my-auto ml-2" size="16" />
       </div>
 
       <>
@@ -104,7 +105,7 @@ export function SourceSelector({
                 >
                   <SourceIcon sourceType={source.internalName} iconSize={16} />
                   <span className="ml-2 text-sm text-default">
-                    {source.displayName}
+                    {t_conn(source.displayName)}
                   </span>
                 </div>
               ))}
