@@ -9,10 +9,12 @@ from danswer.auth.users import current_user
 from danswer.configs.constants import DocumentSource
 from danswer.db.embedding_model import get_current_db_embedding_model
 from danswer.db.engine import get_session
+from danswer.db.extended_models import LMInvokeEventType
 from danswer.db.models import User
 from danswer.db.tag import get_tags_by_value_prefix_for_source_types
 from danswer.document_index.factory import get_default_document_index
 from danswer.document_index.vespa.index import VespaIndex
+from danswer.llm.lm_context import bind_mertrics_context
 from danswer.one_shot_answer.answer_question import stream_search_answer
 from danswer.one_shot_answer.models import DirectQARequest
 from danswer.search.access_filters import build_access_filters_for_user
@@ -152,6 +154,8 @@ def get_answer_with_quote(
 ) -> StreamingResponse:
     query = query_request.messages[0].message
     logger.info(f"Received query for one shot answer with quotes: {query}")
+    bind_mertrics_context(hint=query, user=user, db_session=db_session, event_type=LMInvokeEventType.SEARCH)
+
     packets = stream_search_answer(
         query_req=query_request,
         user=user,

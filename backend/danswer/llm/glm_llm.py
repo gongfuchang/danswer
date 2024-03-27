@@ -21,11 +21,12 @@ class Glm4ChatModel(LLM):
         self,
         api_key: str,
         max_output_tokens: int = GEN_AI_MAX_OUTPUT_TOKENS,
+        model_version: str = "glm-4",
     ):
         self._llm = ZhipuAI(api_key=api_key)
         self.max_output_tokens = max_output_tokens
         # TODO configured from persona
-        self.model_version = "glm-4"
+        self.model_version = model_version
         self.temperature = 0.1
 
     def log_model_configs(self) -> None:

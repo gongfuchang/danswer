@@ -1,0 +1,4 @@
+Running Question Answering Flow
+Note that running metrics requires tokenizing all prompts/returns and slightly slows down inference.
+Also note that the text embedding model (bi-encoder) currently used is trained for relative distances, not absolute distances. Therefore cosine similarity values may all be > 0.5 even for poor matches
+Running Test for Question 1: What is Danswer?

@@ -1,25 +1,29 @@
 import json
 import os
+import threading
 from collections.abc import Iterator
 
 from langchain.schema.language_model import LanguageModelInput
 from langchain_core.language_models import BaseChatModel
 
 from danswer.configs.model_configs import GEN_AI_MAX_OUTPUT_TOKENS
+from danswer.db.extended_models import LMInvocation, LMInvokeType
 from danswer.llm.interfaces import LLM
-from danswer.llm.utils import message_generator_to_string_generator
+from danswer.llm.utils import message_generator_to_string_generator, check_number_of_tokens, \
+    convert_lm_input_to_basic_string
 from danswer.utils.logger import setup_logger
 from danswer.llm.glm_llm import Glm4ChatModel
-from langchain_core.messages import HumanMessage
+from langchain_core.messages import HumanMessage, AIMessage
 
+from danswer.llm.lm_context import LMInvokeContext, get_mertrics_context
 import time
 from collections import deque
 from typing import List
 
 logger = setup_logger()
 
-LLM_POLL_MODELS = (os.getenv("LLM_POLL_MODELS") or "glm4,baichuan").split(",")
-
+LLM_POLL_MODELS = (os.getenv("LLM_POLL_MODELS") or "glm4").split(",")
+ENABLE_MODELS = (os.getenv("ENABLE_MODELS") or "").split(",")
 class ModelMeter:
     def __init__(self, model):
         self.model = model
@@ -47,7 +51,8 @@ class ModelMeter:
         self.failure_counter_in_5_min += 1
         self.last_call_time = time.time()
 
-    def record_invocation(self, response_time):
+    def record_invocation(self, model_name: str, invoke_time: int, response_time: int,
+                          invoke_type: LMInvokeType, input_tokens: int=0, output_tokens: int=0):
         self.total_invoke_counter += 1
         self.failure_counter_in_5_min = 0
 
@@ -66,6 +71,32 @@ class ModelMeter:
 
         self.last_call_time = time.time()
 
+        # TODO should be put as message via message queue
+        context = get_mertrics_context()
+        if context:
+            user_id = context.user_id
+            db_session = context.db_session
+            if not db_session or not user_id:
+                logger.warning(f"Skip recording invocation: no db_session-{db_session} or user_id-{user_id} in the context")
+                return
+
+            db_session.add(LMInvocation(
+                user_id=user_id,
+                hint=context.hint,
+                threading_id=context.threading_id,
+                chat_session_id=context.chat_session_id,
+                parent_message_id=context.parent_message_id,
+                event_type=context.event_type,
+                invoke_type=invoke_type,
+                invoke_at=invoke_time,
+                invoke_elapse=response_time,
+                model_name=model_name,
+                token_input_count=input_tokens,
+                token_output_count=output_tokens,
+
+            ))
+            db_session.commit()
+
 
 class RoundRobinLoadBalancer:
     def __init__(self, models: List[ModelMeter]):
@@ -78,6 +109,9 @@ class RoundRobinLoadBalancer:
 
     @property
     def next_model_meter(self) -> ModelMeter:
+        if not self.models:
+            logger.error("No model available in the load balancer")
+            return None
         self.current_index = (self.current_index + 1) % len(self.models)
         robin_count = 0
         while robin_count < len(self.models):
@@ -113,7 +147,7 @@ class HydridModelChat(LLM):
     def model_name(self) -> str:
         model = self.llm_poll.model
         if isinstance(model, Glm4ChatModel):
-            return "glm4"
+            return model.model_version
 
         return model.model
 
@@ -131,16 +165,21 @@ class HydridModelChat(LLM):
             model = None
             parts = model_name_union.split(":")
             model_name = parts[0]
+            if self.specific_models and model_name not in self.specific_models:
+                continue
             api_key = parts[1] if len(parts) > 1 else None
             if model_name == "glm4":
                 model = Glm4ChatModel(api_key=(api_key or os.getenv('ZHIPU_API_KEY')))
             elif model_name == "glm3":
-                from langchain_community.chat_models import ChatZhipuAI
-                model = ChatZhipuAI(
-                        temperature=0,
-                        api_key=(api_key or os.getenv('ZHIPU_API_KEY')),
-                        model="chatglm_turbo",
-                )
+                model = Glm4ChatModel(api_key=(api_key or os.getenv('ZHIPU_API_KEY')), model_version="chatglm_turbo")
+
+                # TODO should be remove after lang-chain/zhupuai fix conflict issue:
+                # from langchain_community.chat_models import ChatZhipuAI
+                # model = ChatZhipuAI(
+                #         temperature=0.1,
+                #         api_key=(api_key or os.getenv('ZHIPU_API_KEY')),
+                #         model="chatglm_turbo",
+                # )
             elif model_name == "baichuan":
                 from langchain_community.chat_models import ChatBaichuan
                 model = ChatBaichuan(baichuan_api_key=(api_key or os.getenv("BAICHUAN_API_KEY")))
@@ -152,14 +191,27 @@ class HydridModelChat(LLM):
                 from langchain_community.chat_models.tongyi import ChatTongyi
                 model = ChatTongyi()
 
-            elif model_name == "minmax":
+            elif model_name == "moon-shot":
+                from langchain_community.chat_models import ChatLiteLLM
+                model = ChatLiteLLM(
+                    api_key=(api_key or os.getenv('MOONSHOT_API_KEY')),
+                    base_url="https://api.moonshot.cn/v1",
+                    custom_llm_provider="openai",
+                    model="moonshot-v1-8k",
+                )
+
+            elif model_name == "minimax":
                 if not os.getenv("MINIMAX_API_KEY"):
                     if not api_key:
                         raise ValueError("MINIMAX_API_KEY is not set")
                     os.environ["MINIMAX_GROUP_ID"] = os.getenv("MINIMAX_GROUP_ID")
                     os.environ["MINIMAX_API_KEY"] = api_key
-                from langchain_community.chat_models import MiniMaxChat
-                model = MiniMaxChat()
+                # from langchain_community.chat_models import MiniMaxChat
+                # model = MiniMaxChat()
+                # TODO should be remove after lang-chain fix minmax model issue:
+                # https://github.com/langchain-ai/langchain/issues/14796
+                from danswer.llm.minimax_llm import MiniMaxChatModel
+                model = MiniMaxChatModel()
 
             models.append(model)
 
@@ -171,8 +223,12 @@ class HydridModelChat(LLM):
         self,
         max_output_tokens: int = GEN_AI_MAX_OUTPUT_TOKENS,
         re_build: bool = False,
+        specific_models: List[str] = [],
     ):
         self._max_output_tokens = max_output_tokens
+        self.specific_models = specific_models
+        if not self.specific_models:
+            self.specific_models = ENABLE_MODELS or []
 
         global LLM_POLL
         if re_build or not LLM_POLL:
@@ -189,8 +245,15 @@ class HydridModelChat(LLM):
 
         try:
             response = model.invoke(prompt)
-            model_meter.record_invocation(time.time() - start)
-            return response
+            model_meter.record_invocation(
+                model_name=self.model_name,
+                invoke_type=LMInvokeType.INVOKE,
+                invoke_time=start,
+                response_time=time.time() - start,
+                input_tokens=check_number_of_tokens(convert_lm_input_to_basic_string(prompt)),
+                output_tokens=check_number_of_tokens(response.content if isinstance(response, AIMessage) else response)
+            )
+            return isinstance(response, AIMessage) and response.content or response
         except Exception as e:
             logger.error(f"Error invoking model {model}: {e}")
             model_meter.record_invocation_failure()
@@ -207,8 +270,14 @@ class HydridModelChat(LLM):
             for token in message_generator_to_string_generator(response):
                 output_tokens.append(token)
                 yield token
-
-            model_meter.record_invocation(response_time=time.time() - start)
+            model_meter.record_invocation(
+                model_name=self.model_name,
+                invoke_type=LMInvokeType.STREAM,
+                invoke_time=start,
+                response_time=time.time() - start,
+                input_tokens=check_number_of_tokens(convert_lm_input_to_basic_string(prompt)),
+                output_tokens=check_number_of_tokens(''.join(output_tokens)),
+            )
         except Exception as e:
             logger.error(f"Error streaming model {model}: {e}")
             model_meter.record_invocation_failure()

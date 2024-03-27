@@ -1,4 +1,4 @@
-FROM python:3.11.7-slim-bookworm
+FROM python:3.11.8-slim-bookworm
 
 # Default DANSWER_VERSION, typically overriden during builds by GitHub Actions.
 ARG DANSWER_VERSION=0.3-dev
@@ -20,7 +20,7 @@ RUN apt-get update && \
 # Install Python dependencies
 # Remove py which is pulled in by retry, py is not needed and is a CVE
 COPY ./requirements/default.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /tmp/requirements.txt && \
+RUN pip install --no-cache-dir --upgrade -r /tmp/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ && \
     pip uninstall -y py && \
     playwright install chromium && playwright install-deps chromium && \
     ln -s /usr/local/bin/supervisord /usr/bin/supervisord

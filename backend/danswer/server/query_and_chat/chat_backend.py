@@ -20,11 +20,13 @@ from danswer.db.chat import set_as_latest_chat_message
 from danswer.db.chat import translate_db_message_to_chat_message_detail
 from danswer.db.chat import update_chat_session
 from danswer.db.engine import get_session
+from danswer.db.extended_models import LMInvokeEventType
 from danswer.db.feedback import create_chat_message_feedback
 from danswer.db.feedback import create_doc_retrieval_feedback
 from danswer.db.models import User
 from danswer.document_index.document_index_utils import get_both_index_names
 from danswer.document_index.factory import get_default_document_index
+from danswer.llm.lm_context import bind_mertrics_context
 from danswer.secondary_llm_flows.chat_session_naming import (
     get_renamed_conversation_name,
 )
@@ -132,6 +134,9 @@ def rename_chat_session(
 
     logger.info(f"Received rename request for chat session: {chat_session_id}")
 
+    bind_mertrics_context(hint=f'rename-chat-session: {chat_session_id}', user=user, db_session=db_session,
+                          event_type=LMInvokeEventType.SYSTEM, chat_session_id=rename_req.chat_session_id)
+
     if name:
         update_chat_session(user_id, chat_session_id, name, db_session)
         return RenameChatSessionResponse(new_name=name)
@@ -175,6 +180,11 @@ def handle_new_chat_message(
 
     if not chat_message_req.message and chat_message_req.prompt_id is not None:
         raise HTTPException(status_code=400, detail="Empty chat message is invalid")
+
+    bind_mertrics_context(hint=chat_message_req.message, user=user, db_session=db_session,
+                          event_type=LMInvokeEventType.CHAT,
+                          chat_session_id=chat_message_req.chat_session_id,
+                          parent_message_id=chat_message_req.parent_message_id)
 
     packets = stream_chat_message(
         new_msg_req=chat_message_req,

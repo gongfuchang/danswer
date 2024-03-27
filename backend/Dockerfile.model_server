@@ -1,4 +1,4 @@
-FROM python:3.11.7-slim-bookworm
+FROM python:3.11.8-slim-bookworm
 
 # Default DANSWER_VERSION, typically overriden during builds by GitHub Actions.
 ARG DANSWER_VERSION=0.3-dev
@@ -6,7 +6,7 @@ ENV DANSWER_VERSION=${DANSWER_VERSION}
 RUN echo "DANSWER_VERSION: ${DANSWER_VERSION}"
 
 COPY ./requirements/model_server.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /tmp/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /tmp/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 
 RUN apt-get remove -y --allow-remove-essential perl-base && \
     apt-get autoremove -y
