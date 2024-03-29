@@ -116,6 +116,8 @@ class RoundRobinLoadBalancer:
         robin_count = 0
         while robin_count < len(self.models):
             robin_count += 1
+            if self.current_index >= len(self.models):
+                self.current_index = 0
             model_meter = self.models[self.current_index]
             # skip if the meter is too hot:
             # 0. the model has failed 2 times in a row
