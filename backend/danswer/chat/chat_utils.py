@@ -356,7 +356,10 @@ def find_last_index(lst: list[int], max_prompt_tokens: int) -> int:
     last_ind = 0
     for i in range(len(lst) - 1, -1, -1):
         running_sum += lst[i] + _PER_MESSAGE_TOKEN_BUFFER
-        if running_sum > max_prompt_tokens:
+        # TODO in order to break 'Last message alone is too large!' error
+        #  we extends max token limitation, which should read from persona
+        # if running_sum > max_prompt_tokens:
+        if running_sum > max_prompt_tokens * 2:
             last_ind = i + 1
             break
     if last_ind >= len(lst):
