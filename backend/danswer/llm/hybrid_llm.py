@@ -134,6 +134,9 @@ class RoundRobinLoadBalancer:
             else:
                 break
 
+        if self.current_index >= len(self.models):
+            self.current_index = 0
+
         return model_meter
 
 LLM_POLL: RoundRobinLoadBalancer | None = None

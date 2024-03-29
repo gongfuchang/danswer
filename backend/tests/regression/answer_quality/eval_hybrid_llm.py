@@ -31,28 +31,33 @@ from danswer.utils.callbacks import MetricsHander
 engine = get_sqlalchemy_engine()
 
 
+def eval_poll():
+    global user
+    user = db_session.query(User).first()
+    print("user-id", user.id)
+    query = "just say 'hello world'"
+    bind_mertrics_context(hint=query, user=user, db_session=db_session, event_type=LMInvokeEventType.SEARCH,
+                          chat_session_id=123, parent_message_id=123)
+    hydrid = HydridModelChat(specific_models=[
+        # "moon-shot",
+        # "glm3",
+        # "minimax"
+    ])
+    print("invoke:")
+    print(hydrid.invoke([HumanMessage(content=query)]))
+    print("streaming:")
+    for i in hydrid.stream([HumanMessage(content=query)]):
+        print(i)
+    history = db_session.query(LMInvocation)
+    print(history.all())
 
+def eval_single_model():
+    hydrid = HydridModelChat(specific_models=[
+        "minimax"
+    ])
 if __name__ == "__main__":
     with Session(engine, expire_on_commit=False) as db_session:
-        user = db_session.query(User).first()
-        print("user-id", user.id)
-        query = "just say 'hello world'"
-        bind_mertrics_context(hint=query, user=user, db_session=db_session, event_type=LMInvokeEventType.SEARCH, chat_session_id=123, parent_message_id=123)
-
-        hydrid = HydridModelChat(specific_models=[
-            # "moon-shot",
-            # "glm3",
-            # "minimax"
-        ])
-        print("invoke:")
-        print(hydrid.invoke([HumanMessage(content=query)]))
-
-        print("streaming:")
-        for i in hydrid.stream([HumanMessage(content=query)]):
-            print(i)
-
-        history = db_session.query(LMInvocation)
-        print(history.all())
+        eval_poll()
 
 
 
