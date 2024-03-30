@@ -532,7 +532,11 @@
   },
   "chat_message_Messages": {
     "Sources_Title": "Sources",
-    "You": "You"
+    "You": "You",
+    "Copy_Response": "Copy response",
+    "Feedback_Like": "Like",
+    "Feedback_Dislike": "Dislike",
+    "Regenerate": "Regenerate reponse"
   },
   "chat_message_SearchSummary": {
     "Hide_Docs": "Hide Docs",
@@ -565,7 +569,8 @@
     "Today": "Today",
     "Currently_Applied": "Currently applied",
     "Filter": "Filter",
-    "Find_Tag": "Find a tag"
+    "Find_Tag": "Find a tag",
+    "Multi_Dialog_Switch_Label": "Consecutive "
   },
   "chat_modifiers_SearchTypeSelector": {
     "Question_Answering": "Question Answering",
@@ -616,7 +621,11 @@
     "Chat": "Chat",
     "Admin_Panel": "Admin Panel",
     "Logout": "Logout",
-    "Switch_Lanauge": "Switch language"
+    "Switch_Lanauge": "Switch language",
+    "Failed_Logout_Message": "Failed to logout",
+    "Role_basic": "User",
+    "Role_admin": "Admin",
+    "Role_sysadmin": "System Admin"
   },
   "components_Status": {
     "Failed": "Failed",

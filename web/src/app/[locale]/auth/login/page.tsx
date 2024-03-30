@@ -8,6 +8,7 @@ import {
   AuthTypeMetadata,
 } from "@/lib/userSS";
 import { redirect } from "next/navigation";
+
 import Image from "next/image";
 import { SignInButton } from "./SignInButton";
 import { EmailPasswordForm } from "./EmailPasswordForm";
@@ -22,6 +23,7 @@ const Page = async ({
   const t = await getTranslations("auth_login_page");
   const autoRedirectDisabled = searchParams?.disableAutoRedirect === "true";
 
+  const params = new URLSearchParams(searchParams as any);
   // catch cases where the backend is completely unreachable here
   // without try / catch, will just raise an exception and the page
   // will not render
@@ -42,12 +44,14 @@ const Page = async ({
   }
 
   // if user is already logged in, take them to the main app page
+  let next = params.get("next");
+  next = next ? next : "/";
   if (currentUser && currentUser.is_active) {
     if (authTypeMetadata?.requiresVerification && !currentUser.is_verified) {
       return redirect("/auth/waiting-on-verification");
     }
 
-    return redirect("/");
+    return redirect(next);
   }
 
   // get where to send the user to authenticate
@@ -93,7 +97,7 @@ const Page = async ({
                   {t("Log_In")}
                 </Title>
               </div>
-              <EmailPasswordForm />
+              <EmailPasswordForm next={next}/>
               <div className="flex">
                 <Text className="mt-4 mx-auto">
                   {t("No_Account")}{" "}

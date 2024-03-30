@@ -6,28 +6,14 @@ import { ApiKeyForm } from "./ApiKeyForm";
 import { Modal } from "../Modal";
 import { Divider, Text } from "@tremor/react";
 
-export async function checkApiKey() {
+export function checkApiKey() {
   if(true) return false; // dummy return value, we don't need to check the API key
-  const response = await fetch("/api/manage/admin/genai-api-key/validate");
-  if (!response.ok && (response.status === 404 || response.status === 400)) {
-    const jsonResponse = await response.json();
-    return jsonResponse.detail;
-  }
-  return null;
 }
 
 export const ApiKeyModal = () => {
   const t = useTranslations("components_openai_ApiKeyModal");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  useEffect(() => {
-    checkApiKey().then((error) => {
-      console.log(error);
-      if (error) {
-        setErrorMsg(error);
-      }
-    });
-  }, []);
 
   if (!errorMsg) {
     return null;

@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { SearchType } from "@/lib/search/interfaces";
 import {
   AuthTypeMetadata,
@@ -36,7 +36,8 @@ export default async function Home() {
 
   const authDisabled = authTypeMetadata?.authType === "disabled";
   if (!authDisabled && !user) {
-    return redirect("/auth/login");
+    const headersList = headers();
+    return redirect("/auth/login" + (headersList.get("referer") ? `?next=${headersList.get("referer")}` : ""));
   }
 
   if (user && !user.is_verified && authTypeMetadata?.requiresVerification) {

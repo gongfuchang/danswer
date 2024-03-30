@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { CustomDropdown, DefaultDropdownElement } from "./Dropdown";
-import { FiMessageSquare, FiSearch } from "react-icons/fi";
+import { FiLayout, FiLogOut, FiMessageSquare, FiSearch } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 import { HiLanguage } from "react-icons/hi2";
 
@@ -117,11 +117,12 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
                     {/* Show connector option if (1) auth is disabled or (2) user is an admin */}
                     {(!user || user.role === "admin") && (
                       <Link href="/admin/indexing/status">
-                        <DefaultDropdownElement name={t("Admin_Panel")} />
+                        <DefaultDropdownElement name={t("Admin_Panel")} icon={FiLayout} />
                       </Link>
                     )}
                     {user && (
                       <DefaultDropdownElement
+                        icon={FiLogOut}
                         name={t("Logout")}
                         onSelect={handleLogout}
                       />
@@ -134,7 +135,11 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
                   <span className="block text-sm font-medium text-black dark:text-white">
                     {userNameDisplay}
                   </span>
-                  <span className="block text-xs font-medium">Admin</span>
+                  <span className="block text-xs font-medium">
+                    {
+                      ['basic', 'admin', 'sysadmin'].includes(user.role) ? t(`Role_${user.role}`) : 'User'
+                    }
+                  </span>
                 </span>
                 <span className={baseClsName}>
                   <Image src={`/avator-${Math.floor(Math.random() * 3)}.png`} alt="User" width={50} height={50} />

@@ -4,6 +4,7 @@ import {
   FiCopy,
   FiThumbsDown,
   FiThumbsUp,
+  FiRefreshCcw,
 } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
 import { FeedbackType } from "../types";
@@ -18,11 +19,13 @@ import { SkippedSearch } from "./SkippedSearch";
 export const Hoverable: React.FC<{
   children: JSX.Element;
   onClick?: () => void;
-}> = ({ children, onClick }) => {
+  title: string | undefined;
+}> = ({ children, onClick, title }) => {
   return (
     <div
       className="hover:bg-neutral-300 p-2 rounded h-fit cursor-pointer"
       onClick={onClick}
+      title={title}
     >
       {children}
     </div>
@@ -206,15 +209,21 @@ export const AIMessage = ({
                   setCopyClicked(true);
                   setTimeout(() => setCopyClicked(false), 3000);
                 }}
+                title={t("Copy_Response")}
               >
                 {copyClicked ? <FiCheck /> : <FiCopy />}
               </Hoverable>
-              <Hoverable onClick={() => handleFeedback("like")}>
+              <Hoverable onClick={() => handleFeedback("like")} title={t("Feedback_Like")}>
                 <FiThumbsUp />
               </Hoverable>
-              <Hoverable>
+              <Hoverable title={t("Feedback_Dislike")}>
                 <FiThumbsDown onClick={() => handleFeedback("dislike")} />
               </Hoverable>
+              <Hoverable title={t("Regenerate")}>
+                <FiRefreshCcw onClick={() => {
+                    handleSearchQueryEdit && handleSearchQueryEdit(query || "");
+                }} />
+              </Hoverable>              
             </div>
           )}
         </div>

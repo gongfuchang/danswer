@@ -15,9 +15,11 @@ import { Spinner } from "@/components/Spinner";
 export function EmailPasswordForm({
   isSignup = false,
   shouldVerify,
+  next,
 }: {
   isSignup?: boolean;
   shouldVerify?: boolean;
+  next?: string;
 }) {
   const t = useTranslations("auth_login_Email_Password_Form");
   const router = useRouter();
@@ -55,6 +57,7 @@ export function EmailPasswordForm({
                 type: "error",
                 message: t("Failed_Sign_Up", {errorMsg: errorMsg}),
               });
+              setIsWorking(false);
               return;
             }
           }
@@ -65,7 +68,7 @@ export function EmailPasswordForm({
               await requestEmailVerification(values.email);
               router.push("/auth/waiting-on-verification");
             } else {
-              router.push("/");
+              router.push(next ? next : "/");
             }
           } else {
             setIsWorking(false);

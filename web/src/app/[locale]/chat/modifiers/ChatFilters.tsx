@@ -11,7 +11,7 @@ import {
   FiTag,
   FiX,
 } from "react-icons/fi";
-import { DateRangePickerValue } from "@tremor/react";
+import { DateRangePickerValue, Switch } from "@tremor/react";
 import { listSourceMetadata } from "@/lib/sources";
 import { SourceIcon } from "@/components/SourceIcon";
 import { BasicClickable } from "@/components/BasicClickable";
@@ -283,12 +283,16 @@ export function ChatFilters({
   setSelectedDocumentSets,
   selectedTags,
   setSelectedTags,
+  multiDialog,
+  setMultiDialog,
   availableDocumentSets,
   existingSources,
   availableTags,
 }: SourceSelectorProps) {
   const t = useTranslations("chat_modifiers_ChatFilters");
   const [filtersOpen, setFiltersOpen] = useState(false);
+
+
   const handleFiltersToggle = (value: boolean) => {
     setSelectedFilterType(null);
     setFiltersOpen(value);
@@ -391,7 +395,17 @@ export function ChatFilters({
               <FiFilter className="my-auto mr-1" /> {t("Filter")}
             </div>
           </BasicClickable>
+          <div className="flex ml-4 p-2 text-emphasis text-sm">
+              <Switch
+                id="switch"
+                name="switch"
+                checked={multiDialog}
+                onChange={(value) => setMultiDialog(value)}
+              />
+              <label htmlFor="switch" className={`ml-2 ${multiDialog ? "text-emphasis" : "text-gray-300"}`}>{t('Multi_Dialog_Switch_Label')}</label>
+          </div>          
         </div>
+        
       </ControlledPopup>
 
       <div className="flex ml-4">

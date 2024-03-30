@@ -35,6 +35,8 @@ export function ChatLayout({
   const chatIdRaw = searchParams.get("chatId");
   const chatId = chatIdRaw ? parseInt(chatIdRaw) : null;
 
+  const lastErrMsg = searchParams.get("lastErrMsg");
+
   const selectedChatSession = chatSessions.find(
     (chatSession) => chatSession.id === chatId
   );
@@ -69,6 +71,7 @@ export function ChatLayout({
           defaultSelectedPersonaId={defaultSelectedPersonaId}
           documentSidebarInitialWidth={documentSidebarInitialWidth}
           embeddedMode={embeddedMode}
+          lastErrMsg={lastErrMsg}
         />
       </div>
     </>

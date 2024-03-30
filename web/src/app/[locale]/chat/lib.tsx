@@ -49,6 +49,7 @@ export interface SendMessageRequest {
   selectedDocumentIds: number[] | null;
   queryOverride?: string;
   forceSearch?: boolean;
+  multiDialog?: boolean;
 }
 
 export async function* sendMessage({
@@ -60,12 +61,12 @@ export async function* sendMessage({
   selectedDocumentIds,
   queryOverride,
   forceSearch,
+  multiDialog = true,
 }: SendMessageRequest) {
   const documentsAreSelected =
     selectedDocumentIds && selectedDocumentIds.length > 0;
   
   const stream_api_path = process.env.NODE_ENV === "production" ? "/api/chat/send-message" : "/api/chat-stream";
-
   const sendMessageResponse = await fetch(stream_api_path, {
     method: "POST",
     headers: {
@@ -91,6 +92,7 @@ export async function* sendMessage({
           }
         : null,
       query_override: queryOverride,
+      multi_dialog: multiDialog,
     }),
   });
   if (!sendMessageResponse.ok) {
@@ -338,6 +340,7 @@ export function processRawChatHistory(rawMessages: BackendMessage[]) {
       return {
         messageId: messageInfo.message_id,
         message: messageInfo.message,
+        isolated: messageInfo.isolated,
         type: messageInfo.message_type as "user" | "assistant",
         // only include these fields if this is an assistant message so that
         // this is identical to what is computed at streaming time

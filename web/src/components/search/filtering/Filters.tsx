@@ -27,6 +27,8 @@ export interface SourceSelectorProps {
   setSelectedDocumentSets: React.Dispatch<React.SetStateAction<string[]>>;
   selectedTags: Tag[];
   setSelectedTags: React.Dispatch<React.SetStateAction<Tag[]>>;
+  multiDialog?: boolean;
+  setMultiDialog?: React.Dispatch<React.SetStateAction<boolean>>;  
   availableDocumentSets: DocumentSet[];
   existingSources: ValidSources[];
   availableTags: Tag[];

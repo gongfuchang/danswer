@@ -62,13 +62,13 @@ export function _WelcomeModal() {
   const [isHidden, setIsHidden] = useState(false);
   const [apiKeyVerified, setApiKeyVerified] = useState<boolean>(false);
 
-  useEffect(() => {
-    checkApiKey().then((error) => {
-      if (!error) {
-        setApiKeyVerified(true);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   checkApiKey().then((error) => {
+  //     if (!error) {
+  //       setApiKeyVerified(true);
+  //     }
+  //   });
+  // }, []);
 
   if (isHidden) {
     return null;
@@ -240,7 +240,7 @@ export function _WelcomeModal() {
             callToAction={t("Get_Started")}
             onClick={() => setSelectedFlow("search")}
           />
-          <Divider />
+          {/* <Divider />
           <UsageTypeSection
             title={t("Secure_ChatGPT")}
             description={
@@ -253,7 +253,7 @@ export function _WelcomeModal() {
             onClick={() => {
               setSelectedFlow("chat");
             }}
-          />
+          /> */}
 
           {/* TODO: add a Slack option here */}
           {/* <Divider />

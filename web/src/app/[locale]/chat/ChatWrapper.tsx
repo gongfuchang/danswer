@@ -21,7 +21,7 @@ import {
   hasCompletedWelcomeFlowSS,
 } from "@/components/initialSetup/welcome/WelcomeModalWrapper";
 import { ApiKeyModal } from "@/components/openai/ApiKeyModal";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { DOCUMENT_SIDEBAR_WIDTH_COOKIE_NAME } from "@/components/resizable/contants";
 import { personaComparator } from "../admin/personas/lib";
 import { ChatLayout } from "./ChatPage";
@@ -75,7 +75,8 @@ export const ChatWrapper = async ({
 
   const authDisabled = authTypeMetadata?.authType === "disabled";
   if (!authDisabled && !user) {
-    return redirect("/auth/login");
+    const headersList = headers();
+    return redirect("/auth/login" + (headersList.get("referer") ? `?next=${headersList.get("referer")}` : ""));
   }
 
   if (user && !user.is_verified && authTypeMetadata?.requiresVerification) {

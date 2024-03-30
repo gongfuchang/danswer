@@ -2,12 +2,12 @@
 
 import {useTranslations} from "next-intl";
 import {
+  FiLayout,
   FiLogOut,
   FiMessageSquare,
   FiMoreHorizontal,
   FiPlusSquare,
   FiSearch,
-  FiTool,
 } from "react-icons/fi";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -176,7 +176,7 @@ export const ChatSidebar = ({
                       href="/admin/indexing/status"
                       className="flex py-3 px-4 cursor-pointer border-t border-border hover:bg-hover"
                     >
-                      <FiTool className="my-auto mr-2" />
+                      <FiLayout className="my-auto mr-2" />
                       {t("Admin_Panel")}
                     </Link>
                   )}

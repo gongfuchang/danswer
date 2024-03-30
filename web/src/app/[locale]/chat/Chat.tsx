@@ -2,7 +2,7 @@
 
 import {useTranslations} from "next-intl";
 import { useEffect, useRef, useState } from "react";
-import { FiRefreshCcw, FiSend, FiStopCircle } from "react-icons/fi";
+import { FiRefreshCcw, FiSend, FiStopCircle, FiZap } from "react-icons/fi";
 import { AIMessage, HumanMessage } from "./message/Messages";
 import { AnswerPiecePacket, DanswerDocument } from "@/lib/search/interfaces";
 import {
@@ -59,6 +59,7 @@ export const Chat = ({
   documentSidebarInitialWidth,
   shouldhideBeforeScroll,
   embeddedMode,
+  lastErrMsg
 }: {
   existingChatSessionId: number | null;
   existingChatSessionPersonaId: number | undefined;
@@ -70,10 +71,13 @@ export const Chat = ({
   documentSidebarInitialWidth?: number;
   shouldhideBeforeScroll?: boolean;
   embeddedMode: boolean;
+  lastErrMsg?: string;
 }) => {
   const t = useTranslations("chat_Chat");
   const router = useRouter();
   const { popup, setPopup } = usePopup();
+
+  const [multiDialog, setMultiDialog] = useState(true);
 
   // fetch messages for the chat session
   const [isFetchingChatMessages, setIsFetchingChatMessages] = useState(
@@ -98,6 +102,10 @@ export const Chat = ({
       filterManager.setSelectedSources([]);
       filterManager.setSelectedTags([]);
       filterManager.setTimeRange(null);
+
+      // TODO read from local storage
+      setMultiDialog(true);
+
       if (isStreaming) {
         setIsCancelled(true);
       }
@@ -133,6 +141,16 @@ export const Chat = ({
       );
       const newMessageHistory = processRawChatHistory(chatSession.messages);
       setMessageHistory(newMessageHistory);
+      if (lastErrMsg){
+        setMessageHistory([
+          ...newMessageHistory,
+          {
+            messageId: 0,
+            message: lastErrMsg,
+            type: "error",
+          },
+        ]);
+      }
 
       const latestMessageId =
         newMessageHistory[newMessageHistory.length - 1]?.messageId;
@@ -370,6 +388,7 @@ export const Chat = ({
           filterManager.timeRange,
           filterManager.selectedTags
         ),
+        multiDialog: multiDialog,
         selectedDocumentIds: selectedDocuments
           .filter(
             (document) =>
@@ -447,7 +466,8 @@ export const Chat = ({
         currChatSessionId === urlChatSessionId.current ||
         urlChatSessionId.current === null
       ) {
-        router.push(`/chat?chatId=${currChatSessionId}`, {
+        const chatPageUrl = `/chat?chatId=${currChatSessionId}` + (error ? `&lastErrMsg=${encodeURIComponent(error)}` : '');
+        router.push(chatPageUrl, {
           scroll: false,
         });
       }
@@ -557,11 +577,25 @@ export const Chat = ({
               >
                 {messageHistory.map((message, i) => {
                   if (message.type === "user") {
-                    return (
-                      <div key={i}>
-                        <HumanMessage content={message.message} />
-                      </div>
-                    );
+                      return (
+                        <>
+                          {message.isolated && (
+                            <div className="py-5 px-5 flex -mr-6 w-full">
+                              <div className="mx-auto w-searchbar-xs 2xl:w-searchbar-sm 3xl:w-searchbar">
+                              <div className="ml-8 border-b">
+                                <div className="flex p-0 mx-3 h-fit">
+                                    <FiZap  />
+                                    <span className="ml-2 mb-1 text-gray-500"> 新的对话已开启</span>
+                                </div>
+                              </div>
+                              </div>
+                            </div>
+                          )}
+                          <div key={i}>
+                            <HumanMessage content={message.message} />
+                          </div>
+                        </>
+                      );
                   } else if (message.type === "assistant") {
                     const isShowingRetrieved =
                       (selectedMessageForDocDisplay !== null &&
@@ -749,6 +783,8 @@ export const Chat = ({
                       ) : (
                         <ChatFilters
                           {...filterManager}
+                          multiDialog={multiDialog}
+                          setMultiDialog={setMultiDialog}
                           existingSources={finalAvailableSources}
                           availableDocumentSets={finalAvailableDocumentSets}
                           availableTags={availableTags}

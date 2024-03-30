@@ -30,6 +30,7 @@ export interface Message {
   query?: string | null;
   documents?: DanswerDocument[] | null;
   citations?: CitationMap;
+  isolated?: boolean | null;
 }
 
 export interface BackendChatSession {
@@ -49,6 +50,7 @@ export interface BackendMessage {
   message_type: "user" | "assistant" | "system";
   time_sent: string;
   citations: CitationMap;
+  isolated?: boolean | null;
 }
 
 export interface DocumentsResponse {

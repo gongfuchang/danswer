@@ -20,7 +20,7 @@ export function AdminSidebar({ collections }: { collections: Collection[] }) {
     <aside className="pl-4">
       <nav className="space-y-2 pl-4">
         {collections.map((collection, collectionInd) => (
-          <Disclosure key={collectionInd} as="div" className="mt-2">
+          <Disclosure key={collectionInd} as="div" className="mt-2" defaultOpen={collectionInd < 2}>
           {({ open }) => (
             <>
               <Disclosure.Button className="flex w-full justify-between px-4 py-2 text-left text-sm font-medium text-gray-500">

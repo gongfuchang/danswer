@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Header } from "@/components/Header";
+import { headers } from 'next/headers';
 import { AdminSidebar } from "@/components/admin/connectors/AdminSidebar";
 import {
   NotebookIcon,
@@ -43,7 +44,8 @@ export async function Layout({ children }: { children: React.ReactNode }) {
   const requiresVerification = authTypeMetadata?.requiresVerification;
   if (!authDisabled) {
     if (!user) {
-      return redirect("/auth/login");
+      const headersList = headers();
+      return redirect("/auth/login" + (headersList.get("referer") ? `?next=${headersList.get("referer")}` : ""));
     }
     if (user.role !== "admin") {
       return redirect("/");

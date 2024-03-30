@@ -1,14 +1,10 @@
-import "./globals.css";
+import "../globals.css";
 
-import { Inter } from "next/font/google";
 import {NextIntlClientProvider, useMessages} from 'next-intl';
 import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
 import {ReactNode} from 'react';
 import {locales, defaultLocale} from "@/i18n";
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+
 
 type Props = {
   children: ReactNode;
@@ -47,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${inter.variable} font-sans text-default bg-[url('/bg.svg')]`}
+        className={`font-sans text-default bg-[url('/bg.svg')]`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
