@@ -1,0 +1,814 @@
+Running Document Retrieval Test
+
+
+
+Question: 修改fe日志删除时间方法
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'db_search_doc' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'check_number_of_tokens' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'db_search_doc' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'check_number_of_tokens' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'check_number_of_tokens' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'db_search_doc' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'db_search_doc' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'check_number_of_tokens' is not defined
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "E:\dev\node\danswer\backend\danswer\utils\threadpool_concurrency.py", line 51, in run_functions_tuples_in_parallel
+    results.append((index, future.result()))
+                           ^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\software\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\secondary_llm_flows\chunk_usefulness.py", line 38, in llm_eval_chunk
+    llm = get_default_llm(use_fast_llm=True, timeout=5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\factory.py", line 30, in get_default_llm
+    base, fast = get_default_llm_version()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\llm\utils.py", line 56, in get_default_llm_version
+    kv_store = get_dynamic_config_store()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\__init__.py", line 10, in get_dynamic_config_store
+    return FileSystemBackedDynamicConfigStore(DYNAMIC_CONFIG_DIR_PATH)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\dev\node\danswer\backend\danswer\dynamic_configs\file_system\store.py", line 24, in __init__
+    self.dir_path = Path(dir_path)
+                    ^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 871, in __new__
+    self = cls._from_parts(args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 509, in _from_parts
+    drv, root, parts = self._parse_args(args)
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\software\Python\Python311\Lib\pathlib.py", line 493, in _parse_args
+    a = os.fspath(a)
+        ^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'content' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'db_search_doc' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'db_search_doc' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'content' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'sib' is not defined
+PyDev console: starting.
+
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'content' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'db_search_doc' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'parts' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'reverse' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'parts' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'max_len' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'max_len' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'parts' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'parts' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'parts' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'parts' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'max_len' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'content' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'content' is not defined
+Traceback (most recent call last):
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_vars.py", line 436, in eval_in_context
+    result = eval_expression(expression, globals, locals)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\JetBrains\PyCharm 2023.1.4\plugins\python\helpers\pydev\_pydevd_bundle\pydevd_utils.py", line 642, in eval_expression
+    return eval(expression, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'parts' is not defined

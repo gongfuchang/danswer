@@ -33,15 +33,59 @@ def _extend_chunk(chunk: InferenceChunk, siblings: List[InferenceChunk], max_tok
         if len(extended_chunks) >= max_length \
                 or check_number_of_tokens(''.join([ck.content for ck in extended_chunks])) >= max_token:
             break
+        sibling.content = truncate(content=sibling.content)
         extended_chunks.insert(0, sibling)
 
     for sibling in right_siblings:
         if len(extended_chunks) >= max_length \
                 or check_number_of_tokens(''.join([ck.content for ck in extended_chunks])) >= max_token:
             break
+        sibling.content = truncate(content=sibling.content, trunk_tail=True)
         extended_chunks.append(sibling)
 
     return extended_chunks
+
+def truncate(content: str, trunk_tail: bool = False, max_len: int = 512):
+    """
+    To save tokens with long context content, just truncate content which exceeds max length(default is 512)
+    Args:
+        content: content of chunk
+        trunk_tail: as default, tailor the head and if true, the tail
+        max_len: as default 512
+
+    Returns:
+
+    """
+    if len(content) <= max_len:
+        return content
+
+    parts = content.split('\n')
+    if trunk_tail:
+        parts.reverse()
+    # skip lines if the length of the content is bigger than 512
+    for ind, part in enumerate(parts):
+        if len(''.join(parts)) <= max_len:
+            break
+        parts = parts[1:]
+
+    if trunk_tail:
+        parts.reverse()
+    return '\n'.join(parts)
+
+if __name__ == "__main__":
+    content = 'A\nB\nC\nD\nE\nF\nG'
+    print(truncate(content, False, 2))
+    print()
+    print(truncate(content, False, 5))
+    print()
+    print(truncate(content, False, 100))
+    print()
+    print(truncate(content, True, 2))
+    print()
+    print(truncate(content, True, 5))
+    print()
+    print(truncate(content, True, 100))
+
 
 
 @log_function_time(print_only=True)

@@ -41,7 +41,7 @@ def redirect_print_to_file(file: TextIO) -> Any:
 
 
 def read_json(file_path: str) -> dict:
-    with open(file_path, "r") as file:
+    with open(file_path, "r", encoding='utf-8') as file:
         return json.load(file)
 
 
@@ -84,7 +84,7 @@ def get_search_results(
 ]:
     filters = IndexFilters(
         source_type=None,
-        document_set=None,
+        document_set=["Doris Docs-2.0"],
         time_cutoff=None,
         access_control_list=None,
     )

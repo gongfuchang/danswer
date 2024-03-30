@@ -213,9 +213,9 @@ async def lifespan(app: FastAPI) -> AsyncGenerator:
             logger.info(f"Torch Threads: {torch.get_num_threads()}")
 
         logger.info("Verifying query preprocessing (NLTK) data is downloaded")
-        nltk.download("stopwords", quiet=True)
-        nltk.download("wordnet", quiet=True)
-        nltk.download("punkt", quiet=True)
+        # nltk.download("stopwords", quiet=True)
+        # nltk.download("wordnet", quiet=True)
+        # nltk.download("punkt", quiet=True)
 
         logger.info("Verifying default connector/credential exist.")
         create_initial_public_credential(db_session)

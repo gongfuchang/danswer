@@ -48,9 +48,14 @@ CHAT_USER_CONTEXT_FREE_PROMPT = f"""
 #   consider doing COT for this and keep it brief, but likely only small gains.
 SKIP_SEARCH = "Skip Search"
 YES_SEARCH = "Yes Search"
+NOT_RELATED = "Not Related"
+# TODO should read from persona about not related phrase
+RELATED_REASON = "The query is nothing related with Apache Doris or database or computer system, like 'how are you/what is your cat name' etc.."
 AGGRESSIVE_SEARCH_TEMPLATE = f"""
 Given the conversation history and a follow up query, determine if the system should call \
 an external search tool to better answer the latest user input.
+
+Respond "{NOT_RELATED}" if: {RELATED_REASON}
 
 Respond "{SKIP_SEARCH}" if either:
 - There is sufficient information in chat history to FULLY and ACCURATELY answer the query AND \
@@ -63,7 +68,7 @@ Conversation History:
 {GENERAL_SEP_PAT}
 
 If you are unsure, respond with {YES_SEARCH}.
-Respond with EXACTLY and ONLY "{YES_SEARCH}" or "{SKIP_SEARCH}"
+Respond with EXACTLY and ONLY "{YES_SEARCH}" or "{SKIP_SEARCH} or {NOT_RELATED}"
 
 Follow Up Input:
 {{final_query}}
@@ -100,21 +105,24 @@ Follow Up Input:
 
 
 HISTORY_QUERY_REPHRASE = f"""
-Given the following conversation and a follow up input, rephrase the follow up into a SHORT, \
-standalone query (which captures any relevant context from previous messages) for a vectorstore.
-IMPORTANT: EDIT THE QUERY TO BE AS CONCISE AS POSSIBLE. Respond with a short, compressed phrase \
-with mainly keywords instead of a complete sentence.
-If there is a clear change in topic, disregard the previous messages.
-Strip out any information that is not relevant for the retrieval task.
-If the follow up message is an error or code snippet, repeat the same input back EXACTLY.
+给定以下对话和后续输入，将后续内容改写跟 Apache Doris 相关的独立的搜索短语。
+
+重要提示：将查询编辑得尽可能简洁，删除与检索任务无关的任何信息，尽量使用关键字而不是完整的句子。
+
+重要提示：不要将查询或短语翻译成另一种语言，保持原始语言，例如初始问题是中文，输出就用中文。
+重要提示：请勿丢弃缩写词、形容词或副词，例如初始问题是“外表物化视图在FE中到底应该怎么用？”，输出就是“外表物化视图的用法 FE”。
+
+
+如果主题有明显变化，请忽略之前的历史消息。
+如果后续消息是错误或代码片段，请保持原先的初始问题。
 
 {GENERAL_SEP_PAT}
-Chat History:
+对话历史消息:
 {{chat_history}}
 {GENERAL_SEP_PAT}
 
-Follow Up Input: {{question}}
-Standalone question (Respond with only the short combined query):
+初始问题: {{question}}
+独立的搜索短语 (不要做任何解释，不超过80个字符):
 """.strip()
 
 

@@ -227,6 +227,7 @@ def create_new_chat_message(
     db_session: Session,
     rephrased_query: str | None = None,
     error: str | None = None,
+    isolated: bool | None = False,
     reference_docs: list[DBSearchDoc] | None = None,
     # Maps the citation number [n] to the DB SearchDoc
     citations: dict[int, int] | None = None,
@@ -243,6 +244,7 @@ def create_new_chat_message(
         message_type=message_type,
         citations=citations,
         error=error,
+        isolated=isolated,
     )
 
     # SQL Alchemy will propagate this to update the reference_docs' foreign keys
@@ -756,6 +758,7 @@ def translate_db_message_to_chat_message_detail(
         message_type=chat_message.message_type,
         time_sent=chat_message.time_sent,
         citations=chat_message.citations,
+        isolated=chat_message.isolated,
     )
 
     return chat_msg_detail

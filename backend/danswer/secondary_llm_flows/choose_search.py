@@ -1,3 +1,5 @@
+from enum import Enum
+
 from langchain.schema import BaseMessage
 from langchain.schema import HumanMessage
 from langchain.schema import SystemMessage
@@ -11,7 +13,7 @@ from danswer.llm.factory import get_default_llm
 from danswer.llm.interfaces import LLM
 from danswer.llm.utils import dict_based_prompt_to_langchain_prompt
 from danswer.llm.utils import translate_danswer_msg_to_langchain
-from danswer.prompts.chat_prompts import AGGRESSIVE_SEARCH_TEMPLATE
+from danswer.prompts.chat_prompts import AGGRESSIVE_SEARCH_TEMPLATE, NOT_RELATED, YES_SEARCH
 from danswer.prompts.chat_prompts import NO_SEARCH
 from danswer.prompts.chat_prompts import REQUIRE_SEARCH_HINT
 from danswer.prompts.chat_prompts import REQUIRE_SEARCH_SYSTEM_MSG
@@ -45,13 +47,17 @@ def check_if_need_search_multi_message(
 
     return True
 
+class SEARCH_NEED_TYPE(str, Enum):
+    YES = YES_SEARCH
+    SKIP = SKIP_SEARCH
+    UNRELATED = NOT_RELATED
 
 def check_if_need_search(
     query_message: ChatMessage,
     history: list[ChatMessage],
     llm: LLM | None = None,
     disable_llm_check: bool = DISABLE_LLM_CHOOSE_SEARCH,
-) -> bool:
+) -> SEARCH_NEED_TYPE:
     def _get_search_messages(
         question: str,
         history_str: str,
@@ -68,7 +74,7 @@ def check_if_need_search(
         return messages
 
     if disable_llm_check:
-        return True
+        return SEARCH_NEED_TYPE.YES
 
     if llm is None:
         try:
@@ -76,7 +82,7 @@ def check_if_need_search(
         except GenAIDisabledException:
             # If Generative AI is turned off the always run Search as Danswer is being used
             # as just a search engine
-            return True
+            return SEARCH_NEED_TYPE.YES
 
     history_str = combine_message_chain(
         messages=history, token_limit=GEN_AI_HISTORY_CUTOFF
@@ -91,7 +97,10 @@ def check_if_need_search(
 
     logger.debug(f"Run search prediction: {require_search_output}")
 
-    if (SKIP_SEARCH.split()[0]).lower() in require_search_output.lower():
-        return False
+    if (NOT_RELATED.split()[0]).lower() in require_search_output.lower():
+        return SEARCH_NEED_TYPE.UNRELATED
 
-    return True
+    if (SKIP_SEARCH.split()[0]).lower() in require_search_output.lower():
+        return SEARCH_NEED_TYPE.SKIP
+
+    return SEARCH_NEED_TYPE.YES

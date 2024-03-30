@@ -1,5 +1,6 @@
 import argparse
 import builtins
+import time
 from contextlib import contextmanager
 from datetime import datetime
 from typing import Any
@@ -41,9 +42,13 @@ def eval_poll():
     hydrid = HydridModelChat(specific_models=[
         # "moon-shot",
         # "glm3",
-        # "minimax"
+        "minimax"
     ])
     print("invoke:")
+    print(hydrid.invoke([HumanMessage(content=query)]))
+    time.sleep(35)
+    print(hydrid.invoke([HumanMessage(content=query)]))
+    time.sleep(35)
     print(hydrid.invoke([HumanMessage(content=query)]))
     print("streaming:")
     for i in hydrid.stream([HumanMessage(content=query)]):

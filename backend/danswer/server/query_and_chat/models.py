@@ -97,6 +97,8 @@ class CreateChatMessageRequest(BaseModel):
     query_override: str | None = None
     no_ai_answer: bool = False
 
+    multi_dialog: bool | None = True
+
     @root_validator
     def check_search_doc_ids_or_retrieval_options(cls: BaseModel, values: dict) -> dict:
         search_doc_ids, retrieval_options = values.get("search_doc_ids"), values.get(
@@ -163,6 +165,8 @@ class ChatMessageDetail(BaseModel):
     time_sent: datetime
     # Dict mapping citation number to db_doc_id
     citations: dict[int, int] | None
+
+    isolated: bool | None
 
     def dict(self, *args: list, **kwargs: dict[str, Any]) -> dict[str, Any]:  # type: ignore
         initial_dict = super().dict(*args, **kwargs)  # type: ignore

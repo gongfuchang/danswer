@@ -13,18 +13,20 @@ RUN echo "DANSWER_VERSION: ${DANSWER_VERSION}"
 # ca-certificates for HTTPS
 RUN sed -i 's#deb.debian.org/debian$#mirrors.tuna.tsinghua.edu.cn/debian#' /etc/apt/sources.list.d/debian.sources
 RUN apt-get update && \
-    apt-get install -y cmake curl zip ca-certificates libgnutls30=3.7.9-2+deb12u2 git && \
+    apt-get install -y cmake curl zip ca-certificates libgnutls30=3.7.9-2+deb12u2 && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
 # Install Python dependencies
 # Remove py which is pulled in by retry, py is not needed and is a CVE
 COPY ./requirements/default.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /tmp/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ && \
+RUN pip install -r /tmp/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple && \
     pip uninstall -y py && \
     playwright install chromium && playwright install-deps chromium && \
     ln -s /usr/local/bin/supervisord /usr/bin/supervisord
 
+COPY ./requirements/local-whls/zhipuai-2.0.1-py3-none-any.whl /tmp/
+RUN pip install /tmp/zhipuai-2.0.1-py3-none-any.whl
 # Cleanup for CVEs and size reduction
 # https://github.com/tornadoweb/tornado/issues/3107
 # xserver-common and xvfb included by playwright installation but not needed after

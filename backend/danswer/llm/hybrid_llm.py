@@ -127,7 +127,7 @@ class RoundRobinLoadBalancer:
             if model_meter.failure_counter >= 2 \
                     or model_meter.invoke_counter_last_1_min >= 3 \
                     or model_meter.invoke_counter_last_10_min >= 30 \
-                    or model_meter.average_response_time >= 20:
+                    or model_meter.average_response_time >= 60:
                 logger.info(f"Skipping model {model_meter.model} due to high load: failure_counter={model_meter.failure_counter}, "
                             f"invoke_counter_last_1_min={model_meter.invoke_counter_last_1_min}, "
                             f"invoke_counter_last_10_min={model_meter.invoke_counter_last_10_min}, "
@@ -216,7 +216,7 @@ class HydridModelChat(LLM):
                 # TODO should be remove after lang-chain fix minmax model issue:
                 # https://github.com/langchain-ai/langchain/issues/14796
                 from danswer.llm.minimax_llm import MiniMaxChatModel
-                model = MiniMaxChatModel()
+                model = MiniMaxChatModel(temperature=0.01)
 
             models.append(model)
 

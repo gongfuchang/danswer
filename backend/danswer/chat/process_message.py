@@ -58,7 +58,7 @@ from danswer.search.request_preprocessing import retrieval_preprocessing
 from danswer.search.search_runner import chunks_to_search_docs
 from danswer.search.search_runner import full_chunk_search_generator
 from danswer.search.search_runner import inference_documents_from_ids
-from danswer.secondary_llm_flows.choose_search import check_if_need_search
+from danswer.secondary_llm_flows.choose_search import check_if_need_search, SEARCH_NEED_TYPE
 from danswer.secondary_llm_flows.query_expansion import history_based_query_rephrase
 from danswer.server.query_and_chat.models import ChatMessageDetail
 from danswer.server.query_and_chat.models import CreateChatMessageRequest
@@ -250,12 +250,17 @@ def stream_chat_message_objects(
             message_type=MessageType.USER,
             db_session=db_session,
             commit=False,
+            isolated=new_msg_req.multi_dialog == False
         )
 
         # Create linear history of messages
         final_msg, history_msgs = create_chat_chain(
             chat_session_id=chat_session_id, db_session=db_session
         )
+
+        # if set multi dialog by force, abandon the history messages
+        if not new_msg_req.multi_dialog:
+            history_msgs = []
 
         if final_msg.id != new_user_message.id:
             db_session.rollback()
@@ -275,9 +280,15 @@ def stream_chat_message_objects(
             elif retrieval_options.run_search == OptionalSearchSetting.NEVER:
                 run_search = False
             else:
-                run_search = check_if_need_search(
+                search_need = check_if_need_search(
                     query_message=final_msg, history=history_msgs, llm=llm
                 )
+                if search_need is SEARCH_NEED_TYPE.UNRELATED:
+                    # TODO read from persona configure
+                    yield DanswerAnswerPiece(answer_piece=f'抱歉，我只能回答 {"Apache Doris"} 相关的问题。请换个问题，或者选择其他助理。')
+                    return
+
+                run_search = search_need is SEARCH_NEED_TYPE.YES
 
         max_document_tokens = compute_max_document_tokens(
             persona=persona, actual_user_input=message_text
@@ -380,6 +391,8 @@ def stream_chat_message_objects(
 
             # TODO replace redundant keywords, this should be configured from persona
             rephrased_query = re.compile(r'\bdoris\b', re.IGNORECASE).sub('', rephrased_query)
+            rephrased_query = re.compile(r'\bapache\b', re.IGNORECASE).sub('', rephrased_query)
+
 
             (
                 retrieval_request,

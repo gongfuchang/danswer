@@ -608,6 +608,8 @@ class ChatMessage(Base):
         DateTime(timezone=True), server_default=func.now()
     )
 
+    isolated: Mapped[bool] = mapped_column(Boolean, default=False)
+
     chat_session: Mapped[ChatSession] = relationship("ChatSession")
     prompt: Mapped[Optional["Prompt"]] = relationship("Prompt")
     chat_message_feedbacks: Mapped[List["ChatMessageFeedback"]] = relationship(
