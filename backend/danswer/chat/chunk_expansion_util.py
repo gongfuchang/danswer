@@ -45,7 +45,7 @@ def _extend_chunk(chunk: InferenceChunk, siblings: List[InferenceChunk], max_tok
 
     return extended_chunks
 
-def truncate(content: str, trunk_tail: bool = False, max_len: int = 512):
+def truncate(content: str, trunk_tail: bool = False, max_len: int = 1024):
     """
     To save tokens with long context content, just truncate content which exceeds max length(default is 512)
     Args:
