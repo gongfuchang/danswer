@@ -65,8 +65,8 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
       <div className="mx-8 flex h-16">
         <Link className="py-4" href="/search">
           <div className="flex">
-            <div className="h-[160px] w-[71px]">
-              <Image src="/logo-banner.png" alt="Logo" width="1419" height="1520" />
+            <div className="h-[71px] w-[80px]">
+              <Image src="/logo-banner.png" alt="Logo" width="80" height="71" />
             </div>
           </div>
         </Link>
