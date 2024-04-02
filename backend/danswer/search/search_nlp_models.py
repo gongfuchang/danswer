@@ -289,7 +289,7 @@ class CrossEncoderEnsembleModel:
 
         start_time = time.time()
         scores = [
-            cross_encoder.predict([(query, passage) for passage in passages]).tolist()  # type: ignore
+            cross_encoder.predict(sentences=[(query, passage) for passage in passages], batch_size=3, show_progress_bar=True).tolist()  # type: ignore
             for cross_encoder in local_models
         ]
         logger.info(f"CrossEncoderEnsembleModel took {time.time() - start_time} seconds")
