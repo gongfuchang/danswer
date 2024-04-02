@@ -6,6 +6,7 @@ from collections.abc import Iterator
 from langchain.schema.language_model import LanguageModelInput
 from langchain_core.language_models import BaseChatModel
 
+from danswer.configs.chat_configs import MAX_TOKEN_LIMIT
 from danswer.configs.model_configs import GEN_AI_MAX_OUTPUT_TOKENS
 from danswer.db.extended_models import LMInvocation, LMInvokeType
 from danswer.llm.interfaces import LLM
@@ -23,7 +24,7 @@ from typing import List
 logger = setup_logger()
 
 LLM_POLL_MODELS = (os.getenv("LLM_POLL_MODELS") or "glm4").split(",")
-ENABLE_MODELS = (os.getenv("ENABLE_MODELS") or "").split(",")
+ENABLE_MODELS = (os.getenv("ENABLE_MODELS").split(",") if os.getenv("ENABLE_MODELS") else[])
 class ModelMeter:
     def __init__(self, model):
         self.model = model
@@ -160,9 +161,9 @@ class HydridModelChat(LLM):
     def max_token(self):
         model = self.llm_poll.model
         if isinstance(model, Glm4ChatModel):
-            return 4096 # TODO: read from persona: glm4 max token is 8192
+            return MAX_TOKEN_LIMIT # TODO: read from persona: glm4 max token is 8192
 
-        return 2048
+        return MAX_TOKEN_LIMIT
 
     def _init_llm_poll(self) -> RoundRobinLoadBalancer:
         models = []

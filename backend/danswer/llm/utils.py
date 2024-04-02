@@ -19,6 +19,7 @@ from litellm import get_max_tokens  # type: ignore
 from tiktoken.core import Encoding
 
 from danswer.configs.app_configs import LOG_LEVEL
+from danswer.configs.chat_configs import MAX_TOKEN_LIMIT
 from danswer.configs.constants import GEN_AI_API_KEY_STORAGE_KEY
 from danswer.configs.constants import GEN_AI_DETECTED_MODEL
 from danswer.configs.constants import MessageType
@@ -252,10 +253,10 @@ def get_llm_max_tokens(
         if model_provider == "openai":
             return get_max_tokens(model_name)
         elif model_provider == "hybrid": # TODO read from persona
-            return 4096
+            return MAX_TOKEN_LIMIT
         return get_max_tokens("/".join([model_provider, model_name]))
     except Exception:
-        return 4096
+        return MAX_TOKEN_LIMIT
 
 
 def get_max_input_tokens(

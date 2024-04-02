@@ -7,6 +7,8 @@ PERSONAS_YAML = "./danswer/chat/personas.yaml"
 NUM_RETURNED_HITS = int(os.environ.get("NUM_RETURNED_HITS") or "50")
 NUM_RERANKED_RESULTS = int(os.environ.get("NUM_RERANKED_RESULTS") or "15")
 
+MAX_TOKEN_LIMIT = int(os.environ.get("MAX_TOKEN_LIMIT") or "4096")
+
 # May be less depending on model
 MAX_CHUNKS_FED_TO_CHAT = float(os.environ.get("MAX_CHUNKS_FED_TO_CHAT") or 10.0)
 # For Chat, need to keep enough space for history and other prompt pieces
