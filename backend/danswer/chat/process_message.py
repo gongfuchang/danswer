@@ -285,7 +285,7 @@ def stream_chat_message_objects(
                 )
                 if search_need is SEARCH_NEED_TYPE.UNRELATED:
                     # TODO read from persona configure
-                    yield DanswerAnswerPiece(answer_piece=f'抱歉，我只能回答 {"Apache Doris"} 相关的问题。请换个问题，或者选择其他助理。')
+                    yield StreamingError(error=f'抱歉，我只能回答 {"Apache Doris"} 相关的问题。请换个问题，或者选择其他助理。')
                     return
 
                 run_search = search_need is SEARCH_NEED_TYPE.YES
