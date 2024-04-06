@@ -58,6 +58,8 @@ CROSS_ENCODER_RANGE_MAX = 12
 CROSS_ENCODER_RANGE_MIN = -12
 CROSS_EMBED_CONTEXT_SIZE = 512
 
+CROSS_ENCODDER_ENDPOINT = os.environ.get("CROSS_ENCODDER_ENDPOINT")
+
 # Unused currently, can't be used with the current default encoder model due to its output range
 SEARCH_DISTANCE_CUTOFF = 0
 

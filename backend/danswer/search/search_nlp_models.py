@@ -11,7 +11,7 @@ from transformers import logging as transformer_logging  # type:ignore
 
 from danswer.configs.app_configs import MODEL_SERVER_HOST
 from danswer.configs.app_configs import MODEL_SERVER_PORT
-from danswer.configs.model_configs import CROSS_EMBED_CONTEXT_SIZE
+from danswer.configs.model_configs import CROSS_EMBED_CONTEXT_SIZE, CROSS_ENCODDER_ENDPOINT
 from danswer.configs.model_configs import CROSS_ENCODER_MODEL_ENSEMBLE
 from danswer.configs.model_configs import DOC_EMBEDDING_CONTEXT_SIZE
 from danswer.configs.model_configs import DOCUMENT_ENCODER_MODEL
@@ -268,21 +268,27 @@ class CrossEncoderEnsembleModel:
         )
 
     def predict(self, query: str, passages: list[str]) -> list[list[float]]:
-        if self.rerank_server_endpoint:
+        if self.rerank_server_endpoint or CROSS_ENCODDER_ENDPOINT:
             rerank_request = RerankRequest(query=query, documents=passages)
 
+            start_time = time.time()
             try:
+                endpoint = CROSS_ENCODDER_ENDPOINT if CROSS_ENCODDER_ENDPOINT else self.rerank_server_endpoint
                 response = requests.post(
-                    self.rerank_server_endpoint, json=rerank_request.dict()
+                    endpoint, json=rerank_request.dict(), timeout=2.5
                 )
                 response.raise_for_status()
+                logger.info(f"[Rerank-Endpoint] CrossEncoderEnsembleModel took {time.time() - start_time} seconds")
 
                 return RerankResponse(**response.json()).scores
             except requests.RequestException as e:
-                logger.exception(f"Failed to get Reranking Scores: {e}")
-                raise
+                logger.exception(f"[Rerank-Endpoint] Failed to get Reranking Scores: {e}")
+                logger.info(f"[Rerank-Endpoint] CrossEncoderEnsembleModel Failed in {time.time() - start_time} seconds")
+                # resume to process with local model
+                logger.info("Resume reranking via local model")
 
         local_models = self.load_model()
+
 
         if local_models is None:
             raise RuntimeError("Failed to load local Reranking Model Ensemble")
@@ -290,8 +296,10 @@ class CrossEncoderEnsembleModel:
         start_time = time.time()
         scores = [
             cross_encoder.predict(sentences=[(query, passage) for passage in passages], batch_size=3, show_progress_bar=True).tolist()  # type: ignore
+            # cross_encoder.predict(sentences=[(query, passage) for passage in passages]).tolist()  # type: ignore
             for cross_encoder in local_models
         ]
+
         logger.info(f"CrossEncoderEnsembleModel took {time.time() - start_time} seconds")
 
         return scores
