@@ -217,16 +217,17 @@ def upsert_document_by_connector_credential_pair(
 
 
 def update_docs_updated_at(
-    ids_to_new_updated_at: dict[str, datetime],
+    ids_to_new_updated_at_and_md5: dict[str, datetime],
     db_session: Session,
 ) -> None:
-    doc_ids = list(ids_to_new_updated_at.keys())
+    doc_ids = list(ids_to_new_updated_at_and_md5.keys())
     documents_to_update = (
         db_session.query(DbDocument).filter(DbDocument.id.in_(doc_ids)).all()
     )
 
     for document in documents_to_update:
-        document.doc_updated_at = ids_to_new_updated_at[document.id]
+        document.doc_updated_at = ids_to_new_updated_at_and_md5[document.id][0]
+        document.doc_text_md5 = ids_to_new_updated_at_and_md5[document.id][1]
 
     db_session.commit()
 

@@ -6,6 +6,7 @@ from typing import cast
 from typing import Tuple
 from urllib.parse import urljoin
 from urllib.parse import urlparse
+import hashlib
 
 import requests
 from bs4 import BeautifulSoup
@@ -139,6 +140,9 @@ def _read_urls_file(location: str) -> list[str]:
     return urls
 
 
+def _build_md5(text: str) -> str:
+    return hashlib.md5(text.encode('utf-8')).hexdigest()
+
 class WebConnector(LoadConnector):
     def __init__(
         self,
@@ -222,7 +226,7 @@ class WebConnector(LoadConnector):
                 page = context.new_page()
                 logger.info(f"Page creation took {time.time() - start_time} seconds")
                 start_time = time.time()
-                page_response = page.goto(current_url)
+                page_response = page.goto(current_url, timeout=100000)
                 logger.info(f"Page goto took {time.time() - start_time} seconds")
                 final_page = page.url
                 if final_page != current_url and final_page.strip(current_url):
@@ -256,6 +260,7 @@ class WebConnector(LoadConnector):
                         sections=[
                             Section(link=current_url, text=parsed_html.cleaned_text)
                         ],
+                        doc_text_md5=_build_md5(parsed_html.cleaned_text),
                         source=DocumentSource.WEB,
                         semantic_identifier=parsed_html.title or current_url,
                         metadata={},
@@ -283,6 +288,8 @@ class WebConnector(LoadConnector):
 
 
 if __name__ == "__main__":
-    connector = WebConnector("https://doris.apache.org/zh-CN/docs/dev", web_connector_type=WEB_CONNECTOR_VALID_SETTINGS.SITEMAP)
+    WEB_CONNECTOR_SITEMAP_JSON_PATH = "search-index.json"
+    # connector = WebConnector("https://doris.apache.org/zh-CN/docs/dev", web_connector_type=WEB_CONNECTOR_VALID_SETTINGS.SITEMAP)
+    connector = WebConnector("https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Utility-Statements/REFRESH-MATERIALIZED-VIEW", web_connector_type=WEB_CONNECTOR_VALID_SETTINGS.SINGLE)
     document_batches = connector.load_from_state()
     print(next(document_batches))

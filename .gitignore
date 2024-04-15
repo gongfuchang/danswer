@@ -5,3 +5,7 @@
 .idea
 /deployment/data/nginx/app.conf
 .vscode/launch.json
+*.lock
+backend/danswer_api_key
+backend/genai_api_key
+backend/genai_api_key_last_check_time
