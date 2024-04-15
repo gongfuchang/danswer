@@ -72,6 +72,8 @@ class DocumentBase(BaseModel):
     metadata: dict[str, str | list[str]]
     # UTC time
     doc_updated_at: datetime | None = None
+    # Used for deduplication
+    doc_text_md5: str | None = None
     # Owner, creator, etc.
     primary_owners: list[BasicExpertInfo] | None = None
     # Assignee, space owner, etc.

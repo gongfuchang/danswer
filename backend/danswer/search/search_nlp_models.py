@@ -123,6 +123,7 @@ def get_local_reranking_model_ensemble(
             model = CrossEncoder(model_name)
             model.max_length = max_context_length
             _RERANK_MODELS.append(model)
+            logger.info(f"Loaded {model_name}")
     return _RERANK_MODELS
 
 

@@ -89,22 +89,28 @@ def upsert_documents_in_db(
                 )
 
 
+def need_update(doc: Document, db_doc: DBDocument) -> bool:
+    if doc.doc_updated_at and db_doc.doc_updated_at and doc.doc_updated_at <= db_doc.doc_updated_at:
+        logger.info(f"Skipping update doc:{doc.id} because of the doc_updated_at condition")
+        return False
+    if doc.doc_text_md5 and db_doc.doc_text_md5 and doc.doc_text_md5 == db_doc.doc_text_md5:
+        logger.info(f"Skipping update doc:{doc.id} because of the doc_text_md5 condition")
+        return False
+    return True
+
+
 def get_doc_ids_to_update(
     documents: list[Document], db_docs: list[DBDocument]
 ) -> list[Document]:
     """Figures out which documents actually need to be updated. If a document is already present
     and the `updated_at` hasn't changed, we shouldn't need to do anything with it."""
-    id_update_time_map = {
-        doc.id: doc.doc_updated_at for doc in db_docs if doc.doc_updated_at
+    id_db_doc_map = {
+        doc.id: doc for doc in db_docs
     }
 
     updatable_docs: list[Document] = []
     for doc in documents:
-        if (
-            doc.id in id_update_time_map
-            and doc.doc_updated_at
-            and doc.doc_updated_at <= id_update_time_map[doc.id]
-        ):
+        if doc.id in id_db_doc_map and not need_update(doc, id_db_doc_map[doc.id]):
             continue
         updatable_docs.append(doc)
 
@@ -206,14 +212,14 @@ def index_doc_batch(
         ]
 
         # Update the time of latest version of the doc successfully indexed
-        ids_to_new_updated_at = {}
+        ids_to_new_updated_at_and_md5 = {}
         for doc in successful_docs:
-            if doc.doc_updated_at is None:
+            if doc.doc_updated_at is None and doc.doc_text_md5 is None:
                 continue
-            ids_to_new_updated_at[doc.id] = doc.doc_updated_at
+            ids_to_new_updated_at_and_md5[doc.id] = (doc.doc_updated_at, doc.doc_text_md5)
 
         update_docs_updated_at(
-            ids_to_new_updated_at=ids_to_new_updated_at, db_session=db_session
+            ids_to_new_updated_at_and_md5=ids_to_new_updated_at_and_md5, db_session=db_session
         )
 
     return len([r for r in insertion_records if r.already_existed is False]), len(

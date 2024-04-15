@@ -263,6 +263,7 @@ class Document(Base):
     doc_updated_at: Mapped[datetime.datetime | None] = mapped_column(
         DateTime(timezone=True), nullable=True
     )
+    doc_text_md5: Mapped[str | None] = mapped_column(String, nullable=True)
     # The following are not attached to User because the account/email may not be known
     # within Danswer
     # Something like the document creator
